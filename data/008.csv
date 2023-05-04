@@ -1,0 +1,4 @@
+﻿table_code;table_name;series_code;series_name;unit_name;interval_id;chart_no;rolling_average_periods;rolling_average_alignment;year_on_year;xmin;xmax
+0300230S;Izdatkovna struktura BDP, Slovenija, četrtletno;SURS--0300230S--P51G_N11MG--G4--N--Q;......Oprema in stroji -- Stopnja rasti obsega glede na enako četrtletje predhodnega leta (%) -- Originalni podatki;%;Q;1;;;;;
+0300230S;Izdatkovna struktura BDP, Slovenija, četrtletno;SURS--0300230S--P51G_N11KG--G4--N--Q;......Zgradbe in objekti -- Stopnja rasti obsega glede na enako četrtletje predhodnega leta (%) -- Originalni podatki;%;Q;1;;;;;
+0300230S;Izdatkovna struktura BDP, Slovenija, četrtletno;SURS--0300230S--P52--GO4--N--Q;....Spremembe zalog -- Prispevek k rasti obsega BDP glede na enako četrtletje predhodnega leta (odstotne točke) -- Originalni podatki;odstotne točke;Q;2;;;;;

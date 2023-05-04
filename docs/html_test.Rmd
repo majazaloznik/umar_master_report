@@ -1,0 +1,173 @@
+---
+output:
+  html_document:
+    toc: TRUE
+    toc_depth: 4
+  css: styles.css
+  df_print: paged
+title: Indikatorji
+---
+
+```{r setup, echo = FALSE, message = FALSE, warning = FALSE}
+# devtools::install_github("majazaloznik/UMARaccessR", dependencies = FALSE)
+# devtools::install_github("majazaloznik/UMARvisualisR", dependencies = FALSE)
+
+library(UMARaccessR)
+library(UMARvisualisR)
+library(dplyr)
+library(plotly)
+extrafont::loadfonts()
+
+```
+
+
+```{r intro, echo=FALSE, message=FALSE,  warning = FALSE, results="asis"}
+ con <- DBI::dbConnect(RPostgres::Postgres(),
+                      dbname = "sandbox",
+                      host = "localhost",
+                      port = 5432,
+                      user = "postgres",
+                      password = Sys.getenv("PG_local_PG_PSW"),
+                      client_encoding = "utf8")
+# set schema search path
+x <- DBI::dbExecute(con, "set search_path to test_platform")
+
+# get input data to know what to plot
+df <- readxl::read_excel("../../mesecni_kazalniki/data/db_series_janez02.xlsx", "selection")
+
+spl <- split(df, df$chart_no)
+m <- list(
+  l = 50,
+  r = 300,
+  b = 30,
+  t = 30,
+  pad = 4
+)
+```
+
+# <a href="#header">Nacionalni računi - kvartalno</a>
+
+
+
+
+
+
+#### <a href="#header">BDP - medletna rast</a>
+
+```{r, code=readLines("children/html_01_bdp_medletna_rast.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+#### <a href="#header">BDP - četrtletna rast</a>
+
+```{r, code=readLines("children/html_08_bdp_cetrtletna_rast.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+#### <a href="#header">BDP - stalne cene (2010) - desezonirano </a>
+
+```{r, code=readLines("children/html_03_bdp_desez_stalne_cene.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+
+```
+
+#### <a href="#header">Spremembe zalog - prispevek k rasti BDP</a>
+
+```{r, code=readLines("children/html_04_bdp_prispevek_zaloge.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+
+```
+
+#### <a href="#header">Bruto investicije & končna potrošnja - medletna stopnja rasti </a>
+
+```{r, code=readLines("children/html_05_bdp_rast_gosp_invest.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+#### <a href="#header">Medletna rast BDP in komponent</a>
+
+```{r, code=readLines("children/html_07_medletna_rast_BDP_komponent.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+#### <a href="#header">Prispevki agregatov potrošnje k rasti BDP</a>
+
+```{r, code=readLines("children/html_02_prispevki_agregatov_potrosnje_k_rasti_bdp.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+
+#### <a href="#header">Izdatkovna struktura BDP - predelovalne dejavnosti </a>
+
+```{r, code=readLines("children/html_06_izdatkovna_predelovalne.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+
+
+
+
+# <a href="#header">Kazalniki aktivnosti</a>
+
+
+```
+# prep_l <- prep_multi_line(spl[[6]], con)
+# cat("  \n####", "Indeksi industrijske proizvodnje - področja")
+# dygraph_plotter(prep_l)
+# 
+# cat("$$$$")
+# 
+# cat("  \n")
+# prep_l <- prep_multi_line(spl[[8]], con)
+# cat("  \n####", "Indeksi industrijske proizvodnje - področja - desezonirani")
+# dygraph_plotter(prep_l)
+# 
+# cat("$$$$")
+# 
+# cat("  \n")
+# 
+# prep_l <- prep_multi_line(spl[[7]], con)
+# cat("  \n####", "Indeksi industrijske proizvodnje - zahtevnost")
+# dygraph_plotter(prep_l)
+# 
+# cat("$$$$")
+# 
+# cat("  \n")
+# prep_l <- prep_multi_line(spl[[9]], con)
+# cat("  \n####", "Indeksi industrijske proizvodnje - zahtevnost - desezonirani")
+# dygraph_plotter(prep_l)
+# 
+# 
+```
+
+# <a href="#header">Gradbeništvo</a>
+
+
+```
+# 
+# 
+# prep_l <- prep_multi_line(spl[[10]], con)
+# cat("  \n####", "Realni indeks opravljenih del v gradbeništvu")
+# dygraph_plotter(prep_l)
+# 
+# cat("$$$$")
+# 
+# cat("  \n")
+# 
+# prep_l <- prep_multi_line(spl[[11]], con)
+# cat("  \n####", "Realni indeks opravljenih del v gradbeništvu - desezonirani")
+# dygraph_plotter(prep_l)
+# 
+# 
+# 
+# cat("$$$$")
+# 
+# cat("  \n")
+# 
+# prep_l <- prep_multi_line(spl[[42]], con)
+# prep_l2 <- prep_multi_line(spl[[43]], con)
+# purrr::reduce(prep_l2$data_points, dplyr::left_join, by = c("period_id", "period")) %>%
+#   dplyr::relocate( period) |>
+#   dplyr::select(-dplyr::starts_with("raw")) |>
+#   dplyr::select(-period_id) -> data
+# colnames(data)[-1] <- prep_l2$legend_labels
+# 
+# prep_l$data_points[[1]] |>
+#   left_join(data, by = "period") -> x
+# cat("  \n####", "Prispevki agregatov potrošnje k rasti BDP ")
+# dygraph_plotter(prep_l)
+# 
+
+```
+
