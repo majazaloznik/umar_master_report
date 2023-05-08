@@ -3,7 +3,9 @@ output:
   html_document:
     toc: TRUE
     toc_depth: 4
-  css: styles.css
+    css: styles.css
+    includes:
+      before_body: custom.js
   df_print: paged
 title: Indikatorji
 ---
@@ -19,7 +21,7 @@ library(plotly)
 extrafont::loadfonts()
 
 ```
-
+Posodobljeno: 2023-02-16
 
 ```{r intro, echo=FALSE, message=FALSE,  warning = FALSE, results="asis"}
  con <- DBI::dbConnect(RPostgres::Postgres(),
@@ -45,51 +47,50 @@ m <- list(
 )
 ```
 
-# <a href="#header">Nacionalni računi - kvartalno</a>
+# Nacionalni računi - kvartalno
 
 
 
 
-
-
-#### <a href="#header">BDP - medletna rast</a>
+## BDP - medletna rast
 
 ```{r, code=readLines("children/html_01_bdp_medletna_rast.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
-#### <a href="#header">BDP - četrtletna rast</a>
+
+
+## BDP - četrtletna rast
 
 ```{r, code=readLines("children/html_08_bdp_cetrtletna_rast.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
-#### <a href="#header">BDP - stalne cene (2010) - desezonirano </a>
+## BDP - stalne cene (2010) - desezonirano
 
 ```{r, code=readLines("children/html_03_bdp_desez_stalne_cene.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 
 ```
-
-#### <a href="#header">Spremembe zalog - prispevek k rasti BDP</a>
+## Spremembe zalog - prispevek k rasti BDP
 
 ```{r, code=readLines("children/html_04_bdp_prispevek_zaloge.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 
 ```
 
-#### <a href="#header">Bruto investicije & končna potrošnja - medletna stopnja rasti </a>
+## Bruto investicije & končna potrošnja - medletna stopnja rasti 
 
 ```{r, code=readLines("children/html_05_bdp_rast_gosp_invest.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
-#### <a href="#header">Medletna rast BDP in komponent</a>
+## Medletna rast BDP in komponent
 
 ```{r, code=readLines("children/html_07_medletna_rast_BDP_komponent.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
-#### <a href="#header">Prispevki agregatov potrošnje k rasti BDP</a>
+## Prispevki agregatov potrošnje k rasti BDP
 
 ```{r, code=readLines("children/html_02_prispevki_agregatov_potrosnje_k_rasti_bdp.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
 
-#### <a href="#header">Izdatkovna struktura BDP - predelovalne dejavnosti </a>
+## Izdatkovna struktura BDP - predelovalne dejavnosti 
 
 ```{r, code=readLines("children/html_06_izdatkovna_predelovalne.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
@@ -98,7 +99,10 @@ m <- list(
 
 
 
-# <a href="#header">Kazalniki aktivnosti</a>
+# Kazalniki aktivnosti
+
+
+
 
 
 ```
@@ -131,7 +135,7 @@ m <- list(
 # 
 ```
 
-# <a href="#header">Gradbeništvo</a>
+# Gradbeništvo
 
 
 ```
