@@ -13,7 +13,7 @@ purrr::reduce(prep_l$data_points, dplyr::left_join, by = c("period_id", "period"
 
 
 data |>
-  plot_ly(x = ~period, hovertemplate="%{x|Q%q-%Y}", width = 1000) |>
+  plot_ly(x = ~period, hovertemplate="%{x|Q%q-%Y}  %{y:.2f}%", width = 1000) |>
   add_lines(y = ~value.x, name = "Kon\u010dna potro\u0161nja gospodinjstev",  color = I(umar_cols()[1])) |>
   add_lines(y = ~value.y, name = "Bruto investicije v osnovna sredstva",  color = I(umar_cols()[2])) |>
   layout(barmode = "relative",
@@ -28,7 +28,10 @@ data |>
                              value = "Q%q-%Y"),
                         list(dtickrange = list("M6", NULL),
                              value = "%Y"))),
-         title = list(text = paste("Posodobljeno:", prep_l$updated), font = list(size = 12))) |>
+         title = list(text = paste("Posodobljeno:", prep_l$updated,
+                                   prep_l$transf_txt, "(Vir: SURS)"),
+                      font = list(size = 12),
+                      x = 0)) |>
   rangeslider(as.Date("2012-01-01"), max(data$period))
 
 

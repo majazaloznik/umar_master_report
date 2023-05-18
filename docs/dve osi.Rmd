@@ -1,0 +1,59 @@
+---
+output:
+  html_document:
+  toc: TRUE
+  toc_depth: 4
+  css: styles.css
+  includes:
+    before_body: custom.js
+  df_print: paged
+title: Indikatorji
+---
+
+```{r setup, echo = FALSE, message = FALSE, warning = FALSE}
+# devtools::install_github("majazaloznik/UMARaccessR", dependencies = FALSE)
+# devtools::install_github("majazaloznik/UMARvisualisR", dependencies = FALSE)
+
+library(UMARaccessR)
+library(UMARvisualisR)
+library(dplyr)
+library(plotly)
+extrafont::loadfonts()
+```
+
+```{r intro, echo=FALSE, message=FALSE,  warning = FALSE, results="asis"}
+con <- DBI::dbConnect(RPostgres::Postgres(),
+                      dbname = "sandbox",
+                      host = "localhost",
+                      port = 5432,
+                      user = "postgres",
+                      password = Sys.getenv("PG_local_PG_PSW"),
+                      client_encoding = "utf8")
+# set schema search path
+x <- DBI::dbExecute(con, "set search_path to test_platform")
+
+# get input data to know what to plot
+df <- readxl::read_excel("../../mesecni_kazalniki/data/db_series_janez02.xlsx", "selection")
+
+spl <- split(df, df$chart_no)
+m <- list(
+  l = 50,
+  r = 300,
+  b = 30,
+  t = 30,
+  pad = 4
+)
+```
+
+# Investicijska dejavnost
+
+## Option I: dve osi
+
+```{r, code=readLines("children/html_11_investicijska dejavnost1.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+
+## Option I: dva grafa
+
+```{r, code=readLines("children/html_11_investicijska dejavnost2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```

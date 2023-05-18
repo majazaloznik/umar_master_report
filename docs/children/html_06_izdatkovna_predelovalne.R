@@ -11,7 +11,7 @@ prep_l$data_points[[1]] |>
   relocate(period) -> data
 
 data |>
-  plot_ly(x = ~period, hovertemplate="%{x|Q%q-%Y}", width = 1000) |>
+  plot_ly(x = ~period, hovertemplate="%{x|Q%q-%Y} %{y:.2f}%", width = 1000) |>
   add_bars(y = ~`value`, name = "Predelovalne dejavnostni - stopnja rasti obsega",  color = I(umar_cols()[1])) |>
   layout(barmode = "relative",
          showlegend = TRUE,
@@ -25,7 +25,10 @@ data |>
                              value = "Q%q-%Y"),
                         list(dtickrange = list("M6", NULL),
                              value = "%Y"))),
-         title = list(text = paste("Posodobljeno:", prep_l$updated), font = list(size = 12))) |>
+         title = list(text = paste("Posodobljeno:", prep_l$updated,
+                                   prep_l$transf_txt, "(Vir: SURS)"),
+                      font = list(size = 12),
+                      x = 0)) |>
   rangeslider(as.Date("2012-01-01"), max(data$period)+100)
 
 

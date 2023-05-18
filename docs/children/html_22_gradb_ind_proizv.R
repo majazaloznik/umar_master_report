@@ -1,0 +1,60 @@
+# get data
+df <- read.csv2(here::here("data/016.csv"), encoding = "UTF-8")
+df <- df |> mutate(year_on_year = ifelse(year_on_year == "y", TRUE, year_on_year))
+spl <- split(df, df$chart_no)
+# prepare data
+prep_l <- prep_multi_line(spl[[10]][1,], con)
+prep_l2 <- prep_multi_line(spl[[10]][2:3,], con)
+
+prep_l$data_points[[1]] %>%
+  dplyr::relocate( period) |>
+  select(-period_id) |>
+  as_tibble() -> data
+
+purrr::reduce(prep_l2$data_points, dplyr::left_join, by = c("period_id", "period")) %>%
+  dplyr::relocate( period) |>
+  select(-period_id) |>
+  as_tibble() -> data2
+
+
+updated <- max(prep_l$updated, prep_l2$updated)
+
+fig1 <- data |>
+  plot_ly(x = ~period, width = 1000, height = 600) |>
+  add_bars(y = ~`value`,  hovertemplate="%{x|%b-%Y} %{y:.2f}%",
+           name = "Realni indeks opravljenih del v gradbeni\u0161tvu", color = I(umar_cols()[2])) |>
+  layout(annotations = list(x = 0 , y = 1, showarrow = F,
+                            xref='paper', yref='paper', text = paste("Posodobljeno:",prep_l$updated,
+                                                                     prep_l$transf_txt, "(Vir: SURS)"),
+                            font = list(size = 12)))
+
+fig2 <- data2 |>
+  plot_ly(x = ~period, width = 1000, height = 600) |>
+  add_lines(y = ~`value.x`,  hovertemplate="%{x|%b-%Y} %{y:.0f}",#showlegend = FALSE,
+            name = "Indeks ind.p.: pridobivanje rudnin in kamnin ", color = I(umar_cols()[1])) |>
+  add_lines(y = ~`value.y`,  hovertemplate="%{x|%b-%Y} %{y:.0f}",#showlegend = FALSE,
+            name = "Indeks ind.p.: proizvodnja nekovinskih mineralnih izdelkov ", color = I(umar_cols()[5])) |>
+  layout(annotations = list(x = 0 , y = 1, showarrow = F,
+                            xref='paper', yref='paper', text = paste("Posodobljeno:",prep_l2$updated,
+                                                                     prep_l2$transf_txt, "(Vir: SURS, preračun UMAR)"),
+                            font = list(size = 12)))
+
+
+
+
+subplot( fig1, fig2, nrows = 2, shareX = TRUE) |>
+  rangeslider(as.Date("2020-01-01"), max(data$period)+10) |>
+  layout(font=list(family = "Myriad Pro"),
+         autosize = F, margin = m,
+         yaxis = list(title = list(text="Medletna sprememba, v %",
+                                   font = list(size =12))),
+         yaxis2 = list(title = list(text="Indeks (povpre\u010dje leta 2015)",
+                                    font = list(size =12))),
+         xaxis = list(title = "",
+                      rangeslider = list(thickness = 0.1),
+                      tickformatstops = list(
+                        list(dtickrange = list("M1", "M6"),
+                             value = "%b %Y"),
+                        list(dtickrange = list("M6", NULL),
+                             value = "%Y"))))|>
+  layout(hovermode = 'x')

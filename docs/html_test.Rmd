@@ -21,7 +21,6 @@ library(plotly)
 extrafont::loadfonts()
 
 ```
-Posodobljeno: 2023-02-16
 
 ```{r intro, echo=FALSE, message=FALSE,  warning = FALSE, results="asis"}
  con <- DBI::dbConnect(RPostgres::Postgres(),
@@ -34,10 +33,6 @@ Posodobljeno: 2023-02-16
 # set schema search path
 x <- DBI::dbExecute(con, "set search_path to test_platform")
 
-# get input data to know what to plot
-df <- readxl::read_excel("../../mesecni_kazalniki/data/db_series_janez02.xlsx", "selection")
-
-spl <- split(df, df$chart_no)
 m <- list(
   l = 50,
   r = 300,
@@ -48,9 +43,6 @@ m <- list(
 ```
 
 # Nacionalni računi - kvartalno
-
-
-
 
 ## BDP - medletna rast
 
@@ -89,89 +81,86 @@ m <- list(
 ```{r, code=readLines("children/html_02_prispevki_agregatov_potrosnje_k_rasti_bdp.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
-
 ## Izdatkovna struktura BDP - predelovalne dejavnosti 
 
 ```{r, code=readLines("children/html_06_izdatkovna_predelovalne.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
+## Investicijska dejavnost
 
-
-
-
-# Kazalniki aktivnosti
-
-
-
-
-
+```{r, code=readLines("children/html_11_investicijska dejavnost2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
-# prep_l <- prep_multi_line(spl[[6]], con)
-# cat("  \n####", "Indeksi industrijske proizvodnje - področja")
-# dygraph_plotter(prep_l)
-# 
-# cat("$$$$")
-# 
-# cat("  \n")
-# prep_l <- prep_multi_line(spl[[8]], con)
-# cat("  \n####", "Indeksi industrijske proizvodnje - področja - desezonirani")
-# dygraph_plotter(prep_l)
-# 
-# cat("$$$$")
-# 
-# cat("  \n")
-# 
-# prep_l <- prep_multi_line(spl[[7]], con)
-# cat("  \n####", "Indeksi industrijske proizvodnje - zahtevnost")
-# dygraph_plotter(prep_l)
-# 
-# cat("$$$$")
-# 
-# cat("  \n")
-# prep_l <- prep_multi_line(spl[[9]], con)
-# cat("  \n####", "Indeksi industrijske proizvodnje - zahtevnost - desezonirani")
-# dygraph_plotter(prep_l)
-# 
-# 
+
+# Kazalniki aktivnosti - mesečno
+
+## Industrijska proizvodnja po SDK
+
+```{r, code=readLines("children/html_09_predelovalne_indeks.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
+
+# Trg dela
+
+## Zaposlenost in brezposelnost
+```{r, code=readLines("children/html_12_brezposelnost.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Medletna rast bruto plače - zglajeni podatki
+```{r, code=readLines("children/html_13_rast_plac.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Medletna rast bruto plače - z originalnimi
+```{r, code=readLines("children/html_13_rast_plac2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+
+
+# Cene
+
+## Medletna rast cen življenskih potrebščin
+```{r, code=readLines("children/html_14_inflacija.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
 
 # Gradbeništvo
 
-
-```
-# 
-# 
-# prep_l <- prep_multi_line(spl[[10]], con)
-# cat("  \n####", "Realni indeks opravljenih del v gradbeništvu")
-# dygraph_plotter(prep_l)
-# 
-# cat("$$$$")
-# 
-# cat("  \n")
-# 
-# prep_l <- prep_multi_line(spl[[11]], con)
-# cat("  \n####", "Realni indeks opravljenih del v gradbeništvu - desezonirani")
-# dygraph_plotter(prep_l)
-# 
-# 
-# 
-# cat("$$$$")
-# 
-# cat("  \n")
-# 
-# prep_l <- prep_multi_line(spl[[42]], con)
-# prep_l2 <- prep_multi_line(spl[[43]], con)
-# purrr::reduce(prep_l2$data_points, dplyr::left_join, by = c("period_id", "period")) %>%
-#   dplyr::relocate( period) |>
-#   dplyr::select(-dplyr::starts_with("raw")) |>
-#   dplyr::select(-period_id) -> data
-# colnames(data)[-1] <- prep_l2$legend_labels
-# 
-# prep_l$data_points[[1]] |>
-#   left_join(data, by = "period") -> x
-# cat("  \n####", "Prispevki agregatov potrošnje k rasti BDP ")
-# dygraph_plotter(prep_l)
-# 
-
+## Realni indeks opravljenih del v gradbeništvu - desezonirani
+```{r, code=readLines("children/html_15_gradb_indeksi.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
+## Medletna rast realnih indeksov opravljenih del v gradbeništvu 
+
+```{r, code=readLines("children/html_16_gradb_indeksi_yoy.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+
+## Opravljena dela v gradbeništvu in skupna naročila 
+
+```{r, code=readLines("children/html_17_gradb_narocila.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Stavbe, za katere so bila izdana gradbena dovoljenja - kvadratura
+
+```{r, code=readLines("children/html_18_gradbena_dovoljenja.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+
+## Stavbe, za katere so bila izdana gradbena dovoljenja - število stanovanj
+
+```{r, code=readLines("children/html_19_gradbena_dovoljenja2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+
+## Prispevek gradbeništva k rasti BDP
+
+```{r, code=readLines("children/html_20_prispevek_gradbenistva.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Zaposlovanje v gradbeništvu
+
+```{r, code=readLines("children/html_21_zaposlovanje_gradbenistvo.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Gradbeništvo in indeksi industrijske proizvodnje za rudnine in minerale izdelke
+
+```{r, code=readLines("children/html_22_gradb_ind_proizv.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```

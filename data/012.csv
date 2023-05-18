@@ -1,0 +1,3 @@
+﻿table_code;table_name;series_code;series_name;unit_name;interval_id;chart_no;rolling_average_periods;rolling_average_alignment;year_on_year;xmin;xmax
+0300260S;Zaposlenost (SKD 2008), Slovenija, četrtletno;SURS--0300260S--EMP--_T--PS--Y--Q;Zaposlenost (domači koncept) -- Dejavnost - SKUPAJ -- Osebe (1000) -- Podatki z izločenimi vplivi sezone in koledarja;1000;Q;1;;;;;
+BO;Gibanje registrirane brezposelnosti po mesecih;ZRSZ--BO--0--M;Gibanje registrirane brezposelnosti po mesecih;število;M;2;;;;;

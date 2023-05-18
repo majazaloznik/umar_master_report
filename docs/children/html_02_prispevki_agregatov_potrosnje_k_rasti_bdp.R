@@ -44,4 +44,6 @@ data |>
                              value = "Q%q-%Y"),
                         list(dtickrange = list("M6", NULL),
                              value = "%Y"))),
-         title = list(text = paste("Posodobljeno:", updated), font = list(size = 12)))
+         title = list(text = paste("Posodobljeno:", updated, "(Vir: SURS)"),
+                      font = list(size = 12),
+                      x = 0))

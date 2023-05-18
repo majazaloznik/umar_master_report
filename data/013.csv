@@ -1,0 +1,4 @@
+﻿table_code;table_name;series_code;series_name;unit_name;interval_id;chart_no;rolling_average_periods;rolling_average_alignment;year_on_year;xmin;xmax
+0701054S;Povprečne mesečne bruto in neto plače pri pravnih osebah javnega in zasebnega sektorja, Slovenija, mesečno;SURS--0701054S--1--1--1--M;Javni sektor -- Bruto plača -- Plača za mesec[EUR];;M;1;;;;;
+0701054S;Povprečne mesečne bruto in neto plače pri pravnih osebah javnega in zasebnega sektorja, Slovenija, mesečno;SURS--0701054S--2--1--1--M;Zasebni sektor -- Bruto plača -- Plača za mesec[EUR];;M;1;;;;;
+0701054S;Povprečne mesečne bruto in neto plače pri pravnih osebah javnega in zasebnega sektorja, Slovenija, mesečno;SURS--0701054S--TOT--1--1--M;Javni in zasebni sektor - SKUPAJ -- Bruto plača -- Plača za mesec[EUR];;M;1;;;;;
