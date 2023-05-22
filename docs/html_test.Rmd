@@ -11,8 +11,8 @@ title: Indikatorji
 ---
 
 ```{r setup, echo = FALSE, message = FALSE, warning = FALSE}
-# devtools::install_github("majazaloznik/UMARaccessR", dependencies = FALSE)
-# devtools::install_github("majazaloznik/UMARvisualisR", dependencies = FALSE)
+devtools::install_github("majazaloznik/UMARaccessR", dependencies = FALSE, INSTALL_opts=c("--no-multiarch"))
+devtools::install_github("majazaloznik/UMARvisualisR", dependencies = FALSE)
 
 library(UMARaccessR)
 library(UMARvisualisR)

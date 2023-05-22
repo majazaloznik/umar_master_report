@@ -73,3 +73,5 @@ subplot( fig1, fig2, fig3, nrows = 3, shareX = TRUE) |>
                              value = "%b %Y"),
                         list(dtickrange = list("M6", NULL),
                              value = "%Y"))))
+
+

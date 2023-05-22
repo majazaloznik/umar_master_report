@@ -37,7 +37,17 @@ fig2 <- data2 |>
   layout(annotations = list(x = 0 , y = 1, showarrow = F,
                             xref='paper', yref='paper', text = paste("Posodobljeno:",prep_l2$updated,
                                                                      prep_l2$transf_txt, "(Vir: SURS, preračun UMAR)"),
-                            font = list(size = 12)))
+                            font = list(size = 12))) |>
+  layout(
+    shapes = list(
+      list(
+        type = "line",
+        x0 = min(data$period), x1 = max(data$period),
+        y0 = 100, y1 = 100,
+        line = list(color = umar_cols("emph"), width = 1)
+      )
+    ))
+
 
 
 
