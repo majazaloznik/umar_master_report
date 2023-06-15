@@ -189,7 +189,17 @@ m <- list(
 ```{r, code=readLines("children/html_53_rast_izvozva_blaga_storitev.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
+## Rast uvoza blaga in storitev
+```{r, code=readLines("children/html_54_rast_uvoza_blaga_storitev.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
 
+
+## Dohodkovna struktura BDP
+```{r, code=readLines("children/html_55_dohodkovna_struktura.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+## Dohodkovna struktura BDP - delež
+```{r, code=readLines("children/html_55_dohodkovna_struktura_delez.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
 
 # Kazalniki razpoloženja - mesečno
 
