@@ -2,7 +2,8 @@
 output:
   html_document:
     toc: TRUE
-    toc_depth: 4
+    toc_depth: 2
+    number_sections: true
     css: styles.css
     includes:
       before_body: custom.js
@@ -11,27 +12,29 @@ title: Indikatorji
 ---
 
 ```{r setup, echo = FALSE, message = FALSE, warning = FALSE}
-devtools::install_github("majazaloznik/UMARaccessR", dependencies = FALSE, INSTALL_opts=c("--no-multiarch"))
-devtools::install_github("majazaloznik/UMARvisualisR", dependencies = FALSE)
+#devtools::install_github("majazaloznik/UMARaccessR", dependencies = FALSE, INSTALL_opts=c("--no-multiarch"))
+#devtools::install_github("majazaloznik/UMARvisualisR", dependencies = FALSE)
 
 library(UMARaccessR)
 library(UMARvisualisR)
 library(dplyr)
 library(plotly)
+library(lubridate)
 extrafont::loadfonts()
+source(here::here("docs/children/my_functions.R"))
 
 ```
 
 ```{r intro, echo=FALSE, message=FALSE,  warning = FALSE, results="asis"}
- con <- DBI::dbConnect(RPostgres::Postgres(),
-                      dbname = "sandbox",
-                      host = "localhost",
+con <- DBI::dbConnect(RPostgres::Postgres(),
+                      dbname = "platform",
+                      host = "192.168.38.21",
                       port = 5432,
-                      user = "postgres",
-                      password = Sys.getenv("PG_local_PG_PSW"),
+                      user = "majaz",
+                      password = Sys.getenv("PG_MZ_PSW"),
                       client_encoding = "utf8")
 # set schema search path
-x <- DBI::dbExecute(con, "set search_path to test_platform")
+x <- DBI::dbExecute(con, "set search_path to platform")
 
 m <- list(
   l = 50,
@@ -55,21 +58,15 @@ m <- list(
 ```{r, code=readLines("children/html_08_bdp_cetrtletna_rast.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
-## BDP - stalne cene (2010) - desezonirano
+## BDP - stalne cene (2010) desezonirano
 
 ```{r, code=readLines("children/html_03_bdp_desez_stalne_cene.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 
 ```
-## Spremembe zalog - prispevek k rasti BDP
-
-```{r, code=readLines("children/html_04_bdp_prispevek_zaloge.R"), echo=FALSE, message=FALSE,  warning = FALSE}
-
+## Realna in nominalna medletna rast BDP
+```{r, code=readLines("children/html_35_realna_nominalna_medletna_bdp.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
-## Bruto investicije & končna potrošnja - medletna stopnja rasti 
-
-```{r, code=readLines("children/html_05_bdp_rast_gosp_invest.R"), echo=FALSE, message=FALSE,  warning = FALSE}
-```
 
 ## Medletna rast BDP in komponent
 
@@ -80,18 +77,201 @@ m <- list(
 
 ```{r, code=readLines("children/html_02_prispevki_agregatov_potrosnje_k_rasti_bdp.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
-
-## Izdatkovna struktura BDP - predelovalne dejavnosti 
-
-```{r, code=readLines("children/html_06_izdatkovna_predelovalne.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+## Prispevki agregatov potrošnje k rasti BDP - neto izvoz
+```{r, code=readLines("children/html_02_prispevki_agregatov_potrosnje_k_rasti_bdp2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
+## Prispevki agregatov potrošnje k rasti BDP
+```{r, code=readLines("children/html_34_prispevek_agregatov_potrosnje.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+## Četrtletna rast BDP in agregatov potrošnje
+```{r, code=readLines("children/html_36_cetrtletna_bdp_in_agregatov_potrosnje.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Spremembe zalog - prispevek k rasti BDP
+
+```{r, code=readLines("children/html_04_bdp_prispevek_zaloge.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+
+```
+
+## Bruto investicije & končna potrošnja - medletna stopnja rasti
+
+```{r, code=readLines("children/html_05_bdp_rast_gosp_invest.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
 
 ## Investicijska dejavnost
 
 ```{r, code=readLines("children/html_11_investicijska dejavnost2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
-# Kazalniki aktivnosti - mesečno
+
+## Medletna rast izvoza blaga in storitev
+```{r, code=readLines("children/html_37_medletna_rast_izvoza.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Medletna rast uvoza blaga in storitev
+```{r, code=readLines("children/html_38_medletna_rast_uvoza.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Četrtletna rast izvoza blaga in storitev
+```{r, code=readLines("children/html_39_cetrtletna_rast_izvoza.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Četrtletna rast uvoza blaga in storitev
+```{r uvozbs, code=readLines("children/html_40_cetrtletna_rast_uvoza.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+## Predelovalne struktura BDP - predelovalne dejavnosti
+
+```{r predelovalna, code=readLines("children/html_06_izdatkovna_predelovalne.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Dohodkovna struktura BDP
+
+```{r dohodkovna, code=readLines("children/html_42_dohodkovna_struktura_bdp.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Dohodkovna struktura BDP - prispevek k rasti
+
+```{r dohodkovna2, code=readLines("children/html_44_dohodkovna_struktura_bdp2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Prispevki rasti dodane vrednosti posameznih dejavnosti k rasti BDP
+
+```{r, code=readLines("children/html_43_prispevki_rasti_ddv_bdp.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Medletna rast dodane vrednosti in posameznih dejavnosti
+
+```{r, code=readLines("children/html_50_medletna_rast_dv_orig.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+
+## Četrtletna rast dodane vrednosti in posameznih dejavnosti
+
+
+```{r, code=readLines("children/html_51_medletna_rast_dv_desez.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+
+# Nacionalni računi - letno
+
+## Prispevki rasti dodane vrednosti posameznih dejavnosti k rasti BDP
+
+```{r, code=readLines("children/html_23_prispevki_dodane_vrednosti_BDP.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## BDP
+
+```{r, code=readLines("children/html_45_bdp_letni.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Prispevki agregatov potrošnje k rasti BDP
+```{r agregatip_let, code=readLines("children/html_46_prispevki_agregatov_potrosnje_k_rasti_bdp_letni.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Prispevki agregatov potrošnje k rasti BDP - neto izvoz
+```{r agregatip_let_saldo, code=readLines("children/html_47_prispevki_agregatov_potrosnje_k_rasti_bdp_letni2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Prispevki agregatov potrošnje k rasti BDP
+```{r, code=readLines("children/html_48_prispevek_agregatov_potrosnje_letni.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Letna rast BDP in agregatov potrošnje
+```{r, code=readLines("children/html_49_letna_bdp_in_agregatov_potrosnje.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Investicije
+```{r, code=readLines("children/html_52_investicije.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Rast izvoza blaga in storitev
+```{r, code=readLines("children/html_53_rast_izvozva_blaga_storitev.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+
+
+# Kazalniki razpoloženja - mesečno
+
+## Poslovne tendence in mnenje potrošnikov
+```{r, code=readLines("children/html_24_poslovne_tendence_mnenje_potrosnikov.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Poslovne tendence v predelovalnih dejavnostih - desezonirano
+```{r, code=readLines("children/html_25_poslovne_tendence_predelovalne1.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+
+## Poslovne tendence v predelovalnih dejavnostih - 3-mesečne drseče sredine (desne)
+```{r, code=readLines("children/html_25_poslovne_tendence_predelovalne2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Poslovne tendence v predelovalnih dejavnostih - omejitveni dejavniki
+
+```{r, code=readLines("children/html_41_poslovne_tendence_predelovalne_omejitveni.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Poslovne tendence v omejitveni dejavniki
+```{r, code=readLines("children/html_26_poslovne_tendence_omejitveni.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Poslovne tendence v gradbeništvu - desezonirano
+```{r, code=readLines("children/html_27_poslovne_tendence_gradbenistvo.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+
+## Poslovne tendence v gradbeništvu - 3-mesečne drseče sredine (desne)
+```{r, code=readLines("children/html_27_poslovne_tendence_gradbenistvo2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Poslovne tendence v trgovini na drobno - desezonirano
+```{r, code=readLines("children/html_28_poslovne_tendence_trgovina_drobno.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Poslovne tendence v trgovini na drobno - 3-mesečne drseče sredine (desne)
+```{r, code=readLines("children/html_28_poslovne_tendence_trgovina_drobno2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Poslovne tendence v storitveni dejavnosti - desezonirano
+```{r, code=readLines("children/html_29_poslovne_tendence_storitvene.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Poslovne tendence v storitveni dejavnosti - 3-mesečne drseče sredine (desne)
+```{r, code=readLines("children/html_29_poslovne_tendence_storitvene2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Poslovne tendence - pričakovanja - desezonirano
+```{r, code=readLines("children/html_30_poslovne_tendence_pricakovanja.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Poslovne tendence - pričakovanja - 3-mesečne drseče sredine (desne)
+```{r, code=readLines("children/html_30_poslovne_tendence_pricakovanja2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+## Poslovne tendence - pričakovano zaposlovanje - desezonirano
+```{r, code=readLines("children/html_31_poslovne_tendence_zaposlovanje.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Poslovne tendence - pričakovano zaposlovanje - 3-mesečne drseče sredine (desne)
+```{r, code=readLines("children/html_31_poslovne_tendence_zaposlovanje2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Poslovne tendence - pričakovane cene - desezonirano
+```{r, code=readLines("children/html_32_poslovne_tendence_cene.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Poslovne tendence - pričakovane cene - 3-mesečne drseče sredine (desne)
+```{r, code=readLines("children/html_32_poslovne_tendence_cene2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Mnenje potrošnikov - pričakovane cene - desezonirano
+```{r, code=readLines("children/html_33_mnenje_potrosnikov.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Mnenje potrošnikov - 3-mesečne drseče sredine (desne)
+```{r, code=readLines("children/html_33_mnenje_potrosnikov2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+# Kazalniki aktivnosti  - mesečno
 
 ## Industrijska proizvodnja po SDK
 
@@ -127,13 +307,13 @@ m <- list(
 ```{r, code=readLines("children/html_15_gradb_indeksi.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
-## Medletna rast realnih indeksov opravljenih del v gradbeništvu 
+## Medletna rast realnih indeksov opravljenih del v gradbeništvu
 
 ```{r, code=readLines("children/html_16_gradb_indeksi_yoy.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
 
-## Opravljena dela v gradbeništvu in skupna naročila 
+## Opravljena dela v gradbeništvu in skupna naročila
 
 ```{r, code=readLines("children/html_17_gradb_narocila.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```

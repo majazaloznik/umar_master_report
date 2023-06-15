@@ -12,25 +12,27 @@ prep_l3 <- prep_multi_line(spl[[8]][3,], con)
 prep_l$data_points[[1]] %>%
   dplyr::relocate( period) |>
   select(-period_id) |>
-  as_tibble() -> data
+  as_tibble() |>
+  mutate(period = period %m+% months(2)) -> data
 
 prep_l2$data_points[[1]] %>%
   dplyr::relocate( period) |>
   select(-period_id) |>
-  as_tibble() -> data2
+  as_tibble()  |>
+  mutate(period = period %m+% months(2)) -> data2
 
 prep_l3$data_points[[1]] %>%
   dplyr::relocate( period) |>
-  select(-period_id) |>
-  as_tibble() -> data3
+  select(-period_id)  |>
+  mutate(period = period %m+% months(2)) -> data3
 
 
 updated <- max(prep_l$updated, prep_l2$updated, prep_l3$updated)
 
 fig1 <- data |>
   plot_ly(x = ~period, width = 1000, height = 600) |>
-  add_bars(y = ~`value`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}",
-           name = "Prispevek gradbeni\u0161tva k rasti BDP", color = I(umar_cols()[2])) |>
+  add_lines(y = ~`value`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}",
+           name = "Dodana vrednost gradbeni\u0161tva", color = I(umar_cols()[2])) |>
   layout(annotations = list(x = 0 , y = 1, showarrow = F,
                             xref='paper', yref='paper', text = paste("Posodobljeno:",prep_l$updated,
                                                                      prep_l$transf_txt, "(Vir: SURS)"),
@@ -60,7 +62,7 @@ subplot( fig1, fig2, fig3, nrows = 3, shareX = TRUE) |>
   rangeslider(as.Date("2015-01-01"), max(data$period)+10) |>
   layout(font=list(family = "Myriad Pro"),
          autosize = F, margin = m,
-         yaxis = list(title = list(text="Prispevek k rasti, v o.t.",
+         yaxis = list(title = list(text="Medletna sprememba, v %",
                                    font = list(size =12))),
          yaxis2 = list(title = list(text="Medletna sprememba, v %",
                                     font = list(size =12))),
@@ -72,6 +74,7 @@ subplot( fig1, fig2, fig3, nrows = 3, shareX = TRUE) |>
                         list(dtickrange = list("M1", "M6"),
                              value = "%b %Y"),
                         list(dtickrange = list("M6", NULL),
-                             value = "%Y"))))
+                             value = "%Y")))) |>
+  config(modeBarButtonsToAdd = list(dl_button))
 
 

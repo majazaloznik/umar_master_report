@@ -1,0 +1,4 @@
+﻿table_code;table_name;series_code;series_name;unit_name;interval_id;chart_no;chart_title;sub_chart;sub_chart_title;legend_label;rolling_average_periods;rolling_average_alignment;year_on_year;xmin;xmax;notes;;
+0301935S;Izdatkovna struktura BDP, Slovenija, letno;SURS--0301935S--P51G--GY--A;....Bruto investicije v osnovna sredstva -- Letna sprememba obsega (%);%;A;1;Investicije;;;Bruto investicije v osnovna sredstva;;;;;;linija;;
+0301935S;Izdatkovna struktura BDP, Slovenija, letno;SURS--0301935S--P52--GOY--A;....Spremembe zalog -- Prispevek k letni rasti obsega BDP (odstotne točke);odstotne točke;A;2;Investicije;1;Zaloge in vredn. Pred.;Spremembe zalog;;;;;;stacked column;obe seriji se sešteje;
+0301935S;Izdatkovna struktura BDP, Slovenija, letno;SURS--0301935S--P53--GOY--A;....Vrednostni predmeti -- Prispevek k letni rasti obsega BDP (odstotne točke);odstotne točke;A;2;Investicije;1;Zaloge in vredn. Pred.;Spremembe zalog;;;;;;stacked column;;

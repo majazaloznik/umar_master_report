@@ -1,0 +1,4 @@
+﻿table_code;table_name;series_code;series_name;unit_name;interval_id;chart_no;chart_title;sub_chart;sub_chart_title;legend_label;rolling_average_periods;rolling_average_alignment;year_on_year;xmin;xmax;notes;
+0301935S;Izdatkovna struktura BDP, Slovenija, letno;SURS--0301935S--P6--GY--A;..Izvoz blaga in storitev -- Letna sprememba obsega (%);%;A;7;Rast izvoza blaga in storitev ;;;Izvoz blaga in storitev;;;;;;linija;rast izvoza blaga in storitev
+0301935S;Izdatkovna struktura BDP, Slovenija, letno;SURS--0301935S--P61--GY--A;....Izvoz blaga (fob) -- Letna sprememba obsega (%);%;A;7;Rast izvoza blaga in storitev ;;;Izvoz blaga;;;;;;linija;rast izvoza blaga
+0301935S;Izdatkovna struktura BDP, Slovenija, letno;SURS--0301935S--P62--GY--A;....Izvoz storitev -- Letna sprememba obsega (%);%;A;7;Rast izvoza blaga in storitev ;;;Izvoz storitev;;;;;;linija;rast izvoza storitev

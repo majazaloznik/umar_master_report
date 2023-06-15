@@ -1,2 +1,3 @@
 table_code;table_name;series_code;series_name;unit_name;interval_id;chart_no;rolling_average_periods;rolling_average_alignment;year_on_year;xmin;xmax
-0300230S;Izdatkovna struktura BDP, Slovenija, četrtletno;SURS--0300230S--B1GQ--L--Y--Q;Bruto domači proizvod -- Stalne cene, referenčno leto 2010 (mio EUR) -- Podatki z izločenimi vplivi sezone in koledarja;mio eur;Q;2;;;;;
+0300230S;Izdatkovna struktura BDP, Slovenija, četrtletno;SURS--0300230S--B1GQ--L--Y--Q;Bruto domači proizvod -- Stalne cene, referenčno leto 2010 (mio EUR) -- Podatki z izločenimi vplivi sezone in koledarja;mio eur;Q;1;;;;;
+0300220S;Dodana vrednost po dejavnostih in BDP (SKD 2008), Slovenija, �etrtletno;SURS--0300220S--B1GQ--V--Y--Q;Bruto doma�i proizvod -- Teko�e cene (mio EUR) -- Podatki z izlo�enimi vplivi sezone in koledarja;mio eur;Q;2;;;;;

@@ -1,0 +1,7 @@
+﻿table_code;table_name;series_code;series_name;unit_name;interval_id;chart_no;chart_title;sub_chart;sub_chart_title;legend_label;rolling_average_periods;rolling_average_alignment;year_on_year;xmin;xmax;notes;
+0301935S;Izdatkovna struktura BDP, Slovenija, letno;SURS--0301935S--B1GQ--GY--A;Bruto domači proizvod -- Letna sprememba obsega (%);%;A;5;Letna rast BDP in komponent;;;BDP;;;;;;linija;BDP
+0301935S;Izdatkovna struktura BDP, Slovenija, letno;SURS--0301935S--P3_S13--GY--A;....Končna potrošnja države -- Letna sprememba obsega (%);%;A;5;Letna rast BDP in komponent;;;Potrošnja države;;;;;;linija;Končna potrošnja države
+0301935S;Izdatkovna struktura BDP, Slovenija, letno;SURS--0301935S--P31_S14--GY--A;....Končna potrošnja gospodinjstev -- Letna sprememba obsega (%);%;A;5;Letna rast BDP in komponent;;;Potrošnja gospodinjstev;;;;;;linija;Končna potrošnja gospodinjstev
+0301935S;Izdatkovna struktura BDP, Slovenija, letno;SURS--0301935S--P51G--GY--A;....Bruto investicije v osnovna sredstva -- Letna sprememba obsega (%);%;A;5;Letna rast BDP in komponent;;;Bruto investicije v OS ;;;;;;linija;
+0301935S;Izdatkovna struktura BDP, Slovenija, letno;SURS--0301935S--P6--GY--A;..Izvoz blaga in storitev -- Letna sprememba obsega (%);%;A;5;Letna rast BDP in komponent;;;Izvoz blaga in storitev ;;;;;;linija;
+0301935S;Izdatkovna struktura BDP, Slovenija, letno;SURS--0301935S--P7--GY--A;..Minus: uvoz blaga in storitev -- Letna sprememba obsega (%);%;A;5;Letna rast BDP in komponent;;;Uvoz blaga in storitev;;;;;;linija;

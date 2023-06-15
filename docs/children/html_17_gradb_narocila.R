@@ -21,41 +21,41 @@ fig1 <- data |>
   plot_ly(x = ~period, width = 1000,
           height = 600) |>
   add_lines(y = ~`value`,  hovertemplate="%{x|%b-%Y} %{y:.2f}",
-            name = "Gradbeni\u0161tvo skupaj", color = I(umar_cols()[1])) |>
+            name = "Gradbeni\u0161tvo skupaj", color = I(umar_cols()[1]), yaxis = "y2") |>
   layout(annotations = list(x = 0 , y = 1, showarrow = F,
                             xref='paper', yref='paper', text = paste("Posodobljeno:",prep_l$updated,
-                                        prep_l$transf_txt, "(Vir: SURS & prera\u010dun UMAR)"),
+                                        prep_l$transf_txt, "(Vir: SURS & prera\u010dun UMAR) \n",
+                                        "Posodobljeno:",prep_l2$updated,
+                                        prep_l2$transf_txt, "(Vir: SURS & prera\u010dun UMAR)               "),
                            font = list(size = 12)))
 
-fig2 <- data2 |>
-  plot_ly(x = ~period, width = 1000,
-          height = 600) |>
-  add_lines(y = ~`value`,  hovertemplate="%{x|%b-%Y} %{y:.2f}",
-            name = "Skupna naro\u010dila", color = I(umar_cols()[4])) |>
-  layout(annotations = list(x = 0 , y = 1, showarrow = F,
-                            xref='paper', yref='paper', text = paste("Posodobljeno:",prep_l2$updated,
-                                                                     prep_l2$transf_txt, "(Vir: SURS & prera\u010dun UMAR)"),
-                            font = list(size = 12)))
 
-
-subplot(fig1,  fig2,  nrows = 2, shareX = TRUE) |>
+fig1 |>
+  add_lines(data = data2, y = ~`value`,  hovertemplate="%{x|%b-%Y} %{y:.2f}",
+            name = "Skupna naro\u010dila (desna os)", color = I(umar_cols()[4])) |>
   layout(showlegend = TRUE,
          autosize = F, margin =  m,
          font=list(family = "Myriad Pro"),
          yaxis = list(
            title = list(text="Medletna sprememba, v %",
                         font = list(size =12)),
-           fixedrange = FALSE),
+           fixedrange = FALSE,
+           range = list(-80, 60)),
          yaxis2 = list(
            title = list(text="Ravnote\u017dje, v o.t.",
-                        font = list(size =12)), fixedrange = FALSE),
+                        font = list(size =12)),
+           overlaying = "y",
+           side = "right",
+           fixedrange = FALSE,
+           range = list(-80, 60)),
          xaxis = list(title = "",
                       rangeslider = list(thickness = 0.1),
                       tickformatstops = list(
                         list(dtickrange = list("M1", "M6"),
-                             value = "Q%q-%Y"),
+                             value = "Q%b %Y"),
                         list(dtickrange = list("M6", NULL),
                              value = "%Y")))) |>
-  rangeslider(as.Date("2013-01-01"), max(data$period) + 100)
+  rangeslider(as.Date("2013-01-01"), max(data$period) + 100)|>
+  config(modeBarButtonsToAdd = list(dl_button))
 
 

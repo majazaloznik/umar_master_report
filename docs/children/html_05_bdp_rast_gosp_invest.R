@@ -32,7 +32,8 @@ data |>
                                    prep_l$transf_txt, "(Vir: SURS)"),
                       font = list(size = 12),
                       x = 0)) |>
-  rangeslider(as.Date("2012-01-01"), max(data$period))
+  rangeslider(as.Date("2012-01-01"), max(data$period)) |>
+  config(modeBarButtonsToAdd = list(dl_button))
 
 
 

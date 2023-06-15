@@ -1,0 +1,89 @@
+﻿table_code;table_name;series_code;series_name;unit_name;interval_id;chart_no;rolling_average_periods;rolling_average_alignment;year_on_year;xmin;xmax;sub_chart 
+2855901S;Poslovne tendence in mnenje potrošnikov;SURS--2855901S--1--2--M;Kazalnik gospodarske klime;ravnotežje v odstotnih točkah;M;1;;;;;;desezonirano
+2855901S;Poslovne tendence in mnenje potrošnikov;SURS--2855901S--2--2--M;Zaupanje v predelovalnih dejavnostih;ravnotežje v odstotnih točkah;M;1;;;;;;desezonirano
+2855901S;Poslovne tendence in mnenje potrošnikov;SURS--2855901S--3--2--M;Zaupanje v trgovini na drobno;ravnotežje v odstotnih točkah;M;1;;;;;;desezonirano
+2855901S;Poslovne tendence in mnenje potrošnikov;SURS--2855901S--4--2--M;Zaupanje potrošnikov;ravnotežje v odstotnih točkah;M;1;;;;;;desezonirano
+2855901S;Poslovne tendence in mnenje potrošnikov;SURS--2855901S--5--2--M;Zaupanje v storitvenih dejavnostih;ravnotežje v odstotnih točkah;M;1;;;;;;desezonirano
+2855901S;Poslovne tendence in mnenje potrošnikov;SURS--2855901S--6--2--M;Zaupanje v gradbeništvu;ravnotežje v odstotnih točkah;M;1;;;;;;desezonirano
+2855901S;Poslovne tendence in mnenje potrošnikov;SURS--2855901S--1--2--M;Kazalnik gospodarske klime;ravnotežje v odstotnih točkah;M;1;3;r;;;;trimesečne drseče sredine, desezonirano
+2855901S;Poslovne tendence in mnenje potrošnikov;SURS--2855901S--2--2--M;Zaupanje v predelovalnih dejavnostih;ravnotežje v odstotnih točkah;M;1;3;r;;;;trimesečne drseče sredine, desezonirano
+2855901S;Poslovne tendence in mnenje potrošnikov;SURS--2855901S--3--2--M;Zaupanje v trgovini na drobno;ravnotežje v odstotnih točkah;M;1;3;r;;;;trimesečne drseče sredine, desezonirano
+2855901S;Poslovne tendence in mnenje potrošnikov;SURS--2855901S--4--2--M;Zaupanje potrošnikov;ravnotežje v odstotnih točkah;M;1;3;r;;;;trimesečne drseče sredine, desezonirano
+2855901S;Poslovne tendence in mnenje potrošnikov;SURS--2855901S--5--2--M;Zaupanje v storitvenih dejavnostih;ravnotežje v odstotnih točkah;M;1;3;r;;;;trimesečne drseče sredine, desezonirano
+2855901S;Poslovne tendence in mnenje potrošnikov;SURS--2855901S--6--2--M;Zaupanje v gradbeništvu;ravnotežje v odstotnih točkah;M;1;3;r;;;;trimesečne drseče sredine, desezonirano
+1700102S;Poslovne tendence v predelovalnih dejavnostih;SURS--1700102S--2--1--M;Kazalnik zaupanja;ravnotežje v odstotnih točkah;M;2;;;;;;desezonirano
+1700102S;Poslovne tendence v predelovalnih dejavnostih;SURS--1700102S--2--5--M;Zaloge končnih izdelkov;ravnotežje v odstotnih točkah;M;2;;;;;;desezonirano
+1700102S;Poslovne tendence v predelovalnih dejavnostih;SURS--1700102S--2--6--M;Pričakovana proizvodnja;ravnotežje v odstotnih točkah;M;2;;;;;;desezonirano
+1700102S;Poslovne tendence v predelovalnih dejavnostih;SURS--1700102S--2--3--M;Izvozna naročila;ravnotežje v odstotnih točkah;M;2;;;;;;desezonirano
+1700102S;Poslovne tendence v predelovalnih dejavnostih;SURS--1700102S--2--9--M;Pričakovan izvoz;ravnotežje v odstotnih točkah;M;2;;;;;;desezonirano
+1700102S;Poslovne tendence v predelovalnih dejavnostih;SURS--1700102S--2--1--M;Kazalnik zaupanja;ravnotežje v odstotnih točkah;M;2;3;r;;;;trimesečne drseče sredine, desezonirano
+1700102S;Poslovne tendence v predelovalnih dejavnostih;SURS--1700102S--2--5--M;Zaloge končnih izdelkov;ravnotežje v odstotnih točkah;M;2;3;r;;;;trimesečne drseče sredine, desezonirano
+1700102S;Poslovne tendence v predelovalnih dejavnostih;SURS--1700102S--2--6--M;Pričakovana proizvodnja;ravnotežje v odstotnih točkah;M;2;3;r;;;;trimesečne drseče sredine, desezonirano
+1700102S;Poslovne tendence v predelovalnih dejavnostih;SURS--1700102S--2--3--M;Izvozna naročila;ravnotežje v odstotnih točkah;M;2;3;r;;;;trimesečne drseče sredine, desezonirano
+1700102S;Poslovne tendence v predelovalnih dejavnostih;SURS--1700102S--2--9--M;Pričakovan izvoz;ravnotežje v odstotnih točkah;M;2;3;r;;;;trimesečne drseče sredine, desezonirano
+1700107S;Poslovne tendence v predelovalnih dejavnostih - omejitveni dejavniki;SURS--1700107S--TOTA--2--13--Q;Negotove gospodarske razmere;podjetja v %;Q;3;;;;;;originalni podatki
+1700107S;Poslovne tendence v predelovalnih dejavnostih - omejitveni dejavniki;SURS--1700107S--TOTA--2--2--Q;Nezadostno domače povpraševanje;podjetja v %;Q;3;;;;;;originalni podatki
+1700107S;Poslovne tendence v predelovalnih dejavnostih - omejitveni dejavniki;SURS--1700107S--TOTA--2--3--Q;Nezadostno tuje povpraševanje;podjetja v %;Q;3;;;;;;originalni podatki
+1700107S;Poslovne tendence v predelovalnih dejavnostih - omejitveni dejavniki;SURS--1700107S--TOTA--2--6--Q;Pomanjkanje usposobljenih delavcev;podjetja v %;Q;3;;;;;;originalni podatki
+1700107S;Poslovne tendence v predelovalnih dejavnostih - omejitveni dejavniki;SURS--1700107S--TOTA--2--7--Q;Pomanjkanje surovin;podjetja v %;Q;3;;;;;;originalni podatki
+1700107S;Poslovne tendence v predelovalnih dejavnostih - omejitveni dejavniki;SURS--1700107S--TOTA--2--11--Q;Finančni problemi;podjetja v %;Q;3;;;;;;originalni podatki
+1912002S;Poslovne tendence v gradbeništvu;SURS--1912002S--2--1--M;Kazalnik zaupanja;ravnotežje v odstotnih točkah;M;4;;;;;;desezonirano
+1912002S;Poslovne tendence v gradbeništvu;SURS--1912002S--2--3--M;Skupna naročila;ravnotežje v odstotnih točkah;M;4;;;;;;desezonirano
+1912002S;Poslovne tendence v gradbeništvu;SURS--1912002S--2--6--M;Pričakovano zaposlovanje;ravnotežje v odstotnih točkah;M;4;;;;;;desezonirano
+1912002S;Poslovne tendence v gradbeništvu;SURS--1912002S--2--1--M;Kazalnik zaupanja;ravnotežje v odstotnih točkah;M;4;3;r;;;;trimesečne drseče sredine, desezonirano
+1912002S;Poslovne tendence v gradbeništvu;SURS--1912002S--2--3--M;Skupna naročila;ravnotežje v odstotnih točkah;M;4;3;r;;;;trimesečne drseče sredine, desezonirano
+1912002S;Poslovne tendence v gradbeništvu;SURS--1912002S--2--6--M;Pričakovano zaposlovanje;ravnotežje v odstotnih točkah;M;4;3;r;;;;trimesečne drseče sredine, desezonirano
+2007402S;Poslovne tendence v trgovini na drobno;SURS--2007402S--2--13--M; Kazalnik zaupanja v trgovini na drobno;ravnotežje v odstotnih točkah;M;5;;;;;;desezonirano
+2007402S;Poslovne tendence v trgovini na drobno;SURS--2007402S--2--11--M;Prodaja;ravnotežje v odstotnih točkah;M;5;;;;;;desezonirano
+2007402S;Poslovne tendence v trgovini na drobno;SURS--2007402S--2--12--M;Pričakovana prodaja;ravnotežje v odstotnih točkah;M;5;;;;;;desezonirano
+2007402S;Poslovne tendence v trgovini na drobno;SURS--2007402S--2--2--M;Obseg zalog;ravnotežje v odstotnih točkah;M;5;;;;;;desezonirano
+2007402S;Poslovne tendence v trgovini na drobno;SURS--2007402S--2--13--M;Kazalnik zaupanja v trgovini na drobno;ravnotežje v odstotnih točkah;M;5;3;r;;;;trimesečne drseče sredine, desezonirano
+2007402S;Poslovne tendence v trgovini na drobno;SURS--2007402S--2--11--M;Prodaja;ravnotežje v odstotnih točkah;M;5;3;r;;;;trimesečne drseče sredine, desezonirano
+2007402S;Poslovne tendence v trgovini na drobno;SURS--2007402S--2--12--M;Pričakovana prodaja;ravnotežje v odstotnih točkah;M;5;3;r;;;;trimesečne drseče sredine, desezonirano
+2007402S;Poslovne tendence v trgovini na drobno;SURS--2007402S--2--2--M;Obseg zalog;ravnotežje v odstotnih točkah;M;5;3;r;;;;trimesečne drseče sredine, desezonirano
+2012102S;Poslovne tendence v storitvenih dejavnostih;SURS--2012102S--2--7--M;Kazalnik zaupanja;ravnotežje v odstotnih točkah;M;6;;;;;;desezonirano
+2012102S;Poslovne tendence v storitvenih dejavnostih;SURS--2012102S--2--1--M;Poslovni položaj;ravnotežje v odstotnih točkah;M;6;;;;;;desezonirano
+2012102S;Poslovne tendence v storitvenih dejavnostih;SURS--2012102S--2--2--M;Povpraševanje;ravnotežje v odstotnih točkah;M;6;;;;;;desezonirano
+2012102S;Poslovne tendence v storitvenih dejavnostih;SURS--2012102S--2--3--M;Pričakovano povpraševanje;ravnotežje v odstotnih točkah;M;6;;;;;;desezonirano
+2012102S;Poslovne tendence v storitvenih dejavnostih;SURS--2012102S--2--7--M;Kazalnik zaupanja;ravnotežje v odstotnih točkah;M;6;3;r;;;;trimesečne drseče sredine, desezonirano
+2012102S;Poslovne tendence v storitvenih dejavnostih;SURS--2012102S--2--1--M;Poslovni položaj;ravnotežje v odstotnih točkah;M;6;3;r;;;;trimesečne drseče sredine, desezonirano
+2012102S;Poslovne tendence v storitvenih dejavnostih;SURS--2012102S--2--2--M;Povpraševanje;ravnotežje v odstotnih točkah;M;6;3;r;;;;trimesečne drseče sredine, desezonirano
+2012102S;Poslovne tendence v storitvenih dejavnostih;SURS--2012102S--2--3--M;Pričakovano povpraševanje;ravnotežje v odstotnih točkah;M;6;3;r;;;;trimesečne drseče sredine, desezonirano
+1700102S;Poslovne tendence - pričakovanja;SURS--1700102S--2--6--M;Pričakovana proizvodnja;ravnotežje v odstotnih točkah;M;7;;;;;;desezonirano
+1700102S;Poslovne tendence - pričakovanja;SURS--1700102S--2--9--M;Pričakovan izvoz;ravnotežje v odstotnih točkah;M;7;;;;;;desezonirano
+1912002S;Poslovne tendence - pričakovanja;SURS--1912002S--2--6--M;Pričakovano zaposlovanje v gradbeništvu;ravnotežje v odstotnih točkah;M;7;;;;;;desezonirano
+2007402S;Poslovne tendence - pričakovanja;SURS--2007402S--2--12--M;Pričakovana prodaja v trgovini na drobno;ravnotežje v odstotnih točkah;M;7;;;;;;desezonirano
+2012102S;Poslovne tendence - pričakovanja;SURS--2012102S--2--3--M;Pričakovano povpraševanje v storitvenih dejavnostih;ravnotežje v odstotnih točkah;M;7;;;;;;desezonirano
+1700102S;Poslovne tendence - pričakovanja;SURS--1700102S--2--6--M;Pričakovana proizvodnja;ravnotežje v odstotnih točkah;M;7;3;r;;;;trimesečne drseče sredine, desezonirano
+1700102S;Poslovne tendence - pričakovanja;SURS--1700102S--2--9--M;Pričakovan izvoz;ravnotežje v odstotnih točkah;M;7;3;r;;;;trimesečne drseče sredine, desezonirano
+1912002S;Poslovne tendence - pričakovanja;SURS--1912002S--2--6--M;Pričakovano zaposlovanje v gradbeništvu;ravnotežje v odstotnih točkah;M;7;3;r;;;;trimesečne drseče sredine, desezonirano
+2007402S;Poslovne tendence - pričakovanja;SURS--2007402S--2--12--M;Pričakovana prodaja v trgovini na drobno;ravnotežje v odstotnih točkah;M;7;3;r;;;;trimesečne drseče sredine, desezonirano
+2012102S;Poslovne tendence - pričakovanja;SURS--2012102S--2--3--M;Pričakovano povpraševanje v storitvenih dejavnostih;ravnotežje v odstotnih točkah;M;7;3;r;;;;trimesečne drseče sredine, desezonirano
+1700102S;Poslovne tendence - pričakovano zaposlovanje;SURS--1700102S--2--8--M;Predelovalne dejavnosti;ravnotežje v odstotnih točkah;M;8;;;;;;desezonirano
+1912002S;Poslovne tendence - pričakovano zaposlovanje;SURS--1912002S--2--6--M;Gradbeništvo;ravnotežje v odstotnih točkah;M;8;;;;;;desezonirano
+2007402S;Poslovne tendence - pričakovano zaposlovanje;SURS--2007402S--2--5--M;Trgovina na drobno;ravnotežje v odstotnih točkah;M;8;;;;;;desezonirano
+2012102S;Poslovne tendence - pričakovano zaposlovanje;SURS--2012102S--2--5--M;Storitvene dejavnosti;ravnotežje v odstotnih točkah;M;8;;;;;;desezonirano
+1700102S;Poslovne tendence - pričakovano zaposlovanje;SURS--1700102S--2--8--M;Predelovalne dejavnosti;ravnotežje v odstotnih točkah;M;8;3;r;;;;trimesečne drseče sredine, desezonirano
+1912002S;Poslovne tendence - pričakovano zaposlovanje;SURS--1912002S--2--6--M;Gradbeništvo;ravnotežje v odstotnih točkah;M;8;3;r;;;;trimesečne drseče sredine, desezonirano
+2007402S;Poslovne tendence - pričakovano zaposlovanje;SURS--2007402S--2--5--M;Trgovina na drobno;ravnotežje v odstotnih točkah;M;8;3;r;;;;trimesečne drseče sredine, desezonirano
+2012102S;Poslovne tendence - pričakovano zaposlovanje;SURS--2012102S--2--5--M;Storitvene dejavnosti;ravnotežje v odstotnih točkah;M;8;3;r;;;;trimesečne drseče sredine, desezonirano
+1700102S;Poslovne tendence - pričakovane cene;SURS--1700102S--2--7--M;Predelovalne dejavnosti;ravnotežje v odstotnih točkah;M;9;;;;;;desezonirano
+1912002S;Poslovne tendence - pričakovane cene;SURS--1912002S--2--8--M;Gradbeništvo;ravnotežje v odstotnih točkah;M;9;;;;;;desezonirano
+2007402S;Poslovne tendence - pričakovane cene;SURS--2007402S--2--7--M;Trgovina na drobno;ravnotežje v odstotnih točkah;M;9;;;;;;desezonirano
+2012102S;Poslovne tendence - pričakovane cene;SURS--2012102S--2--6--M;Storitvene dejavnosti;ravnotežje v odstotnih točkah;M;9;;;;;;desezonirano
+1700102S;Poslovne tendence - pričakovane cene;SURS--1700102S--2--7--M;Predelovalne dejavnosti;ravnotežje v odstotnih točkah;M;9;3;r;;;;trimesečne drseče sredine, desezonirano
+1912002S;Poslovne tendence - pričakovane cene;SURS--1912002S--2--8--M;Gradbeništvo;ravnotežje v odstotnih točkah;M;9;3;r;;;;trimesečne drseče sredine, desezonirano
+2007402S;Poslovne tendence - pričakovane cene;SURS--2007402S--2--7--M;Trgovina na drobno;ravnotežje v odstotnih točkah;M;9;3;r;;;;trimesečne drseče sredine, desezonirano
+2012102S;Poslovne tendence - pričakovane cene;SURS--2012102S--2--6--M;Storitvene dejavnosti;ravnotežje v odstotnih točkah;M;9;3;r;;;;trimesečne drseče sredine, desezonirano
+0811601S;Mnenje potrošnikov;SURS--0811601S--2--1--M;Kazalnik zaupanja potrošnikov;ravnotežje v odstotnih točkah;M;10;;;;;;desezonirano
+0811601S;Mnenje potrošnikov;SURS--0811601S--2--3--M;Finančno stanje v gospodinjstvu v prihodnjih 12 mesecih;ravnotežje v odstotnih točkah;M;10;;;;;;desezonirano
+0811601S;Mnenje potrošnikov;SURS--0811601S--2--5--M;Gospodarsko stanje v Sloveniji v prihodnjih 12 mesecih;ravnotežje v odstotnih točkah;M;10;;;;;;desezonirano
+0811601S;Mnenje potrošnikov;SURS--0811601S--2--7--M;Desezonirani podatki -- Gibanje cen v prihodnjih 12 mesecih;ravnotežje v odstotnih točkah;M;10;;;;;;desezonirano
+0811601S;Mnenje potrošnikov;SURS--0811601S--2--8--M;Raven brezposelnosti v prihodnjih 12 mesecih;ravnotežje v odstotnih točkah;M;10;;;;;;desezonirano
+0811601S;Mnenje potrošnikov;SURS--0811601S--2--12--M;Varčevanje v prihodnjih 12 mesecih;ravnotežje v odstotnih točkah;M;10;;;;;;desezonirano
+0811601S;Mnenje potrošnikov;SURS--0811601S--2--1--M;Kazalnik zaupanja potrošnikov;ravnotežje v odstotnih točkah;M;10;3;r;;;;trimesečne drseče sredine, desezonirano
+0811601S;Mnenje potrošnikov;SURS--0811601S--2--3--M;Finančno stanje v gospodinjstvu v prihodnjih 12 mesecih;ravnotežje v odstotnih točkah;M;10;3;r;;;;trimesečne drseče sredine, desezonirano
+0811601S;Mnenje potrošnikov;SURS--0811601S--2--5--M;Gospodarsko stanje v Sloveniji v prihodnjih 12 mesecih;ravnotežje v odstotnih točkah;M;10;3;r;;;;trimesečne drseče sredine, desezonirano
+0811601S;Mnenje potrošnikov;SURS--0811601S--2--7--M;Desezonirani podatki -- Gibanje cen v prihodnjih 12 mesecih;ravnotežje v odstotnih točkah;M;10;3;r;;;;trimesečne drseče sredine, desezonirano
+0811601S;Mnenje potrošnikov;SURS--0811601S--2--8--M;Raven brezposelnosti v prihodnjih 12 mesecih;ravnotežje v odstotnih točkah;M;10;3;r;;;;trimesečne drseče sredine, desezonirano
+0811601S;Mnenje potrošnikov;SURS--0811601S--2--12--M;Varčevanje v prihodnjih 12 mesecih;ravnotežje v odstotnih točkah;M;10;3;r;;;;trimesečne drseče sredine, desezonirano

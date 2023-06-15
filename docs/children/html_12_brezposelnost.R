@@ -57,5 +57,6 @@ subplot(fig1,  fig2,  nrows = 2, shareX = TRUE) |>
                                    prep_l$transf_txt, "(Vir: SURS & ZRSZ)"),
                       font = list(size = 12),
                       x = 0)) |>
-  rangeslider(as.Date("2000-01-01"), max(data$period) + 100)
+  rangeslider(as.Date("2000-01-01"), max(data$period) + 100)|>
+  config(modeBarButtonsToAdd = list(dl_button))
 

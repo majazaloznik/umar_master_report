@@ -19,40 +19,18 @@ purrr::reduce(prep_l2$data_points, dplyr::left_join, by = c("period_id", "period
 
 updated <- max(prep_l$updated, prep_l2$updated)
 
-fig1 <- data |>
+data |>
   plot_ly(x = ~period, width = 1000, height = 600) |>
-  add_bars(y = ~`value`,  hovertemplate="%{x|%b-%Y} %{y:.2f}%",
+  add_lines(y = ~`value`,  hovertemplate="%{x|%b-%Y} %{y:.2f}%",
            name = "Realni indeks opravljenih del v gradbeni\u0161tvu", color = I(umar_cols()[2])) |>
-  layout(annotations = list(x = 0 , y = 1, showarrow = F,
-                            xref='paper', yref='paper', text = paste("Posodobljeno:",prep_l$updated,
-                                                                     prep_l$transf_txt, "(Vir: SURS)"),
-                            font = list(size = 12)))
-
-fig2 <- data2 |>
-  plot_ly(x = ~period, width = 1000, height = 600) |>
-  add_lines(y = ~`value.x`,  hovertemplate="%{x|%b-%Y} %{y:.0f}",#showlegend = FALSE,
+  add_lines(data = data2, y = ~`value.x`,  hovertemplate="%{x|%b-%Y} %{y:.2f}%",#showlegend = FALSE,
             name = "Indeks ind.p.: pridobivanje rudnin in kamnin ", color = I(umar_cols()[1])) |>
-  add_lines(y = ~`value.y`,  hovertemplate="%{x|%b-%Y} %{y:.0f}",#showlegend = FALSE,
+  add_lines(data = data2, y = ~`value.y`,  hovertemplate="%{x|%b-%Y} %{y:.2f}%",#showlegend = FALSE,
             name = "Indeks ind.p.: proizvodnja nekovinskih mineralnih izdelkov ", color = I(umar_cols()[5])) |>
   layout(annotations = list(x = 0 , y = 1, showarrow = F,
-                            xref='paper', yref='paper', text = paste("Posodobljeno:",prep_l2$updated,
-                                                                     prep_l2$transf_txt, "(Vir: SURS, preračun UMAR)"),
+                            xref='paper', yref='paper', text = paste("Posodobljeno:",prep_l$updated,
+                                                                     prep_l$transf_txt, "(Vir: SURS & prera\u010dun UMAR)"),
                             font = list(size = 12))) |>
-  layout(
-    shapes = list(
-      list(
-        type = "line",
-        x0 = min(data$period), x1 = max(data$period),
-        y0 = 100, y1 = 100,
-        line = list(color = umar_cols("emph"), width = 1)
-      )
-    ))
-
-
-
-
-
-subplot( fig1, fig2, nrows = 2, shareX = TRUE) |>
   rangeslider(as.Date("2020-01-01"), max(data$period)+10) |>
   layout(font=list(family = "Myriad Pro"),
          autosize = F, margin = m,
@@ -67,4 +45,5 @@ subplot( fig1, fig2, nrows = 2, shareX = TRUE) |>
                              value = "%b %Y"),
                         list(dtickrange = list("M6", NULL),
                              value = "%Y"))))|>
-  layout(hovermode = 'x')
+  layout(hovermode = 'x') |>
+  config(modeBarButtonsToAdd = list(dl_button))

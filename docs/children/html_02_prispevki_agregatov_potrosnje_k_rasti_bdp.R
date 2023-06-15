@@ -10,9 +10,9 @@ purrr::reduce(prep_l2$data_points, dplyr::left_join, by = c("period_id", "period
   select(-period_id) |>
   as_tibble() |>
   mutate("Spremembe zalog in v.p" = coalesce(value.y.y, 0)+
-                                             coalesce(value, 0), .keep = "unused") -> data
-colnames(data)[2:6] <- c("Državna potrošnja", "Zasebna potrošnja", "Bruto investicije v o.s.",
-                         "Izvoz proizvodov in storitev", "Uvoz proizvodov in storitev")
+                                             coalesce(value.x.x.x.x, 0), .keep = "unused") -> data
+colnames(data)[2:7] <- c("Državna potrošnja", "Zasebna potrošnja", "Bruto investicije v o.s.",
+                         "Izvoz proizvodov in storitev", "Uvoz proizvodov in storitev", "Neto izvoz")
 prep_l$data_points[[1]] |>
   select(-period_id) |>
   relocate(period) |>
@@ -46,4 +46,5 @@ data |>
                              value = "%Y"))),
          title = list(text = paste("Posodobljeno:", updated, "(Vir: SURS)"),
                       font = list(size = 12),
-                      x = 0))
+                      x = 0))|>
+  config(modeBarButtonsToAdd = list(dl_button))

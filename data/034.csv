@@ -1,0 +1,4 @@
+﻿table_code;table_name;series_code;series_name;unit_name;interval_id;chart_no;chart_title;sub_chart;sub_chart_title;legend_label;rolling_average_periods;rolling_average_alignment;year_on_year;xmin;xmax;notes;
+0301935S;Izdatkovna struktura BDP, Slovenija, letno;SURS--0301935S--B1GQ--GY--A;Bruto domači proizvod -- Letna sprememba obsega (%);%;A;1;Prispevki agregatov potrošnje k rasti BDP (3);;;BDP;;;;;;linija;
+0301935S;Izdatkovna struktura BDP, Slovenija, letno;SURS--0301935S--B11--GOY--A;Saldo menjave s tujino -- Prispevek k letni rasti obsega BDP (odstotne točke);odstotne točke;A;2;Prispevki agregatov potrošnje k rasti BDP (3);;;Saldo menjave s tujo;;;;;;stacked column;
+0301935S;Izdatkovna struktura BDP, Slovenija, letno;SURS--0301935S--P3_P5--GOY--A;Domača potrošnja -- Prispevek k letni rasti obsega BDP (odstotne točke);odstotne točke;A;2;Prispevki agregatov potrošnje k rasti BDP (3);;;Domača potrošnja;;;;;;stacked column;domača potrošnja

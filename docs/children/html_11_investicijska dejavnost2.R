@@ -11,11 +11,11 @@ purrr::reduce(prep_l$data_points, dplyr::left_join, by = c("period_id", "period"
   dplyr::relocate( period) |>
   select(-period_id) |>
   as_tibble() -> data
-colnames(data)[2:3] <- c("Oprema in stroji", "Zgradbe in objekti")
+colnames(data)[2:4] <- c("Oprema in stroji", "Zgradbe in objekti", "Bruto investicije v osnovna sredstva")
 
 data <- data |> left_join(prep_l2$data_points[[1]]) |>
   select(-period_id) |>
-  rename("Spremembe zalog (desna os)" = value)
+  rename("Spremembe zalog" = value)
 
 updated <- prep_l$updated
 
@@ -26,13 +26,15 @@ fig1 <- data |>
             name = "Oprema in stroji", color = I(umar_cols()[1])) |>
   add_lines(y = ~`Zgradbe in objekti`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}%",
             name = "Zgradbe in objekti", color = I(umar_cols()[2])) |>
+  add_lines(y = ~`Bruto investicije v osnovna sredstva`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}%",
+            name = "Bruto investicije v osnovna sredstva", color = I(umar_cols()[4])) |>
   layout(font=list(family = "Myriad Pro"))
 
 fig2 <-  data |>
   plot_ly(x = ~period,hovertemplate="%{x|Q%q-%Y} %{y:.2f}", width = 1000,
           height = 600) |>
-  add_bars( x = data$period,  y = data$`Spremembe zalog (desna os)`,
-            name = "Spremembe zalog (desna os)",
+  add_bars( x = data$period,  y = data$`Spremembe zalog`,
+            name = "Spremembe zalog",
             color = I(umar_cols()[3])) |>
   layout(font=list(family = "Myriad Pro"))
 
@@ -53,5 +55,6 @@ subplot(fig1,  fig2,  nrows = 2, shareX = TRUE) |>
                                    prep_l$transf_txt, "(Vir: SURS)"),
                       font = list(size = 12),
                       x = 0)) |>
-  rangeslider(as.Date("2018-01-01"), max(data$period) + 100)
+  rangeslider(as.Date("2018-01-01"), max(data$period) + 100)|>
+  config(modeBarButtonsToAdd = list(dl_button))
 

@@ -55,4 +55,5 @@ subplot(fig1,  fig2,  fig3, nrows = 3, shareX = TRUE) |>
          title = list(text = paste("Posodobljeno:", updated,
                                    prep_l$transf_txt, "(Vir: SURS)"),
                       font = list(size = 12),
-                      x = 0))
+                      x = 0))|>
+  config(modeBarButtonsToAdd = list(dl_button))

@@ -1,0 +1,15 @@
+﻿table_code;table_name;series_code;series_name;unit_name;interval_id;chart_no;chart_title;sub_chart;sub_chart_title;legend_label;rolling_average_periods;rolling_average_alignment;year_on_year;xmin;xmax;notes
+1700107S;Poslovne tendence v predelovalnih dejavnostih - omejitveni dejavniki;SURS--1700107S--TOTA--2--1--Q;Ni omejitev;Podjetja v %;Q;1;;1;;;;;;;;y os 0-70
+1700107S;Poslovne tendence v predelovalnih dejavnostih - omejitveni dejavniki;SURS--1700107S--TOTA--2--13--Q;Negotove gospodarske razmere;Podjetja v %;Q;1;;1;;;;;;;;y os 0-70
+1700107S;Poslovne tendence v predelovalnih dejavnostih - omejitveni dejavniki;SURS--1700107S--TOTA--2--2--Q;Nezadostno domače povpraševanje;Podjetja v %;Q;1;;1;;;;;;;;y os 0-70
+1700107S;Poslovne tendence v predelovalnih dejavnostih - omejitveni dejavniki;SURS--1700107S--TOTA--2--3--Q;Nezadostno tuje povpraševanje;Podjetja v %;Q;1;;1;;;;;;;;y os 0-70
+1700107S;Poslovne tendence v predelovalnih dejavnostih - omejitveni dejavniki;SURS--1700107S--TOTA--2--4--Q;Konkurenčen uvoz;Podjetja v %;Q;1;;1;;;;;;;;y os 0-70
+1700107S;Poslovne tendence v predelovalnih dejavnostih - omejitveni dejavniki;SURS--1700107S--TOTA--2--5--Q;Pomanjkanje delavcev na splošno;Podjetja v %;Q;1;;2;;;;;;;;y os 0-70
+1700107S;Poslovne tendence v predelovalnih dejavnostih - omejitveni dejavniki;SURS--1700107S--TOTA--2--6--Q;Pomanjkanje usposobljenih delavcev;Podjetja v %;Q;1;;2;;;;;;;;y os 0-70
+1700107S;Poslovne tendence v predelovalnih dejavnostih - omejitveni dejavniki;SURS--1700107S--TOTA--2--7--Q;Pomanjkanje surovin;Podjetja v %;Q;1;;3;;;;;;;;y os 0-70
+1700107S;Poslovne tendence v predelovalnih dejavnostih - omejitveni dejavniki;SURS--1700107S--TOTA--2--8--Q;Pomanjkanje polizdelkov;Podjetja v %;Q;1;;3;;;;;;;;y os 0-70
+1700107S;Poslovne tendence v predelovalnih dejavnostih - omejitveni dejavniki;SURS--1700107S--TOTA--2--9--Q;Pomanjkanje ustrezne opreme;Podjetja v %;Q;1;;3;;;;;;;;y os 0-70
+1700107S;Poslovne tendence v predelovalnih dejavnostih - omejitveni dejavniki;SURS--1700107S--TOTA--2--10--Q;Neporavnane obveznosti iz poslovanja;Podjetja v %;Q;1;;4;;;;;;;;y os 0-70
+1700107S;Poslovne tendence v predelovalnih dejavnostih - omejitveni dejavniki;SURS--1700107S--TOTA--2--11--Q;Finančni problemi;Podjetja v %;Q;1;;4;;;;;;;;y os 0-70
+1700107S;Poslovne tendence v predelovalnih dejavnostih - omejitveni dejavniki;SURS--1700107S--TOTA--2--12--Q;Nejasna gospodarska zakonodaja;Podjetja v %;Q;1;;4;;;;;;;;y os 0-70
+1700107S;Poslovne tendence v predelovalnih dejavnostih - omejitveni dejavniki;SURS--1700107S--TOTA--2--14--Q;Drugo;Podjetja v %;Q;1;;4;;;;;;;;y os 0-70
