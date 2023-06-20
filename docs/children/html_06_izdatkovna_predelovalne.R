@@ -12,12 +12,12 @@ prep_l$data_points[[1]] |>
 
 data |>
   plot_ly(x = ~period, hovertemplate="%{x|Q%q-%Y} %{y:.2f}%", width = 1000) |>
-  add_bars(y = ~`value`, name = "Predelovalne dejavnostni - stopnja rasti obsega",  color = I(umar_cols()[1])) |>
+  add_lines(y = ~`value`, name = "Predelovalne dejavnostni - stopnja rasti obsega",  color = I(umar_cols()[1])) |>
   layout(barmode = "relative",
          showlegend = TRUE,
          autosize = F, margin = m,
          font=list(family = "Myriad Pro"),
-         yaxis = list(title = list(text="Medletna rast v %",
+         yaxis = list(title = list(text="Medletna rast, v %",
                                    font = list(size =12))),
          xaxis = list(title = "",
                       tickformatstops = list(

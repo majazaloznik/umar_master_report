@@ -22,7 +22,7 @@ data |>
          showlegend = TRUE,
          autosize = F, margin = m,
          font=list(family = "Myriad Pro"),
-         yaxis = list(title = list(text="Medletna rast, v %",
+         yaxis = list(title = list(text="\u010cetrtletna rast, v %",
                                    font = list(size =12))),
          xaxis = list(title = "",
                       tickformatstops = list(

@@ -70,7 +70,7 @@ data |>
          yaxis = list(title = list(text="Prispevki k medletni rasti BDP, v o.t",
                                    font = list(size =12))),
          xaxis = list(title = ""),
-         title = list(text = paste("Posodobljeno:", updated, "(Vir: SURS)"),
+         title = list(text = paste("Posodobljeno:", updated, "(Vir: SURS & prera\u010duni UMAR)"),
                       font = list(size = 12),
                       x = 0))|>
   config(modeBarButtonsToAdd = list(dl_button))

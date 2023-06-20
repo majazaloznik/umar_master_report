@@ -21,7 +21,7 @@ purrr::reduce(prep_l2$data_points, dplyr::left_join, by = c("period_id", "period
   as_tibble() -> data2
 
 data2 |>
-  plot_ly(x = ~period, hovertemplate="%{x|Q%q-%Y} %{y:.2f}%", width = 1000) |>
+  plot_ly(x = ~period, hovertemplate="%{x|%Y} %{y:.2f}%", width = 1000) |>
   add_lines(y = ~`stalne`, name = "BDP - stalne cene",  color = I(umar_cols()[1])) |>
   add_lines(y = ~`tekoce`, name = "BDP - teko\u010de cene",  color = I(umar_cols()[2])) |>
   layout(showlegend = TRUE,
@@ -31,10 +31,11 @@ data2 |>
                                    font = list(size =12))),
          xaxis = list(title = "",
                       tickformatstops = list(
-                        list(dtickrange = list("M1", "M6"),
-                             value = "Q%q-%Y"),
+                        list(dtickrange = list(NULL, "M6"),
+                             value = "%Y"),
                         list(dtickrange = list("M6", NULL),
-                             value = "%Y"))),
+                             value = "%Y")),
+                      rangemode = "tozero"),
          title = list(text = paste("Posodobljeno:", prep_l$updated, "(Vir: SURS & prera\u010duni UMAR))"),
                       font = list(size = 12),
                       x = 0)) |>

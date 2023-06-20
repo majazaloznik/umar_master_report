@@ -68,7 +68,7 @@ data |>
                              value = "Q%q-%Y"),
                         list(dtickrange = list("M6", NULL),
                              value = "%Y"))),
-         title = list(text = paste("Posodobljeno:", updated, "(Vir: SURS)"),
+         title = list(text = paste("Posodobljeno:", updated, "(Vir: SURS & prera\u010duni UMAR)"),
                       font = list(size = 12),
                       x = 0))|>
   config(modeBarButtonsToAdd = list(dl_button))

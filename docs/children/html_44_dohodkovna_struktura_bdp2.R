@@ -19,11 +19,11 @@ prep_l$data_points[[1]] |>
   as_tibble() -> data
 
 data |>
-  mutate(bpp = raw.x/BDPraw*value.x,
-         szz = raw.y/BDPraw*value.y,
-         dpu = raw.x.x/BDPraw*value.x.x,
-         snp = raw.y.y/BDPraw*value.y.y) -> data
-
+  mutate(bpp = lag(raw.x/BDPraw, 4)*value.x,
+         szz = lag(raw.y/BDPraw, 4)*value.y,
+         dpu = lag(raw.x.x/BDPraw, 4)*value.x.x,
+         snp = lag(raw.y.y/BDPraw, 4)*value.y.y) -> data
+write.csv2(data, "1.19.csv")
 updated <- max(prep_l$updated, prep_l2$updated)
 
 
@@ -34,7 +34,7 @@ data |>
   add_bars(y = ~`bpp`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}", name = "Bruto poslovni prese\u017eek/raznovrstni dohodek",  color = I(umar_cols()[1])) |>
   add_bars(y = ~`szz`, hovertemplate="%{x|Q%q-%Y} %{y:.2f}", name = "Sredstva za zaposlene",  color = I(umar_cols()[2])) |>
   add_bars(y = ~`dpu`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}",name = "Davki na proizvodnjo in uvoz",  color = I(umar_cols()[3])) |>
-  add_bars(y = ~`snp`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}", name = "Subvencije na proizvidnjo",  color = I(umar_cols()[4])) |>
+  add_bars(y = ~-`snp`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}", name = "Subvencije na proizvidnjo",  color = I(umar_cols()[4])) |>
   rangeslider(as.Date("2012-01-01"), max(data$period)+100) |>
   layout(barmode = "relative", font=list(family = "Myriad Pro"),
          autosize = F, margin = m,
@@ -42,7 +42,7 @@ data |>
                                    font = list(size =12))),
          xaxis = list(title = "",
                       tickformatstops = list(
-                        list(dtickrange = list("M1", "M6"),
+                        list(dtickrange = list(NULL, "M12"),
                              value = "Q%q-%Y"),
                         list(dtickrange = list("M6", NULL),
                              value = "%Y"))),

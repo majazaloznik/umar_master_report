@@ -10,22 +10,31 @@ purrr::reduce(prep_l$data_points, dplyr::left_join, by = c("period_id", "period"
   select(-period_id) |>
   as_tibble() -> data
 
-data |>
-  plot_ly(x = ~period, hovertemplate="%{x|Q%q-%Y} %{y:.2f}%", width = 1000) |>
-  add_lines(y = ~`value.x`, name = "Nominalni BDP",  color = I("black")) |>
-  add_lines(y = ~`value.y`, name = "Bruto poslovni prese\u017eek in razn. doh.",  color = I(umar_cols()[2])) |>
-  add_lines(y = ~`value.x.x`, name = "Sredstva za zaposlene",  color = I(umar_cols()[2])) |>
-  add_lines(y = ~`value.y.y`, name = "Davki na proizvodnjo in uvoz",  color = I(umar_cols()[3])) |>
-  add_lines(y = ~`value`, name = "Subvencije na proizvodnjo",  color = I(umar_cols()[4])) |>
+fig1 <- data |>
+  plot_ly(x = ~period, hovertemplate="%{x|%Y} %{y:.2f}%", width = 1000, height = 600) |>
+  add_lines(y = ~`value.x`, name = "Nominalni BDP",  color = I("black"),legendgroup = '1') |>
+  add_lines(y = ~`value.y`, name = "Bruto poslovni prese\u017eek in razn. doh.",  color = I(umar_cols()[1]),legendgroup = '1') |>
+  add_lines(y = ~`value.x.x`, name = "Sredstva za zaposlene",  color = I(umar_cols()[2]), legendgroup = '1') |>
+  add_lines(y = ~`value.y.y`, name = "Davki na proizvodnjo in uvoz",  color = I(umar_cols()[3]), legendgroup = '1')
+
+fig2 <- data |>
+  plot_ly(x = ~period, hovertemplate="%{x|%Y} %{y:.2f}%", width = 1000, height = 600) |>
+  add_lines(y = ~`value.x`, name = "Nominalni BDP",  color = I("black"), legendgroup = '2') |>
+  add_lines(y = ~`value`, name = "Subvencije na proizvodnjo",  color = I(umar_cols()[4]), legendgroup = '2')
+
+subplot(fig1,  fig2, nrows = 2, shareX = TRUE) |>
   layout(showlegend = TRUE,
-         autosize = F, margin = m,
+         legend = list(tracegroupgap = 150),
+         autosize = T, margin = m,
          font=list(family = "Myriad Pro"),
          yaxis = list(title = list(text="Medletna rast, v %",
+                                   font = list(size =12))),
+         yaxis2 = list(title = list(text="Medletna rast, v %",
                                    font = list(size =12))),
          xaxis = list(title = "",
                       tickformatstops = list(
                         list(dtickrange = list("M1", "M6"),
-                             value = "Q%q-%Y"),
+                             value = "%Y"),
                         list(dtickrange = list("M6", NULL),
                              value = "%Y"))),
          title = list(text = paste("Posodobljeno:", prep_l$updated, "(Vir: SURS & prera\u010dun UMAR)"),
@@ -33,6 +42,5 @@ data |>
                       x = 0)) |>
   rangeslider(as.Date("2012-01-01"), max(data$period) + 100) |>
   config(modeBarButtonsToAdd = list(dl_button))
-
 
 

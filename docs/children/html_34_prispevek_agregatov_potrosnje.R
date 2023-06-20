@@ -28,7 +28,7 @@ data |>
          showlegend = TRUE,
          autosize = F, margin = m,
          font=list(family = "Myriad Pro"),
-         yaxis = list(title = list(text="Prispevek k rasti BDP, v o.t",
+         yaxis = list(title = list(text="Prispevek k medletni rasti BDP, v o.t",
                                    font = list(size =12))),
          xaxis = list(title = "",
                       tickformatstops = list(

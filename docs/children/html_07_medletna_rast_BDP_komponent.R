@@ -60,7 +60,7 @@ subplot(fig1,  fig3, fig4,  nrows = 3, shareX = TRUE) |>
                         list(dtickrange = list("M6", NULL),
                              value = "%Y"))),
          title = list(text = paste("Posodobljeno:", prep_l$updated,
-                                   prep_l$transf_txt, "(Vir: SURS)"),
+                                   prep_l$transf_txt, "(Vir: SURS & prera\u010dun UMAR)"),
                       font = list(size = 12),
                       x = 0)) |>
   rangeslider(as.Date("2018-01-01"), max(data$period))|>

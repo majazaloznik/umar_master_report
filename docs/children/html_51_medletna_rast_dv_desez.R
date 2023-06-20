@@ -43,7 +43,7 @@ data4 |>
          opq = value.x.x,
          rst = value.y.y) -> data
 
-fig1 <- plot_ly(data, x = ~period, hovertemplate="%{x|%b-%Y} %{y:.2f}", width = 1000,
+fig1 <- plot_ly(data, x = ~period, hovertemplate="%{x|Q%q-%Y} %{y:.2f}", width = 1000,
                 height = 1000) |>
   add_lines(y = ~dv,  name = "Dodana vrednost",  color = I("black") ,  legendgroup = '1') |>
   add_lines(y = ~bcde,   name = "Industrija (BCDE)",color = I(umar_cols()[1]),  legendgroup = '1') |>
@@ -52,7 +52,7 @@ fig1 <- plot_ly(data, x = ~period, hovertemplate="%{x|%b-%Y} %{y:.2f}", width = 
                             xref='paper', yref='paper'))
 
 
-fig2 <- plot_ly(data, x = ~period, hovertemplate="%{x|%b-%Y} %{y:.2f}", width = 1000,
+fig2 <- plot_ly(data, x = ~period, hovertemplate="%{x|Q%q-%Y} %{y:.2f}", width = 1000,
                 height = 1000) |>
   add_lines(y = ~dv,  name = "Dodana vrednost",  color = I("black") ,  legendgroup = '2') |>
   add_lines(y = ~ghi,   name = "Trgovina, promet, gostinstvo (GHI)",color = I(umar_cols()[3]),  legendgroup = '2') |>
@@ -64,7 +64,7 @@ fig2 <- plot_ly(data, x = ~period, hovertemplate="%{x|%b-%Y} %{y:.2f}", width = 
                             xref='paper', yref='paper'))
 
 
-fig3 <- plot_ly(data, x = ~period, hovertemplate="%{x|%b-%Y} %{y:.2f}", width = 1000,
+fig3 <- plot_ly(data, x = ~period, hovertemplate="%{x|Q%q-%Y} %{y:.2f}", width = 1000,
                 height = 1000) |>
   add_lines(y = ~dv,  name = "Dodana vrednost",  color = I("black") ,  legendgroup = '3') |>
   add_lines(y = ~a,  name = "Kmetijstvo (A)",color = I(umar_cols()[8]),  legendgroup = '3') |>
@@ -82,11 +82,11 @@ subplot(fig1,  fig2, fig3,  nrows = 3, shareX = TRUE) |>
          legend = list(tracegroupgap = 200),
          autosize = T, margin = m,
          font=list(family = "Myriad Pro"),
-         yaxis = list(title = list(text="Medletna rast, v %",
+         yaxis = list(title = list(text="\u010cetrtletna sprememba, v %",
                                    font = list(size =12)), range = c(-30, 35)),
-         yaxis2 = list(title = list(text="Medletna rast, v %",
+         yaxis2 = list(title = list(text="\u010cetrtletna sprememba, v %",
                                     font = list(size =12)), range = c(-30, 35)),
-         yaxis3 = list(title = list(text="Medletna rast, v %",
+         yaxis3 = list(title = list(text="\u010cetrtletna sprememba, v %",
                                     font = list(size =12)), range = c(-30, 35)),
          xaxis = list(title = "",
                       rangeslider = list(thickness = 0.05),

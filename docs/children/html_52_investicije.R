@@ -1,4 +1,4 @@
-#### Prispevki agregatov potrošnje k rasti BDP
+#### Investicije
 # get data
 df <- read.csv2(here::here("data/038.csv"), encoding = "UTF-8")
 spl <- split(df, df$chart_no)
@@ -22,19 +22,27 @@ updated <- max(prep_l$updated, prep_l2$updated)
 
 
 # plot
-data |>
+fig1 <- data |>
   plot_ly(x = ~period, width = 1000) |>
-  add_lines(y = ~bios,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}%", name = "Bruto investicije v osnovna sredstva (v %)", color = I(umar_cols()[1])) |>
-  add_bars(y = ~`sz`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}", name = "Sprememebe zalog",  color = I(umar_cols()[3])) |>
+  add_lines(y = ~bios,  hovertemplate="%{x|%Y} %{y:.2f}%", name = "Bruto investicije v osnovna sredstva", color = I(umar_cols()[1]))
+fig2 <- data |>
+  plot_ly(x = ~period, width = 1000) |>
+  add_bars(y = ~`sz`,  hovertemplate="%{x|%Y} %{y:.2f%", name = "Sprememebe zalog",  color = I(umar_cols()[3]))
+
+  subplot(fig1,  fig2, nrows = 2, shareX = TRUE) |>
   rangeslider(as.Date("2012-01-01"), max(data$period)+100) |>
-  layout(barmode = "relative", font=list(family = "Myriad Pro"),
+  layout(showlegend = TRUE,
+         legend = list(tracegroupgap = 150),
+         font=list(family = "Myriad Pro"),
          autosize = F, margin = m,
-         yaxis = list(title = list(text="Prispevki k medletni rasti BDP, v o.t",
+         yaxis = list(title = list(text="Medletna rast, v %",
+                                   font = list(size =12))),
+         yaxis2 = list(title = list(text="Prispevki k medletni rasti BDP, v o.t",
                                    font = list(size =12))),
          xaxis = list(title = "",
                       tickformatstops = list(
                         list(dtickrange = list("M1", "M6"),
-                             value = "Q%q-%Y"),
+                             value = "%Y"),
                         list(dtickrange = list("M6", NULL),
                              value = "%Y"))),
          title = list(text = paste("Posodobljeno:", updated, "(Vir: SURS)"),

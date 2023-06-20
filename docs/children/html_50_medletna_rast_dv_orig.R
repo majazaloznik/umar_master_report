@@ -43,7 +43,12 @@ data4 |>
          opq = value.x.x,
          rst = value.y.y) -> data
 
-fig1 <- plot_ly(data, x = ~period, hovertemplate="%{x|%b-%Y} %{y:.2f}", width = 1000,
+updated <- max(prep_l$updated,
+               prep_l2$updated,
+               prep_l3$updated,
+               prep_l4$updated)
+
+fig1 <- plot_ly(data, x = ~period, hovertemplate="%{x|Q%q-%Y} %{y:.2f}", width = 1000,
                 height = 1000) |>
   add_lines(y = ~dv,  name = "Dodana vrednost",  color = I("black") ,  legendgroup = '1') |>
   add_lines(y = ~bcde,   name = "Industrija (BCDE)",color = I(umar_cols()[1]),  legendgroup = '1') |>
@@ -52,7 +57,7 @@ fig1 <- plot_ly(data, x = ~period, hovertemplate="%{x|%b-%Y} %{y:.2f}", width = 
                             xref='paper', yref='paper'))
 
 
-fig2 <- plot_ly(data, x = ~period, hovertemplate="%{x|%b-%Y} %{y:.2f}", width = 1000,
+fig2 <- plot_ly(data, x = ~period, hovertemplate="%{x|Q%q-%Y} %{y:.2f}", width = 1000,
                 height = 1000) |>
   add_lines(y = ~dv,  name = "Dodana vrednost",  color = I("black") ,  legendgroup = '2') |>
   add_lines(y = ~ghi,   name = "Trgovina, promet, gostinstvo (GHI)",color = I(umar_cols()[3]),  legendgroup = '2') |>
@@ -64,7 +69,7 @@ fig2 <- plot_ly(data, x = ~period, hovertemplate="%{x|%b-%Y} %{y:.2f}", width = 
                             xref='paper', yref='paper'))
 
 
-fig3 <- plot_ly(data, x = ~period, hovertemplate="%{x|%b-%Y} %{y:.2f}", width = 1000,
+fig3 <- plot_ly(data, x = ~period, hovertemplate="%{x|Q%q-%Y} %{y:.2f}", width = 1000,
                 height = 1000) |>
   add_lines(y = ~dv,  name = "Dodana vrednost",  color = I("black") ,  legendgroup = '3') |>
   add_lines(y = ~a,  name = "Kmetijstvo (A)",color = I(umar_cols()[8]),  legendgroup = '3') |>
@@ -91,11 +96,11 @@ subplot(fig1,  fig2, fig3,  nrows = 3, shareX = TRUE) |>
          xaxis = list(title = "",
                       rangeslider = list(thickness = 0.05),
                       tickformatstops = list(
-                        list(dtickrange = list("M1", "M6"),
-                             value = "Q%b %Y"),
+                        list(dtickrange = list(NULL, "M6"),
+                             value = "Q%q-%Y"),
                         list(dtickrange = list("M6", NULL),
                              value = "%Y"))),
-         title = list(text = paste("Posodobljeno:", prep_l$updated,
+         title = list(text = paste("Posodobljeno:", updated,
                                    prep_l$transf_txt, "(Vir: SURS)"),
                       font = list(size = 12),
                       x = 0)) |>

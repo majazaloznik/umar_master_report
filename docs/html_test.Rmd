@@ -58,7 +58,7 @@ m <- list(
 ```{r, code=readLines("children/html_08_bdp_cetrtletna_rast.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
-## BDP - stalne cene (2010) desezonirano
+## Nominalen in realen BDP, v mio EUR BDP (desezonirani podatki)
 
 ```{r, code=readLines("children/html_03_bdp_desez_stalne_cene.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 
@@ -68,7 +68,7 @@ m <- list(
 ```
 
 
-## Medletna rast BDP in komponent
+## Medletna rast BDP in izdatkovnih komponent
 
 ```{r, code=readLines("children/html_07_medletna_rast_BDP_komponent.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
@@ -77,13 +77,13 @@ m <- list(
 
 ```{r, code=readLines("children/html_02_prispevki_agregatov_potrosnje_k_rasti_bdp.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
-## Prispevki agregatov potrošnje k rasti BDP - neto izvoz
+## Prispevki agregatov potrošnje k rasti BDP (z neto izvozom)
 ```{r, code=readLines("children/html_02_prispevki_agregatov_potrosnje_k_rasti_bdp2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
-## Prispevki agregatov potrošnje k rasti BDP
+## Prispevki agregatov potrošnje k rasti BDP (domača potrošnja in neto izvoz)
 ```{r, code=readLines("children/html_34_prispevek_agregatov_potrosnje.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
-## Četrtletna rast BDP in agregatov potrošnje
+## Četrtletna rast BDP in agregatov potrošnje (desezonirani podatki)
 ```{r, code=readLines("children/html_36_cetrtletna_bdp_in_agregatov_potrosnje.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
@@ -93,7 +93,7 @@ m <- list(
 
 ```
 
-## Bruto investicije & končna potrošnja - medletna stopnja rasti
+## Medletna rast bruto investicij v OS in končne potrošnje gospodinjstev
 
 ```{r, code=readLines("children/html_05_bdp_rast_gosp_invest.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
@@ -113,24 +113,24 @@ m <- list(
 ```{r, code=readLines("children/html_38_medletna_rast_uvoza.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
-## Četrtletna rast izvoza blaga in storitev
+## Četrtletna rast izvoza blaga in storitev (desezonirani podatki)
 ```{r, code=readLines("children/html_39_cetrtletna_rast_izvoza.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
-## Četrtletna rast uvoza blaga in storitev
+## Četrtletna rast uvoza blaga in storitev (desezonirani podatki)
 ```{r uvozbs, code=readLines("children/html_40_cetrtletna_rast_uvoza.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
-## Predelovalne struktura BDP - predelovalne dejavnosti
+## Medletna rast dodane vrednosti v predelovalnih dejavnostih
 
 ```{r predelovalna, code=readLines("children/html_06_izdatkovna_predelovalne.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
-## Dohodkovna struktura BDP
+## Medletna rast nominalnega BDP in komponent po dohodkovni strukturi
 
 ```{r dohodkovna, code=readLines("children/html_42_dohodkovna_struktura_bdp.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
-## Dohodkovna struktura BDP - prispevek k rasti
+## Dohodkovna struktura BDP - prispevki k rasti
 
 ```{r dohodkovna2, code=readLines("children/html_44_dohodkovna_struktura_bdp2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
@@ -146,7 +146,7 @@ m <- list(
 ```
 
 
-## Četrtletna rast dodane vrednosti in posameznih dejavnosti
+## Četrtletna rast dodane vrednosti in posameznih dejavnosti (desezonirani podakti)
 
 
 ```{r, code=readLines("children/html_51_medletna_rast_dv_desez.R"), echo=FALSE, message=FALSE,  warning = FALSE}
@@ -155,12 +155,8 @@ m <- list(
 
 # Nacionalni računi - letno
 
-## Prispevki rasti dodane vrednosti posameznih dejavnosti k rasti BDP
 
-```{r, code=readLines("children/html_23_prispevki_dodane_vrednosti_BDP.R"), echo=FALSE, message=FALSE,  warning = FALSE}
-```
-
-## BDP
+## Realna in nominalna letna rast BDP
 
 ```{r, code=readLines("children/html_45_bdp_letni.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
@@ -169,11 +165,11 @@ m <- list(
 ```{r agregatip_let, code=readLines("children/html_46_prispevki_agregatov_potrosnje_k_rasti_bdp_letni.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
-## Prispevki agregatov potrošnje k rasti BDP - neto izvoz
+## Prispevki agregatov potrošnje k rasti BDP (z neto izvozom)
 ```{r agregatip_let_saldo, code=readLines("children/html_47_prispevki_agregatov_potrosnje_k_rasti_bdp_letni2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
-## Prispevki agregatov potrošnje k rasti BDP
+## Prispevki agregatov potrošnje k rasti BDP (domača potrošnja in neto izvoz)
 ```{r, code=readLines("children/html_48_prispevek_agregatov_potrosnje_letni.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
@@ -193,13 +189,23 @@ m <- list(
 ```{r, code=readLines("children/html_54_rast_uvoza_blaga_storitev.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
+## Prispevki rasti dodane vrednosti posameznih dejavnosti k rasti BDP
 
-## Dohodkovna struktura BDP
+```{r, code=readLines("children/html_23_prispevki_dodane_vrednosti_BDP.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+
+## Letna rast nominalnega BDP in komponent po dohodkovni strukturi
 ```{r, code=readLines("children/html_55_dohodkovna_struktura.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
-## Dohodkovna struktura BDP - delež
+## Deleži komponent dohodkovne strukture BDP
 ```{r, code=readLines("children/html_55_dohodkovna_struktura_delez.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
+
+## Rast dodane vrednosti in posameznih dejavnosti
+```{r, code=readLines("children/html_56_rast_dv_posamezne_dejavnosti_letne.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
 
 # Kazalniki razpoloženja - mesečno
 

@@ -11,7 +11,7 @@ purrr::reduce(prep_l$data_points, dplyr::left_join, by = c("period_id", "period"
   as_tibble() -> data
 
 data |>
-  plot_ly(x = ~period, hovertemplate="%{x|Q%q-%Y} %{y:.2f}%", width = 1000) |>
+  plot_ly(x = ~period, hovertemplate="%{x|%Y} %{y:.2f}%", width = 1000) |>
   add_lines(y = ~`value.x`, name = "Izvoz blaga in storitev",  color = I(umar_cols()[1])) |>
   add_lines(y = ~`value.y`, name = "Izvoz blaga",  color = I(umar_cols()[2])) |>
   add_lines(y = ~`value`, name = "Izvoz storitev",  color = I(umar_cols()[3])) |>
@@ -24,7 +24,7 @@ data |>
          xaxis = list(title = "",
                       tickformatstops = list(
                         list(dtickrange = list("M1", "M6"),
-                             value = "Q%q-%Y"),
+                             value = "%Y"),
                         list(dtickrange = list("M6", NULL),
                              value = "%Y"))),
          title = list(text = paste("Posodobljeno:", prep_l$updated, "(Vir: SURS)"),
