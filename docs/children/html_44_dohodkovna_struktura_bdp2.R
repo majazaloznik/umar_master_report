@@ -23,7 +23,7 @@ data |>
          szz = lag(raw.y/BDPraw, 4)*value.y,
          dpu = lag(raw.x.x/BDPraw, 4)*value.x.x,
          snp = lag(raw.y.y/BDPraw, 4)*value.y.y) -> data
-write.csv2(data, "1.19.csv")
+
 updated <- max(prep_l$updated, prep_l2$updated)
 
 
