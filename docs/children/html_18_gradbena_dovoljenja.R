@@ -27,7 +27,10 @@ fig1 <- data |>
   add_bars(y = ~`prav_nesta`,  hovertemplate="%{x|%m-%Y} %{y:.0f}",
            name = "Pravne osebe - nestanovanjske stavbe", color = I(umar_cols()[5]))
 
-
+for(i in 1:8) {
+  fig1 <- fig1 |>
+    add_lines(y = ~c,  name = "\u200A",  color = I('rgba(0,0,0,0)'))
+}
 
 fig2 <- data |>
   plot_ly(x = ~period, width = 1000, height = 600) |>
@@ -44,6 +47,7 @@ fig2 <- data |>
 subplot( fig1, fig2, nrows = 2, shareX = TRUE) |>
   rangeslider(as.Date("2015-01-01"), max(data$period)+10) |>
   layout(font=list(family = "Myriad Pro"),
+         legend = list(traceorder="normal"),
          barmode = 'stack',
          autosize = F, margin = m,
          yaxis = list(title = list(text="Povr\u0161ina, v m<sup>2</sup>",

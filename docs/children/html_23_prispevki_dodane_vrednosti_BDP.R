@@ -62,7 +62,7 @@ data |>
   add_bars(data = data2, y = ~pred.d,  hovertemplate="%{x|%Y} %{y:.2f}", name = "Predelovalne dejavnosti (C)",  color = I(umar_cols()[8])) |>
     add_bars(data = data2, y = ~gradb, hovertemplate="%{x|%Y} %{y:.2f}", name = "Gradbeni\u0161tvo (F)",  color = I(umar_cols()[5])) |>
   add_bars(data = data3, y = ~javne, hovertemplate="%{x|%Y} %{y:.2f}", name = "Javne storitve (O-Q)",  color = I(umar_cols()[6])) |>
-  add_bars(data = data4, y = ~trzne,  hovertemplate="%{x|%Y} %{y:.2f}",name = "Tr\u017ene dejavnosti (G-N, R, S, T)",  color = I(umar_cols()[1])) |>
+  add_bars(data = data4, y = ~trzne,  hovertemplate="%{x|%Y} %{y:.2f}",name = "Tr\u017ene storitve (G-N, R, S, T)",  color = I(umar_cols()[1])) |>
   add_bars(data = data5, y = ~ostalo,  hovertemplate="%{x|%Y} %{y:.2f}", name = "Ostalo (A, B, D, E)",  color = I(umar_cols()[4])) |>
   rangeslider(as.Date("2013-01-01"), max(data$period)+200) |>
   layout(barmode = "relative", font=list(family = "Myriad Pro"),

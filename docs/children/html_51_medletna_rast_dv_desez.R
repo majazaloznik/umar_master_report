@@ -44,33 +44,44 @@ data4 |>
          rst = value.y.y) -> data
 
 fig1 <- plot_ly(data, x = ~period, hovertemplate="%{x|Q%q-%Y} %{y:.2f}", width = 1000,
-                height = 1000) |>
-  add_lines(y = ~dv,  name = "Dodana vrednost",  color = I("black") ,  legendgroup = '1') |>
-  add_lines(y = ~bcde,   name = "Industrija (BCDE)",color = I(umar_cols()[1]),  legendgroup = '1') |>
-  add_lines(y = ~c,  name = "Predelovalne dejavnosti (C)",  color = I(umar_cols()[2]),  legendgroup = '1') |>
+                height = 800) |>
+  add_lines(y = ~dv,  name = "Dodana vrednost",  color = I("black") ) |>
+  add_lines(y = ~bcde,   name = "Industrija (BCDE)",color = I(umar_cols()[1])) |>
+  add_lines(y = ~c,  name = "Predelovalne dejavnosti (C)",  color = I(umar_cols()[2])) |>
   layout(annotations = list(x = 0. , y = 1, text = "Industrija", showarrow = F,
                             xref='paper', yref='paper'))
 
+for(i in 1:9) {
+  fig1 <- fig1 |>
+    add_lines(y = ~c,  name = "\u200A",  color = I('rgba(0,0,0,0)'))
+}
 
 fig2 <- plot_ly(data, x = ~period, hovertemplate="%{x|Q%q-%Y} %{y:.2f}", width = 1000,
-                height = 1000) |>
-  add_lines(y = ~dv,  name = "Dodana vrednost",  color = I("black") ,  legendgroup = '2') |>
-  add_lines(y = ~ghi,   name = "Trgovina, promet, gostinstvo (GHI)",color = I(umar_cols()[3]),  legendgroup = '2') |>
-  add_lines(y = ~J,  name = "IKT dejavnosti (J)",  color = I(umar_cols()[4]),  legendgroup = '2') |>
-  add_lines(y = ~K,  name = "Finan\u010dne in zavaroval. Dej. (K)",  color = I(umar_cols()[5]),  legendgroup = '2') |>
-  add_lines(y = ~l,  name = "Poslovanje z neprem. (L)",  color = I(umar_cols()[6]),  legendgroup = '2') |>
-  add_lines(y = ~mn,  name = "MN dejavnosti",  color = I(umar_cols()[2]),  legendgroup = '2') |>
+                height = 800) |>
+  add_lines(y = ~dv,  name = "Dodana vrednost",  color = I("black") ) |>
+  add_lines(y = ~ghi,   name = "Trgovina, promet, gostinstvo (GHI)",color = I(umar_cols()[3])) |>
+  add_lines(y = ~J,  name = "IKT dejavnosti (J)",  color = I(umar_cols()[4])) |>
+  add_lines(y = ~K,  name = "Finan\u010dne in zavaroval. Dej. (K)",  color = I(umar_cols()[5])) |>
+  add_lines(y = ~l,  name = "Poslovanje z neprem. (L)",  color = I(umar_cols()[6])) |>
+  add_lines(y = ~mn,  name = "MN dejavnosti",  color = I(umar_cols()[2])) |>
+  add_lines(y = ~mn,  name = "\u200A",  color = I('rgba(0,0,0,0)')) |>
   layout(annotations = list(x = 0. , y = 1, text = "Tr\u017ene storitve", showarrow = F,
                             xref='paper', yref='paper'))
 
+for(i in 1:5) {
+  fig2 <- fig2 |>
+    add_lines(y = ~c,  name = "\u200A",  color = I('rgba(0,0,0,0)'))
+}
+
 
 fig3 <- plot_ly(data, x = ~period, hovertemplate="%{x|Q%q-%Y} %{y:.2f}", width = 1000,
-                height = 1000) |>
-  add_lines(y = ~dv,  name = "Dodana vrednost",  color = I("black") ,  legendgroup = '3') |>
-  add_lines(y = ~a,  name = "Kmetijstvo (A)",color = I(umar_cols()[8]),  legendgroup = '3') |>
-  add_lines(y = ~f, name = "Gradbeni\u0161tvo (F)",  color = I(umar_cols()[1]),  legendgroup = '3') |>
-  add_lines(y = ~opq,   name = "Javne storitve (OPQ)",color = I(umar_cols()[7]),  legendgroup = '3') |>
-  add_lines(y = ~rst,  name = "Druge storitve (RST)",  color = I(umar_cols()[3]),  legendgroup = '3') |>
+                height = 800) |>
+  add_lines(y = ~dv,  name = "Dodana vrednost",  color = I("black") ) |>
+  add_lines(y = ~a,  name = "Kmetijstvo (A)",color = I(umar_cols()[8])) |>
+  add_lines(y = ~f, name = "Gradbeni\u0161tvo (F)",  color = I(umar_cols()[1])) |>
+  add_lines(y = ~opq,   name = "Javne storitve (OPQ)",color = I(umar_cols()[7])) |>
+  add_lines(y = ~rst,  name = "Druge storitve (RST)",  color = I(umar_cols()[3])) |>
+  add_lines(y = ~rst,  name = "\u200A",  color = I('rgba(0,0,0,0)')) |>
   layout(annotations = list(x = 0. , y = 1, text = "Ostalo", showarrow = F,
                             xref='paper', yref='paper'))
 
@@ -79,20 +90,19 @@ fig3 <- plot_ly(data, x = ~period, hovertemplate="%{x|Q%q-%Y} %{y:.2f}", width =
 
 subplot(fig1,  fig2, fig3,  nrows = 3, shareX = TRUE) |>
   layout(showlegend = TRUE,
-         legend = list(tracegroupgap = 200),
-         autosize = T, margin = m,
+         autosize = F, margin = m,
          font=list(family = "Myriad Pro"),
          yaxis = list(title = list(text="\u010cetrtletna sprememba, v %",
-                                   font = list(size =12)), range = c(-30, 35)),
+                                   font = list(size =12)), range = c(-30, 35), fixedrange = FALSE),
          yaxis2 = list(title = list(text="\u010cetrtletna sprememba, v %",
-                                    font = list(size =12)), range = c(-30, 35)),
+                                    font = list(size =12)), range = c(-30, 35),fixedrange = FALSE),
          yaxis3 = list(title = list(text="\u010cetrtletna sprememba, v %",
-                                    font = list(size =12)), range = c(-30, 35)),
+                                    font = list(size =12)), range = c(-30, 35), fixedrange = FALSE),
          xaxis = list(title = "",
                       rangeslider = list(thickness = 0.05),
                       tickformatstops = list(
                         list(dtickrange = list("M1", "M6"),
-                             value = "Q%b %Y"),
+                             value = "Q%q-%Y"),
                         list(dtickrange = list("M6", NULL),
                              value = "%Y"))),
          title = list(text = paste("Posodobljeno:", prep_l$updated,

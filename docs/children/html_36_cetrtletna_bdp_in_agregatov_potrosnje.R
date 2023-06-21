@@ -20,7 +20,7 @@ data |>
             name = "Potro\u0161nja dr\u017eave", color = I(umar_cols()[1])) |>
   add_lines(y = ~`value.y.y`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}%",#showlegend = FALSE,
             name = "Bruto investicije v OS", color = I(umar_cols()[4])) |>
-  add_lines(y = ~`value.x.x.x`,  hovertemplate="%{Q%q-%Y} %{y:.2f}%",#showlegend = FALSE,
+  add_lines(y = ~`value.x.x.x`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}%",#showlegend = FALSE,
             name = "Izvoz blaga in storitev", color = I(umar_cols()[5])) |>
   add_lines(y = ~`value.y.y.y`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}%",#showlegend = FALSE,
             name = "Uvoz blaga in storitev", color = I(umar_cols()[6])) |>

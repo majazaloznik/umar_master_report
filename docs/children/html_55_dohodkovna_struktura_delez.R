@@ -26,8 +26,8 @@ data |>
                               font = list(size =12))),
     xaxis = list(title = "",
                  tickformatstops = list(
-                   list(dtickrange = list("M1", "M6"),
-                        value = "Q%q-%Y"),
+                   list(dtickrange = list(NULL, "M6"),
+                        value = "%Y"),
                    list(dtickrange = list("M6", NULL),
                         value = "%Y"))),
     title = list(text = paste("Posodobljeno:", prep_l$updated, "(Vir: SURS)"),

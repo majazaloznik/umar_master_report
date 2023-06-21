@@ -44,7 +44,10 @@ fig1 <- data |>
       )
     ))
 
-
+for(i in 1:8) {
+  fig1 <- fig1 |>
+    add_lines(y = ~c,  name = "\u200A",  color = I('rgba(0,0,0,0)'))
+}
 fig2 <- data2 |>
   plot_ly(x = ~period, width = 1000,
           height = 600) |>
@@ -70,12 +73,12 @@ subplot(fig1,  fig2,  nrows = 2, shareX = TRUE) |>
          autosize = F, margin =  m,
          font=list(family = "Myriad Pro"),
          yaxis = list(
-           title = list(text="3-m drsea\u010da sredina (desna) indeksa (2015)",
+           title = list(text="Indeks (2015)",
                         font = list(size =12)),
            fixedrange = FALSE),
          yaxis2 = list(
-           title = list(text="3-m drsea\u010da sredina (desna) indeksa (2015)",
-                        font = list(size =12)), fixedrange = FALSE),
+           title = list(text="Indeks (2015)",
+                        font = list(size =12)), range = c(0, 900),fixedrange = FALSE),
          xaxis = list(title = "",
                       rangeslider = list(thickness = 0.1),
                       tickformatstops = list(

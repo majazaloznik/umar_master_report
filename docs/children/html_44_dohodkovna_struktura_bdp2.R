@@ -34,7 +34,7 @@ data |>
   add_bars(y = ~`bpp`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}", name = "Bruto poslovni prese\u017eek/raznovrstni dohodek",  color = I(umar_cols()[1])) |>
   add_bars(y = ~`szz`, hovertemplate="%{x|Q%q-%Y} %{y:.2f}", name = "Sredstva za zaposlene",  color = I(umar_cols()[2])) |>
   add_bars(y = ~`dpu`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}",name = "Davki na proizvodnjo in uvoz",  color = I(umar_cols()[3])) |>
-  add_bars(y = ~-`snp`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}", name = "Subvencije na proizvidnjo",  color = I(umar_cols()[4])) |>
+  add_bars(y = ~-`snp`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}", name = "Subvencije na proizvodnjo",  color = I(umar_cols()[4])) |>
   rangeslider(as.Date("2012-01-01"), max(data$period)+100) |>
   layout(barmode = "relative", font=list(family = "Myriad Pro"),
          autosize = F, margin = m,

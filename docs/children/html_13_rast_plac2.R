@@ -26,12 +26,24 @@ fig1 <- data |>
   add_lines(y = ~`javni_roll`,  hovertemplate="%{x|%m-%Y} %{y:.2f}%",
             name = "Javni sektor  zglajeni", color = I(umar_cols()[1]))
 
+for(i in 1:6) {
+  fig1 <- fig1 |>
+    add_lines(y = ~`javni`,  name = "\u200A",  color = I('rgba(0,0,0,0)'))
+}
+
 fig2 <- data |>
   plot_ly(x = ~period, width = 1000, height = 600) |>
   add_lines(y = ~`zasebni`,  hovertemplate="%{x|%m-%Y} %{y:.2f}%",
             name = "Zasebni sektor - originalni", color = I(umar_cols()[3])) |>
   add_lines(y = ~`zasebni_roll`,  hovertemplate="%{x|%m-%Y} %{y:.2f}%",
             name = "Zasebni sektor  zglajeni", color = I(umar_cols()[2]))
+
+for(i in 1:6) {
+  fig2 <- fig2 |>
+    add_lines(y = ~`zasebni`,  name = "\u200A",  color = I('rgba(0,0,0,0)'))
+}
+
+
 fig3 <- data |>
   plot_ly(x = ~period, width = 1000, height = 600) |>
   add_lines(y = ~`skupaj`,  hovertemplate="%{x|%m-%Y} %{y:.2f}%",
@@ -44,7 +56,10 @@ subplot(fig1,  fig2,  fig3, nrows = 3, shareX = TRUE) |>
   layout(font=list(family = "Myriad Pro"),
          autosize = F, margin = m,
          yaxis2 = list(title = list(text="3-m ds medletne spremembe, v %",
-                                   font = list(size =12))),
+                                   font = list(size =12)),
+                       range = c(-10, 20), fixedrange = FALSE),
+         yaxis = list(range = c(-10, 20), fixedrange = FALSE),
+         yaxis3 = list(range = c(-10, 20), fixedrange = FALSE),
          xaxis = list(title = "",
                       rangeslider = list(thickness = 0.07),
                       tickformatstops = list(

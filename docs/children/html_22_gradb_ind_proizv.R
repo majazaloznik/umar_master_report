@@ -35,9 +35,7 @@ data |>
   layout(font=list(family = "Myriad Pro"),
          autosize = F, margin = m,
          yaxis = list(title = list(text="Medletna sprememba, v %",
-                                   font = list(size =12))),
-         yaxis2 = list(title = list(text="Indeks (povpre\u010dje leta 2015)",
-                                    font = list(size =12))),
+                                   font = list(size =12)), fixedrange = FALSE),
          xaxis = list(title = "",
                       rangeslider = list(thickness = 0.1),
                       tickformatstops = list(
@@ -45,5 +43,5 @@ data |>
                              value = "%b %Y"),
                         list(dtickrange = list("M6", NULL),
                              value = "%Y"))))|>
-  layout(hovermode = 'x') |>
+  # layout(hovermode = 'x') |>
   config(modeBarButtonsToAdd = list(dl_button))

@@ -21,8 +21,8 @@ purrr::reduce(prep_l2$data_points, dplyr::left_join, by = c("period_id", "period
 
 data |>
   plot_ly(x = ~period, hovertemplate="%{x|%Y} %{y:.2f}%", width = 1000) |>
-  add_bars(y = ~`value.x`, name = "Doma\u010da potro\u0161nja",  color = I(umar_cols()[1])) |>
-  add_bars(y = ~`value.y`, name = "Neto izvoz",  color = I(umar_cols()[2])) |>
+  add_bars(y = ~`value.x`, name = "Neto izvoz",  color = I(umar_cols()[1])) |>
+  add_bars(y = ~`value.y`, name = "Doma\u010da potro\u0161nja",  color = I(umar_cols()[2])) |>
   add_lines(y = ~`value`, name = "Realna rast BDP (v %)",  color = I("black")) |>
   layout(barmode = "relative",
          showlegend = TRUE,

@@ -87,6 +87,12 @@ m <- list(
 ```{r, code=readLines("children/html_36_cetrtletna_bdp_in_agregatov_potrosnje.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
+## Investicijska dejavnost
+
+```{r, code=readLines("children/html_11_investicijska dejavnost2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+
 ## Spremembe zalog - prispevek k rasti BDP
 
 ```{r, code=readLines("children/html_04_bdp_prispevek_zaloge.R"), echo=FALSE, message=FALSE,  warning = FALSE}
@@ -99,10 +105,6 @@ m <- list(
 ```
 
 
-## Investicijska dejavnost
-
-```{r, code=readLines("children/html_11_investicijska dejavnost2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
-```
 
 
 ## Medletna rast izvoza blaga in storitev
@@ -119,20 +121,6 @@ m <- list(
 
 ## Četrtletna rast uvoza blaga in storitev (desezonirani podatki)
 ```{r uvozbs, code=readLines("children/html_40_cetrtletna_rast_uvoza.R"), echo=FALSE, message=FALSE,  warning = FALSE}
-```
-## Medletna rast dodane vrednosti v predelovalnih dejavnostih
-
-```{r predelovalna, code=readLines("children/html_06_izdatkovna_predelovalne.R"), echo=FALSE, message=FALSE,  warning = FALSE}
-```
-
-## Medletna rast nominalnega BDP in komponent po dohodkovni strukturi
-
-```{r dohodkovna, code=readLines("children/html_42_dohodkovna_struktura_bdp.R"), echo=FALSE, message=FALSE,  warning = FALSE}
-```
-
-## Dohodkovna struktura BDP - prispevki k rasti
-
-```{r dohodkovna2, code=readLines("children/html_44_dohodkovna_struktura_bdp2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
 ## Prispevki rasti dodane vrednosti posameznih dejavnosti k rasti BDP
@@ -151,6 +139,22 @@ m <- list(
 
 ```{r, code=readLines("children/html_51_medletna_rast_dv_desez.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
+
+## Medletna rast dodane vrednosti v predelovalnih dejavnostih
+
+```{r predelovalna, code=readLines("children/html_06_izdatkovna_predelovalne.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Medletna rast nominalnega BDP in komponent po dohodkovni strukturi
+
+```{r dohodkovna, code=readLines("children/html_42_dohodkovna_struktura_bdp.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Dohodkovna struktura BDP - prispevki k rasti
+
+```{r dohodkovna2, code=readLines("children/html_44_dohodkovna_struktura_bdp2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
 
 
 # Nacionalni računi - letno
@@ -304,7 +308,7 @@ m <- list(
 ```{r, code=readLines("children/html_13_rast_plac.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
-## Medletna rast bruto plače - z originalnimi
+## Medletna rast bruto plače - z originalnimi podatki
 ```{r, code=readLines("children/html_13_rast_plac2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 

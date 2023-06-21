@@ -32,6 +32,11 @@ fig1 <- data |>
             name = "Zaposlenost, desezonirana", color = I(umar_cols()[1])) |>
   layout(font=list(family = "Myriad Pro"))
 
+for(i in 1:11) {
+  fig1 <- fig1 |>
+    add_lines(y = ~`Zaposlenost`,  name = "\u200A",  color = I('rgba(0,0,0,0)'))
+}
+
 fig2 <-  data2 |>
   plot_ly(x = ~period, width = 1000,
           height = 600) |>

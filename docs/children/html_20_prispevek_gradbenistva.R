@@ -24,50 +24,31 @@ prep_l2$data_points[[1]] %>%
 prep_l3$data_points[[1]] %>%
   dplyr::relocate( period) |>
   select(-period_id)  |>
-  mutate(period = period %m+% months(2)) -> data3
-
+  as_tibble()    -> data3
 
 updated <- max(prep_l$updated, prep_l2$updated, prep_l3$updated)
 
-fig1 <- data |>
-  plot_ly(x = ~period, width = 1000, height = 600) |>
-  add_lines(y = ~`value`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}",
-           name = "Dodana vrednost gradbeni\u0161tva", color = I(umar_cols()[2])) |>
-  layout(annotations = list(x = 0 , y = 1, showarrow = F,
-                            xref='paper', yref='paper', text = paste("Posodobljeno:",prep_l$updated,
-                                                                     prep_l$transf_txt, "(Vir: SURS)"),
-                            font = list(size = 12)))
-
-fig2 <- data2 |>
-  plot_ly(x = ~period, width = 1000, height = 600) |>
-  add_lines(y = ~`value`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}%",#showlegend = FALSE,
-            name = "Bruto Investicije: zgradbe in objekti ", color = I(umar_cols()[1])) |>
-  layout(annotations = list(x = 0 , y = 1, showarrow = F,
-                            xref='paper', yref='paper', text = paste("Posodobljeno:",prep_l2$updated,
-                                                                     prep_l2$transf_txt, "(Vir: SURS)"),
-                            font = list(size = 12)))
-
-fig3 <- data3 |>
+data3 |>
   plot_ly(x = ~period, width = 1000, height = 600) |>
   add_lines(y = ~`value`,  hovertemplate="%{x|%m-%Y} %{y:.2f}%",#showlegend = FALSE,
             name = "Realni indeks opravljenih del v gradbeni\u0161tvu", color = I(umar_cols()[5])) |>
+  add_lines(data = data2, x = ~period, y = ~`value`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}",
+           name = "Dodana vrednost gradbeni\u0161tva", color = I(umar_cols()[2])) |>
+  add_lines(data = data, x = ~period, y = ~`value`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}%",#showlegend = FALSE,
+            name = "Bruto Investicije: zgradbe in objekti ", color = I(umar_cols()[1])) |>
   layout(annotations = list(x = 0 , y = 1, showarrow = F,
                             xref='paper', yref='paper', text = paste("Posodobljeno:",prep_l3$updated,
                                                                      prep_l3$transf_txt, "(Vir: SURS & prera\u010dun UMAR)"),
-                            font = list(size = 12)))
-
-
-
-subplot( fig1, fig2, fig3, nrows = 3, shareX = TRUE) |>
+                            font = list(size = 12))) |>
+  layout(annotations = list(x = 0 , y = .95, showarrow = F,
+                            xref='paper', yref='paper', text = paste("Posodobljeno:",prep_l$updated,
+                                                                     prep_l$transf_txt, "(Vir: SURS)"),
+                            font = list(size = 12))) |>
   rangeslider(as.Date("2015-01-01"), max(data$period)+10) |>
   layout(font=list(family = "Myriad Pro"),
          autosize = F, margin = m,
          yaxis = list(title = list(text="Medletna sprememba, v %",
                                    font = list(size =12))),
-         yaxis2 = list(title = list(text="Medletna sprememba, v %",
-                                    font = list(size =12))),
-         yaxis3 = list(title = list(text="Medletna sprememba, v %",
-                                    font = list(size =12))),
          xaxis = list(title = "",
                       rangeslider = list(thickness = 0.1),
                       tickformatstops = list(

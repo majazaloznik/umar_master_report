@@ -30,6 +30,11 @@ fig1 <- data |>
             name = "Bruto investicije v osnovna sredstva", color = I(umar_cols()[4])) |>
   layout(font=list(family = "Myriad Pro"))
 
+for(i in 1:9) {
+  fig1 <- fig1 |>
+    add_lines(y = ~c,  name = "\u200A",  color = I('rgba(0,0,0,0)'))
+}
+
 fig2 <-  data |>
   plot_ly(x = ~period,hovertemplate="%{x|Q%q-%Y} %{y:.2f}", width = 1000,
           height = 600) |>
@@ -42,8 +47,8 @@ subplot(fig1,  fig2,  nrows = 2, shareX = TRUE) |>
   layout(showlegend = TRUE,
          autosize = F, margin =  m,
          font=list(family = "Myriad Pro"),
-         yaxis = list(title = 'Medletna sprememba, v %', font = list(size =12)),
-         yaxis2 = list(title = 'Prispevek h rasti BDP, v o.t.', font = list(size =12)),
+         yaxis = list(title = list(text = 'Medletna sprememba, v %', font = list(size =12))),
+         yaxis2 = list(title = list(text = 'Prispevek h rasti BDP, v o.t.', font = list(size =12))),
          xaxis = list(title = "",
                       rangeslider = list(thickness = 0.1),
                       tickformatstops = list(

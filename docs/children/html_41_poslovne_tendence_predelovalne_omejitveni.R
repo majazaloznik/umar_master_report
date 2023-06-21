@@ -26,46 +26,63 @@ purrr::reduce(prep_l4$data_points, dplyr::left_join, by = c("period_id", "period
 
 fig1 <- plot_ly(data, x = ~period, hovertemplate="%{x|Q%q-%Y} %{y:.2f}%", width = 1000,
                 height = 1000) |>
-  add_lines(y = ~value.x,  name = "Ni omejitev",  color = I(umar_cols()[1]),  legendgroup = '1') |>
-  add_lines(y = ~value.y,   name = "Negotove gospodarske razmere",color = I(umar_cols()[2]), legendgroup = '1') |>
-  add_lines(y = ~value.x.x,  name = "Nezadostno doma\u010de povpra\u0161evanje",  color = I(umar_cols()[3]), legendgroup = '1') |>
-  add_lines(y = ~value.y.y, name = "Nezadostno tuje povpra\u0161evanje", color = I(umar_cols()[4]), legendgroup = '1') |>
-  add_lines(y = ~value,  name = "Konkuren\u010den uvoz",  color = I(umar_cols()[5]), legendgroup = '1')
+  add_lines(y = ~value.x,  name = "Ni omejitev",  color = I(umar_cols()[1])) |>
+  add_lines(y = ~value.y,   name = "Negotove gospodarske razmere",color = I(umar_cols()[2])) |>
+  add_lines(y = ~value.x.x,  name = "Nezadostno doma\u010de povpra\u0161evanje",  color = I(umar_cols()[3])) |>
+  add_lines(y = ~value.y.y, name = "Nezadostno tuje povpra\u0161evanje", color = I(umar_cols()[4])) |>
+  add_lines(y = ~value,  name = "Konkuren\u010den uvoz",  color = I(umar_cols()[5]))
+
+for(i in 1:7) {
+  fig1 <- fig1 |>
+    add_lines(y = ~value.x,  name = "\u200A",  color = I('rgba(0,0,0,0)'))
+}
 
 fig2 <- plot_ly(data2, x = ~period, hovertemplate="%{x|Q%q-%Y} %{y:.2f}%", width = 1000,
                 height = 1000) |>
-  add_lines(y = ~value.x,  name = "Pomanjkanje delavcev na splo\u0161no",  color = I(umar_cols()[6]), legendgroup = '2') |>
-  add_lines(y = ~value.y,   name = "Pomanjkanje usposobljenih delavcev",color = I(umar_cols()[7]), legendgroup = '2')
+  add_lines(y = ~value.x,  name = "Pomanjkanje delavcev na splo\u0161no",  color = I(umar_cols()[6])) |>
+  add_lines(y = ~value.y,   name = "Pomanjkanje usposobljenih delavcev",color = I(umar_cols()[7]))
+
+for(i in 1:9) {
+  fig2 <- fig2 |>
+    add_lines(y = ~value.x,  name = "\u200A",  color = I('rgba(0,0,0,0)'))
+}
 
 fig3 <- plot_ly(data3, x = ~period, hovertemplate="%{x|Q%q-%Y} %{y:.2f}%", width = 1000,
                 height = 1000) |>
-  add_lines(y = ~value.x,  name = "Pomanjkanje surovin",  color = I(umar_cols()[8]), legendgroup = '3') |>
-  add_lines(y = ~value.y,   name = "Pomanjkanje polizdelkov",color = I(umar_cols()[1]), legendgroup = '3') |>
-  add_lines(y = ~value,  name = "Pomanjkanje ustrezne opreme",  color = I(umar_cols()[2]), legendgroup = '3')
+  add_lines(y = ~value.x,  name = "Pomanjkanje surovin",  color = I(umar_cols()[8])) |>
+  add_lines(y = ~value.y,   name = "Pomanjkanje polizdelkov",color = I(umar_cols()[1])) |>
+  add_lines(y = ~value,  name = "Pomanjkanje ustrezne opreme",  color = I(umar_cols()[2]))
 
+for(i in 1:8) {
+  fig3 <- fig3 |>
+    add_lines(y = ~value.x,  name = "\u200A",  color = I('rgba(0,0,0,0)'))
+}
 fig4 <- plot_ly(data4, x = ~period, hovertemplate="%{x|Q%q-%Y} %{y:.2f}%", width = 1000,
                 height = 1000) |>
-  add_lines(y = ~value.x,  name = "Neporavnane obveznosti iz poslovanja",  color = I(umar_cols()[3]), legendgroup = '4') |>
-  add_lines(y = ~value.y,   name = "Finan\u010dni problemi",color = I(umar_cols()[4]), legendgroup = '4') |>
-  add_lines(y = ~value.x.x,  name = "Nejasna gospodarska zakonodaja",  color = I(umar_cols()[5]), legendgroup = '4') |>
-  add_lines(y = ~value.y.y,  name = "Drugo",  color = I(umar_cols()[6]), legendgroup = '4')
+  add_lines(y = ~value.x,  name = "Neporavnane obveznosti iz poslovanja",  color = I(umar_cols()[3])) |>
+  add_lines(y = ~value.y,   name = "Finan\u010dni problemi",color = I(umar_cols()[4])) |>
+  add_lines(y = ~value.x.x,  name = "Nejasna gospodarska zakonodaja",  color = I(umar_cols()[5])) |>
+  add_lines(y = ~value.y.y,  name = "Drugo",  color = I(umar_cols()[6]))
 
 
 
 
 subplot(fig1, fig2, fig3, fig4,  nrows = 4, shareX = TRUE) |>
   layout(showlegend = TRUE,
-         legend = list(tracegroupgap = 150),
          autosize = F, margin = m,
          font=list(family = "Myriad Pro"),
          yaxis = list(title = list(text="Dele\u017e podjetij, v %",
-                                   font = list(size =12)), range = c(0,70)),
+                                   font = list(size =12)),
+                      range = c(0,70), fixedrange = FALSE),
          yaxis2 = list(title = list(text="Dele\u017e podjetij, v %",
-                                    font = list(size =12)), range = c(0,70)),
+                                    font = list(size =12)),
+                       range = c(0,70), fixedrange = FALSE),
          yaxis3 = list(title = list(text="Dele\u017e podjetij, v %",
-                                    font = list(size =12)), range = c(0,70)),
+                                    font = list(size =12)),
+                       range = c(0,70), fixedrange = FALSE),
          yaxis4 = list(title = list(text="Dele\u017e podjetij, v %",
-                                    font = list(size =12)), range = c(0,70)),
+                                    font = list(size =12)),
+                       range = c(0,70), fixedrange = FALSE),
          xaxis = list(title = "",
                       rangeslider = list(thickness = 0.05),
                       tickformatstops = list(

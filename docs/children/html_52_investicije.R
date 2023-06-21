@@ -23,11 +23,16 @@ updated <- max(prep_l$updated, prep_l2$updated)
 
 # plot
 fig1 <- data |>
-  plot_ly(x = ~period, width = 1000) |>
+  plot_ly(x = ~period, width = 1000, height = 600) |>
   add_lines(y = ~bios,  hovertemplate="%{x|%Y} %{y:.2f}%", name = "Bruto investicije v osnovna sredstva", color = I(umar_cols()[1]))
+
+for(i in 1:10) {
+  fig1 <- fig1 |>
+    add_lines(y = ~bios,  name = "\u200A",  color = I('rgba(0,0,0,0)'))
+}
 fig2 <- data |>
-  plot_ly(x = ~period, width = 1000) |>
-  add_bars(y = ~`sz`,  hovertemplate="%{x|%Y} %{y:.2f%", name = "Sprememebe zalog",  color = I(umar_cols()[3]))
+  plot_ly(x = ~period, width = 1000, height = 600) |>
+  add_bars(y = ~`sz`,  hovertemplate="%{x|%Y} %{y:.2f}%", name = "Sprememebe zalog",  color = I(umar_cols()[3]))
 
   subplot(fig1,  fig2, nrows = 2, shareX = TRUE) |>
   rangeslider(as.Date("2012-01-01"), max(data$period)+100) |>

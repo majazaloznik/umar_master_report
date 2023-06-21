@@ -15,9 +15,9 @@ updated <- max(prep_l$updated)
 data |>
   plot_ly(x = ~period, width = 1000, height = 600) |>
   add_lines(y = ~`value.y`,  hovertemplate="%{x|%Y} %{y:.2f}%",
-            name = "Potro\u0161nja gospodinjstev", color = I(umar_cols()[2])) |>
+            name = "Potro\u0161nja dr\u017eave", color = I(umar_cols()[2])) |>
   add_lines(y = ~`value.x.x`,  hovertemplate="%{x|%Y} %{y:.2f}%",
-            name = "Potro\u0161nja dr\u017eave", color = I(umar_cols()[1])) |>
+            name = "Potro\u0161nja gospodinjstev", color = I(umar_cols()[1])) |>
   add_lines(y = ~`value.y.y`,  hovertemplate="%{x|%Y} %{y:.2f}%",
             name = "Bruto investicije v OS", color = I(umar_cols()[4])) |>
   add_lines(y = ~`value.x.x.x`,  hovertemplate="%{x|%Y} %{y:.2f}%",

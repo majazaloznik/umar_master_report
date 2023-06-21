@@ -67,63 +67,78 @@ data1 |>
          t = value) -> data
 
 fig1 <- plot_ly(data, x = ~period, hovertemplate="%{x|%Y} %{y:.2f}", width = 1000,
-                height = 1600) |>
-  add_lines(y = ~dv,  name = "Dodana vrednost",  color = I("black") ,  legendgroup = '1') |>
-  add_lines(y = ~b,   name = "Rudarstvo (B)",color = I(umar_cols()[1]),  legendgroup = '1') |>
-  add_lines(y = ~c,  name = "Predelovalne dejavnosti (C)",  color = I(umar_cols()[2]),  legendgroup = '1') |>
-  add_lines(y = ~d,  name = "Oskrba z elektriko, plinom in paro (D)",  color = I(umar_cols()[3]),  legendgroup = '1') |>
-  add_lines(y = ~e,  name = "Oskrba z vodo (E)",  color = I(umar_cols()[4]),  legendgroup = '1') |>
+                height = 1400) |>
+  add_lines(y = ~dv,  name = "Dodana vrednost",  color = I("black") ) |>
+  add_lines(y = ~b,   name = "Rudarstvo (B)",color = I(umar_cols()[1])) |>
+  add_lines(y = ~c,  name = "Predelovalne dejavnosti (C)",  color = I(umar_cols()[2])) |>
+  add_lines(y = ~d,  name = "Oskrba z elektriko, plinom in paro (D)",  color = I(umar_cols()[3])) |>
+  add_lines(y = ~e,  name = "Oskrba z vodo (E)",  color = I(umar_cols()[4])) |>
 
   layout(annotations = list(x = 0. , y = 1, text = "Industrija", showarrow = F,
                             xref='paper', yref='paper'))
 
+for(i in 1:8) {
+  fig1 <- fig1 |>
+    add_lines(y = ~c,  name = "\u200A",  color = I('rgba(0,0,0,0)'))
+}
 
 fig2 <- plot_ly(data, x = ~period, hovertemplate="%{x|%Y} %{y:.2f}", width = 1000,
-                height = 1600) |>
-  add_lines(y = ~dv,  name = "Dodana vrednost",  color = I("black") ,  legendgroup = '2') |>
-  add_lines(y = ~g,   name = "Trgovina, vzdr\u017eevanje in popravila vozil (G)",color = I(umar_cols()[5]),  legendgroup = '2') |>
-  add_lines(y = ~h,  name = "Promet in skladi\u0161\u010denje (H)",  color = I(umar_cols()[6]),  legendgroup = '2') |>
-  add_lines(y = ~i,  name = "Gostinstvo (I)",  color = I(umar_cols()[7]),  legendgroup = '2') |>
-  add_lines(y = ~j,  name = "IKT dejavnosti (J)",  color = I(umar_cols()[8]),  legendgroup = '2') |>
-  add_lines(y = ~k,  name = "Finan\u010dne in zavarovalni\u0161ke dejavnosti (K)",  color = I(umar_cols()[1]),  legendgroup = '2') |>
-  add_lines(y = ~l,  name = "Poslovanje z nepremi\u010dninami (L)",  color = I(umar_cols()[2]),  legendgroup = '2') |>
-  add_lines(y = ~m,  name = "Strokovne, znanstvene in tehni\u010dne dejavnosti (M)",  color = I(umar_cols()[3]),  legendgroup = '2') |>
-  add_lines(y = ~n,  name = "Druge raznovrstne poslovne dejavnosti (N)",  color = I(umar_cols()[4]),  legendgroup = '2') |>
+                height = 1400) |>
+  add_lines(y = ~dv,  name = "Dodana vrednost",  color = I("black") ) |>
+  add_lines(y = ~g,   name = "Trgovina, vzdr\u017eevanje in popravila vozil (G)",color = I(umar_cols()[5])) |>
+  add_lines(y = ~h,  name = "Promet in skladi\u0161\u010denje (H)",  color = I(umar_cols()[6])) |>
+  add_lines(y = ~i,  name = "Gostinstvo (I)",  color = I(umar_cols()[7])) |>
+  add_lines(y = ~j,  name = "IKT dejavnosti (J)",  color = I(umar_cols()[8])) |>
+  add_lines(y = ~k,  name = "Finan\u010dne in zavarovalni\u0161ke dejavnosti (K)",  color = I(umar_cols()[1])) |>
+  add_lines(y = ~l,  name = "Poslovanje z nepremi\u010dninami (L)",  color = I(umar_cols()[2])) |>
+  add_lines(y = ~m,  name = "Strokovne, znanstvene in tehni\u010dne dejavnosti (M)",  color = I(umar_cols()[3])) |>
+  add_lines(y = ~n,  name = "Druge raznovrstne poslovne dejavnosti (N)",  color = I(umar_cols()[4])) |>
   layout(annotations = list(x = 0. , y = 1, text = "Tr\u017ene storitve", showarrow = F,
                             xref='paper', yref='paper'))
 
+for(i in 1:5) {
+  fig2 <- fig2 |>
+    add_lines(y = ~c,  name = "\u200A",  color = I('rgba(0,0,0,0)'))
+}
 
 fig3 <- plot_ly(data, x = ~period, hovertemplate="%{x|%Y} %{y:.2f}", width = 1000,
-                height = 1600) |>
-  add_lines(y = ~dv,  name = "Dodana vrednost",  color = I("black") ,  legendgroup = '3') |>
-  add_lines(y = ~o,  name = "Dejavnosti uprave, obvezna socialna varnost (O)",color = I(umar_cols()[5]),  legendgroup = '3') |>
-  add_lines(y = ~p, name = "Izobra\u017eevanje (P)",  color = I(umar_cols()[6]),  legendgroup = '3') |>
-  add_lines(y = ~r,   name = "Zdravstvo in socialno varstvo (R)",color = I(umar_cols()[7]),  legendgroup = '3') |>
+                height = 1400) |>
+  add_lines(y = ~dv,  name = "Dodana vrednost",  color = I("black") ) |>
+  add_lines(y = ~o,  name = "Dejavnosti uprave, obvezna socialna varnost (O)",color = I(umar_cols()[5])) |>
+  add_lines(y = ~p, name = "Izobra\u017eevanje (P)",  color = I(umar_cols()[6])) |>
+  add_lines(y = ~q,   name = "Zdravstvo in socialno varstvo (Q)",color = I(umar_cols()[7])) |>
   layout(annotations = list(x = 0. , y = 1, text = "Javne storitve", showarrow = F,
                             xref='paper', yref='paper'))
+for(i in 1:9) {
+  fig3 <- fig3 |>
+    add_lines(y = ~c,  name = "\u200A",  color = I('rgba(0,0,0,0)'))
+}
 
 fig4 <- plot_ly(data, x = ~period, hovertemplate="%{x|%Y} %{y:.2f}", width = 1000,
-                height = 1600) |>
-  add_lines(y = ~dv,  name = "Dodana vrednost",  color = I("black") ,  legendgroup = '4') |>
-  add_lines(y = ~a,  name = "Kmetijstvo (A)",color = I(umar_cols()[8]),  legendgroup = '4') |>
-  add_lines(y = ~f, name = "Gradbeni\u0161tvo (F)",  color = I(umar_cols()[1]),  legendgroup = '4') |>
-  add_lines(y = ~u,   name = "Dejavnost eksteritorialnih organizacij in teles  (u)",color = I(umar_cols()[2]),  legendgroup = '3') |>
+                height = 1400) |>
+  add_lines(y = ~dv,  name = "Dodana vrednost",  color = I("black") ) |>
+  add_lines(y = ~a,  name = "Kmetijstvo (A)",color = I(umar_cols()[8])) |>
+  add_lines(y = ~f, name = "Gradbeni\u0161tvo (F)",  color = I(umar_cols()[1])) |>
+  add_lines(y = ~u,   name = "Dejavnost eksteritorialnih organizacij in teles  (u)",color = I(umar_cols()[2])) |>
   layout(annotations = list(x = 0. , y = 1, text = "Ostalo", showarrow = F,
                             xref='paper', yref='paper'))
+for(i in 1:10) {
+  fig4 <- fig4 |>
+    add_lines(y = ~c,  name = "\u200A",  color = I('rgba(0,0,0,0)'))
+}
 
 fig5 <- plot_ly(data, x = ~period, hovertemplate="%{x|%Y} %{y:.2f}", width = 1000,
-                height = 1600) |>
-  add_lines(y = ~dv,  name = "Dodana vrednost",  color = I("black") ,  legendgroup = '5') |>
-  add_lines(y = ~r,  name = " Kulturne, razvedrilne in rekreacijske dejavnosti (R)",color = I(umar_cols()[2]),  legendgroup = '5') |>
-  add_lines(y = ~s, name = "Druge dejavnosti (S)",  color = I(umar_cols()[3]),  legendgroup = '5') |>
-  add_lines(y = ~t,   name = "Dejavnost gospodinjstev z zaposlenim osebjem (T)",color = I(umar_cols()[4]),  legendgroup = '5') |>
+                height = 1400) |>
+  add_lines(y = ~dv,  name = "Dodana vrednost",  color = I("black") ) |>
+  add_lines(y = ~r,  name = " Kulturne, razvedrilne in rekreacijske dejavnosti (R)",color = I(umar_cols()[2])) |>
+  add_lines(y = ~s, name = "Druge dejavnosti (S)",  color = I(umar_cols()[3])) |>
+  add_lines(y = ~t,   name = "Dejavnost gospodinjstev z zaposlenim osebjem (T)",color = I(umar_cols()[4])) |>
   layout(annotations = list(x = 0. , y = 1, text = "RST tr\u017ene storitve", showarrow = F,
                             xref='paper', yref='paper'))
 
 
 subplot(fig1,  fig2, fig3, fig4, fig5,  nrows = 5, shareX = TRUE) |>
   layout(showlegend = TRUE,
-         legend = list(tracegroupgap = 200),
          autosize = T, margin = m,
          font=list(family = "Myriad Pro"),
          yaxis = list(title = list(text="Medletna rast, v %",
