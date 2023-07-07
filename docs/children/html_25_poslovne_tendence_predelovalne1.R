@@ -57,7 +57,7 @@ fig2 <- plot_ly(data2, x = ~period, hovertemplate="%{x|%b-%Y} %{y:.2f}", width =
          autosize = F, margin = m,
          font=list(family = "Myriad Pro"),
          yaxis = list(title = list(text="Ravnote\u017eje, v o.t.",
-                                   font = list(size =12))),
+                                   font = list(size =12)), fixedrange = FALSE),
          xaxis = list(title = "",
                       rangeslider = list(thickness = 0.05),
                       tickformatstops = list(

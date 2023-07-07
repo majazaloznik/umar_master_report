@@ -51,9 +51,11 @@ subplot(fig1,  fig2,  nrows = 2, shareX = TRUE) |>
          autosize = F, margin = m,
          font=list(family = "Myriad Pro"),
          yaxis = list(title = list(text="Ravnote\u017eje, v o.t.",
-                                   font = list(size =12)), range = c(-60, 50)),
+                                   font = list(size =12)),
+                      range = c(-60, 50), fixedrange = FALSE),
          yaxis2 = list(title = list(text="Ravnote\u017eje, v o.t.",
-                                    font = list(size =12)), range = c(-60, 50)),
+                                    font = list(size =12)),
+                       range = c(-60, 50), fixedrange = FALSE),
          xaxis = list(title = "",
                       rangeslider = list(thickness = 0.05),
                       tickformatstops = list(

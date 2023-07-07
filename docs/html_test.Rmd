@@ -297,6 +297,25 @@ m <- list(
 
 ```{r, code=readLines("children/html_09_predelovalne_indeks.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
+## Realni prihodek v tržnih storitvah
+
+
+```{r, code=readLines("children/html_57_realni_prihodek_trzne.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Realni prihodek v prometu in skladiščenju
+
+```{r, code=readLines("children/html_58_realni_prihodek_promet.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Realni prihodek v tržnih storitvah
+```{r, code=readLines("children/html_59_realni_prihodek_trzne.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Realni prihodek v prometu in skladiščenju storitvah
+```{r, code=readLines("children/html_60_realni_prihodek_promet.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
 
 # Trg dela
 

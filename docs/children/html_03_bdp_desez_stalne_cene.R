@@ -25,7 +25,8 @@ data |>
          autosize = F, margin = m,
          font=list(family = "Myriad Pro"),
          yaxis = list(title = list(text="Znesek, v mio EUR",
-                                   font = list(size =12))),
+                                   font = list(size =12)),
+                      fixedrange = FALSE),
          xaxis = list(title = "",
                       tickformatstops = list(
                         list(dtickrange = list("M1", "M6"),

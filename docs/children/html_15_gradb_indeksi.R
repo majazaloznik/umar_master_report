@@ -78,7 +78,8 @@ subplot(fig1,  fig2,  nrows = 2, shareX = TRUE) |>
            fixedrange = FALSE),
          yaxis2 = list(
            title = list(text="Indeks (2015)",
-                        font = list(size =12)), range = c(0, 900),fixedrange = FALSE),
+                        font = list(size =12)),
+           range = c(0, 900), fixedrange = FALSE),
          xaxis = list(title = "",
                       rangeslider = list(thickness = 0.1),
                       tickformatstops = list(

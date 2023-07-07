@@ -51,9 +51,11 @@ subplot( fig1, fig2, nrows = 2, shareX = TRUE) |>
          barmode = 'stack',
          autosize = F, margin = m,
          yaxis = list(title = list(text="Povr\u0161ina, v m<sup>2</sup>",
-                                   font = list(size =12))),
+                                   font = list(size =12)),
+                      fixedrange = FALSE),
          yaxis2 = list(title = list(text="Povr\u0161ina, v m<sup>2</sup>",
-                                   font = list(size =12))),
+                                   font = list(size =12)),
+                       fixedrange = FALSE),
          xaxis = list(title = "",
                       rangeslider = list(thickness = 0.1),
                       tickformatstops = list(

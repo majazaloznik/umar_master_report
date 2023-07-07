@@ -31,7 +31,8 @@ data |>
   layout(font=list(family = "Myriad Pro"),
          autosize = F, margin = m,
          yaxis = list(title = list(text="3-m drsea\u010da sredina medletne sprememba, v %",
-                                   font = list(size =12))),
+                                   font = list(size =12)),
+                      fixedrange = FALSE),
          xaxis = list(title = "",
                       tickformatstops = list(
                         list(dtickrange = list("M1", "M6"),

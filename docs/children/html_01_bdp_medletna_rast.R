@@ -13,12 +13,12 @@ data |>
   plot_ly(x = ~period, hovertemplate="%{x|Q%q-%Y} %{y:.2f}%", width = 1000) |>
   add_lines(y = ~`value.x`, name = "Originalni podatki",  color = I(umar_cols()[1])) |>
   add_lines(y = ~`value.y`, name = "Desezonirani podatki",  color = I(umar_cols()[2])) |>
-  layout(barmode = "relative",
-         showlegend = TRUE,
-         autosize = F, margin = m,
+  layout(showlegend = TRUE,
+         margin = m,
          font=list(family = "Myriad Pro"),
          yaxis = list(title = list(text="Medletna rast, v %",
-                                   font = list(size =12))),
+                                   font = list(size =12)),
+                      fixedrange = FALSE),
          xaxis = list(title = "",
                       tickformatstops = list(
                         list(dtickrange = list("M1", "M6"),

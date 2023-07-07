@@ -40,13 +40,13 @@ fig1 |>
          yaxis = list(
            title = list(text="Medletna sprememba, v %",
                         font = list(size =12)),
-           range = list(-25, 20)),
+           range = list(-25, 20), fixedrange = FALSE),
          yaxis2 = list(
            title = list(text="Ravnote\u017dje, v o.t.",
                         font = list(size =12)),
            overlaying = "y",
            side = "right",
-           range = list(-50, 40)),
+           range = list(-50, 40), fixedrange = FALSE),
          xaxis = list(title = "",
                       rangeslider = list(thickness = 0.1),
                       tickformatstops = list(

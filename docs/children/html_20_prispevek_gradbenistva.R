@@ -44,11 +44,12 @@ data3 |>
                             xref='paper', yref='paper', text = paste("Posodobljeno:",prep_l$updated,
                                                                      prep_l$transf_txt, "(Vir: SURS)"),
                             font = list(size = 12))) |>
-  rangeslider(as.Date("2015-01-01"), max(data$period)+10) |>
+  rangeslider(as.Date("2013-01-01"), max(data$period)+10) |>
   layout(font=list(family = "Myriad Pro"),
          autosize = F, margin = m,
          yaxis = list(title = list(text="Medletna sprememba, v %",
-                                   font = list(size =12))),
+                                   font = list(size =12)),
+                      fixedrange = FALSE),
          xaxis = list(title = "",
                       rangeslider = list(thickness = 0.1),
                       tickformatstops = list(

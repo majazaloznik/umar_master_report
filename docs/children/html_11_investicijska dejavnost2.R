@@ -47,8 +47,10 @@ subplot(fig1,  fig2,  nrows = 2, shareX = TRUE) |>
   layout(showlegend = TRUE,
          autosize = F, margin =  m,
          font=list(family = "Myriad Pro"),
-         yaxis = list(title = list(text = 'Medletna sprememba, v %', font = list(size =12))),
-         yaxis2 = list(title = list(text = 'Prispevek h rasti BDP, v o.t.', font = list(size =12))),
+         yaxis = list(fixedrange = FALSE,
+                      title = list(text = 'Medletna sprememba, v %', font = list(size =12))),
+         yaxis2 = list(fixedrange = FALSE,
+                       title = list(text = 'Prispevek h rasti BDP, v o.t.', font = list(size =12))),
          xaxis = list(title = "",
                       rangeslider = list(thickness = 0.1),
                       tickformatstops = list(
