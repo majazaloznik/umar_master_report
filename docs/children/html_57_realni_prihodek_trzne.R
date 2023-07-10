@@ -14,12 +14,12 @@ purrr::reduce(prep_l$data_points, dplyr::left_join, by = c("period_id", "period"
 
 data |>
   plot_ly(x = ~period, hovertemplate="%{x|%b-%Y} %{y:.2f}%", width = 1000) |>
-  add_bars(y = ~`value.x`, name = "Tr\u017ene storitve (H+I+J+L+M+N)",  color = I(umar_cols()[1])) |>
-  add_bars(y = ~`value.y`, name = "Promet in skladi\u0161\u010denje (H)",  color = I(umar_cols()[2])) |>
-  add_bars(y = ~`value.x.x`, name = "Gostinstvo (I)",  color = I(umar_cols()[3])) |>
-  add_bars(y = ~`value.y.y`, name = "Informacijske in komunikacijske dejavnosti (J)", color = I(umar_cols()[4])) |>
-  add_bars(y = ~`value.x.x.x`, name = "Strokovne, znanstvene in tehni\u010dne dejavnosti (M)",  color = I(umar_cols()[5])) |>
-  add_bars(y = ~`value.y.y.y`, name = "Druge raznovrstne poslovne dejavnosti (N)",  color = I(umar_cols()[6])) |>
+  add_bars(y = ~`value.x`, name = "Tr\u017ene storitve (H+I+J+L+M+N)",  color = I(umar_cols()[3])) |>
+  add_lines(y = ~`value.y`, name = "Promet in skladi\u0161\u010denje (H)",  color = I(umar_cols()[1])) |>
+  add_lines(y = ~`value.x.x`, name = "Gostinstvo (I)",  color = I(umar_cols()[2])) |>
+  add_lines(y = ~`value.y.y`, name = "Informacijske in komunikacijske dejavnosti (J)", color = I(umar_cols()[4])) |>
+  add_lines(y = ~`value.x.x.x`, name = "Strokovne, znanstvene in tehni\u010dne dejavnosti (M)",  color = I(umar_cols()[5])) |>
+  add_lines(y = ~`value.y.y.y`, name = "Druge raznovrstne poslovne dejavnosti (N)",  color = I(umar_cols()[6])) |>
   layout(showlegend = TRUE,
          autosize = F, margin = m,
          font=list(family = "Myriad Pro"),
