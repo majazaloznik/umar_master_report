@@ -383,3 +383,17 @@ m <- list(
 
 ```{r, code=readLines("children/html_22_gradb_ind_proizv.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
+
+
+# Mojca
+
+## Realni prihodek v gostinstvu
+
+```{r, code=readLines("children/html_61_realni_prihodek_v_gostinstvu.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Realni prihodek v gostinstvu (desezonirani podatki)
+
+```{r, code=readLines("children/html_62_realni_prihodek_v_gostinstvu.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
