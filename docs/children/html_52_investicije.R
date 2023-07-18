@@ -28,8 +28,8 @@ fig1 <- data |>
 
 for(i in 1:10) {
   fig1 <- fig1 |>
-    add_lines(y = ~bios,  name = "\u200A",  color = I('rgba(0,0,0,0)'))
-}
+    add_lines(y = ~bios,  name = "\u200A",  color = I('rgba(0,0,0,0)'),
+              hoverinfo = "none")}
 fig2 <- data |>
   plot_ly(x = ~period, width = 1000, height = 600) |>
   add_bars(y = ~`sz`,  hovertemplate="%{x|%Y} %{y:.2f}%", name = "Sprememebe zalog",  color = I(umar_cols()[3]))
@@ -52,5 +52,10 @@ fig2 <- data |>
                              value = "%Y"))),
          title = list(text = paste("Posodobljeno:", updated, "(Vir: SURS)"),
                       font = list(size = 12),
-                      x = 0))|>
+                      x = 0),
+         annotations = list(
+           x = 0.95, y = 1.05, text = "NaTJ", showarrow = FALSE,
+           xref='paper', yref='paper', xanchor='right', yanchor='top',
+           font=list(size=10, color = umar_cols()[3])
+         ))|>
   config(modeBarButtonsToAdd = list(dl_button))

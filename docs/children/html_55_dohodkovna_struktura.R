@@ -19,8 +19,8 @@ fig1 <- data |>
 
 for(i in 1:8) {
   fig1 <- fig1 |>
-    add_lines(data = data, y = ~value.x,  name = "\u200A",  color = I('rgba(0,0,0,0)'))
-}
+    add_lines(data = data, y = ~value.x,  name = "\u200A",  color = I('rgba(0,0,0,0)'),
+              hoverinfo = "none")}
 
 fig2 <- data |>
   plot_ly(x = ~period, hovertemplate="%{x|%Y} %{y:.2f}%", width = 1000, height = 600) |>
@@ -43,7 +43,12 @@ subplot(fig1,  fig2, nrows = 2, shareX = TRUE) |>
                              value = "%Y"))),
          title = list(text = paste("Posodobljeno:", prep_l$updated, "(Vir: SURS & prera\u010dun UMAR)"),
                       font = list(size = 12),
-                      x = 0)) |>
+                      x = 0),
+         annotations = list(
+           x = 0.95, y = 1.05, text = "NaTJ", showarrow = FALSE,
+           xref='paper', yref='paper', xanchor='right', yanchor='top',
+           font=list(size=10, color = umar_cols()[3])
+         )) |>
   rangeslider(as.Date("2012-01-01"), max(data$period) + 100) |>
   config(modeBarButtonsToAdd = list(dl_button))
 

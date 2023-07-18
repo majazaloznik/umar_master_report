@@ -73,5 +73,10 @@ data |>
          xaxis = list(title = ""),
          title = list(text = paste("Posodobljeno:", updated, "(Vir: SURS & prera\u010duni UMAR)"),
                       font = list(size = 12),
-                      x = 0))|>
+                      x = 0),
+         annotations = list(
+           x = 0.95, y = 1.05, text = "NaTJ", showarrow = FALSE,
+           xref='paper', yref='paper', xanchor='right', yanchor='top',
+           font=list(size=10, color = umar_cols()[3])
+         ))|>
   config(modeBarButtonsToAdd = list(dl_button))

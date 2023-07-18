@@ -30,8 +30,8 @@ fig1 <- data |>
             name = "Gradbeni\u0161tvo - SKUPAJ", color = I(umar_cols()[5]))
 for(i in 1:8) {
   fig1 <- fig1 |>
-    add_lines(y = ~skupaj,  name = "\u200A",  color = I('rgba(0,0,0,0)'))
-}
+    add_lines(y = ~skupaj,  name = "\u200A",  color = I('rgba(0,0,0,0)'),
+              hoverinfo = "none")}
 # prepare data
 prep_l <- prep_multi_line(spl[[4]], con)
 purrr::reduce(prep_l$data_points, dplyr::left_join, by = c("period_id", "period")) %>%
@@ -77,6 +77,11 @@ subplot(fig1,  fig2,  nrows = 2, shareX = TRUE) |>
          title = list(text = paste("Posodobljeno:",updated,
                                    prep_l$transf_txt, "(Vir: SURS & prera\u010dun UMAR)"),
                       font = list(size = 12),
-                      x = 0)) |>
+                      x = 0),
+         annotations = list(
+           x = 0.95, y = 1.05, text = "JaKu", showarrow = FALSE,
+           xref='paper', yref='paper', xanchor='right', yanchor='top',
+           font=list(size=10, color = umar_cols()[3])
+         )) |>
   rangeslider(as.Date("2007-01-01"), max(data$period) + 100)|>
   config(modeBarButtonsToAdd = list(dl_button))

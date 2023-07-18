@@ -36,6 +36,8 @@ con <- DBI::dbConnect(RPostgres::Postgres(),
 # set schema search path
 x <- DBI::dbExecute(con, "set search_path to platform")
 
+slider_w <- 0.05
+
 m <- list(
   l = 50,
   r = 300,
@@ -293,6 +295,8 @@ m <- list(
 
 # Kazalniki aktivnosti  - mesečno
 
+
+
 ## Industrijska proizvodnja po SDK
 
 ```{r, code=readLines("children/html_09_predelovalne_indeks.R"), echo=FALSE, message=FALSE,  warning = FALSE}
@@ -302,19 +306,41 @@ m <- list(
 
 ```{r, code=readLines("children/html_57_realni_prihodek_trzne.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
+## Realni prihodek v tržnih storitvah (desezonirani podatki)
+```{r, code=readLines("children/html_59_realni_prihodek_trzne.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
 
 ## Realni prihodek v prometu in skladiščenju
 
 ```{r, code=readLines("children/html_58_realni_prihodek_promet.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
-
-## Realni prihodek v tržnih storitvah
-```{r, code=readLines("children/html_59_realni_prihodek_trzne.R"), echo=FALSE, message=FALSE,  warning = FALSE}
-```
-
-## Realni prihodek v prometu in skladiščenju storitvah
+## Realni prihodek v prometu in skladiščenju  (desezonirani podatki)
 ```{r, code=readLines("children/html_60_realni_prihodek_promet.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
+## Realni prihodek v gostinstvu
+
+```{r, code=readLines("children/html_61_realni_prihodek_v_gostinstvu.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Realni prihodek v gostinstvu (desezonirani podatki)
+
+```{r, code=readLines("children/html_62_realni_prihodek_v_gostinstvu.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Realni prihodek v trgovini
+```{r, code=readLines("children/html_63.0_realni_prihodek_v_trgovini.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+## Realni prihodek v trgovini - podrobno
+```{r, code=readLines("children/html_63_realni_prihodek_v_trgovini.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+## Realni prihodek v trgovini (desezonirani podatki)
+```{r, code=readLines("children/html_64.0_realni_prihodek_v_trgovini.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+## Realni prihodek v trgovini - podrobno (desezonirani podatki)
+```{r, code=readLines("children/html_64_realni_prihodek_v_trgovini.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
 
 
 # Trg dela
@@ -338,6 +364,51 @@ m <- list(
 ## Medletna rast cen življenskih potrebščin
 ```{r, code=readLines("children/html_14_inflacija.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
+
+## Medletna rast cen življenskih potrebščin
+```{r, code=readLines("children/html_68_medletne_rasti_zivljenskih_potrebscin.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+
+## Medletna rast cen pri proizvajalcih v Sloveniji 
+```{r, code=readLines("children/html_69_medletna_rast_cen_pri_proizvajalcih.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+
+## Medletna rast cen pri proizvajalcih v Sloveniji po namenskih skupinah
+```{r, code=readLines("children/html_70_medletna_rast_cen_pri_proizvajalcih_namenske.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Medletna rast cen pri proizvajalcih v Sloveniji na domačem trgu po namenskih skupinah
+```{r, code=readLines("children/html_71_medletna_rast_cen_pri_proizvajalcih_namenske_domaci_trg.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Medletna rast cen pri proizvajalcih v Sloveniji na tujih trgih po namenskih skupinah
+```{r, code=readLines("children/html_72_medletna_rast_cen_pri_proizvajalcih_namenske_tuji_trg.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Medletna rast uvoznih cen po namenskih skupinah
+
+```{r, code=readLines("children/html_73_medletna_rast_uvoznih_cen_namenske.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Cene energentov
+
+```{r, code=readLines("children/html_74_energenti.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Medletna rast cen storitev pri proizvajalcih
+
+```{r, code=readLines("children/html_75_medletna_rast_cen_storitev_pri_proizvajalcih.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+
+## Medletna rast cen storitev pri proizvajalcih 2
+
+```{r, code=readLines("children/html_76_medletna_rast_cen_storitev_pri_proizvajalcih2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+
 
 
 # Gradbeništvo
@@ -385,15 +456,19 @@ m <- list(
 ```
 
 
-# Mojca
+# Stanovanjske nepremičnine
 
-## Realni prihodek v gostinstvu
 
-```{r, code=readLines("children/html_61_realni_prihodek_v_gostinstvu.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+## Cene stanovanjskih nepremičnin
+
+```{r, code=readLines("children/html_65_cene_stanovanjskih_nepremicnin.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
+## Število prodaj stanovanjskih nepremičnin
 
-## Realni prihodek v gostinstvu (desezonirani podatki)
+```{r, code=readLines("children/html_66_stevilo_prodaj_stanovanjskih_nepremicnin.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+## Vrednost prodaj stanovanjskih nepremičnin
 
-```{r, code=readLines("children/html_62_realni_prihodek_v_gostinstvu.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```{r, code=readLines("children/html_67_vrednost_prodaj_stanovanjskih_nepremicnin.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 

@@ -22,7 +22,7 @@ plot_ly(data2, x = ~period, hovertemplate="%{x|%b-%Y} %{y:.2f}", width = 1000) |
                                    font = list(size =12), fixedrange = FALSE),
                       fixedrange = FALSE),
          xaxis = list(title = "",
-                      rangeslider = list(thickness = 0.05),
+                      rangeslider = list(thickness = slider_w),
                       tickformatstops = list(
                         list(dtickrange = list("M1", "M6"),
                              value = "Q%b %Y"),
@@ -31,7 +31,12 @@ plot_ly(data2, x = ~period, hovertemplate="%{x|%b-%Y} %{y:.2f}", width = 1000) |
          title = list(text = paste("Posodobljeno:", prep_l2$updated,
                                    prep_l2$transf_txt, "(Vir: SURS & prera\u010duni UMAR)"),
                       font = list(size = 12),
-                      x = 0)) |>
+                      x = 0),
+         annotations = list(
+           x = 0.95, y = 1.05, text = "MaHr", showarrow = FALSE,
+           xref='paper', yref='paper', xanchor='right', yanchor='top',
+           font=list(size=10, color = umar_cols()[3])
+         )) |>
   rangeslider(as.Date("2018-01-01"), max(data$period))|>
   config(modeBarButtonsToAdd = list(dl_button))
 

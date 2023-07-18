@@ -14,7 +14,8 @@ purrr::reduce(prep_l$data_points, dplyr::left_join, by = c("period_id", "period"
 
 data |>
   plot_ly(x = ~period, hovertemplate="%{x|%b-%Y} %{y:.2f}%", width = 1000) |>
-  add_bars(y = ~`value.x`, name = "Tr\u017ene storitve (H+I+J+L+M+N)",  color = I(umar_cols()[3])) |>
+  add_lines(y = ~`value.x`, name = "Tr\u017ene storitve (H+I+J+L+M+N)",  color = I(umar_cols()[3]),
+           fill = "tozeroy") |>
   add_lines(y = ~`value.y`, name = "Promet in skladi\u0161\u010denje (H)",  color = I(umar_cols()[1])) |>
   add_lines(y = ~`value.x.x`, name = "Gostinstvo (I)",  color = I(umar_cols()[2])) |>
   add_lines(y = ~`value.y.y`, name = "Informacijske in komunikacijske dejavnosti (J)", color = I(umar_cols()[4])) |>
@@ -34,7 +35,12 @@ data |>
          title = list(text = paste("Posodobljeno:", prep_l$updated,
                                    prep_l$transf_txt, "(Vir: SURS & prera\u010dun UMAR)"),
                       font = list(size = 12),
-                      x = 0)) |>
+                      x = 0),
+         annotations = list(
+           x = 1, y = 1, text = "JuPo", showarrow = FALSE,
+           xref='paper', yref='paper', xanchor='right', yanchor='top',
+           font=list(size=10, color = umar_cols()[3])
+         )) |>
   rangeslider(as.Date("2019-01-01"), max(data$period) + 100) |>
   config(modeBarButtonsToAdd = list(dl_button))
 

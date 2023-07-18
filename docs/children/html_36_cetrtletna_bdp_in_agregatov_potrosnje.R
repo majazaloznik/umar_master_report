@@ -10,7 +10,7 @@ purrr::reduce(prep_l$data_points, dplyr::left_join, by = c("period_id", "period"
   as_tibble() -> data
 
 
-updated <- max(prep_l$updated, prep_l2$updated)
+updated <- max(prep_l$updated)
 
 data |>
   plot_ly(x = ~period, width = 1000, height = 600) |>
@@ -41,6 +41,11 @@ data |>
                         list(dtickrange = list("M1", "M6"),
                              value = "%b %Y"),
                         list(dtickrange = list("M6", NULL),
-                             value = "%Y"))))|>
+                             value = "%Y"))),
+         annotations = list(
+           x = 0.95, y = 1.05, text = "NaTJ", showarrow = FALSE,
+           xref='paper', yref='paper', xanchor='right', yanchor='top',
+           font=list(size=10, color = umar_cols()[3])
+         ))|>
   layout(hovermode = 'x') |>
   config(modeBarButtonsToAdd = list(dl_button))

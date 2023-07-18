@@ -29,8 +29,8 @@ fig1 <- data |>
 
 for(i in 1:8) {
   fig1 <- fig1 |>
-    add_lines(y = ~c,  name = "\u200A",  color = I('rgba(0,0,0,0)'))
-}
+    add_lines(y = ~c,  name = "\u200A",  color = I('rgba(0,0,0,0)'),
+              hoverinfo = "none")}
 
 fig2 <- data |>
   plot_ly(x = ~period, width = 1000, height = 600) |>
@@ -66,5 +66,10 @@ subplot( fig1, fig2, nrows = 2, shareX = TRUE) |>
          title = list(text = paste("Posodobljeno:", updated,
                                    prep_l$transf_txt, "(Vir: SURS)"),
                       font = list(size = 12),
-                      x = 0)) |>
+                      x = 0),
+         annotations = list(
+           x = 0.95, y = 1.05, text = "JaKu", showarrow = FALSE,
+           xref='paper', yref='paper', xanchor='right', yanchor='top',
+           font=list(size=10, color = umar_cols()[3])
+         )) |>
   config(modeBarButtonsToAdd = list(dl_button))

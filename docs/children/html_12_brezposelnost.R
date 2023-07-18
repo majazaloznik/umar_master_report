@@ -34,7 +34,8 @@ fig1 <- data |>
 
 for(i in 1:11) {
   fig1 <- fig1 |>
-    add_lines(y = ~`Zaposlenost`,  name = "\u200A",  color = I('rgba(0,0,0,0)'))
+    add_lines(y = ~`Zaposlenost`,  name = "\u200A",  color = I('rgba(0,0,0,0)'),
+              hoverinfo = "none")
 }
 
 fig2 <-  data2 |>
@@ -63,7 +64,12 @@ subplot(fig1,  fig2,  nrows = 2, shareX = TRUE) |>
          title = list(text = paste("Posodobljeno:",updated,
                                    prep_l$transf_txt, "(Vir: SURS & ZRSZ)"),
                       font = list(size = 12),
-                      x = 0)) |>
+                      x = 0),
+         annotations = list(
+           x = 1, y = 1, text = "DeRo", showarrow = FALSE,
+           xref='paper', yref='paper', xanchor='right', yanchor='top',
+           font=list(size=10, color = umar_cols()[3])
+         )) |>
   rangeslider(as.Date("2000-01-01"), max(data$period) + 100)|>
   config(modeBarButtonsToAdd = list(dl_button))
 

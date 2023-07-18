@@ -42,5 +42,10 @@ data |>
          title = list(text = paste("Posodobljeno:", updated,
                                    prep_l$transf_txt, "(Vir: SURS)"),
                       font = list(size = 12),
-                      x = 0))|>
+                      x = 0),
+         annotations = list(
+           x = 1, y = 1, text = "DeRo", showarrow = FALSE,
+           xref='paper', yref='paper', xanchor='right', yanchor='top',
+           font=list(size=10, color = umar_cols()[3])
+         ))|>
   config(modeBarButtonsToAdd = list(dl_button))

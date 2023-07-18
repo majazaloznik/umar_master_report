@@ -40,6 +40,7 @@ data |>
                                    font = list(size =12)),
                       fixedrange = FALSE),
          xaxis = list(title = "",
+                      rangeslider = list(thickness = 0.05),
                       tickformatstops = list(
                         list(dtickrange = list("M1", "M6"),
                              value = "Q%q-%Y"),
@@ -47,5 +48,10 @@ data |>
                              value = "%Y"))),
          title = list(text = paste("Posodobljeno:", updated, "(Vir: SURS & prera\u010dun UMAR)"),
                       font = list(size = 12),
-                      x = 0))|>
+                      x = 0),
+         annotations = list(
+           x = 0.95, y = 1.05, text = "NaTJ", showarrow = FALSE,
+           xref='paper', yref='paper', xanchor='right', yanchor='top',
+           font=list(size=10, color = umar_cols()[3])
+         ))|>
   config(modeBarButtonsToAdd = list(dl_button))

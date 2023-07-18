@@ -35,5 +35,10 @@ data |>
                         list(dtickrange = list("M1", "M6"),
                              value = "%b %Y"),
                         list(dtickrange = list("M6", NULL),
-                             value = "%Y"))))|>
+                             value = "%Y"))),
+         annotations = list(
+           x = 0.95, y = 1.05, text = "NaTJ", showarrow = FALSE,
+           xref='paper', yref='paper', xanchor='right', yanchor='top',
+           font=list(size=10, color = umar_cols()[3])
+         ))|>
   config(modeBarButtonsToAdd = list(dl_button))

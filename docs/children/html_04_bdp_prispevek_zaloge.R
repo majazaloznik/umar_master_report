@@ -21,6 +21,7 @@ data |>
                                    font = list(size =12)),
                       fixedrange = FALSE),
          xaxis = list(title = "",
+                      rangeslider = list(thickness = slider_w),
                       tickformatstops = list(
                         list(dtickrange = list("M1", "M6"),
                              value = "Q%q-%Y"),
@@ -29,7 +30,12 @@ data |>
          title = list(text = paste("Posodobljeno:", prep_l$updated,
                                    prep_l$transf_txt, "(Vir: SURS)"),
                       font = list(size = 12),
-                      x = 0)) |>
+                      x = 0),
+         annotations = list(
+           x = 0.95, y = 1.05, text = "NaTJ", showarrow = FALSE,
+           xref='paper', yref='paper', xanchor='right', yanchor='top',
+           font=list(size=10, color = umar_cols()[3])
+         )) |>
   rangeslider(as.Date("2012-01-01"), max(data$period)+100)|>
   config(modeBarButtonsToAdd = list(dl_button))
 

@@ -29,10 +29,10 @@ for (col in numeric_cols) {
 
 data |>
   plot_ly(x = ~period, hovertemplate="%{x|%b-%Y} %{y:.2f}%", width = 1000) |>
-  add_lines(y = ~`value.x`, name = "Promet in skladi\u0161\u010denje (H)",  color = I(umar_cols()[1])) |>
-  add_lines(y = ~`value.y`, name = "Kopenski promet, cevovodni transport (H49)",  color = I(umar_cols()[2])) |>
+  add_lines(y = ~`value.x`, name = "Promet in skladi\u0161\u010denje (H)",  color = I("black")) |>
+  add_lines(y = ~`value.y`, name = "Kopenski promet, cevovodni transport (H49)",  color = I(umar_cols()[1])) |>
   add_lines(y = ~`value.x.x`, name = "Skladi\u0161\u010denje in spremljajou010de prometne dejavnosti (H52)",  color = I(umar_cols()[4])) |>
-  add_lines(y = ~`value.y.y`, name = "Po\u0161tna in kurirska dejavnost (H53)",  color = I(umar_cols()[3])) |>
+  add_lines(y = ~`value.y.y`, name = "Po\u0161tna in kurirska dejavnost (H53)",  color = I(umar_cols()[2])) |>
   layout(showlegend = TRUE,
          autosize = F, margin = m,
          font=list(family = "Myriad Pro"),
@@ -47,7 +47,19 @@ data |>
          title = list(text = paste("Posodobljeno:", prep_l$updated,
                                    prep_l$transf_txt, "(Vir: SURS & prera\u010dun UMAR)"),
                       font = list(size = 12),
-                      x = 0)) |>
+                      x = 0),
+         shapes = list(
+           list(
+             type = "line",
+             x0 = min(data$period), x1 = max(data$period),
+             y0 = 100, y1 = 100,
+             line = list(color = umar_cols("emph"), width = 1)
+           )),
+         annotations = list(
+           x = 1, y = 1, text = "JuPo", showarrow = FALSE,
+           xref='paper', yref='paper', xanchor='right', yanchor='top',
+           font=list(size=10, color = umar_cols()[3])
+         )) |>
   rangeslider(as.Date("2019-01-01"), max(data$period) + 100) |>
   config(modeBarButtonsToAdd = list(dl_button))
 

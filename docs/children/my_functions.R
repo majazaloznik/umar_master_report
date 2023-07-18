@@ -46,3 +46,15 @@ dl_button <- list(
           }
    ")
 )
+
+
+
+
+# incremental automation
+umar_layout <- function(plot, ...) {
+  plot <- layout(plot, ...)
+
+  plot <- layout(plot, xaxis = list(rangeslider = list(thickness = slider_w)))
+
+  return(plot)
+}

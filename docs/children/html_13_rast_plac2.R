@@ -28,7 +28,8 @@ fig1 <- data |>
 
 for(i in 1:6) {
   fig1 <- fig1 |>
-    add_lines(y = ~`javni`,  name = "\u200A",  color = I('rgba(0,0,0,0)'))
+    add_lines(y = ~`javni`,  name = "\u200A",  color = I('rgba(0,0,0,0)'),
+              hoverinfo = "none")
 }
 
 fig2 <- data |>
@@ -40,8 +41,8 @@ fig2 <- data |>
 
 for(i in 1:6) {
   fig2 <- fig2 |>
-    add_lines(y = ~`zasebni`,  name = "\u200A",  color = I('rgba(0,0,0,0)'))
-}
+    add_lines(y = ~`zasebni`,  name = "\u200A",  color = I('rgba(0,0,0,0)'),
+              hoverinfo = "none")}
 
 
 fig3 <- data |>
@@ -70,5 +71,10 @@ subplot(fig1,  fig2,  fig3, nrows = 3, shareX = TRUE) |>
          title = list(text = paste("Posodobljeno:", updated,
                                    prep_l$transf_txt, "(Vir: SURS)"),
                       font = list(size = 12),
-                      x = 0))|>
+                      x = 0),
+         annotations = list(
+           x = 1, y = 1, text = "DeRo", showarrow = FALSE,
+           xref='paper', yref='paper', xanchor='right', yanchor='top',
+           font=list(size=10, color = umar_cols()[3])
+         ))|>
   config(modeBarButtonsToAdd = list(dl_button))

@@ -13,7 +13,7 @@ prep_l$data_points[[1]] |>
   mutate(value = value - 100) -> data
 
 data |>
-  plot_ly(x = ~period, hovertemplate="%{x|Q%q-%Y} %{y:.2f}%", width = 1000) |>
+  plot_ly(x = ~period, hovertemplate="%{x|%b %Y} %{y:.2f}%", width = 1000) |>
   add_bars(y = ~`value`, name = "Medletna rast cen \u017eivljenskih potreb\u0161\u010din",  color = I(umar_cols()[1])) |>
   layout(barmode = "relative",
          showlegend = TRUE,
@@ -25,7 +25,7 @@ data |>
          xaxis = list(title = "",
                       tickformatstops = list(
                         list(dtickrange = list("M1", "M6"),
-                             value = "Q%q-%Y"),
+                             value = "%b %Y"),
                         list(dtickrange = list("M6", NULL),
                              value = "%Y"))),
          title = list(text = paste("Posodobljeno:", prep_l$updated, "(Vir: SURS)"),
