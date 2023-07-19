@@ -25,7 +25,7 @@ fig1 <- plot_ly(data, x = ~period, width = 1000,
             hovertemplate="%{x|Q%q-%Y} %{y:.2f}%",) |>
   add_lines(y = ~value.x, name = "Kon\u010dna potro\u0161nja gospodinjstev",  color = I(umar_cols()[1]),
             hovertemplate="%{x|Q%q-%Y} %{y:.2f}%",) |>
-  layout(annotations = list(x = 0.2 , y = .95, text = "Kon\u010dna potro\u0161nja", showarrow = F,
+  umar_layout(annotations = list(x = 0.2 , y = .95, text = "Kon\u010dna potro\u0161nja", showarrow = F,
                             xref='paper', yref='paper'))
 for(i in 1:9) {
   fig1 <- fig1 |>
@@ -47,7 +47,7 @@ fig3 <-  plot_ly(data, x = ~period, width = 1000,
             hovertemplate="%{x|Q%q-%Y} %{y:.2f}%") |>
   add_lines(y = ~value.x.x, name = "Bruto investicije v o.s.",  color = I(umar_cols()[5]),
             hovertemplate="%{x|Q%q-%Y} %{y:.2f}%") |>
-  layout(annotations = list(x = 0.2 , y = .95, text = "Bruto investicije v o.s.", showarrow = F,
+  umar_layout(annotations = list(x = 0.2 , y = .95, text = "Bruto investicije v o.s.", showarrow = F,
                             xref='paper', yref='paper'))
 
 for(i in 1:9) {
@@ -59,24 +59,18 @@ for(i in 1:9) {
 
 fig4 <-  plot_ly(data, x = ~period, width = 1000,
                  height = 800) |>
-  add_lines(y = ~value.x.x,  name = "Bruto investicije v o.s.",  color = I("light gray"), showlegend = FALSE,
-            hovertemplate="%{x|Q%q-%Y} %{y:.2f}%") |>
-  add_lines(y = ~value.y, name = "Kon\u010dna potro\u0161nja dr\u017eave", color = I("light gray"), showlegend = FALSE,
-            hovertemplate="%{x|Q%q-%Y} %{y:.2f}%") |>
-  add_lines(y = ~value.x, name = "Kon\u010dna potro\u0161nja gospodinjstev", color = I("light gray"), showlegend = FALSE,
-            hovertemplate="%{x|Q%q-%Y} %{y:.2f}%") |>
-  add_lines(y = ~value.y.y.y, name = "BDP", color = I("black"),
-            hovertemplate="%{x|Q%q-%Y} %{y:.2f}%") |>
-  add_lines(y = ~value.y.y, name = "Izvoz blaga in storitev",  color = I(umar_cols()[2]),
-            hovertemplate="%{x|Q%q-%Y} %{y:.2f}%") |>
-  add_lines(y = ~value.x.x.x, name = "Uvoz blaga in storitev",  color = I(umar_cols()[6]),
-            hovertemplate="%{x|Q%q-%Y} %{y:.2f}%") |>
-  layout(annotations = list(x = 0.2 , y = .95, text = "Zunanja trgovina", showarrow = F,
+  add_lines_qp(y = ~value.x.x,  name = "Bruto investicije v o.s.",  color = I("light gray"), showlegend = FALSE) |>
+  add_lines_qp(y = ~value.y, name = "Kon\u010dna potro\u0161nja dr\u017eave", color = I("light gray"), showlegend = FALSE) |>
+  add_lines_qp(y = ~value.x, name = "Kon\u010dna potro\u0161nja gospodinjstev", color = I("light gray"), showlegend = FALSE) |>
+  add_lines_qp(y = ~value.y.y.y, name = "BDP", color = I("black")) |>
+  add_lines_qp(y = ~value.y.y, name = "Izvoz blaga in storitev",  color = I(umar_cols()[2])) |>
+  add_lines_qp(y = ~value.x.x.x, name = "Uvoz blaga in storitev",  color = I(umar_cols()[6])) |>
+  umar_layout(annotations = list(x = 0.2 , y = .95, text = "Zunanja trgovina", showarrow = F,
                             xref='paper', yref='paper'))
 
 
 
-subplot(fig1,  fig3, fig4,  nrows = 3, shareX = TRUE) |>
+x <- subplot(fig1,  fig3, fig4,  nrows = 3, shareX = TRUE) |>
   umar_layout(showlegend = TRUE,
          autosize = F, margin = m,
          font=list(family = "Myriad Pro"),
@@ -90,8 +84,6 @@ subplot(fig1,  fig3, fig4,  nrows = 3, shareX = TRUE) |>
                                    font = list(size =12)),
                        range = c(-30, 40), fixedrange = FALSE),
          xaxis = list(title = "",
-                      rangeslider = list(thickness = slider_w),
-                      rangeslider = list(thickness = 0.05),
                       tickformatstops = list(
                         list(dtickrange = list("M1", "M6"),
                              value = "Q%q-%Y"),

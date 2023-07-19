@@ -26,17 +26,16 @@ data |>
             name = "Uvoz blaga in storitev", color = I(umar_cols()[6])) |>
   add_lines(y = ~`value.x`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}%",
             name = "BDP", color = I("black")) |>
-  layout(annotations = list(x = 0 , y = 1, showarrow = F,
+  umar_layout(annotations = list(x = 0 , y = 1, showarrow = F,
                             xref='paper', yref='paper', text = paste("Posodobljeno:",prep_l$updated,
                                                                      prep_l$transf_txt, "(Vir: SURS)"),
                             font = list(size = 12))) |>
   rangeslider(as.Date("2012-01-01"), max(data$period)+10) |>
-  layout(font=list(family = "Myriad Pro"),
+  umar_layout(font=list(family = "Myriad Pro"),
          autosize = F, margin = m,
          yaxis = list(title = list(text="\u010cetrtletna sprememba, v %",
                                    font = list(size =12))),
          xaxis = list(title = "",
-                      rangeslider = list(thickness = 0.1),
                       tickformatstops = list(
                         list(dtickrange = list("M1", "M6"),
                              value = "%b %Y"),
@@ -47,5 +46,5 @@ data |>
            xref='paper', yref='paper', xanchor='right', yanchor='top',
            font=list(size=10, color = umar_cols()[3])
          ))|>
-  layout(hovermode = 'x') |>
+  umar_layout(hovermode = 'x') |>
   config(modeBarButtonsToAdd = list(dl_button))

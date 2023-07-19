@@ -54,7 +54,7 @@ fig3 <- data |>
 
 subplot(fig1,  fig2,  fig3, nrows = 3, shareX = TRUE) |>
   rangeslider(as.Date("2015-01-01"), max(data$period)+10) |>
-  layout(font=list(family = "Myriad Pro"),
+  umar_layout(font=list(family = "Myriad Pro"),
          autosize = F, margin = m,
          yaxis2 = list(title = list(text="3-m ds medletne spremembe, v %",
                                    font = list(size =12)),
@@ -62,7 +62,6 @@ subplot(fig1,  fig2,  fig3, nrows = 3, shareX = TRUE) |>
          yaxis = list(range = c(-10, 20), fixedrange = FALSE),
          yaxis3 = list(range = c(-10, 20), fixedrange = FALSE),
          xaxis = list(title = "",
-                      rangeslider = list(thickness = 0.07),
                       tickformatstops = list(
                         list(dtickrange = list("M1", "M6"),
                              value = "%b %Y"),

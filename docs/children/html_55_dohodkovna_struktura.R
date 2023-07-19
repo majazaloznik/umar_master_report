@@ -11,11 +11,11 @@ purrr::reduce(prep_l$data_points, dplyr::left_join, by = c("period_id", "period"
   as_tibble() -> data
 
 fig1 <- data |>
-  plot_ly(x = ~period, hovertemplate="%{x|%Y} %{y:.2f}%", width = 1000, height = 600) |>
-  add_lines(y = ~`value.x`, name = "Nominalni BDP",  color = I("black")) |>
-  add_lines(y = ~`value.y`, name = "Bruto poslovni prese\u017eek in razn. doh.",  color = I(umar_cols()[1])) |>
-  add_lines(y = ~`value.x.x`, name = "Sredstva za zaposlene",  color = I(umar_cols()[2])) |>
-  add_lines(y = ~`value.y.y`, name = "Davki na proizvodnjo in uvoz",  color = I(umar_cols()[3]))
+  plot_ly(x = ~period, width = 1000, height = 600) |>
+  add_lines_qp(y = ~`value.x`, name = "Nominalni BDP",  color = I("black")) |>
+  add_lines_qp(y = ~`value.y`, name = "Bruto poslovni prese\u017eek in razn. doh.",  color = I(umar_cols()[1])) |>
+  add_lines_qp(y = ~`value.x.x`, name = "Sredstva za zaposlene",  color = I(umar_cols()[2])) |>
+  add_lines_qp(y = ~`value.y.y`, name = "Davki na proizvodnjo in uvoz",  color = I(umar_cols()[3]))
 
 for(i in 1:8) {
   fig1 <- fig1 |>
@@ -23,12 +23,12 @@ for(i in 1:8) {
               hoverinfo = "none")}
 
 fig2 <- data |>
-  plot_ly(x = ~period, hovertemplate="%{x|%Y} %{y:.2f}%", width = 1000, height = 600) |>
-  add_lines(y = ~`value.x`, name = "Nominalni BDP",  color = I("black")) |>
-  add_lines(y = ~`value`, name = "Subvencije na proizvodnjo",  color = I(umar_cols()[4]))
+  plot_ly(x = ~period, width = 1000, height = 600) |>
+  add_lines_qp(y = ~`value.x`, name = "Nominalni BDP",  color = I("black")) |>
+  add_lines_qp(y = ~`value`, name = "Subvencije na proizvodnjo",  color = I(umar_cols()[4]))
 
 subplot(fig1,  fig2, nrows = 2, shareX = TRUE) |>
-  layout(showlegend = TRUE,
+  umar_layout(showlegend = TRUE,
          autosize = T, margin = m,
          font=list(family = "Myriad Pro"),
          yaxis = list(title = list(text="Medletna rast, v %",

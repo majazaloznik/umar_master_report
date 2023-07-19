@@ -29,7 +29,7 @@ data |>
   add_lines(y = ~`fizicna`,  hovertemplate="%{x|%m-%Y} %{y:.2f}%",
             name = "Fizi\u010dne osebe", color = I(umar_cols()[1])) |>
   rangeslider(as.Date("2013-01-01"), max(data$period)+10) |>
-  layout(font=list(family = "Myriad Pro"),
+  umar_layout(font=list(family = "Myriad Pro"),
          autosize = F, margin = m,
          yaxis = list(fixedrange = FALSE,
                       range = c(0, 350),

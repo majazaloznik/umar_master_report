@@ -18,36 +18,36 @@ purrr::reduce(prep_l2$data_points, dplyr::left_join, by = c("period_id", "period
   as_tibble() -> data2
 
 
-fig1 <- plot_ly(data, x = ~period, hovertemplate="%{x|%b-%Y} %{y:.2f}", width = 1000,
+fig1 <- plot_ly(data, x = ~period, width = 1000,
                 height = 600) |>
-  add_lines(y = ~value.x,  name = "Kazalnik gospodarske klime",  color = I(umar_cols()[1]) ) |>
-  add_lines(y = ~value.y,   name = "Zaupanje v predelovalnih dejavnostih",color = I(umar_cols()[2])) |>
-  add_lines(y = ~value.x.x,  name = "Zaupanje v trgovini na drobno",  color = I(umar_cols()[3])) |>
-  add_lines(y = ~value.y.y, name = "Zaupanje potro\u0161nikov", color = I(umar_cols()[4])) |>
-  add_lines(y = ~value.x.x.x,  name = "Zaupanje v storitvenih dejavnostih",  color = I(umar_cols()[5])) |>
-  add_lines(y = ~value.y.y.y, name = "Zaupanje v gradbeni\u0161tvu",  color = I(umar_cols()[6])) |>
-  layout(annotations = list(x = 0. , y = 1, text = "Poslovne tendence in mnenje potro\u0161nikov", showarrow = F,
+  add_lines_m(y = ~value.x,  name = "Kazalnik gospodarske klime",  color = I(umar_cols()[1]) ) |>
+  add_lines_m(y = ~value.y,   name = "Zaupanje v predelovalnih dejavnostih",color = I(umar_cols()[2])) |>
+  add_lines_m(y = ~value.x.x,  name = "Zaupanje v trgovini na drobno",  color = I(umar_cols()[3])) |>
+  add_lines_m(y = ~value.y.y, name = "Zaupanje potro\u0161nikov", color = I(umar_cols()[4])) |>
+  add_lines_m(y = ~value.x.x.x,  name = "Zaupanje v storitvenih dejavnostih",  color = I(umar_cols()[5])) |>
+  add_lines_m(y = ~value.y.y.y, name = "Zaupanje v gradbeni\u0161tvu",  color = I(umar_cols()[6])) |>
+  umar_layout(annotations = list(x = 0. , y = 1, text = "Poslovne tendence in mnenje potro\u0161nikov", showarrow = F,
                             xref='paper', yref='paper'))
 
 for(i in 1:7) {
   fig1 <- fig1 |>
     add_lines(y = ~value.x,  name = "\u200A",  color = I('rgba(0,0,0,0)'),
               hoverinfo = "none")}
-fig2 <- plot_ly(data2, x = ~period, hovertemplate="%{x|%b-%Y} %{y:.2f}", width = 1000,
+fig2 <- plot_ly(data2, x = ~period, width = 1000,
                 height = 600) |>
-  add_lines(y = ~value.x,  name = "Kazalnik gospodarske klime",  color = I(umar_cols()[1])) |>
-  add_lines(y = ~value.y,   name = "Zaupanje v predelovalnih dejavnostih",color = I(umar_cols()[2])) |>
-  add_lines(y = ~value.x.x,  name = "Zaupanje v trgovini na drobno",  color = I(umar_cols()[3])) |>
-  add_lines(y = ~value.y.y, name = "Zaupanje potro\u0161nikov", color = I(umar_cols()[4])) |>
-  add_lines(y = ~value.x.x.x,  name = "Zaupanje v storitvenih dejavnostih",  color = I(umar_cols()[5])) |>
-  add_lines(y = ~value.y.y.y, name = "Zaupanje v gradbeni\u0161tvu",  color = I(umar_cols()[6])) |>
-  layout(annotations = list(x = 0. , y = 1, text = "Poslovne tendence in mnenje potro\u0161nikov - trimese\u010dne drse\u010de sredine (desne)", showarrow = F,
+  add_lines_m(y = ~value.x,  name = "Kazalnik gospodarske klime",  color = I(umar_cols()[1])) |>
+  add_lines_m(y = ~value.y,   name = "Zaupanje v predelovalnih dejavnostih",color = I(umar_cols()[2])) |>
+  add_lines_m(y = ~value.x.x,  name = "Zaupanje v trgovini na drobno",  color = I(umar_cols()[3])) |>
+  add_lines_m(y = ~value.y.y, name = "Zaupanje potro\u0161nikov", color = I(umar_cols()[4])) |>
+  add_lines_m(y = ~value.x.x.x,  name = "Zaupanje v storitvenih dejavnostih",  color = I(umar_cols()[5])) |>
+  add_lines_m(y = ~value.y.y.y, name = "Zaupanje v gradbeni\u0161tvu",  color = I(umar_cols()[6])) |>
+  umar_layout(annotations = list(x = 0. , y = 1, text = "Poslovne tendence in mnenje potro\u0161nikov - trimese\u010dne drse\u010de sredine (desne)", showarrow = F,
                             xref='paper', yref='paper'))
 
 
 
 subplot(fig1,  fig2,  nrows = 2, shareX = TRUE) |>
-  layout(showlegend = TRUE,
+  umar_layout(showlegend = TRUE,
          autosize = F, margin = m,
          font=list(family = "Myriad Pro"),
          yaxis = list(title = list(text="Ravnote\u017eje, v o.t.",
@@ -57,7 +57,6 @@ subplot(fig1,  fig2,  nrows = 2, shareX = TRUE) |>
                                     font = list(size =12)),
                        range = c(-60, 50), fixedrange = FALSE),
          xaxis = list(title = "",
-                      rangeslider = list(thickness = 0.05),
                       tickformatstops = list(
                         list(dtickrange = list("M1", "M6"),
                              value = "Q%b %Y"),

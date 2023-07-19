@@ -15,7 +15,7 @@ prep_l$data_points[[1]] |>
 data |>
   plot_ly(x = ~period, hovertemplate="%{x|%b %Y} %{y:.2f}%", width = 1000) |>
   add_bars(y = ~`value`, name = "Medletna rast cen \u017eivljenskih potreb\u0161\u010din",  color = I(umar_cols()[1])) |>
-  layout(barmode = "relative",
+  umar_layout(barmode = "relative",
          showlegend = TRUE,
          autosize = F, margin = m,
          font=list(family = "Myriad Pro"),

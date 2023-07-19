@@ -19,14 +19,11 @@ plot_ly(data, x = ~period, width = 1000) |>
             hovertemplate="%{x|%b-%Y} %{y:.2f}%") |>
   add_lines(y = ~value.y.y, name = "Trgovina na drobno", color = I(umar_cols()[4]),
             hovertemplate="%{x|%b-%Y} %{y:.2f}%") |>
-    layout(showlegend = TRUE,
-         autosize = F, margin = m,
-         font=list(family = "Myriad Pro"),
+    umar_layout(
          yaxis = list(title = list(text="Medletna rast, v %",
                                    font = list(size =12)),
                       fixedrange = FALSE),
          xaxis = list(title = "",
-                      rangeslider = list(thickness = 0.05),
                       tickformatstops = list(
                         list(dtickrange = list("M1", "M6"),
                              value = "%b-%Y"),

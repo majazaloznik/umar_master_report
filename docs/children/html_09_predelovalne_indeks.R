@@ -21,7 +21,7 @@ data |>
   add_lines(y = ~`C PREDELOVALNE DEJAVNOSTI`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}%",
             name = "C PREDELOVALNE DEJAVNOSTI", color = I(umar_cols()[2])) |>
   rangeslider(as.Date("2012-01-01"), max(data$period)+10) |>
-  layout(font=list(family = "Myriad Pro"),
+  umar_layout(font=list(family = "Myriad Pro"),
          autosize = F, margin = m,
          yaxis = list(title = list(text="Medletna sprememba, v %",
                                    font = list(size =12)),

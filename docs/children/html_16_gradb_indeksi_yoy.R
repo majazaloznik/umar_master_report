@@ -57,7 +57,7 @@ fig2 <- data |>
 
 
 subplot(fig1,  fig2,  nrows = 2, shareX = TRUE) |>
-  layout(showlegend = TRUE,
+  umar_layout(showlegend = TRUE,
          autosize = F, margin =  m,
          font=list(family = "Myriad Pro"),
          yaxis = list(
@@ -68,7 +68,6 @@ subplot(fig1,  fig2,  nrows = 2, shareX = TRUE) |>
            title = list(text="Medletna sprememba, v %",
                         font = list(size =12)), fixedrange = FALSE),
          xaxis = list(title = "",
-                      rangeslider = list(thickness = 0.1),
                       tickformatstops = list(
                         list(dtickrange = list("M1", "M6"),
                              value = "Q%b %Y"),

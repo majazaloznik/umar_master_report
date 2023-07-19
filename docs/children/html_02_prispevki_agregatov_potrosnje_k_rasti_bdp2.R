@@ -40,7 +40,6 @@ data |>
                                    font = list(size =12)),
                       fixedrange = FALSE),
          xaxis = list(title = "",
-                      rangeslider = list(thickness = slider_w),
                       tickformatstops = list(
                         list(dtickrange = list("M1", "M6"),
                              value = "Q%q-%Y"),

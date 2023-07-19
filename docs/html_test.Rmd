@@ -51,13 +51,13 @@ m <- list(
 
 ## BDP - medletna rast
 
-```{r, code=readLines("children/html_01_bdp_medletna_rast.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```{r medletnabdp, code=readLines("children/html_01_bdp_medletna_rast.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
 
 ## BDP - četrtletna rast
 
-```{r, code=readLines("children/html_08_bdp_cetrtletna_rast.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```{r cetrtlentabdp, code=readLines("children/html_08_bdp_cetrtletna_rast.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
 ## Nominalen in realen BDP, v mio EUR BDP (desezonirani podatki)

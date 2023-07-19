@@ -26,21 +26,19 @@ updated <- max(prep_l$updated, prep_l2$updated)
 # plot
 data |>
   plot_ly(x = ~period, width = 1000) |>
-  add_lines(y = ~`BDP, realna rast (v %)`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}%", name = "BDP, realna rast (v %)", color = I("black")) |>
-  add_bars(y = ~`Uvoz proizvodov in storitev`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}", name = "Uvoz proizvodov in storitev",  color = I(umar_cols()[3])) |>
-  add_bars(y = ~`Izvoz proizvodov in storitev`, hovertemplate="%{x|Q%q-%Y} %{y:.2f}", name = "Izvoz proizvodov in storitev",  color = I(umar_cols()[2])) |>
-  add_bars(y = ~`Bruto investicije v o.s.`, hovertemplate="%{x|Q%q-%Y} %{y:.2f}", name = "Bruto investicije v o.s.",  color = I(umar_cols()[5])) |>
-  add_bars(y = ~`Spremembe zalog in v.p`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}",name = "Spremembe zalog in v.p",  color = I(umar_cols()[6])) |>
-  add_bars(y = ~`Državna potrošnja`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}", name = "Dr\u017eavna potro\u0161nja",  color = I(umar_cols()[1])) |>
-  add_bars(y = ~`Zasebna potrošnja`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}", name = "Potro\u0161nja gospodinjstev",  color = I(umar_cols()[4])) |>
+  add_lines_qp(y = ~`BDP, realna rast (v %)`, name = "BDP, realna rast (v %)", color = I("black")) |>
+  add_bars_q(y = ~`Uvoz proizvodov in storitev`,  name = "Uvoz proizvodov in storitev",  color = I(umar_cols()[3])) |>
+  add_bars_q(y = ~`Izvoz proizvodov in storitev`,  name = "Izvoz proizvodov in storitev",  color = I(umar_cols()[2])) |>
+  add_bars_q(y = ~`Bruto investicije v o.s.`,  name = "Bruto investicije v o.s.",  color = I(umar_cols()[5])) |>
+  add_bars_q(y = ~`Spremembe zalog in v.p`,name = "Spremembe zalog in v.p",  color = I(umar_cols()[6])) |>
+  add_bars_q(y = ~`Državna potrošnja`,   name = "Dr\u017eavna potro\u0161nja",  color = I(umar_cols()[1])) |>
+  add_bars_q(y = ~`Zasebna potrošnja`,   name = "Potro\u0161nja gospodinjstev",  color = I(umar_cols()[4])) |>
   rangeslider(as.Date("2012-01-01"), max(data$period)+100) |>
-  layout(barmode = "relative", font=list(family = "Myriad Pro"),
-         autosize = F, margin = m,
+  umar_layout(barmode = "relative",
          yaxis = list(title = list(text="Prispevki k medletni rasti BDP, v o.t",
                                    font = list(size =12)),
                       fixedrange = FALSE),
          xaxis = list(title = "",
-                      rangeslider = list(thickness = 0.05),
                       tickformatstops = list(
                         list(dtickrange = list("M1", "M6"),
                              value = "Q%q-%Y"),

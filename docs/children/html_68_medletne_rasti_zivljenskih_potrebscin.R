@@ -24,17 +24,16 @@ data |>
             name = "Energenti", color = I(umar_cols()[5])) |>
   add_lines(y = ~`value`,  hovertemplate="%{x|%b %Y} %{y:.2f}%",#showlegend = FALSE,
             name = "Osnovna inflacija", color = I(umar_cols()[6])) |>
-  layout(annotations = list(x = 0 , y = 1, showarrow = F,
+  umar_layout(annotations = list(x = 0 , y = 1, showarrow = F,
                             xref='paper', yref='paper', text = paste("Posodobljeno:",prep_l$updated,
                                                                      prep_l$transf_txt, "(Vir: SURS & prera\u010dun UMAR)"),
                             font = list(size = 12))) |>
   rangeslider(as.Date("2012-01-01"), max(data$period)+10) |>
-  layout(font=list(family = "Myriad Pro"),
+  umar_layout(font=list(family = "Myriad Pro"),
          autosize = F, margin = m,
          yaxis = list(title = list(text="Medletna rast, v %",
                                    font = list(size =12))),
          xaxis = list(title = "",
-                      rangeslider = list(thickness = 0.1),
                       tickformatstops = list(
                         list(dtickrange = list("M1", "M6"),
                              value = "%b %Y"),

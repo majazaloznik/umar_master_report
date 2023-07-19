@@ -24,7 +24,7 @@ data |>
   add_bars(y = ~`value.x`, name = "Doma\u010da potro\u0161nja",  color = I(umar_cols()[1])) |>
   add_bars(y = ~`value.y`, name = "Neto izvoz",  color = I(umar_cols()[2])) |>
   add_lines(y = ~`value`, name = "Realna rast BDP (v %)",  color = I("black")) |>
-  layout(barmode = "relative",
+  umar_layout(barmode = "relative",
          showlegend = TRUE,
          autosize = F, margin = m,
          font=list(family = "Myriad Pro"),

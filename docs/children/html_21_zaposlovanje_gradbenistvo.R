@@ -24,7 +24,7 @@ fig1 <- data |>
   plot_ly(x = ~period, width = 1000, height = 600) |>
   add_lines(y = ~`value`,  hovertemplate="%{x|%b-%Y} %{y:.2f}%",
             name = "Delovno aktivno prebivalstvo v gradbeni\u0161tvu", color = I(umar_cols()[1])) |>
-  layout(annotations = list(x = 0 , y = 1, showarrow = F,
+  umar_layout(annotations = list(x = 0 , y = 1, showarrow = F,
                             xref='paper', yref='paper', text = paste("Posodobljeno:",prep_l$updated,
                                                                      prep_l$transf_txt, "(Vir: SURS & prera\u010dun UMAR)                                      \n",
                                                                      "Posodobljeno:",prep_l2$updated,
@@ -34,7 +34,7 @@ fig1 <- data |>
 fig1 |>
   add_lines(data = data2, y = ~`value`,  hovertemplate="%{x|%b-%Y} %{y:.2f}", yaxis = "y2",
             name = "Pri\u010dakovano zaposlovanje v gradbeni\u0161tvu (desna os)", color = I(umar_cols()[4])) |>
-  layout(showlegend = TRUE,
+  umar_layout(showlegend = TRUE,
          autosize = F, margin =  m,
          font=list(family = "Myriad Pro"),
          yaxis = list(
@@ -48,7 +48,6 @@ fig1 |>
            side = "right",
            range = list(-50, 40), fixedrange = FALSE),
          xaxis = list(title = "",
-                      rangeslider = list(thickness = 0.1),
                       tickformatstops = list(
                         list(dtickrange = list("M1", "M6"),
                              value = "Q%q-%Y"),

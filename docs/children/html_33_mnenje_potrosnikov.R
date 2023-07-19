@@ -18,14 +18,13 @@ plot_ly(data, x = ~period, hovertemplate="%{x|%b-%Y} %{y:.2f}", width = 1000) |>
   add_lines(y = ~value.y.y,   name = "Gibanje cen v prihodnjih 12 mesecih",color = I(umar_cols()[4])) |>
   add_lines(y = ~value.x.x.x,  name = "Raven brezposelnosti v prihodnjih 12 mesecih",  color = I(umar_cols()[5])) |>
   add_lines(y = ~value.y.y.y,   name = "Var\u010devanje v prihodnjih 12 mesecih",color = I(umar_cols()[6])) |>
-    layout(showlegend = TRUE,
+    umar_layout(showlegend = TRUE,
          autosize = F, margin = m,
          font=list(family = "Myriad Pro"),
          yaxis = list(title = list(text="Ravnote\u017eje, v o.t.",
                                    font = list(size =12)),
                       fixedrange = FALSE),
          xaxis = list(title = "",
-                      rangeslider = list(thickness = 0.05),
                       tickformatstops = list(
                         list(dtickrange = list("M1", "M6"),
                              value = "Q%b %Y"),

@@ -11,6 +11,7 @@ purrr::reduce(prep_l$data_points, dplyr::left_join, by = c("period_id", "period"
   dplyr::relocate( period) |>
   select(-period_id) |>
   as_tibble() -> data
+
 colnames(data)[2:3] <- c("Oprema in stroji", "Zgradbe in objekti")
 
 data <- data |> left_join(prep_l2$data_points[[1]]) |>
@@ -21,11 +22,11 @@ updated <- prep_l$updated
 
 fig <- data |>
   plot_ly(x = ~period, width = 1000) |>
-  add_lines(y = ~`Oprema in stroji`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}%",
+  add_lines_qp(y = ~`Oprema in stroji`,
             name = "Oprema in stroji", color = I(umar_cols()[1])) |>
-  add_lines(y = ~`Zgradbe in objekti`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}%",
+  add_lines_qp(y = ~`Zgradbe in objekti`,
             name = "Zgradbe in objekti", color = I(umar_cols()[2])) |>
-  layout(yaxis = list(range = c(-40, 40)))
+  umar_layout(yaxis = list(range = c(-40, 40)))
 
 ay <- list(
   overlaying = "y",
@@ -34,16 +35,16 @@ ay <- list(
                font = list(size =12)),
   range = c(-4, 4))
 
-fig <- fig %>% add_bars(data, x = data$period,  y = data$`Spremembe zalog (desna os)`,
+fig <- fig %>% add_bars_q(data, x = data$period,  y = data$`Spremembe zalog (desna os)`,
                          name = "Spremembe zalog (desna os)", yaxis = "y2", opacity = 0.7,
-                        color = I(umar_cols()[3]), hovertemplate="%{x|Q%q-%Y} %{y:.2f}")
+                        color = I(umar_cols()[3]))
 
-fig <- fig %>% layout(
+fig <- fig %>% umar_layout(
   title = "Double Y Axis Example", yaxis2 = ay,
   xaxis = list(title="xaxis title "),
   yaxis = list(title="Medletne spremembe, v %")
 ) |>
-  layout(font=list(family = "Myriad Pro"),
+  umar_layout(font=list(family = "Myriad Pro"),
          autosize = F, margin = m,
          yaxis = list(title = list(text="Medletna sprememba, v %",
                                    font = list(size =12)),

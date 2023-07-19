@@ -30,7 +30,7 @@ fig1 <- data |>
           height = 600) |>
   add_lines(y = ~`Zaposlenost`,  hovertemplate="%{x|Q%q-%Y} %{y:.}",
             name = "Zaposlenost, desezonirana", color = I(umar_cols()[1])) |>
-  layout(font=list(family = "Myriad Pro"))
+  umar_layout(font=list(family = "Myriad Pro"))
 
 for(i in 1:11) {
   fig1 <- fig1 |>
@@ -43,10 +43,10 @@ fig2 <-  data2 |>
           height = 600) |>
   add_lines(y = ~`Brezposelnost`,  hovertemplate="%{x|%m-%Y} %{y:.}",
             name = "Brezposelnost", color = I(umar_cols()[2])) |>
-  layout(font=list(family = "Myriad Pro"))
+  umar_layout(font=list(family = "Myriad Pro"))
 
 subplot(fig1,  fig2,  nrows = 2, shareX = TRUE) |>
-  layout(showlegend = TRUE,
+  umar_layout(showlegend = TRUE,
          autosize = F, margin =  m,
          font=list(family = "Myriad Pro"),
          yaxis = list(fixedrange = FALSE,
@@ -55,7 +55,6 @@ subplot(fig1,  fig2,  nrows = 2, shareX = TRUE) |>
                        title =list(text =  '\u0160tevilo registriranih brezposelnih, v 1000',
                                    font = list(size =12))),
          xaxis = list(title = "",
-                      rangeslider = list(thickness = 0.1),
                       tickformatstops = list(
                         list(dtickrange = list("M1", "M6"),
                              value = "Q%q-%Y"),

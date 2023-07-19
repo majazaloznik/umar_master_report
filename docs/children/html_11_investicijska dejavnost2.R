@@ -20,15 +20,14 @@ data <- data |> left_join(prep_l2$data_points[[1]]) |>
 updated <- prep_l$updated
 
 fig1 <- data |>
-  plot_ly(x = ~period, hovertemplate="%{x|Q%q-%Y} %{y:.2f}%", width = 1000,
-          height = 600) |>
-  add_lines(y = ~`Oprema in stroji`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}%",
+  plot_ly(x = ~period,  width = 1000, height = 600) |>
+  add_lines_qp(y = ~`Oprema in stroji`,
             name = "Oprema in stroji", color = I(umar_cols()[1])) |>
-  add_lines(y = ~`Zgradbe in objekti`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}%",
+  add_lines_qp(y = ~`Zgradbe in objekti`,
             name = "Zgradbe in objekti", color = I(umar_cols()[2])) |>
-  add_lines(y = ~`Bruto investicije v osnovna sredstva`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}%",
+  add_lines_qp(y = ~`Bruto investicije v osnovna sredstva`,
             name = "Bruto investicije v osnovna sredstva", color = I(umar_cols()[4])) |>
-  layout(font=list(family = "Myriad Pro"))
+  umar_layout(font=list(family = "Myriad Pro"))
 
 for(i in 1:9) {
   fig1 <- fig1 |>
@@ -37,15 +36,15 @@ for(i in 1:9) {
 }
 
 fig2 <-  data |>
-  plot_ly(x = ~period,hovertemplate="%{x|Q%q-%Y} %{y:.2f}", width = 1000,
+  plot_ly(x = ~period,  width = 1000,
           height = 600) |>
-  add_bars( x = data$period,  y = data$`Spremembe zalog`,
+  add_bars_q( x = data$period,  y = data$`Spremembe zalog`,
             name = "Spremembe zalog",
             color = I(umar_cols()[3])) |>
-  layout(font=list(family = "Myriad Pro"))
+  umar_layout(font=list(family = "Myriad Pro"))
 
 subplot(fig1,  fig2,  nrows = 2, shareX = TRUE) |>
-  layout(showlegend = TRUE,
+  umar_layout(showlegend = TRUE,
          autosize = F, margin =  m,
          font=list(family = "Myriad Pro"),
          yaxis = list(fixedrange = FALSE,
@@ -53,7 +52,6 @@ subplot(fig1,  fig2,  nrows = 2, shareX = TRUE) |>
          yaxis2 = list(fixedrange = FALSE,
                        title = list(text = 'Prispevek h rasti BDP, v o.t.', font = list(size =12))),
          xaxis = list(title = "",
-                      rangeslider = list(thickness = 0.1),
                       tickformatstops = list(
                         list(dtickrange = list("M1", "M6"),
                              value = "Q%q-%Y"),

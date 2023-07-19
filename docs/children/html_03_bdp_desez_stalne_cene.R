@@ -20,7 +20,7 @@ data |>
   plot_ly(x = ~period, hovertemplate="%{x|Q%q-%Y} %{y:.2f}", width = 1000) |>
   add_lines(y = ~`value.y`, name = "BDP - stalne cene (2010)",  color = I(umar_cols()[1])) |>
   add_lines(y = ~`value.x`, name = "BDP - teko\u010de cene",  color = I(umar_cols()[2])) |>
-  layout(barmode = "relative",
+  umar_layout(barmode = "relative",
          showlegend = TRUE,
          autosize = F, margin = m,
          font=list(family = "Myriad Pro"),
@@ -28,7 +28,6 @@ data |>
                                    font = list(size =12)),
                       fixedrange = FALSE),
          xaxis = list(title = "",
-                      rangeslider = list(thickness = slider_w),
                       tickformatstops = list(
                         list(dtickrange = list("M1", "M6"),
                              value = "Q%q-%Y"),

@@ -15,7 +15,7 @@ data |>
   add_lines(y = ~`value`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}%",
             name = "Realni indeksi vrednosti opravljenih \ngradbenih del v gradbeništv (3-mesečna drseča sredina)", color = I(umar_cols()[1])) |>
   rangeslider(as.Date("2012-01-01"), max(data$period)+10) |>
-  layout(font=list(family = "Myriad Pro"),
+  umar_layout(font=list(family = "Myriad Pro"),
          autosize = F, margin = m,
          yaxis = list(title = list(text="Medletna sprememba, v %",
                                    font = list(size =12)),

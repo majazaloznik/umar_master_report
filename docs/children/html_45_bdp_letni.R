@@ -24,7 +24,7 @@ data2 |>
   plot_ly(x = ~period, hovertemplate="%{x|%Y} %{y:.2f}%", width = 1000) |>
   add_lines(y = ~`stalne`, name = "BDP - stalne cene",  color = I(umar_cols()[1])) |>
   add_lines(y = ~`tekoce`, name = "BDP - teko\u010de cene",  color = I(umar_cols()[2])) |>
-  layout(showlegend = TRUE,
+  umar_layout(showlegend = TRUE,
          autosize = F, margin = m,
          font=list(family = "Myriad Pro"),
          yaxis = list(title = list(text="Medletna rast, v %",

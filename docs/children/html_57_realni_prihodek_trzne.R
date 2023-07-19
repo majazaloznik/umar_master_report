@@ -21,7 +21,7 @@ data |>
   add_lines(y = ~`value.y.y`, name = "Informacijske in komunikacijske dejavnosti (J)", color = I(umar_cols()[4])) |>
   add_lines(y = ~`value.x.x.x`, name = "Strokovne, znanstvene in tehni\u010dne dejavnosti (M)",  color = I(umar_cols()[5])) |>
   add_lines(y = ~`value.y.y.y`, name = "Druge raznovrstne poslovne dejavnosti (N)",  color = I(umar_cols()[6])) |>
-  layout(showlegend = TRUE,
+  umar_layout(showlegend = TRUE,
          autosize = F, margin = m,
          font=list(family = "Myriad Pro"),
          yaxis = list(title = list(text="Medletna rast, v %",

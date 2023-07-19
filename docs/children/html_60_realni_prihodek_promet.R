@@ -33,7 +33,7 @@ data |>
   add_lines(y = ~`value.y`, name = "Kopenski promet, cevovodni transport (H49)",  color = I(umar_cols()[1])) |>
   add_lines(y = ~`value.x.x`, name = "Skladi\u0161\u010denje in spremljajou010de prometne dejavnosti (H52)",  color = I(umar_cols()[4])) |>
   add_lines(y = ~`value.y.y`, name = "Po\u0161tna in kurirska dejavnost (H53)",  color = I(umar_cols()[2])) |>
-  layout(showlegend = TRUE,
+  umar_layout(showlegend = TRUE,
          autosize = F, margin = m,
          font=list(family = "Myriad Pro"),
          yaxis = list(title = list(text="Indeks (povpre\u010dje 2019)",

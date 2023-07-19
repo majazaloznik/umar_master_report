@@ -15,14 +15,13 @@ plot_ly(data2, x = ~period, hovertemplate="%{x|%b-%Y} %{y:.2f}", width = 1000) |
   add_lines(y = ~value.x,  name = "Kazalnik zaupanja",  color = I(umar_cols()[1]) ) |>
   add_lines(y = ~value.y,   name = "Skupna naro\u010dila",color = I(umar_cols()[2])) |>
   add_lines(y = ~value,  name = "Pri\u010dakovano zaposlovanje",  color = I(umar_cols()[4])) |>
-  layout(showlegend = TRUE,
+  umar_layout(showlegend = TRUE,
          autosize = F, margin = m,
          font=list(family = "Myriad Pro"),
          yaxis = list(title = list(text="Ravnote\u017eje, v o.t.",
                                    font = list(size =12), fixedrange = FALSE),
                       fixedrange = FALSE),
          xaxis = list(title = "",
-                      rangeslider = list(thickness = slider_w),
                       tickformatstops = list(
                         list(dtickrange = list("M1", "M6"),
                              value = "Q%b %Y"),

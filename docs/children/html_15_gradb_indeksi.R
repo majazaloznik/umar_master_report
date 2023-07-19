@@ -34,7 +34,7 @@ fig1 <- data |>
             name = "Specializirana gradbena dela", color = I(umar_cols()[4])) |>
   add_lines(y = ~`skupaj`,  hovertemplate="%{x|%b-%Y} %{y:.2f}",
             name = "Gradbeni\u0161tvo - SKUPAJ", color = I(umar_cols()[5])) |>
-  layout(
+  umar_layout(
     shapes = list(
       list(
         type = "line",
@@ -57,7 +57,7 @@ fig2 <- data2 |>
             name = "Stanovanjske stavbe", color = I(umar_cols()[6])) |>
   add_lines(y = ~`nestan`,  hovertemplate="%{x|%b-%Y} %{y:.2f}",
             name = "Nestanovanjske stavbe", color = I(umar_cols()[7])) |>
-  layout(
+  umar_layout(
          shapes = list(
            list(
              type = "line",
@@ -69,7 +69,7 @@ fig2 <- data2 |>
 
 
 subplot(fig1,  fig2,  nrows = 2, shareX = TRUE) |>
-  layout(showlegend = TRUE,
+  umar_layout(showlegend = TRUE,
          autosize = F, margin =  m,
          font=list(family = "Myriad Pro"),
          yaxis = list(
@@ -81,7 +81,6 @@ subplot(fig1,  fig2,  nrows = 2, shareX = TRUE) |>
                         font = list(size =12)),
            range = c(0, 900), fixedrange = FALSE),
          xaxis = list(title = "",
-                      rangeslider = list(thickness = 0.1),
                       tickformatstops = list(
                         list(dtickrange = list("M1", "M6"),
                              value = "%b %Y"),

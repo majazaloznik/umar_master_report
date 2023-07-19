@@ -30,7 +30,6 @@ plot_ly(data, x = ~period, hovertemplate="%{x|%b-%Y} %{y:.2f}", width = 1000) |>
          yaxis = list(title = list(text="Ravnote\u017eje, v o.t.",
                                    font = list(size =12))),
          xaxis = list(title = "",
-                      rangeslider = list(thickness = 0.05),
                       tickformatstops = list(
                         list(dtickrange = list("M1", "M6"),
                              value = "Q%b %Y"),

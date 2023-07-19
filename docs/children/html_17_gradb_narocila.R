@@ -22,7 +22,7 @@ fig1 <- data |>
           height = 600) |>
   add_lines(y = ~`value`,  hovertemplate="%{x|%b-%Y} %{y:.2f}",
             name = "Gradbeni\u0161tvo skupaj", color = I(umar_cols()[1]), yaxis = "y2") |>
-  layout(annotations = list(x = 0 , y = 1, showarrow = F,
+  umar_layout(annotations = list(x = 0 , y = 1, showarrow = F,
                             xref='paper', yref='paper', text = paste("Posodobljeno:",prep_l$updated,
                                         prep_l$transf_txt, "(Vir: SURS & prera\u010dun UMAR) \n",
                                         "Posodobljeno:",prep_l2$updated,
@@ -33,7 +33,7 @@ fig1 <- data |>
 fig1 |>
   add_lines(data = data2, y = ~`value`,  hovertemplate="%{x|%b-%Y} %{y:.2f}",
             name = "Skupna naro\u010dila (desna os)", color = I(umar_cols()[4])) |>
-  layout(showlegend = TRUE,
+  umar_layout(showlegend = TRUE,
          autosize = F, margin =  m,
          font=list(family = "Myriad Pro"),
          yaxis = list(
@@ -49,7 +49,6 @@ fig1 |>
            fixedrange = FALSE,
            range = list(-80, 60)),
          xaxis = list(title = "",
-                      rangeslider = list(thickness = 0.1),
                       tickformatstops = list(
                         list(dtickrange = list("M1", "M6"),
                              value = "Q%b %Y"),

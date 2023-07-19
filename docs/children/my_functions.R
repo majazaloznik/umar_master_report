@@ -53,8 +53,46 @@ dl_button <- list(
 # incremental automation
 umar_layout <- function(plot, ...) {
   plot <- layout(plot, ...)
+ # add rangeslider thinckness and other stuff that is the same everywhere
+  plot <- layout(plot, xaxis = list(rangeslider = list(thickness = slider_w)),
+                 showlegend = TRUE,
+                 autosize = F, margin = m,
+                 font=list(family = "Myriad Pro"))
 
-  plot <- layout(plot, xaxis = list(rangeslider = list(thickness = slider_w)))
+  return(plot)
+}
 
+# add lines with hovertemplate Q %
+add_lines_qp <- function(plot, y,  ...) {
+  plot <- add_lines(plot, y = y, hovertemplate="%{x|Q%q %Y} %{y:.2f}%", ...)
+  return(plot)
+}
+# add lines with hovertemplate Q
+add_lines_q <- function(plot, y,  ...) {
+  plot <- add_lines(plot, y = y, hovertemplate="%{x|Q%q %Y} %{y:.2f}", ...)
+  return(plot)
+}
+
+# add lines with hovertemplate M %
+add_lines_mp <- function(plot, y,  ...) {
+  plot <- add_lines(plot, y = y, hovertemplate="%{x|%b %Y} %{y:.2f}%", ...)
+  return(plot)
+}
+# add lines with hovertemplate M
+add_lines_m <- function(plot, y,  ...) {
+  plot <- add_lines(plot, y = y, hovertemplate="%{x|%b %Y} %{y:.2f}", ...)
+  return(plot)
+}
+
+
+# add lines with hovertemplate Q
+add_bars_q <- function(plot, y,  ...) {
+  plot <- add_bars(plot, y = y, hovertemplate="%{x|Q%q-%Y} %{y:.2f}", ...)
+  return(plot)
+}
+
+# add lines with hovertemplate Q
+add_bars_qp <- function(plot, y,  ...) {
+  plot <- add_bars(plot, y = y, hovertemplate="%{x|Q%q-%Y} %{y:.2f}%", ...)
   return(plot)
 }

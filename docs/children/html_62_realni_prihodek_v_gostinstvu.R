@@ -14,7 +14,7 @@ data |>
   add_lines(y = ~`value.x`, name = "Skupaj gostinstvo",  color = I(umar_cols()[3])) |>
   add_lines(y = ~`value.y`, name = "Gostinske nastanitvene dejavnosti",  color = I(umar_cols()[1])) |>
   add_lines(y = ~`value`, name = "Dejavnost strežbe jedi in pija\u010d",  color = I(umar_cols()[2])) |>
-  layout(showlegend = TRUE,
+  umar_layout(showlegend = TRUE,
          autosize = F, margin = m,
          font=list(family = "Myriad Pro"),
          yaxis = list(title = list(text="Indeks (povpre\u010dje 2015)",

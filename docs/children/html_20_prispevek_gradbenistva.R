@@ -36,22 +36,21 @@ data3 |>
            name = "Dodana vrednost gradbeni\u0161tva", color = I(umar_cols()[2])) |>
   add_lines(data = data, x = ~period, y = ~`value`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}%",#showlegend = FALSE,
             name = "Bruto Investicije: zgradbe in objekti ", color = I(umar_cols()[1])) |>
-  layout(annotations = list(x = 0 , y = 1, showarrow = F,
+  umar_layout(annotations = list(x = 0 , y = 1, showarrow = F,
                             xref='paper', yref='paper', text = paste("Posodobljeno:",prep_l3$updated,
                                                                      prep_l3$transf_txt, "(Vir: SURS & prera\u010dun UMAR)"),
                             font = list(size = 12))) |>
-  layout(annotations = list(x = 0 , y = .95, showarrow = F,
+  umar_layout(annotations = list(x = 0 , y = .95, showarrow = F,
                             xref='paper', yref='paper', text = paste("Posodobljeno:",prep_l$updated,
                                                                      prep_l$transf_txt, "(Vir: SURS)"),
                             font = list(size = 12))) |>
   rangeslider(as.Date("2013-01-01"), max(data$period)+10) |>
-  layout(font=list(family = "Myriad Pro"),
+  umar_layout(font=list(family = "Myriad Pro"),
          autosize = F, margin = m,
          yaxis = list(title = list(text="Medletna sprememba, v %",
                                    font = list(size =12)),
                       fixedrange = FALSE),
          xaxis = list(title = "",
-                      rangeslider = list(thickness = 0.1),
                       tickformatstops = list(
                         list(dtickrange = list("M1", "M6"),
                              value = "%b %Y"),

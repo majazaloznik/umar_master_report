@@ -13,7 +13,7 @@ prep_l$data_points[[1]] |>
 data |>
   plot_ly(x = ~period, hovertemplate="%{x|Q%q-%Y}  %{y:.2f}", width = 1000) |>
   add_bars(y = ~`value`, name = "Prispevek k rasti obsega BDP",  color = I(umar_cols()[1])) |>
-  layout(barmode = "relative",
+  umar_layout(barmode = "relative",
          showlegend = TRUE,
          autosize = F, margin = m,
          font=list(family = "Myriad Pro"),
@@ -21,7 +21,6 @@ data |>
                                    font = list(size =12)),
                       fixedrange = FALSE),
          xaxis = list(title = "",
-                      rangeslider = list(thickness = slider_w),
                       tickformatstops = list(
                         list(dtickrange = list("M1", "M6"),
                              value = "Q%q-%Y"),

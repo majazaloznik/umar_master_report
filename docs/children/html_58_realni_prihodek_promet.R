@@ -15,11 +15,11 @@ data |>
   add_lines(y = ~`value.x.x`, name = "Skladi\u0161\u010denje in spremljajou010de prometne dejavnosti (H52)",  color = I(umar_cols()[4])) |>
   add_lines(y = ~`value.y.y`, name = "Po\u0161tna in kurirska dejavnost (H53)",  color = I(umar_cols()[2])) |>
 
-  layout(annotations = list(x = -0 , y = 1, showarrow = F,
+  umar_layout(annotations = list(x = -0 , y = 1, showarrow = F,
                             xref='paper', yref='paper', text = paste("Posodobljeno:",prep_l$updated,
                                                                      prep_l$transf_txt, "(Vir: SURS & prera\u010dun UMAR)"),
                             font = list(size = 12))) |>
-  layout(barmode = "relative",
+  umar_layout(barmode = "relative",
          showlegend = TRUE,
          autosize = F, margin = m,
          font=list(family = "Myriad Pro"),

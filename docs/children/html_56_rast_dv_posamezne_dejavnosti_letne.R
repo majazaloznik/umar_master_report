@@ -66,15 +66,15 @@ data1 |>
          s = value.y,
          t = value) -> data
 
-fig1 <- plot_ly(data, x = ~period, hovertemplate="%{x|%Y} %{y:.2f}", width = 1000,
+fig1 <- plot_ly(data, x = ~period, width = 1000,
                 height = 1400) |>
-  add_lines(y = ~dv,  name = "Dodana vrednost",  color = I("black") ) |>
-  add_lines(y = ~b,   name = "Rudarstvo (B)",color = I(umar_cols()[1])) |>
-  add_lines(y = ~c,  name = "Predelovalne dejavnosti (C)",  color = I(umar_cols()[2])) |>
-  add_lines(y = ~d,  name = "Oskrba z elektriko, plinom in paro (D)",  color = I(umar_cols()[3])) |>
-  add_lines(y = ~e,  name = "Oskrba z vodo (E)",  color = I(umar_cols()[4])) |>
+  add_lines_qp(y = ~dv,  name = "Dodana vrednost",  color = I("black") ) |>
+  add_lines_qp(y = ~b,   name = "Rudarstvo (B)",color = I(umar_cols()[1])) |>
+  add_lines_qp(y = ~c,  name = "Predelovalne dejavnosti (C)",  color = I(umar_cols()[2])) |>
+  add_lines_qp(y = ~d,  name = "Oskrba z elektriko, plinom in paro (D)",  color = I(umar_cols()[3])) |>
+  add_lines_qp(y = ~e,  name = "Oskrba z vodo (E)",  color = I(umar_cols()[4])) |>
 
-  layout(annotations = list(x = 0. , y = 1, text = "Industrija", showarrow = F,
+  umar_layout(annotations = list(x = 0. , y = 1, text = "Industrija", showarrow = F,
                             xref='paper', yref='paper'))
 
 for(i in 1:8) {
@@ -82,18 +82,18 @@ for(i in 1:8) {
     add_lines(y = ~c,  name = "\u200A",  color = I('rgba(0,0,0,0)'),
               hoverinfo = "none")}
 
-fig2 <- plot_ly(data, x = ~period, hovertemplate="%{x|%Y} %{y:.2f}", width = 1000,
+fig2 <- plot_ly(data, x = ~period,  width = 1000,
                 height = 1400) |>
-  add_lines(y = ~dv,  name = "Dodana vrednost",  color = I("black") ) |>
-  add_lines(y = ~g,   name = "Trgovina, vzdr\u017eevanje in popravila vozil (G)",color = I(umar_cols()[5])) |>
-  add_lines(y = ~h,  name = "Promet in skladi\u0161\u010denje (H)",  color = I(umar_cols()[6])) |>
-  add_lines(y = ~i,  name = "Gostinstvo (I)",  color = I(umar_cols()[7])) |>
-  add_lines(y = ~j,  name = "IKT dejavnosti (J)",  color = I(umar_cols()[8])) |>
-  add_lines(y = ~k,  name = "Finan\u010dne in zavarovalni\u0161ke dejavnosti (K)",  color = I(umar_cols()[1])) |>
-  add_lines(y = ~l,  name = "Poslovanje z nepremi\u010dninami (L)",  color = I(umar_cols()[2])) |>
-  add_lines(y = ~m,  name = "Strokovne, znanstvene in tehni\u010dne dejavnosti (M)",  color = I(umar_cols()[3])) |>
-  add_lines(y = ~n,  name = "Druge raznovrstne poslovne dejavnosti (N)",  color = I(umar_cols()[4])) |>
-  layout(annotations = list(x = 0. , y = 1, text = "Tr\u017ene storitve", showarrow = F,
+  add_lines_qp(y = ~dv,  name = "Dodana vrednost",  color = I("black") ) |>
+  add_lines_qp(y = ~g,   name = "Trgovina, vzdr\u017eevanje in popravila vozil (G)",color = I(umar_cols()[5])) |>
+  add_lines_qp(y = ~h,  name = "Promet in skladi\u0161\u010denje (H)",  color = I(umar_cols()[6])) |>
+  add_lines_qp(y = ~i,  name = "Gostinstvo (I)",  color = I(umar_cols()[7])) |>
+  add_lines_qp(y = ~j,  name = "IKT dejavnosti (J)",  color = I(umar_cols()[8])) |>
+  add_lines_qp(y = ~k,  name = "Finan\u010dne in zavarovalni\u0161ke dejavnosti (K)",  color = I(umar_cols()[1])) |>
+  add_lines_qp(y = ~l,  name = "Poslovanje z nepremi\u010dninami (L)",  color = I(umar_cols()[2])) |>
+  add_lines_qp(y = ~m,  name = "Strokovne, znanstvene in tehni\u010dne dejavnosti (M)",  color = I(umar_cols()[3])) |>
+  add_lines_qp(y = ~n,  name = "Druge raznovrstne poslovne dejavnosti (N)",  color = I(umar_cols()[4])) |>
+  umar_layout(annotations = list(x = 0. , y = 1, text = "Tr\u017ene storitve", showarrow = F,
                             xref='paper', yref='paper'))
 
 for(i in 1:5) {
@@ -101,46 +101,44 @@ for(i in 1:5) {
     add_lines(y = ~c,  name = "\u200A",  color = I('rgba(0,0,0,0)'),
               hoverinfo = "none")}
 
-fig3 <- plot_ly(data, x = ~period, hovertemplate="%{x|%Y} %{y:.2f}", width = 1000,
+fig3 <- plot_ly(data, x = ~period,  width = 1000,
                 height = 1400) |>
-  add_lines(y = ~dv,  name = "Dodana vrednost",  color = I("black") ) |>
-  add_lines(y = ~o,  name = "Dejavnosti uprave, obvezna socialna varnost (O)",color = I(umar_cols()[5])) |>
-  add_lines(y = ~p, name = "Izobra\u017eevanje (P)",  color = I(umar_cols()[6])) |>
-  add_lines(y = ~q,   name = "Zdravstvo in socialno varstvo (Q)",color = I(umar_cols()[7])) |>
-  layout(annotations = list(x = 0. , y = 1, text = "Javne storitve", showarrow = F,
+  add_lines_qp(y = ~dv,  name = "Dodana vrednost",  color = I("black") ) |>
+  add_lines_qp(y = ~o,  name = "Dejavnosti uprave, obvezna socialna varnost (O)",color = I(umar_cols()[5])) |>
+  add_lines_qp(y = ~p, name = "Izobra\u017eevanje (P)",  color = I(umar_cols()[6])) |>
+  add_lines_qp(y = ~q,   name = "Zdravstvo in socialno varstvo (Q)",color = I(umar_cols()[7])) |>
+  umar_layout(annotations = list(x = 0. , y = 1, text = "Javne storitve", showarrow = F,
                             xref='paper', yref='paper'))
 for(i in 1:9) {
   fig3 <- fig3 |>
     add_lines(y = ~c,  name = "\u200A",  color = I('rgba(0,0,0,0)'),
               hoverinfo = "none")}
 
-fig4 <- plot_ly(data, x = ~period, hovertemplate="%{x|%Y} %{y:.2f}", width = 1000,
+fig4 <- plot_ly(data, x = ~period, width = 1000,
                 height = 1400) |>
-  add_lines(y = ~dv,  name = "Dodana vrednost",  color = I("black") ) |>
-  add_lines(y = ~a,  name = "Kmetijstvo (A)",color = I(umar_cols()[8])) |>
-  add_lines(y = ~f, name = "Gradbeni\u0161tvo (F)",  color = I(umar_cols()[1])) |>
-  add_lines(y = ~u,   name = "Dejavnost eksteritorialnih organizacij in teles  (u)",color = I(umar_cols()[2])) |>
-  layout(annotations = list(x = 0. , y = 1, text = "Ostalo", showarrow = F,
+  add_lines_qp(y = ~dv,  name = "Dodana vrednost",  color = I("black") ) |>
+  add_lines_qp(y = ~a,  name = "Kmetijstvo (A)",color = I(umar_cols()[8])) |>
+  add_lines_qp(y = ~f, name = "Gradbeni\u0161tvo (F)",  color = I(umar_cols()[1])) |>
+  add_lines_qp(y = ~u,   name = "Dejavnost eksteritorialnih organizacij in teles  (u)",color = I(umar_cols()[2])) |>
+  umar_layout(annotations = list(x = 0. , y = 1, text = "Ostalo", showarrow = F,
                             xref='paper', yref='paper'))
 for(i in 1:10) {
   fig4 <- fig4 |>
     add_lines(y = ~c,  name = "\u200A",  color = I('rgba(0,0,0,0)'),
               hoverinfo = "none")}
 
-fig5 <- plot_ly(data, x = ~period, hovertemplate="%{x|%Y} %{y:.2f}", width = 1000,
+fig5 <- plot_ly(data, x = ~period, width = 1000,
                 height = 1400) |>
-  add_lines(y = ~dv,  name = "Dodana vrednost",  color = I("black") ) |>
-  add_lines(y = ~r,  name = " Kulturne, razvedrilne in rekreacijske dejavnosti (R)",color = I(umar_cols()[2])) |>
-  add_lines(y = ~s, name = "Druge dejavnosti (S)",  color = I(umar_cols()[3])) |>
-  add_lines(y = ~t,   name = "Dejavnost gospodinjstev z zaposlenim osebjem (T)",color = I(umar_cols()[4])) |>
-  layout(annotations = list(x = 0. , y = 1, text = "RST tr\u017ene storitve", showarrow = F,
+  add_lines_qp(y = ~dv,  name = "Dodana vrednost",  color = I("black") ) |>
+  add_lines_qp(y = ~r,  name = " Kulturne, razvedrilne in rekreacijske dejavnosti (R)",color = I(umar_cols()[2])) |>
+  add_lines_qp(y = ~s, name = "Druge dejavnosti (S)",  color = I(umar_cols()[3])) |>
+  add_lines_qp(y = ~t,   name = "Dejavnost gospodinjstev z zaposlenim osebjem (T)",color = I(umar_cols()[4])) |>
+  umar_layout(annotations = list(x = 0. , y = 1, text = "RST tr\u017ene storitve", showarrow = F,
                             xref='paper', yref='paper'))
 
 
 subplot(fig1,  fig2, fig3, fig4, fig5,  nrows = 5, shareX = TRUE) |>
-  layout(showlegend = TRUE,
-         autosize = T, margin = m,
-         font=list(family = "Myriad Pro"),
+  umar_layout(
          yaxis = list(title = list(text="Medletna rast, v %",
                                    font = list(size =12)), range = c(-40, 30)),
          yaxis2 = list(title = list(text="Medletna rast, v %",
@@ -152,7 +150,6 @@ subplot(fig1,  fig2, fig3, fig4, fig5,  nrows = 5, shareX = TRUE) |>
          yaxis5 = list(title = list(text="Medletna rast, v %",
                                     font = list(size =12)), range = c(-40, 30)),
          xaxis = list(title = "",
-                      rangeslider = list(thickness = 0.05),
                       tickformatstops = list(
                         list(dtickrange = list("M1", "M6"),
                              value = "%Y"),

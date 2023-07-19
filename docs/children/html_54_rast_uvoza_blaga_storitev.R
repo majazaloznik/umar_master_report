@@ -15,7 +15,7 @@ data |>
   add_lines(y = ~`value.x`, name = "Izvoz blaga in storitev",  color = I(umar_cols()[1])) |>
   add_lines(y = ~`value.y`, name = "Izvoz blaga",  color = I(umar_cols()[2])) |>
   add_lines(y = ~`value`, name = "Izvoz storitev",  color = I(umar_cols()[3])) |>
-  layout(barmode = "relative",
+  umar_layout(barmode = "relative",
          showlegend = TRUE,
          autosize = F, margin = m,
          font=list(family = "Myriad Pro"),

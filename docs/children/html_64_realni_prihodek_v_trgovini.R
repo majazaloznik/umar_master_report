@@ -20,15 +20,15 @@ purrr::reduce(prep_l4$data_points, dplyr::left_join, by = c("period_id", "period
   as_tibble() -> data4
 
 
-fig2 <- plot_ly(data2, x = ~period, hovertemplate="%{x|%b-%Y} %{y:.2f}%", width = 1000,
+fig2 <- plot_ly(data2, x = ~period,   width = 1000,
                 height = 800) |>
-  add_lines(y = ~value.x,  name = "Skupaj trgovina z motornimi vozili in njihovimi popravili",  color = I("black"),
+  add_lines_mp(y = ~value.x,  name = "Skupaj trgovina z motornimi vozili in njihovimi popravili",  color = I("black"),
            hovertemplate="%{x|%b-%Y} %{y:.2f}%") |>
-  add_lines(y = ~value.y,   name = "Motorna vozila, motorna kolesa, rezervni deli, oprema",color = I(umar_cols()[5]),
+  add_lines_mp(y = ~value.y,   name = "Motorna vozila, motorna kolesa, rezervni deli, oprema",color = I(umar_cols()[5]),
             hovertemplate="%{x|%b-%Y} %{y:.2f}%") |>
-  add_lines(y = ~value,   name = "Vzdr\u017eevanje in popravila motornih vozil",color = I(umar_cols()[6]),
+  add_lines_mp(y = ~value,   name = "Vzdr\u017eevanje in popravila motornih vozil",color = I(umar_cols()[6]),
             hovertemplate="%{x|%b-%Y} %{y:.2f}%") |>
-  layout(annotations = list(x = 0. , y = 1, text = "Trgovina z motornimi vozili", showarrow = F,
+  umar_layout(annotations = list(x = 0. , y = 1, text = "Trgovina z motornimi vozili", showarrow = F,
                             xref='paper', yref='paper'),
          shapes = list(
            list(
@@ -49,17 +49,12 @@ for(i in 1:9) {
 
 fig3 <- plot_ly(data3, x = ~period, width = 1000,
                 height = 800) |>
-  add_lines(y = ~value.x,  name = "Skupaj trgovina na drobno",  color = I("black"),
-            hovertemplate="%{x|%b-%Y} %{y:.2f}%") |>
-  add_lines(y = ~value.y,   name = "Skupaj trgovina na drobno, brez motornih goriv",color = I(umar_cols()[8]),
-            hovertemplate="%{x|%b-%Y} %{y:.2f}%") |>
-  add_lines(y = ~value.x.x,  name = "Trgovina z \u017eivili, pija\u010dami in toba\u010dnimi izdelki",  color = I(umar_cols()[1]),
-            hovertemplate="%{x|%b-%Y} %{y:.2f}%") |>
-  add_lines(y = ~value.y.y,   name = "Motorna goriva v specializiranih prodajalnah",color = I(umar_cols()[2]),
-            hovertemplate="%{x|%b-%Y} %{y:.2f}%") |>
-  add_lines(y = ~value,  name = "Trgovina z ne\u017eivili, brez motornih goriv",  color = I(umar_cols()[7]),
-            hovertemplate="%{x|%b-%Y} %{y:.2f}%") |>
-  layout(annotations = list(x = 0. , y = 1, text = "Trgovina na drobno", showarrow = F,
+  add_lines_mp(y = ~value.x,  name = "Skupaj trgovina na drobno",  color = I("black")) |>
+  add_lines_mp(y = ~value.y,   name = "Skupaj trgovina na drobno, brez motornih goriv",color = I(umar_cols()[8])) |>
+  add_lines_mp(y = ~value.x.x,  name = "Trgovina z \u017eivili, pija\u010dami in toba\u010dnimi izdelki",  color = I(umar_cols()[1])) |>
+  add_lines_mp(y = ~value.y.y,   name = "Motorna goriva v specializiranih prodajalnah",color = I(umar_cols()[2])) |>
+  add_lines_mp(y = ~value,  name = "Trgovina z ne\u017eivili, brez motornih goriv",  color = I(umar_cols()[7])) |>
+  umar_layout(annotations = list(x = 0. , y = 1, text = "Trgovina na drobno", showarrow = F,
                             xref='paper', yref='paper'),
          shapes = list(
            list(
@@ -77,15 +72,15 @@ for(i in 1:7) {
 
 fig4 <- plot_ly(data4, x = ~period, hovertemplate="%{x|%b-%Y} %{y:.2f}%", width = 1000,
                 height = 800) |>
-  add_lines(y = ~value.x,  name = "Skupaj trgovina na drobno z ne\u017eivili",  color = I("black")) |>
-  add_lines(y = ~value.y,   name = "Nespec. prodajalne, prete\u017eno z ne\u017eivili",color = I(umar_cols()[5])) |>
-  add_lines(y = ~value.x.x,  name = "Ra\u010dunalni\u0161ke, telek. naprave, knjige, \u0161portna oprema, igra\u010de ",  color = I(umar_cols()[6])) |>
-  add_lines(y = ~value.x.x.x,   name = "Gospodinjske naprave, avdio in video zapisi",color = I(umar_cols()[8])) |>
-  add_lines(y = ~value.y.y.y,  name = " Tekstil, obla\u010dila, obutev in usnjeni izdelki",  color = I(umar_cols()[1])) |>
-  add_lines(y = ~value.x.x.x.x,  name = "Pohi\u0161tvo, gradbeni material",  color = I(umar_cols()[2])) |>
-  add_lines(y = ~value.y.y.y.y,   name = "Farmacevtski, medicinski, kozmeti\u010dni in toaletni\nizdelki",color = I(umar_cols()[4])) |>
-  add_lines(y = ~value,   name = "Trgovina na drobno po po\u0161ti ali po internetu",color = I(umar_cols()[3])) |>
-  layout(annotations = list(x = 0. , y = 1, text = "Trgovina na drobno z ne\u017eivili", showarrow = F,
+  add_lines_mp(y = ~value.x,  name = "Skupaj trgovina na drobno z ne\u017eivili",  color = I("black")) |>
+  add_lines_mp(y = ~value.y,   name = "Nespec. prodajalne, prete\u017eno z ne\u017eivili",color = I(umar_cols()[5])) |>
+  add_lines_mp(y = ~value.x.x,  name = "Ra\u010dunalni\u0161ke, telek. naprave, knjige, \u0161portna oprema, igra\u010de ",  color = I(umar_cols()[6])) |>
+  add_lines_mp(y = ~value.x.x.x,   name = "Gospodinjske naprave, avdio in video zapisi",color = I(umar_cols()[8])) |>
+  add_lines_mp(y = ~value.y.y.y,  name = " Tekstil, obla\u010dila, obutev in usnjeni izdelki",  color = I(umar_cols()[1])) |>
+  add_lines_mp(y = ~value.x.x.x.x,  name = "Pohi\u0161tvo, gradbeni material",  color = I(umar_cols()[2])) |>
+  add_lines_mp(y = ~value.y.y.y.y,   name = "Farmacevtski, medicinski, kozmeti\u010dni in toaletni\nizdelki",color = I(umar_cols()[4])) |>
+  add_lines_mp(y = ~value,   name = "Trgovina na drobno po po\u0161ti ali po internetu",color = I(umar_cols()[3])) |>
+  umar_layout(annotations = list(x = 0. , y = 1, text = "Trgovina na drobno z ne\u017eivili", showarrow = F,
                             xref='paper', yref='paper'),
          shapes = list(
            list(
@@ -97,9 +92,7 @@ fig4 <- plot_ly(data4, x = ~period, hovertemplate="%{x|%b-%Y} %{y:.2f}%", width 
 
 
 subplot( fig2, fig3, fig4,  nrows = 3, shareX = TRUE) |>
-  layout(showlegend = TRUE,
-         autosize = F, margin = m,
-         font=list(family = "Myriad Pro"),
+  umar_layout(
          yaxis = list(title = list(text="Indeks (povpre\u010dje 2015)",
                                    font = list(size =12)),
                       fixedrange = FALSE),
@@ -110,7 +103,6 @@ subplot( fig2, fig3, fig4,  nrows = 3, shareX = TRUE) |>
                                     font = list(size =12)),
                        fixedrange = FALSE),
          xaxis = list(title = "",
-                      rangeslider = list(thickness = 0.05),
                       tickformatstops = list(
                         list(dtickrange = list("M1", "M6"),
                              value = "%b-%Y"),

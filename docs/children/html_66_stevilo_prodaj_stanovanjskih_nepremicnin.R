@@ -31,7 +31,7 @@ fig1 <- plot_ly(data, x = ~period, width = 1000,
             hovertemplate="%{x|Q%q-%Y} %{y:.2f}%") |>
   add_lines(y = ~value,  name = "Rabljene stanovanjske nepremi\u010dnine",  color = I(umar_cols()[2]),
             hovertemplate="%{x|Q%q-%Y} %{y:.2f}%") |>
-  layout(annotations = list(x = 0 , y = 1, text = "\u0160tevilo prodaj stanovanjskih nepremi\u010dnin", showarrow = F,
+  umar_layout(annotations = list(x = 0 , y = 1, text = "\u0160tevilo prodaj stanovanjskih nepremi\u010dnin", showarrow = F,
                             xref='paper', yref='paper'))
 
 
@@ -49,7 +49,7 @@ fig2 <- plot_ly(data2, x = ~period, width = 1000,
             hovertemplate="%{x|Q%q-%Y} %{y:.2f}%") |>
   add_lines(y = ~value,   name = "Nove dru\u017einske hi\u0161e",color = I(umar_cols()[5]),
             hovertemplate="%{x|Q%q-%Y} %{y:.2f}%") |>
-  layout(annotations = list(x = 0. , y = 1, text = "Nove stanovanjske nepremi\u010dnine ", showarrow = F,
+  umar_layout(annotations = list(x = 0. , y = 1, text = "Nove stanovanjske nepremi\u010dnine ", showarrow = F,
                             xref='paper', yref='paper'))
 
 
@@ -67,13 +67,13 @@ fig3 <- plot_ly(data3, x = ~period, width = 1000,
             hovertemplate="%{x|Q%q-%Y} %{y:.2f}%") |>
   add_lines(y = ~value,  name = "Rabljene dru\u017einske hi\u0161e",  color = I(umar_cols()[7]),
             hovertemplate="%{x|Q%q-%Y} %{y:.2f}%") |>
-  layout(annotations = list(x = 0 , y = 1, text = "Rabljene stanovanjske nepremi\u010dnine", showarrow = F,
+  umar_layout(annotations = list(x = 0 , y = 1, text = "Rabljene stanovanjske nepremi\u010dnine", showarrow = F,
                             xref='paper', yref='paper'))
 
 
 
 subplot(fig1, fig2, fig3,   nrows = 3, shareX = TRUE) |>
-  layout(showlegend = TRUE,
+  umar_layout(showlegend = TRUE,
          autosize = F, margin = m,
          font=list(family = "Myriad Pro"),
          yaxis = list(title = list(text="Medletna rast, v %",
@@ -86,7 +86,6 @@ subplot(fig1, fig2, fig3,   nrows = 3, shareX = TRUE) |>
                                     font = list(size =12)),
                        fixedrange = FALSE),
          xaxis = list(title = "",
-                      rangeslider = list(thickness = 0.05),
                       tickformatstops = list(
                         list(dtickrange = list("M1", "M6"),
                              value = "Q%q-%Y"),

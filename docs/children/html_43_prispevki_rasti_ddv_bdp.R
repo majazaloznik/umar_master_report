@@ -58,7 +58,7 @@ data |>
   add_bars(y = ~`trzne`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}", name = "Tr\u017ene storitve (G-N, R, S, T)",  color = I(umar_cols()[1])) |>
   add_bars(y = ~`ostalo`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}", name = "Ostalo (A, B, D, E)",  color = I(umar_cols()[4])) |>
   rangeslider(as.Date("2012-01-01"), max(data$period)+100) |>
-  layout(barmode = "relative", font=list(family = "Myriad Pro"),
+  umar_layout(barmode = "relative", font=list(family = "Myriad Pro"),
          autosize = F, margin = m,
          yaxis = list(title = list(text="Prispevki k medletni rasti BDP, v o.t",
                                    font = list(size =12))),

@@ -18,13 +18,13 @@ data |>
   plot_ly(x = ~period, hovertemplate="%{x|Q%q-%Y} %{y:.2f}", width = 1000) |>
   add_lines(y = ~`value.y`, name = "Nominalni BDP",  color = I(umar_cols()[1])) |>
   add_lines(y = ~`value.x`, name = "Realni BDP",  color = I(umar_cols()[2])) |>
-  layout(annotations = list(x = -0.23 , y = 1, showarrow = F,
+  umar_layout(annotations = list(x = -0.23 , y = 1, showarrow = F,
                             xref='paper', yref='paper', text = paste("Posodobljeno:",prep_l$updated,
                                                                      prep_l$transf_txt, "(Vir: SURS & prera\u010dun UMAR)\n
                                                                      Posodobljeno:", prep_l2$updated,
                                                                      prep_l2$transf_txt, "(Vir: SURS)                                                                                                                                                  "),
                             font = list(size = 12))) |>
-  layout(barmode = "relative",
+  umar_layout(barmode = "relative",
          showlegend = TRUE,
          autosize = F, margin = m,
          font=list(family = "Myriad Pro"),

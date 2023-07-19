@@ -46,7 +46,7 @@ fig2 <- data |>
 
 subplot( fig1, fig2, nrows = 2, shareX = TRUE) |>
   rangeslider(as.Date("2015-01-01"), max(data$period)+10) |>
-  layout(font=list(family = "Myriad Pro"),
+  umar_layout(font=list(family = "Myriad Pro"),
          legend = list(traceorder="normal"),
          barmode = 'stack',
          autosize = F, margin = m,
@@ -57,7 +57,6 @@ subplot( fig1, fig2, nrows = 2, shareX = TRUE) |>
                                    font = list(size =12)),
                        fixedrange = FALSE),
          xaxis = list(title = "",
-                      rangeslider = list(thickness = 0.1),
                       tickformatstops = list(
                         list(dtickrange = list("M1", "M6"),
                              value = "%b %Y"),
