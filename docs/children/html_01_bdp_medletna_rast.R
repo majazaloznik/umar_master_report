@@ -3,6 +3,7 @@ df <- read.csv2(here::here("data/002.csv"), encoding = "UTF-8")
 spl <- split(df, df$chart_no)
 # prepare data
 prep_l <- invisible(prep_multi_line(spl[[1]], con))
+updated <- max(prep_l$updated)
 
 purrr::reduce(prep_l$data_points, dplyr::left_join, by = c("period_id", "period")) %>%
   dplyr::relocate( period) |>
