@@ -32,25 +32,9 @@ data |>
   add_bars(y = ~`Spremembe zalog in v.p`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}",name = "Spremembe zalog in v.p",  color = I(umar_cols()[6])) |>
   add_bars(y = ~`Državna potrošnja`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}", name = "Dr\u017eavna potro\u0161nja",  color = I(umar_cols()[1])) |>
   add_bars(y = ~`Zasebna potrošnja`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}", name = "Potro\u0161nja gospodinjstev",  color = I(umar_cols()[4])) |>
-
   rangeslider(as.Date("2012-01-01"), max(data$period)+100) |>
-  umar_layout(barmode = "relative", font=list(family = "Myriad Pro"),
-         autosize = F, margin = m,
-         yaxis = list(title = list(text="Prispevki k medletni rasti BDP, v o.t",
-                                   font = list(size =12)),
-                      fixedrange = FALSE),
-         xaxis = list(title = "",
-                      tickformatstops = list(
-                        list(dtickrange = list("M1", "M6"),
-                             value = "Q%q-%Y"),
-                        list(dtickrange = list("M6", NULL),
-                             value = "%Y"))),
-         title = list(text = paste("Posodobljeno:", updated, "(Vir: SURS & prera\u010dun UMAR)"),
-                      font = list(size = 12),
-                      x = 0),
-         annotations = list(
-           x = 0.95, y = 1.05, text = "NaTJ", showarrow = FALSE,
-           xref='paper', yref='paper', xanchor='right', yanchor='top',
-           font=list(size=10, color = umar_cols()[3])
-         ))|>
-  config(modeBarButtonsToAdd = list(dl_button))
+  umar_layout(barmode = "relative",
+              yaxis = umar_yaxis("Prispevki k medletni rasti BDP, v o.t"),
+              xaxis = umar_xaxis("Q"),
+              title = umar_subtitle("UMAR"),
+              annotations = initials("NaTJ"))

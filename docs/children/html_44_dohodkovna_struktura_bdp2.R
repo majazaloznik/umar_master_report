@@ -30,28 +30,14 @@ updated <- max(prep_l$updated, prep_l2$updated)
 # plot
 data |>
   plot_ly(x = ~period, width = 1000) |>
-  add_lines(y = ~`BDP`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}%", name = "BDP, medletna rast (v %)", color = I("black")) |>
-  add_bars(y = ~`bpp`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}", name = "Bruto poslovni prese\u017eek/raznovrstni dohodek",  color = I(umar_cols()[1])) |>
-  add_bars(y = ~`szz`, hovertemplate="%{x|Q%q-%Y} %{y:.2f}", name = "Sredstva za zaposlene",  color = I(umar_cols()[2])) |>
-  add_bars(y = ~`dpu`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}",name = "Davki na proizvodnjo in uvoz",  color = I(umar_cols()[3])) |>
-  add_bars(y = ~-`snp`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}", name = "Subvencije na proizvodnjo",  color = I(umar_cols()[4])) |>
+  add_lines_mp(y = ~`BDP`, name = "BDP, medletna rast (v %)", color = I("black")) |>
+  add_bars_m(y = ~`bpp`, name = "Bruto poslovni prese\u017eek/raznovrstni dohodek",  color = I(umar_cols()[1])) |>
+  add_bars_m(y = ~`szz`, name = "Sredstva za zaposlene",  color = I(umar_cols()[2])) |>
+  add_bars_m(y = ~`dpu`, name = "Davki na proizvodnjo in uvoz",  color = I(umar_cols()[3])) |>
+  add_bars_m(y = ~-`snp`,  name = "Subvencije na proizvodnjo",  color = I(umar_cols()[4])) |>
   rangeslider(as.Date("2012-01-01"), max(data$period)+100) |>
-  umar_layout(barmode = "relative", font=list(family = "Myriad Pro"),
-         autosize = F, margin = m,
-         yaxis = list(title = list(text="Prispevki k medletni rasti BDP, v o.t",
-                                   font = list(size =12))),
-         xaxis = list(title = "",
-                      tickformatstops = list(
-                        list(dtickrange = list(NULL, "M12"),
-                             value = "Q%q-%Y"),
-                        list(dtickrange = list("M6", NULL),
-                             value = "%Y"))),
-         title = list(text = paste("Posodobljeno:", updated, "(Vir: SURS & prera\u010duni UMAR)"),
-                      font = list(size = 12),
-                      x = 0),
-         annotations = list(
-           x = 0.95, y = 1.05, text = "NaTJ", showarrow = FALSE,
-           xref='paper', yref='paper', xanchor='right', yanchor='top',
-           font=list(size=10, color = umar_cols()[3])
-         ))|>
-  config(modeBarButtonsToAdd = list(dl_button))
+  umar_layout(barmode = "relative",
+    yaxis = umar_yaxis("Prispevki k medletni rasti BDP, v o.t"),
+    xaxis = umar_xaxis("Q"),
+    title = umar_subtitle("UMAR"),
+    annotations = initials("NaTJ"))

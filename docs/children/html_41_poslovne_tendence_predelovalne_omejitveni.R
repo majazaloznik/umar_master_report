@@ -24,8 +24,7 @@ purrr::reduce(prep_l4$data_points, dplyr::left_join, by = c("period_id", "period
   select(-period_id) |>
   as_tibble() -> data4
 
-fig1 <- plot_ly(data, x = ~period, width = 1000,
-                height = 1000) |>
+fig1 <- plot_ly(data, x = ~period, width = 1000, height = 1000) |>
   add_lines_qp(y = ~value.x,  name = "Ni omejitev",  color = I(umar_cols()[1])) |>
   add_lines_qp(y = ~value.y,   name = "Negotove gospodarske razmere",color = I(umar_cols()[2])) |>
   add_lines_qp(y = ~value.x.x,  name = "Nezadostno doma\u010de povpra\u0161evanje",  color = I(umar_cols()[3])) |>
@@ -34,7 +33,7 @@ fig1 <- plot_ly(data, x = ~period, width = 1000,
 
 for(i in 1:7) {
   fig1 <- fig1 |>
-    add_lines(y = ~value.x,  name = "\u200A",  color = I('rgba(0,0,0,0)'),
+    add_lines(y = mean(data$value.x, na.rm = TRUE),  name = "\u200A",  color = I('rgba(0,0,0,0)'),
               hoverinfo = "none")}
 
 fig2 <- plot_ly(data2, x = ~period, width = 1000,
@@ -44,7 +43,7 @@ fig2 <- plot_ly(data2, x = ~period, width = 1000,
 
 for(i in 1:9) {
   fig2 <- fig2 |>
-    add_lines(y = ~value.x,  name = "\u200A",  color = I('rgba(0,0,0,0)'),
+    add_lines(y = mean(data2$value.x, na.rm = TRUE),  name = "\u200A",  color = I('rgba(0,0,0,0)'),
               hoverinfo = "none")}
 
 fig3 <- plot_ly(data3, x = ~period,width = 1000,
@@ -55,7 +54,7 @@ fig3 <- plot_ly(data3, x = ~period,width = 1000,
 
 for(i in 1:8) {
   fig3 <- fig3 |>
-    add_lines(y = ~value.x,  name = "\u200A",  color = I('rgba(0,0,0,0)'),
+    add_lines(y = mean(data3$value.x, na.rm = TRUE),  name = "\u200A",  color = I('rgba(0,0,0,0)'),
               hoverinfo = "none")}
 fig4 <- plot_ly(data4, x = ~period,  width = 1000,
                 height = 1000) |>
@@ -69,33 +68,13 @@ fig4 <- plot_ly(data4, x = ~period,  width = 1000,
 
 subplot(fig1, fig2, fig3, fig4,  nrows = 4, shareX = TRUE) |>
   umar_layout(
-         yaxis = list(title = list(text="Dele\u017e podjetij, v %",
-                                   font = list(size =12)),
-                      range = c(0,70), fixedrange = FALSE),
-         yaxis2 = list(title = list(text="Dele\u017e podjetij, v %",
-                                    font = list(size =12)),
-                       range = c(0,70), fixedrange = FALSE),
-         yaxis3 = list(title = list(text="Dele\u017e podjetij, v %",
-                                    font = list(size =12)),
-                       range = c(0,70), fixedrange = FALSE),
-         yaxis4 = list(title = list(text="Dele\u017e podjetij, v %",
-                                    font = list(size =12)),
-                       range = c(0,70), fixedrange = FALSE),
-         xaxis = list(title = "",
-                      tickformatstops = list(
-                        list(dtickrange = list("M1", "M6"),
-                             value = "Q%q-%Y"),
-                        list(dtickrange = list("M6", NULL),
-                             value = "%Y"))),
-         title = list(text = paste("Posodobljeno:", prep_l$updated,
-                                   prep_l$transf_txt, "(Vir: SURS)"),
-                      font = list(size = 12),
-                      x = 0),
-         annotations = list(
-           x = 0.95, y = 1.05, text = "MaHr", showarrow = FALSE,
-           xref='paper', yref='paper', xanchor='right', yanchor='top',
-           font=list(size=10, color = umar_cols()[3])
-         )) |>
+         yaxis = umar_yaxis("Dele\u017e podjetij, v %",range = c(0,70)),
+         yaxis2 = umar_yaxis("Dele\u017e podjetij, v %",range = c(0,70)),
+         yaxis3 = umar_yaxis("Dele\u017e podjetij, v %",range = c(0,70)),
+         yaxis4 = umar_yaxis("Dele\u017e podjetij, v %",range = c(0,70)),
+         xaxis = umar_xaxis("Q"),
+         title = umar_subtitle(),
+         annotations = initials("MaHr")) |>
   rangeslider(as.Date("2018-01-01"), max(data$period))|>
   config(modeBarButtonsToAdd = list(dl_button))
 

@@ -75,7 +75,7 @@ fig1 <- plot_ly(data, x = ~period, width = 1000,
   add_lines_qp(y = ~e,  name = "Oskrba z vodo (E)",  color = I(umar_cols()[4])) |>
 
   umar_layout(annotations = list(x = 0. , y = 1, text = "Industrija", showarrow = F,
-                            xref='paper', yref='paper'))
+                                 xref='paper', yref='paper'))
 
 for(i in 1:8) {
   fig1 <- fig1 |>
@@ -94,7 +94,7 @@ fig2 <- plot_ly(data, x = ~period,  width = 1000,
   add_lines_qp(y = ~m,  name = "Strokovne, znanstvene in tehni\u010dne dejavnosti (M)",  color = I(umar_cols()[3])) |>
   add_lines_qp(y = ~n,  name = "Druge raznovrstne poslovne dejavnosti (N)",  color = I(umar_cols()[4])) |>
   umar_layout(annotations = list(x = 0. , y = 1, text = "Tr\u017ene storitve", showarrow = F,
-                            xref='paper', yref='paper'))
+                                 xref='paper', yref='paper'))
 
 for(i in 1:5) {
   fig2 <- fig2 |>
@@ -108,7 +108,7 @@ fig3 <- plot_ly(data, x = ~period,  width = 1000,
   add_lines_qp(y = ~p, name = "Izobra\u017eevanje (P)",  color = I(umar_cols()[6])) |>
   add_lines_qp(y = ~q,   name = "Zdravstvo in socialno varstvo (Q)",color = I(umar_cols()[7])) |>
   umar_layout(annotations = list(x = 0. , y = 1, text = "Javne storitve", showarrow = F,
-                            xref='paper', yref='paper'))
+                                 xref='paper', yref='paper'))
 for(i in 1:9) {
   fig3 <- fig3 |>
     add_lines(y = ~c,  name = "\u200A",  color = I('rgba(0,0,0,0)'),
@@ -121,7 +121,7 @@ fig4 <- plot_ly(data, x = ~period, width = 1000,
   add_lines_qp(y = ~f, name = "Gradbeni\u0161tvo (F)",  color = I(umar_cols()[1])) |>
   add_lines_qp(y = ~u,   name = "Dejavnost eksteritorialnih organizacij in teles  (u)",color = I(umar_cols()[2])) |>
   umar_layout(annotations = list(x = 0. , y = 1, text = "Ostalo", showarrow = F,
-                            xref='paper', yref='paper'))
+                                 xref='paper', yref='paper'))
 for(i in 1:10) {
   fig4 <- fig4 |>
     add_lines(y = ~c,  name = "\u200A",  color = I('rgba(0,0,0,0)'),
@@ -134,35 +134,18 @@ fig5 <- plot_ly(data, x = ~period, width = 1000,
   add_lines_qp(y = ~s, name = "Druge dejavnosti (S)",  color = I(umar_cols()[3])) |>
   add_lines_qp(y = ~t,   name = "Dejavnost gospodinjstev z zaposlenim osebjem (T)",color = I(umar_cols()[4])) |>
   umar_layout(annotations = list(x = 0. , y = 1, text = "RST tr\u017ene storitve", showarrow = F,
-                            xref='paper', yref='paper'))
+                                 xref='paper', yref='paper'))
 
 
 subplot(fig1,  fig2, fig3, fig4, fig5,  nrows = 5, shareX = TRUE) |>
-  umar_layout(
-         yaxis = list(title = list(text="Medletna rast, v %",
-                                   font = list(size =12)), range = c(-40, 30)),
-         yaxis2 = list(title = list(text="Medletna rast, v %",
-                                    font = list(size =12)), range = c(-40, 30)),
-         yaxis3 = list(title = list(text="Medletna rast, v %",
-                                    font = list(size =12)), range = c(-40, 30)),
-         yaxis4 = list(title = list(text="Medletna rast, v %",
-                                    font = list(size =12)), range = c(-40, 30)),
-         yaxis5 = list(title = list(text="Medletna rast, v %",
-                                    font = list(size =12)), range = c(-40, 30)),
-         xaxis = list(title = "",
-                      tickformatstops = list(
-                        list(dtickrange = list("M1", "M6"),
-                             value = "%Y"),
-                        list(dtickrange = list("M6", NULL),
-                             value = "%Y"))),
-         title = list(text = paste("Posodobljeno:", prep_l$updated,
-                                   prep_l$transf_txt, "(Vir: SURS)"),
-                      font = list(size = 12),
-                      x = 0),
-         annotations = list(
-           x = 0.95, y = 1.05, text = "NaTJ", showarrow = FALSE,
-           xref='paper', yref='paper', xanchor='right', yanchor='top',
-           font=list(size=10, color = umar_cols()[3])
-         )) |>
-  rangeslider(as.Date("2018-01-01"), max(data$period))|>
-  config(modeBarButtonsToAdd = list(dl_button))
+  umar_layout(barmode = "relative",
+              yaxis = umar_yaxis("Medletna rast, v %",  range = c(-40, 30)),
+              yaxis2 = umar_yaxis("Medletna rast, v %",  range = c(-40, 30)),
+              yaxis3 = umar_yaxis("Medletna rast, v %",  range = c(-40, 30)),
+              yaxis4 = umar_yaxis("Medletna rast, v %",  range = c(-40, 30)),
+              yaxis5 = umar_yaxis("Medletna rast, v %",  range = c(-40, 30)),
+              xaxis = umar_xaxis("A"),
+              title = umar_subtitle(),
+              annotations = initials("NaTJ")) |>
+  rangeslider(as.Date("2018-01-01"), max(data$period))
+

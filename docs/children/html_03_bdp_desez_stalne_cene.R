@@ -15,30 +15,15 @@ prep_l2$data_points[[1]] |>
   relocate(period) |>
   left_join(data, by = "period") |>
   as_tibble() -> data
-
+updated <- max(prep_l$updated, prep_l2$updated)
 data |>
-  plot_ly(x = ~period, hovertemplate="%{x|Q%q-%Y} %{y:.2f}", width = 1000) |>
-  add_lines(y = ~`value.y`, name = "BDP - stalne cene (2010)",  color = I(umar_cols()[1])) |>
-  add_lines(y = ~`value.x`, name = "BDP - teko\u010de cene",  color = I(umar_cols()[2])) |>
-  umar_layout(barmode = "relative",
-         showlegend = TRUE,
-         autosize = F, margin = m,
-         font=list(family = "Myriad Pro"),
-         yaxis = list(title = list(text="Znesek, v mio EUR",
-                                   font = list(size =12)),
-                      fixedrange = FALSE),
-         xaxis = list(title = "",
-                      tickformatstops = list(
-                        list(dtickrange = list("M1", "M6"),
-                             value = "Q%q-%Y"),
-                        list(dtickrange = list("M6", NULL),
-                             value = "%Y"))),
-         title = list(text = paste("Posodobljeno:", prep_l$updated,
-                                   prep_l$transf_txt, "(Vir: SURS)"),
-                      font = list(size = 12),
-                      x = 0))|>
-  rangeslider(as.Date("2012-01-01"), max(data$period))|>
-  config(modeBarButtonsToAdd = list(dl_button))
-
+  plot_ly(x = ~period,  width = 1000) |>
+  add_lines_q(y = ~`value.y`, name = "BDP - stalne cene (2010)",  color = I(umar_cols()[1])) |>
+  add_lines_q(y = ~`value.x`, name = "BDP - teko\u010de cene",  color = I(umar_cols()[2])) |>
+  umar_layout(
+    yaxis = umar_yaxis("Znesek, v mio EUR"),
+    xaxis = umar_xaxis("Q"),
+    title = umar_subtitle()) |>
+  rangeslider(as.Date("2012-01-01"), max(data$period))
 
 

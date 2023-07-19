@@ -18,26 +18,9 @@ data |>
   add_lines_qp(y = ~`value.y`, name = "Sredstva za zaposlene",  color = I(umar_cols()[3])) |>
   add_lines_qp(y = ~`value.x.x`, name = "Davki na proizvodnjo in uvoz",  color = I(umar_cols()[4])) |>
   add_lines_qp(y = ~`value.y.y`, name = "Subvencije na proizvodnjo",  color = I(umar_cols()[1])) |>
-  umar_layout(
-    showlegend = TRUE,
-    autosize = F, margin = m,
-    font=list(family = "Myriad Pro"),
-    yaxis = list(title = list(text="Dele\u017e, v %",
-                              font = list(size =12))),
-    xaxis = list(title = "",
-                 tickformatstops = list(
-                   list(dtickrange = list(NULL, "M6"),
-                        value = "%Y"),
-                   list(dtickrange = list("M6", NULL),
-                        value = "%Y"))),
-    title = list(text = paste("Posodobljeno:", prep_l$updated, "(Vir: SURS)"),
-                 font = list(size = 12),
-                 x = 0),
-    annotations = list(
-      x = 0.95, y = 1.05, text = "NaTJ", showarrow = FALSE,
-      xref='paper', yref='paper', xanchor='right', yanchor='top',
-      font=list(size=10, color = umar_cols()[3])
-    )) |>
-  rangeslider(as.Date("2012-01-01"), max(data$period) + 100) |>
-  config(modeBarButtonsToAdd = list(dl_button))
-
+  umar_layout(barmode = "relative",
+              yaxis = umar_yaxis("Dele\u017e, v %"),
+              xaxis = umar_xaxis("A"),
+              title = umar_subtitle(),
+              annotations = initials("NaTJ")) |>
+  rangeslider(as.Date("2012-01-01"), max(data$period) + 100)

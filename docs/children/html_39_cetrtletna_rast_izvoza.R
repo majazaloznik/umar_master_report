@@ -14,29 +14,15 @@ updated <- max(prep_l$updated, prep_l2$updated)
 
 data |>
   plot_ly(x = ~period, width = 1000, height = 600) |>
-  add_lines(y = ~`value.x`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}%",#showlegend = FALSE,
+  add_lines_qp(y = ~`value.x`,
             name = "Izvoz blaga in storitev", color = I(umar_cols()[2])) |>
-  add_lines(y = ~`value.y`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}%",#showlegend = FALSE,
+  add_lines(y = ~`value.y`,
             name = "Izvoz blaga", color = I(umar_cols()[1])) |>
-  add_lines(y = ~`value`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}%",#showlegend = FALSE,
+  add_lines(y = ~`value`,
             name = "Izvoz storitev", color = I(umar_cols()[4])) |>
-  umar_layout(annotations = list(x = 0 , y = 1, showarrow = F,
-                            xref='paper', yref='paper', text = paste("Posodobljeno:",prep_l$updated,
-                                                                     prep_l$transf_txt, "(Vir: SURS)"),
-                            font = list(size = 12))) |>
   rangeslider(as.Date("2012-01-01"), max(data$period)+10) |>
   umar_layout(
-         yaxis = list(title = list(text="\u010cetrtletna sprememba, v %",
-                                   font = list(size =12))),
-         xaxis = list(title = "",
-                      tickformatstops = list(
-                        list(dtickrange = list("M1", "M6"),
-                             value = "%b %Y"),
-                        list(dtickrange = list("M6", NULL),
-                             value = "%Y"))),
-         annotations = list(
-           x = 0.95, y = 1.05, text = "NaTJ", showarrow = FALSE,
-           xref='paper', yref='paper', xanchor='right', yanchor='top',
-           font=list(size=10, color = umar_cols()[3])
-         ))|>
-  config(modeBarButtonsToAdd = list(dl_button))
+    yaxis = umar_yaxis("\u010cetrtletna rast, v %"),
+    xaxis = umar_xaxis("Q"),
+    title = umar_subtitle(),
+    annotations = initials("NaTJ"))

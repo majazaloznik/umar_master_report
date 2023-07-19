@@ -342,7 +342,6 @@ m <- list(
 ```
 
 
-
 # Trg dela
 
 ## Zaposlenost in brezposelnost

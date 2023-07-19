@@ -14,33 +14,22 @@ updated <- max(prep_l$updated)
 
 data |>
   plot_ly(x = ~period, width = 1000, height = 600) |>
-  add_lines(y = ~`value.y`,  hovertemplate="%{x|%Y} %{y:.2f}%",
+  add_lines_ap(y = ~`value.y`,
             name = "Potro\u0161nja dr\u017eave", color = I(umar_cols()[2])) |>
-  add_lines(y = ~`value.x.x`,  hovertemplate="%{x|%Y} %{y:.2f}%",
+  add_lines_ap(y = ~`value.x.x`,
             name = "Potro\u0161nja gospodinjstev", color = I(umar_cols()[1])) |>
-  add_lines(y = ~`value.y.y`,  hovertemplate="%{x|%Y} %{y:.2f}%",
+  add_lines_ap(y = ~`value.y.y`,
             name = "Bruto investicije v OS", color = I(umar_cols()[4])) |>
-  add_lines(y = ~`value.x.x.x`,  hovertemplate="%{x|%Y} %{y:.2f}%",
+  add_lines_ap(y = ~`value.x.x.x`,
             name = "Izvoz blaga in storitev", color = I(umar_cols()[5])) |>
-  add_lines(y = ~`value.y.y.y`,  hovertemplate="%{x|%Y} %{y:.2f}%",
+  add_lines_ap(y = ~`value.y.y.y`,
             name = "Uvoz blaga in storitev", color = I(umar_cols()[6])) |>
-  add_lines(y = ~`value.x`,  hovertemplate="%{x|%Y} %{y:.2f}%",
+  add_lines_ap(y = ~`value.x`,
             name = "BDP", color = I("black")) |>
-  umar_layout(annotations = list(x = 0 , y = 1, showarrow = F,
-                            xref='paper', yref='paper', text = paste("Posodobljeno:",prep_l$updated,
-                                                                     prep_l$transf_txt, "(Vir: SURS)"),
-                            font = list(size = 12))) |>
   rangeslider(as.Date("2012-01-01"), max(data$period)+10) |>
-  umar_layout(
-         yaxis = list(title = list(text="Medletna sprememba, v %",
-                                   font = list(size =12))),
-         xaxis = list(title = "",
-                      tickformatstops = list(
-                        list(dtickrange = list("1M", NULL),
-                             value = "%Y"))),
-         annotations = list(
-           x = 0.95, y = 1.05, text = "NaTJ", showarrow = FALSE,
-           xref='paper', yref='paper', xanchor='right', yanchor='top',
-           font=list(size=10, color = umar_cols()[3])
-         ))|>
+  umar_layout(barmode = "relative",
+              yaxis = umar_yaxis("Medletna rast, v %"),
+              xaxis = umar_xaxis("A"),
+              title = umar_subtitle(),
+              annotations = initials("NaTJ")) |>
   config(modeBarButtonsToAdd = list(dl_button))

@@ -17,7 +17,7 @@ data <- data |> left_join(prep_l2$data_points[[1]]) |>
   select(-period_id) |>
   rename("Spremembe zalog" = value)
 
-updated <- prep_l$updated
+updated <- max(prep_l$updated, prep_l2$updated)
 
 fig1 <- data |>
   plot_ly(x = ~period,  width = 1000, height = 600) |>
@@ -26,46 +26,23 @@ fig1 <- data |>
   add_lines_qp(y = ~`Zgradbe in objekti`,
             name = "Zgradbe in objekti", color = I(umar_cols()[2])) |>
   add_lines_qp(y = ~`Bruto investicije v osnovna sredstva`,
-            name = "Bruto investicije v osnovna sredstva", color = I(umar_cols()[4])) |>
-  umar_layout(font=list(family = "Myriad Pro"))
+            name = "Bruto investicije v osnovna sredstva", color = I(umar_cols()[4]))
 
-for(i in 1:9) {
-  fig1 <- fig1 |>
-    add_lines(y = ~c,  name = "\u200A",  color = I('rgba(0,0,0,0)'),
-              hoverinfo = "none")
-}
+fig1 <- add_empty_lines(fig1, 9)
 
 fig2 <-  data |>
   plot_ly(x = ~period,  width = 1000,
           height = 600) |>
   add_bars_q( x = data$period,  y = data$`Spremembe zalog`,
             name = "Spremembe zalog",
-            color = I(umar_cols()[3])) |>
-  umar_layout(font=list(family = "Myriad Pro"))
+            color = I(umar_cols()[3]))
 
 subplot(fig1,  fig2,  nrows = 2, shareX = TRUE) |>
-  umar_layout(showlegend = TRUE,
-         autosize = F, margin =  m,
-         font=list(family = "Myriad Pro"),
-         yaxis = list(fixedrange = FALSE,
-                      title = list(text = 'Medletna sprememba, v %', font = list(size =12))),
-         yaxis2 = list(fixedrange = FALSE,
-                       title = list(text = 'Prispevek h rasti BDP, v o.t.', font = list(size =12))),
-         xaxis = list(title = "",
-                      tickformatstops = list(
-                        list(dtickrange = list("M1", "M6"),
-                             value = "Q%q-%Y"),
-                        list(dtickrange = list("M6", NULL),
-                             value = "%Y"))),
-         title = list(text = paste("Posodobljeno:", prep_l$updated,
-                                   prep_l$transf_txt, "(Vir: SURS)"),
-                      font = list(size = 12),
-                      x = 0),
-         annotations = list(
-           x = 0.95, y = 1.05, text = "NaTJ", showarrow = FALSE,
-           xref='paper', yref='paper', xanchor='right', yanchor='top',
-           font=list(size=10, color = umar_cols()[3])
-         )) |>
-  rangeslider(as.Date("2018-01-01"), max(data$period) + 100)|>
-  config(modeBarButtonsToAdd = list(dl_button))
+  umar_layout(
+    yaxis = umar_yaxis("Medletna rast, v %"),
+    yaxis2 = umar_yaxis("Prispevek h rasti BDP, v o.t."),
+    xaxis = umar_xaxis("Q"),
+    title = umar_subtitle(),
+    annotations = initials("NaTJ")) |>
+  rangeslider(as.Date("2018-01-01"), max(data$period) + 100)
 

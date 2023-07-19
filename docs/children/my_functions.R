@@ -57,7 +57,9 @@ umar_layout <- function(plot, ...) {
   plot <- layout(plot, xaxis = list(rangeslider = list(thickness = slider_w)),
                  showlegend = TRUE,
                  autosize = F, margin = m,
-                 font=list(family = "Myriad Pro"))
+                 font=list(family = "Myriad Pro")) |>
+    config(modeBarButtonsToAdd = list(dl_button))
+
 
   return(plot)
 }
@@ -84,6 +86,16 @@ add_lines_m <- function(plot, y,  ...) {
   return(plot)
 }
 
+# add lines with hovertemplate A %
+add_lines_ap <- function(plot, y,  ...) {
+  plot <- add_lines(plot, y = y, hovertemplate="%{x|%Y} %{y:.2f}%", ...)
+  return(plot)
+}
+# add lines with hovertemplate A
+add_lines_a <- function(plot, y,  ...) {
+  plot <- add_lines(plot, y = y, hovertemplate="%{x|%Y} %{y:.2f}", ...)
+  return(plot)
+}
 
 # add lines with hovertemplate Q
 add_bars_q <- function(plot, y,  ...) {
@@ -95,4 +107,79 @@ add_bars_q <- function(plot, y,  ...) {
 add_bars_qp <- function(plot, y,  ...) {
   plot <- add_bars(plot, y = y, hovertemplate="%{x|Q%q-%Y} %{y:.2f}%", ...)
   return(plot)
+}
+
+
+# add lines with hovertemplate Q
+add_bars_m <- function(plot, y,  ...) {
+  plot <- add_bars(plot, y = y, hovertemplate="%{x|%b %Y} %{y:.2f}", ...)
+  return(plot)
+}
+
+# add lines with hovertemplate Q
+add_bars_mp <- function(plot, y,  ...) {
+  plot <- add_bars(plot, y = y, hovertemplate="%{x|%b %Y} %{y:.2f}%", ...)
+  return(plot)
+}
+
+# add lines with hovertemplate A
+add_bars_a <- function(plot, y,  ...) {
+  plot <- add_bars(plot, y = y, hovertemplate="%{x|%Y} %{y:.2f}", ...)
+  return(plot)
+}
+
+# add lines with hovertemplate A
+add_bars_ap <- function(plot, y,  ...) {
+  plot <- add_bars(plot, y = y, hovertemplate="%{x|%Y} %{y:.2f}%", ...)
+  return(plot)
+}
+
+# y axis
+umar_yaxis <- function(title_text, ...) {
+  list(fixedrange = FALSE,
+       title = list(text = title_text, font = list(size = 12)),
+       ...)
+}
+
+
+umar_xaxis <- function(interval){
+if(interval == "M") out <- "%b %Y"
+if(interval == "Q") out <- "Q%q-%Y"
+if(interval == "A") out <- "%Y"
+  list(title = "",
+       tickformatstops = list(
+         list(dtickrange = list("M1", "M6"),
+              value = out),
+         list(dtickrange = list("M6", NULL),
+              value = "%Y")))
+}
+
+umar_subtitle <- function(add = NULL) {
+  if(!is.null(add) && add == "UMAR") {add <- " & prera\u010dun UMAR"} else {
+      if(!is.null(add)) add <- paste ( " &", add)}
+
+list(text = paste0("Posodobljeno: ", updated, " ",
+                   ifelse(!is.null(prep_l$transf_txt), paste0(prep_l$transf_txt, " "), ""),
+                   "(Vir: SURS", add, ")"),
+     font = list(size = 12),
+     x = 0)
+}
+
+
+initials <- function(initials) {
+  list(
+  x = 1, y = 1.02, text = initials, showarrow = FALSE,
+  xref='paper', yref='paper', xanchor='right', yanchor='top',
+  font=list(size=10, color = umar_cols()[3]))
+}
+
+# umar_layout(hovermode = 'x')
+
+add_empty_lines <- function(figure, no_lines) {
+  for(i in 1:no_lines) {
+    figure <- figure |>
+      add_lines(y = ~c,  name = "\u200A",  color = I('rgba(0,0,0,0)'),
+                hoverinfo = "none")
+  }
+  return(figure)
 }

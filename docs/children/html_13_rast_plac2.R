@@ -21,59 +21,45 @@ updated <- prep_l$updated
 
 fig1 <- data |>
   plot_ly(x = ~period, width = 1000, height = 600) |>
-  add_lines(y = ~`javni`,  hovertemplate="%{x|%m-%Y} %{y:.2f}%",
-            name = "Javni sektor - originalni", color = I(umar_cols()[3])) |>
-  add_lines(y = ~`javni_roll`,  hovertemplate="%{x|%m-%Y} %{y:.2f}%",
-            name = "Javni sektor  zglajeni", color = I(umar_cols()[1]))
+  add_lines_mp(y = ~`javni`,
+            name = "Javni sektor ", color = I(umar_cols()[3])) |>
+  add_lines_mp(y = ~`javni_roll`,
+            name = "Javni sektor (3-m drse\u010da sredina)", color = I(umar_cols()[1]))
 
 for(i in 1:6) {
   fig1 <- fig1 |>
-    add_lines(y = ~`javni`,  name = "\u200A",  color = I('rgba(0,0,0,0)'),
+    add_lines(y = mean(data$javni, na.rm = TRUE),  name = "\u200A",  color = I('rgba(0,0,0,0)'),
               hoverinfo = "none")
 }
 
 fig2 <- data |>
   plot_ly(x = ~period, width = 1000, height = 600) |>
-  add_lines(y = ~`zasebni`,  hovertemplate="%{x|%m-%Y} %{y:.2f}%",
-            name = "Zasebni sektor - originalni", color = I(umar_cols()[3])) |>
-  add_lines(y = ~`zasebni_roll`,  hovertemplate="%{x|%m-%Y} %{y:.2f}%",
-            name = "Zasebni sektor  zglajeni", color = I(umar_cols()[2]))
+  add_lines_mp(y = ~`zasebni`,
+            name = "Zasebni sektor", color = I(umar_cols()[3])) |>
+  add_lines_mp(y = ~`zasebni_roll`,
+            name = "Zasebni sektor (3-m drse\u010da sredina)", color = I(umar_cols()[2]))
 
 for(i in 1:6) {
   fig2 <- fig2 |>
-    add_lines(y = ~`zasebni`,  name = "\u200A",  color = I('rgba(0,0,0,0)'),
+    add_lines(y =mean(data$zasebni, na.rm = TRUE),  name = "\u200A",  color = I('rgba(0,0,0,0)'),
               hoverinfo = "none")}
 
 
 fig3 <- data |>
   plot_ly(x = ~period, width = 1000, height = 600) |>
-  add_lines(y = ~`skupaj`,  hovertemplate="%{x|%m-%Y} %{y:.2f}%",
-            name = "Skupaj - originalni", color = I(umar_cols()[3])) |>
-  add_lines(y = ~`skupaj_roll`,  hovertemplate="%{x|%m-%Y} %{y:.2f}%",
-            name = "Skupaj  zglajeni", color = I(umar_cols()[4]))
+  add_lines_mp(y = ~`skupaj`,
+            name = "Skupaj ", color = I(umar_cols()[3])) |>
+  add_lines_mp(y = ~`skupaj_roll`,
+            name = "Skupaj (3-m drse\u010da sredina)", color = I(umar_cols()[4]))
 
 subplot(fig1,  fig2,  fig3, nrows = 3, shareX = TRUE) |>
   rangeslider(as.Date("2015-01-01"), max(data$period)+10) |>
   umar_layout(font=list(family = "Myriad Pro"),
          autosize = F, margin = m,
-         yaxis2 = list(title = list(text="3-m ds medletne spremembe, v %",
-                                   font = list(size =12)),
-                       range = c(-10, 20), fixedrange = FALSE),
-         yaxis = list(range = c(-10, 20), fixedrange = FALSE),
-         yaxis3 = list(range = c(-10, 20), fixedrange = FALSE),
-         xaxis = list(title = "",
-                      tickformatstops = list(
-                        list(dtickrange = list("M1", "M6"),
-                             value = "%b %Y"),
-                        list(dtickrange = list("M6", NULL),
-                             value = "%Y"))),
-         title = list(text = paste("Posodobljeno:", updated,
-                                   prep_l$transf_txt, "(Vir: SURS)"),
-                      font = list(size = 12),
-                      x = 0),
-         annotations = list(
-           x = 1, y = 1, text = "DeRo", showarrow = FALSE,
-           xref='paper', yref='paper', xanchor='right', yanchor='top',
-           font=list(size=10, color = umar_cols()[3])
-         ))|>
+         yaxis = umar_yaxis("", range = c(-10, 20)),
+         yaxis2 =umar_yaxis("Medletna rast, v %", range = c(-10, 20)),
+         yaxis3 = umar_yaxis("", range = c(-10, 20)),
+         xaxis = umar_xaxis("M"),
+         title = umar_subtitle(),
+         annotations = initials("DeRo")) |>
   config(modeBarButtonsToAdd = list(dl_button))

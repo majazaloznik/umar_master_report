@@ -11,32 +11,13 @@ prep_l$data_points[[1]] |>
   relocate(period) -> data
 
 data |>
-  plot_ly(x = ~period, hovertemplate="%{x|Q%q-%Y} %{y:.2f}%", width = 1000) |>
-  add_lines(y = ~`value`, name = "Predelovalne dejavnostni - stopnja rasti obsega",  color = I(umar_cols()[1])) |>
-  umar_layout(barmode = "relative",
-         showlegend = TRUE,
-         autosize = F, margin = m,
-         font=list(family = "Myriad Pro"),
-         yaxis = list(title = list(text="Medletna rast, v %",
-                                   font = list(size =12)),
-                      fixedrange = FALSE),
-         xaxis = list(title = "",
-                      tickformatstops = list(
-                        list(dtickrange = list("M1", "M6"),
-                             value = "Q%q-%Y"),
-                        list(dtickrange = list("M6", NULL),
-                             value = "%Y"))),
-         title = list(text = paste("Posodobljeno:", prep_l$updated,
-                                   prep_l$transf_txt, "(Vir: SURS)"),
-                      font = list(size = 12),
-                      x = 0),
-         annotations = list(
-           x = 0.95, y = 1.05, text = "NaTJ", showarrow = FALSE,
-           xref='paper', yref='paper', xanchor='right', yanchor='top',
-           font=list(size=10, color = umar_cols()[3])
-         )) |>
-  rangeslider(as.Date("2012-01-01"), max(data$period)+100)|>
-  config(modeBarButtonsToAdd = list(dl_button))
-
+  plot_ly(x = ~period,  width = 1000) |>
+  add_lines_qp(y = ~`value`, name = "Predelovalne dejavnostni - stopnja rasti obsega",  color = I(umar_cols()[1])) |>
+  umar_layout(
+    yaxis = umar_yaxis("Medletna rast, v %"),
+    xaxis = umar_xaxis("Q"),
+    title = umar_subtitle(),
+    annotations = initials("NaTJ")) |>
+  rangeslider(as.Date("2012-01-01"), max(data$period)+100)
 
 

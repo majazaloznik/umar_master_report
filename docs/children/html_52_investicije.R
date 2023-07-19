@@ -26,36 +26,18 @@ fig1 <- data |>
   plot_ly(x = ~period, width = 1000, height = 600) |>
   add_lines_qp(y = ~bios, name = "Bruto investicije v osnovna sredstva", color = I(umar_cols()[1]))
 
-for(i in 1:10) {
-  fig1 <- fig1 |>
-    add_lines(y = ~bios,  name = "\u200A",  color = I('rgba(0,0,0,0)'),
-              hoverinfo = "none")}
+fig1 <- add_empty_lines(fig1, 10)
+
 fig2 <- data |>
   plot_ly(x = ~period, width = 1000, height = 600) |>
   add_bars_q(y = ~`sz`, name = "Sprememebe zalog",  color = I(umar_cols()[3]))
 
-  subplot(fig1,  fig2, nrows = 2, shareX = TRUE) |>
+subplot(fig1,  fig2, nrows = 2, shareX = TRUE) |>
   rangeslider(as.Date("2012-01-01"), max(data$period)+100) |>
-  umar_layout(showlegend = TRUE,
-         legend = list(tracegroupgap = 150),
-         font=list(family = "Myriad Pro"),
-         autosize = F, margin = m,
-         yaxis = list(title = list(text="Medletna rast, v %",
-                                   font = list(size =12))),
-         yaxis2 = list(title = list(text="Prispevki k medletni rasti BDP, v o.t",
-                                   font = list(size =12))),
-         xaxis = list(title = "",
-                      tickformatstops = list(
-                        list(dtickrange = list("M1", "M6"),
-                             value = "%Y"),
-                        list(dtickrange = list("M6", NULL),
-                             value = "%Y"))),
-         title = list(text = paste("Posodobljeno:", updated, "(Vir: SURS)"),
-                      font = list(size = 12),
-                      x = 0),
-         annotations = list(
-           x = 0.95, y = 1.05, text = "NaTJ", showarrow = FALSE,
-           xref='paper', yref='paper', xanchor='right', yanchor='top',
-           font=list(size=10, color = umar_cols()[3])
-         ))|>
-  config(modeBarButtonsToAdd = list(dl_button))
+  umar_layout(yaxis = umar_yaxis("Medletna rast, v %"),
+              yaxis2 = umar_yaxis("Prispevki k medletni rasti BDP, v o.t"),
+              xaxis = umar_xaxis("A"),
+              title = umar_subtitle(),
+              annotations = initials("NaTJ"))
+
+
