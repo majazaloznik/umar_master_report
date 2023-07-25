@@ -71,9 +71,9 @@ fig3 <- plot_ly(data3, x = ~period, width = 1000,
 
 subplot(fig1, fig2, fig3,   nrows = 3, shareX = TRUE) |>
   umar_layout(
-    yaxis = umar_yaxis('Medletna rast, v '),
-    yaxis2 = umar_yaxis('Medletna rast, v '),
-    yaxis3 = umar_yaxis('Medletna rast, v '),
+    yaxis = umar_yaxis('Medletna rast, v %'),
+    yaxis2 = umar_yaxis('Medletna rast, v %'),
+    yaxis3 = umar_yaxis('Medletna rast, v %'),
     xaxis = umar_xaxis("Q"),
     title = umar_subtitle("UMAR"),
     annotations = initials("MoKo")) |>

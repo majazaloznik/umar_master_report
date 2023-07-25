@@ -1,0 +1,17 @@
+---
+output:
+  html_document
+---
+
+```{r setup, echo = FALSE, message = FALSE, warning = FALSE}
+library(plotly)
+```
+
+```{r plot, echo = FALSE, results="asis"}
+df <- data.frame(x = 1:10, y = rnorm(10))
+plot(df$x, df$y, main = "čšć")
+```
+
+
+```{r plot2, code=readLines("test.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```

@@ -43,8 +43,7 @@ m <- list(
   r = 300,
   b = 30,
   t = 30,
-  pad = 4
-)
+  pad = 4)
 ```
 
 # Nacionalni računi - kvartalno
@@ -369,7 +368,7 @@ m <- list(
 ```
 
 
-## Medletna rast cen pri proizvajalcih v Sloveniji 
+## Medletna rast cen pri proizvajalcih v Sloveniji
 ```{r, code=readLines("children/html_69_medletna_rast_cen_pri_proizvajalcih.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
@@ -469,5 +468,73 @@ m <- list(
 ## Vrednost prodaj stanovanjskih nepremičnin
 
 ```{r, code=readLines("children/html_67_vrednost_prodaj_stanovanjskih_nepremicnin.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+
+# Tina
+
+## Predelovalne dejavnosti - rasto dodane vrednosti
+
+```{r, code=readLines("children/html_77_predelovalne_rast_dodane.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Predelovalne dejavnosti - letna rast dodane vrednosti, proizvodnje in vmesne potrošnje
+```{r, code=readLines("children/html_78_predelovalne_dv_proizvodnja_potrosnja.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Predelovalne dejavnosti - delež v dodani vrednosti in BDP
+```{r, code=readLines("children/html_79_predelovalne_delez_dv_bdp.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Predelovalne dejavnosti - rast dodane vrednosti po panogah
+
+```{r, code=readLines("children/html_80_predelovalne_rast_dodane_po_panogah.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+```{r, code=readLines("children/html_80_predelovalne_rast_dodane_po_panogah2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Predelovalne dejavnosti - struktura dodane vrednosti
+
+```{r, code=readLines("children/html_81_predelovalne_struktura_dodane.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+```{r, code=readLines("children/html_81_predelovalne_struktura_dodane2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Rast zaposlenosti v predelovalnih dejavnostih, medletno
+
+```{r, code=readLines("children/html_82_medletna_rast_zaposlenosti_predelovalne.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+```{r, code=readLines("children/html_82_medletna_rast_zaposlenosti_predelovalne2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+<!-- ## Rast zaposlenosti v predelovalnih dejavnostih, medletno + povprečna medletna rast -->
+
+<!-- ```{r, code=readLines("children/html_83_medletna_rast_zaposlenosti_predelovalne_s_povprecno_medletno.R"), echo=FALSE, message=FALSE,  warning = FALSE} -->
+<!-- ``` -->
+ 
+## Poslovne tendence v predelovalnih dejavnostih, četrtletno
+```{r, code=readLines("children/html_84_poslovne_tendence_v_predelovalnih.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Rast proizvodnje v predelovalnih dejavnostih
+```{r, code=readLines("children/html_85_rast_proizvodnje_predelovalne.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Rast proizvodnje po tehnološki zahtevnosti predelovalnih dejavnosti, medletno
+
+```{r, code=readLines("children/html_86_rast_proizvodnje_tz_medletno.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+<!-- ## Rast proizvodnje po tehnološki zahtevnosti predelovalnih dejavnosti, medletno po četrtletjih -->
+
+<!-- ```{r, code=readLines("children/html_86_rast_proizvodnje_tz_medletno.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE} -->
+<!-- ``` -->
+
+## Rast proizvodnje po tehnološki zahtevnosti predelovalnih dejavnosti po tehnološki zahtevnosti
+
+```{r, code=readLines("children/html_88_rast_proizvodnje_predelovalne_po_tehn_z.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 

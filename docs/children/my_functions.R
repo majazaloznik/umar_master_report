@@ -48,7 +48,8 @@ dl_button <- list(
 )
 
 
-
+replacements <- "č"
+constructive::construct(replacements)
 
 # incremental automation
 umar_layout <- function(plot, ...) {
@@ -141,6 +142,15 @@ umar_yaxis <- function(title_text, ...) {
        ...)
 }
 
+emph_line <- function(y = 100){
+  list(
+    list(
+      type = "line",
+      x0 = min(data$period), x1 = max(data$period),
+      y0 = y, y1 = y,
+      line = list(color = umar_cols("emph"), width = 1)
+    ))
+}
 
 umar_xaxis <- function(interval){
 if(interval == "M") out <- "%b %Y"
@@ -178,8 +188,62 @@ initials <- function(initials) {
 add_empty_lines <- function(figure, no_lines) {
   for(i in 1:no_lines) {
     figure <- figure |>
-      add_lines(y = ~c,  name = "\u200A",  color = I('rgba(0,0,0,0)'),
+      add_lines(y = 0.01,  name = "\u200A",  color = I('rgba(0,0,0,0)'),
                 hoverinfo = "none")
   }
   return(figure)
+}
+
+umar_panel_subtitle <- function(add = NULL, transformation = NULL){
+  if(!is.null(add) && add == "UMAR") {add <- " & prera\u010dun UMAR"} else {
+    if(!is.null(add)) add <- paste ( " &", add)}
+  list(
+    text = paste0("Posodobljeno: ", updated, " ",
+                  ifelse(!is.null(prep_l$transf_txt), paste0(transformation, " "), ""),
+                  "(Vir: SURS", add, ")"),
+    font = list(size = 12),
+    x = 0,
+    y = 1,
+    yref = "paper",
+    xref = "paper",
+    xanchor = "middle",
+    yanchor = "top",
+    showarrow = FALSE)
+}
+
+my_panel_title <- function(fig, add = NULL, transformation = NULL) {
+  if(!is.null(add) && add == "UMAR") {add <- " & prera\u010dun UMAR"} else {
+    if(!is.null(add)) add <- paste ( " &", add)}
+  text <- paste0("Posodobljeno: ", updated, " ",
+         ifelse(!is.null(transformation), paste0(transformation, " "), ""),
+         "(Vir: SURS", add, ")")
+  fig <- fig %>%
+    layout(annotations = list(
+      x = -0.08,
+      y = 1.13,
+      text = text,
+      showarrow = F,
+      xref='paper',
+      yref='paper',
+      xanchor='middle',
+      yanchor='top',
+      font=list(size=12)
+    ))
+  return(fig)
+}
+
+my_panel_subtitle <- function(fig, text) {
+  fig <- fig %>%
+    layout(annotations = list(
+      x = 0,
+      y = 1,
+      text = text,
+      showarrow = F,
+      xref='paper',
+      yref='paper',
+      xanchor='middle',
+      yanchor='top',
+      font=list(size=12)
+    ))
+  return(fig)
 }
