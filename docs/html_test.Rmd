@@ -212,7 +212,7 @@ m <- list(
 ```
 
 
-# Kazalniki razpoloženja - mesečno
+# Kazalniki razpoloženja
 
 ## Poslovne tendence in mnenje potrošnikov
 ```{r, code=readLines("children/html_24_poslovne_tendence_mnenje_potrosnikov.R"), echo=FALSE, message=FALSE,  warning = FALSE}
@@ -259,6 +259,10 @@ m <- list(
 
 ## Poslovne tendence v storitveni dejavnosti - 3-mesečne drseče sredine (desne)
 ```{r, code=readLines("children/html_29_poslovne_tendence_storitvene2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Poslovne tendence v predelovalnih dejavnostih - četrtletno (seseyonirani podatki)
+```{r, code=readLines("children/html_84_poslovne_tendence_v_predelovalnih.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
 ## Poslovne tendence - pričakovanja - desezonirano
@@ -526,9 +530,7 @@ m <- list(
 ```
 
  
-## Poslovne tendence v predelovalnih dejavnostih - četrtletno
-```{r, code=readLines("children/html_84_poslovne_tendence_v_predelovalnih.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
-```
+
 
 ## Rast proizvodnje v predelovalnih dejavnostih
 ```{r, code=readLines("children/html_85_rast_proizvodnje_predelovalne.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
