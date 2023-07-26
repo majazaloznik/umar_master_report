@@ -194,22 +194,6 @@ add_empty_lines <- function(figure, no_lines) {
   return(figure)
 }
 
-umar_panel_subtitle <- function(add = NULL, transformation = NULL){
-  if(!is.null(add) && add == "UMAR") {add <- " & prera\u010dun UMAR"} else {
-    if(!is.null(add)) add <- paste ( " &", add)}
-  list(
-    text = paste0("Posodobljeno: ", updated, " ",
-                  ifelse(!is.null(prep_l$transf_txt), paste0(transformation, " "), ""),
-                  "(Vir: SURS", add, ")"),
-    font = list(size = 12),
-    x = 0,
-    y = 1,
-    yref = "paper",
-    xref = "paper",
-    xanchor = "middle",
-    yanchor = "top",
-    showarrow = FALSE)
-}
 
 my_panel_title <- function(fig, add = NULL, transformation = NULL) {
   if(!is.null(add) && add == "UMAR") {add <- " & prera\u010dun UMAR"} else {

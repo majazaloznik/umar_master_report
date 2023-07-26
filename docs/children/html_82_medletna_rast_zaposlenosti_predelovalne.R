@@ -36,7 +36,7 @@ fig1 <- plot_ly(data, x = ~period, width = 1000,
   add_lines_mp(y = ~value.y.y,  name = "Proizvodnja obla\u010dil",  color = I(umar_cols()[4])) |>
   add_lines_mp(y = ~value,  name = "Usnjarstvo",  color = I(umar_cols()[5])) |>
   umar_layout(annotations = list(x = 0 , y = 1,
-                                 text = "Rast zaposlenosti dodane vrednosti v nizko tehnolo\u0161ko zahtevnih dejavnostih", showarrow = F,
+                                 text = "Rast zaposlenosti v nizko tehnolo\u0161ko zahtevnih dejavnostih", showarrow = F,
                                  xref='paper', yref='paper'))
 
 fig1 <- add_empty_lines(fig1, 9)

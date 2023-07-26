@@ -47,7 +47,7 @@ fig1 <- plot_ly(data, x = ~period, width = 1000,
   add_lines_mp(y = ~value.y.y,  name = "Proizvodnja kovin. izd.",  color = I(umar_cols()[4])) |>
   add_lines_mp(y = ~value,  name = "Popravila in monta\u017ea",  color = I(umar_cols()[5])) |>
   umar_layout(annotations = list(x = 0 , y = 1,
-                                 text = "Rast zaposlenosti dodane vrednosti v srednje nizko tehnolo\u0161ko zahtevnih dejavnostih", showarrow = F,
+                                 text = "Rast zaposlenosti v srednje nizko tehnolo\u0161ko zahtevnih dejavnostih", showarrow = F,
                                  xref='paper', yref='paper'))
 
 fig1 <- add_empty_lines(fig1, 7)
@@ -61,7 +61,7 @@ fig2 <- plot_ly(data2, x = ~period, width = 1000,
   add_lines_mp(y = ~value.y.y,  name = "Proiz. mot. vozil in plovil",  color = I(umar_cols()[1])) |>
   add_lines_mp(y = ~value,  name = "Proiz. dr. vozil in plovil.",  color = I(umar_cols()[2])) |>
   umar_layout(annotations = list(x = 0 , y = 1,
-                                 text = "Rast zaposlenosti dodane vrednosti v srednje visoko tehnolo\u0161ko zahtevnih dejavnostih", showarrow = F,
+                                 text = "Rast zaposlenosti v srednje visoko tehnolo\u0161ko zahtevnih dejavnostih", showarrow = F,
                                  xref='paper', yref='paper'))
 
 fig2 <- add_empty_lines(fig2, 7)
@@ -72,7 +72,7 @@ fig3 <- plot_ly(data3, x = ~period, width = 1000,
   add_lines_mp(y = ~value.x,  name = "Farmacevtska industrija",  color = I(umar_cols()[3])) |>
   add_lines_mp(y = ~value.y,  name = "Proiz. IKT opreme",  color = I(umar_cols()[4]))  |>
   umar_layout(annotations = list(x = 0 , y = 1,
-                                 text = "Rast zaposlenosti dodane vrednosti v visoko tehnolo\u0161ko zahtevnih dejavnostih", showarrow = F,
+                                 text = "Rast zaposlenosti v visoko tehnolo\u0161ko zahtevnih dejavnostih", showarrow = F,
                                  xref='paper', yref='paper'))
 
 
