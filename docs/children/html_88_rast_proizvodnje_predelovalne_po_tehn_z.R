@@ -25,8 +25,8 @@ fig1 <- plot_ly(data, x = ~period, width = 1000,
   add_lines_mp(y = ~monthly_value.x,  name = "Predelovalne dejavnosti",  color = I(umar_cols()[3]), fill = "tozeroy") |>
   add_lines_mp(y = ~monthly_value.y,  name = "Nizko teh. zaht. dejavnosti",  color = I(umar_cols()[1])) |>
   add_lines_mp(y = ~monthly_value.x.x,  name = "Srednje nizko teh. zaht. dejavnosti",  color = I(umar_cols()[2])) |>
-  add_lines_mp(y = ~monthly_value.y.y,  name = "Srednje visoko teh. zaht. dejavnosti",  color = I(umar_cols()[4])) |>
-  add_lines_mp(y = ~monthly_value,  name = "Visoko teh. zaht. dejavnosti",  color = I(umar_cols()[6])) |>
+  add_lines_mp(y = ~monthly_value.y.y,  name = "Srednje visoko teh. zaht. dejavnosti",  color = I(umar_cols()[8])) |>
+  add_lines_mp(y = ~monthly_value,  name = "Visoko teh. zaht. dejavnosti",  color = I(umar_cols()[4])) |>
   my_panel_subtitle("Rast proizvodnje po tehnološki zahtevnosti predelovalnih dejavnosti, mesečno")
 
 fig1 <- add_empty_lines(fig1, 9)
@@ -38,8 +38,8 @@ fig2 <- plot_ly(data2, x = ~period, width = 1000,
   add_lines_mp(y = ~value.x,  name = "Predelovalne dejavnosti",  color = I(umar_cols()[3])) |>
   add_lines_mp(y = ~value.y,  name = "Nizko teh. zaht. dejavnosti",  color = I(umar_cols()[1])) |>
   add_lines_mp(y = ~value.x.x,  name = "Srednje nizko teh. zaht. dejavnosti",  color = I(umar_cols()[2])) |>
-  add_lines_mp(y = ~value.y.y,  name = "Srednje visoko teh. zaht. dejavnosti",  color = I(umar_cols()[4])) |>
-  add_lines_mp(y = ~value,  name = "Visoko teh. zaht. dejavnosti",  color = I(umar_cols()[6])) |>
+  add_lines_mp(y = ~value.y.y,  name = "Srednje visoko teh. zaht. dejavnosti",  color = I(umar_cols()[8])) |>
+  add_lines_mp(y = ~value,  name = "Visoko teh. zaht. dejavnosti",  color = I(umar_cols()[4])) |>
   my_panel_title("UMAR", prep_l2$transf_txt) |>
   my_panel_subtitle("Proizvodnja predelovalnih dejavnosti po tehnološki zahtevnosti") |>
   layout(shapes = emph_line())

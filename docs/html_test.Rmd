@@ -473,6 +473,21 @@ m <- list(
 
 # Tina
 
+
+## Indeks industrijske proizvodnje
+
+```{r, code=readLines("children/html_92_indeks_industrijske_proizvodnje.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Mesečna rast industrijske proizvodnje
+
+```{r, code=readLines("children/html_93_mesecna_rast_indeks_industrijske_proizvodnje.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Rast proizvodnje v industriji - medletno
+```{r, code=readLines("children/html_91_rast_proizvodnje_industrija_medletna.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
 ## Predelovalne dejavnosti - rast dodane vrednosti
 
 ```{r, code=readLines("children/html_77_predelovalne_rast_dodane.R"), echo=FALSE, message=FALSE,  warning = FALSE}
@@ -530,16 +545,7 @@ m <- list(
 ```{r, code=readLines("children/html_88_rast_proizvodnje_predelovalne_po_tehn_z.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
-## Rast proizvodnje po tehnološki zahtevnosti predelovalnih dejavnosti - medletno
 
-```{r, code=readLines("children/html_89_rast_proizvodnje_predelovalne_po_tehn_z_medletne.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
-```
-
-
-## Rast proizvodnje po tehnološki zahtevnosti predelovalnih dejavnosti - medletno
-
-```{r, code=readLines("children/html_89_rast_proizvodnje_predelovalne_po_tehn_z_medletne.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
-```
 ## Rast proizvodnje po panogah predelovalnih dejavnosti
 
 ```{r, code=readLines("children/html_90_rast_proizvodnje_predelovalne_po_panogah.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
@@ -549,24 +555,6 @@ m <- list(
 ```
 
 
-## Rast proizvodnje v industriji - medletno
-```{r, code=readLines("children/html_91_rast_proizvodnje_industrija_medletna.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
-```
 
-## Rast proizvodnje v industriji - medletno, del. dnem prilagojeni podatki
-
-```{r, code=readLines("children/html_91_rast_proizvodnje_industrija_medletna-prilagojena.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
-```
-
-
-## Indeks industrijske proizvodnje
-
-```{r, code=readLines("children/html_92_indeks_industrijske_proizvodnje.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
-```
-
-## Mesečna rast industrijske proizvodnje
-
-```{r, code=readLines("children/html_93_mesecna_rast_indeks_industrijske_proizvodnje.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
-```
 
 

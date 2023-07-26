@@ -31,8 +31,8 @@ plot_ly(data, x = ~period, width = 1000,
   add_lines_mp(y = ~value.x,  name = "Predelovalne dejavnosti",  color = I(umar_cols()[3]), fill = "tozeroy") |>
   add_lines_mp(data = data, y = ~value.y,  name = "Nizko teh. zaht. dejavnosti",  color = I(umar_cols()[1])) |>
   add_lines_mp(data = data, y = ~value.x.x,  name = "Srednje nizko teh. zaht. dejavnosti",  color = I(umar_cols()[2])) |>
-  add_lines_mp(data = data, y = ~value.y.y,  name = "Srednje visoko teh. zaht. dejavnosti",  color = I(umar_cols()[4])) |>
-  add_lines_mp(data = data, y = ~value,  name = "Visoko teh. zaht. dejavnost",  color = I(umar_cols()[5])) |>
+  add_lines_mp(data = data, y = ~value.y.y,  name = "Srednje visoko teh. zaht. dejavnosti",  color = I(umar_cols()[8])) |>
+  add_lines_mp(data = data, y = ~value,  name = "Visoko teh. zaht. dejavnost",  color = I(umar_cols()[4])) |>
     umar_layout(
     yaxis = umar_yaxis('Medletna rast, v %'),
     xaxis = umar_xaxis("M"),

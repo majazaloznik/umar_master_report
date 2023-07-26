@@ -17,8 +17,8 @@ prep_l2$data_points[[1]] |>
   relocate(period) |>
   as_tibble() |>
   left_join(data, by = "period") |>
-  mutate(dv = value.x/value.y.y,
-         bdp = value.x/value.x.x)  -> data
+  mutate(dv = value.x/value.y.y * 100,
+         bdp = value.x/value.x.x * 100)  -> data
 
 
 updated <- max(prep_l$updated, prep_l2$updated)
