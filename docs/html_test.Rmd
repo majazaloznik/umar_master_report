@@ -11,39 +11,10 @@ output:
 title: Indikatorji
 ---
 
-```{r setup, echo = FALSE, message = FALSE, warning = FALSE}
-#devtools::install_github("majazaloznik/UMARaccessR", dependencies = FALSE, INSTALL_opts=c("--no-multiarch"))
-#devtools::install_github("majazaloznik/UMARvisualisR", dependencies = FALSE)
-
-library(UMARaccessR)
-library(UMARvisualisR)
-library(dplyr)
-library(plotly)
-library(lubridate)
-extrafont::loadfonts()
-source(here::here("docs/children/my_functions.R"))
-
+```{r setup, code=readLines("children/setup_chunk.R"), echo=FALSE, message=FALSE,  warning = FALSE, results="asis"}
 ```
 
-```{r intro, echo=FALSE, message=FALSE,  warning = FALSE, results="asis"}
-con <- DBI::dbConnect(RPostgres::Postgres(),
-                      dbname = "platform",
-                      host = "192.168.38.21",
-                      port = 5432,
-                      user = "majaz",
-                      password = Sys.getenv("PG_MZ_PSW"),
-                      client_encoding = "utf8")
-# set schema search path
-x <- DBI::dbExecute(con, "set search_path to platform")
-
-slider_w <- 0.05
-
-m <- list(
-  l = 50,
-  r = 300,
-  b = 30,
-  t = 30,
-  pad = 4)
+```{r intro, code=readLines("children/intro_chunk.R"), echo=FALSE, message=FALSE,  warning = FALSE, results="asis"}
 ```
 
 # Nacionalni računi - kvartalno
@@ -232,6 +203,10 @@ m <- list(
 ```{r, code=readLines("children/html_41_poslovne_tendence_predelovalne_omejitveni.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
+## Poslovne tendence v predelovalnih dejavnostih - četrtletno (desezonirani podatki)
+```{r, code=readLines("children/html_84_poslovne_tendence_v_predelovalnih.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
 ## Poslovne tendence v omejitveni dejavniki
 ```{r, code=readLines("children/html_26_poslovne_tendence_omejitveni.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
@@ -261,9 +236,6 @@ m <- list(
 ```{r, code=readLines("children/html_29_poslovne_tendence_storitvene2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
-## Poslovne tendence v predelovalnih dejavnostih - četrtletno (seseyonirani podatki)
-```{r, code=readLines("children/html_84_poslovne_tendence_v_predelovalnih.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
-```
 
 ## Poslovne tendence - pričakovanja - desezonirano
 ```{r, code=readLines("children/html_30_poslovne_tendence_pricakovanja.R"), echo=FALSE, message=FALSE,  warning = FALSE}
@@ -413,7 +385,7 @@ m <- list(
 
 
 
-# Gradbeništvo
+# Gradbeništvo in stanovanjske nepremičnine
 
 ## Realni indeks opravljenih del v gradbeništvu - desezonirani
 ```{r, code=readLines("children/html_15_gradb_indeksi.R"), echo=FALSE, message=FALSE,  warning = FALSE}
@@ -458,9 +430,6 @@ m <- list(
 ```
 
 
-# Stanovanjske nepremičnine
-
-
 ## Cene stanovanjskih nepremičnin
 
 ```{r, code=readLines("children/html_65_cene_stanovanjskih_nepremicnin.R"), echo=FALSE, message=FALSE,  warning = FALSE}
@@ -471,11 +440,11 @@ m <- list(
 ```
 ## Vrednost prodaj stanovanjskih nepremičnin
 
-<!-- ```{r, code=readLines("children/html_67_vrednost_prodaj_stanovanjskih_nepremicnin.R"), echo=FALSE, message=FALSE,  warning = FALSE} -->
-<!-- ``` -->
+```{r, code=readLines("children/html_67_vrednost_prodaj_stanovanjskih_nepremicnin.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
 
 
-# Tina
+# Predelovalne dejavnosti
 
 
 ## Indeks industrijske proizvodnje
@@ -529,11 +498,15 @@ m <- list(
 ```{r, code=readLines("children/html_82_medletna_rast_zaposlenosti_predelovalne2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
- 
 
 
 ## Rast proizvodnje v predelovalnih dejavnostih
 ```{r, code=readLines("children/html_85_rast_proizvodnje_predelovalne.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Rast proizvodnje po tehnološki zahtevnosti predelovalnih dejavnosti 
+
+```{r, code=readLines("children/html_88_rast_proizvodnje_predelovalne_po_tehn_z.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
 ## Rast proizvodnje po tehnološki zahtevnosti predelovalnih dejavnosti - medletno
@@ -541,11 +514,6 @@ m <- list(
 ```{r, code=readLines("children/html_86_rast_proizvodnje_tz_medletno.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
-
-## Rast proizvodnje po tehnološki zahtevnosti predelovalnih dejavnosti 
-
-```{r, code=readLines("children/html_88_rast_proizvodnje_predelovalne_po_tehn_z.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
-```
 
 
 ## Rast proizvodnje po panogah predelovalnih dejavnosti

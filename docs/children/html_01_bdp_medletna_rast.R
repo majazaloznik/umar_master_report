@@ -16,8 +16,7 @@ data |>
   add_lines_qp(y = ~`value.y`, name = "Desezonirani podatki",  color = I(umar_cols()[2])) |>
   umar_layout(
     yaxis = umar_yaxis('Medletna rast, v %'),
-    xaxis = umar_xaxis("Q"),
-    title = umar_subtitle()) |>
+    xaxis = umar_xaxis("Q")) |>
   rangeslider(as.Date("2012-01-01"), max(data$period) + 100)
 
 

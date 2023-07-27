@@ -1,0 +1,10 @@
+#devtools::install_github("majazaloznik/UMARaccessR", dependencies = FALSE, INSTALL_opts=c("--no-multiarch"))
+#devtools::install_github("majazaloznik/UMARvisualisR", dependencies = FALSE)
+
+library(UMARaccessR)
+library(UMARvisualisR)
+library(dplyr)
+library(plotly)
+library(lubridate)
+extrafont::loadfonts()
+source(here::here("docs/children/my_functions.R"))

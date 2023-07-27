@@ -24,6 +24,8 @@ purrr::reduce(prep_l4$data_points, dplyr::left_join, by = c("period_id", "period
   select(-period_id) |>
   as_tibble() -> data4
 
+updated <- max(prep_l$updated, prep_l2$updated,  prep_l3$updated,  prep_l4$updated)
+
 fig1 <- plot_ly(data, x = ~period, width = 1000, height = 1000) |>
   add_lines_qp(y = ~value.x,  name = "Ni omejitev",  color = I(umar_cols()[1])) |>
   add_lines_qp(y = ~value.y,   name = "Negotove gospodarske razmere",color = I(umar_cols()[2])) |>

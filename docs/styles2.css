@@ -1,0 +1,92 @@
+/* Whole document: */
+  body{
+    font-family: Myriad Pro;
+    padding-left: 350px;
+  }
+/* Headers */
+  h1{
+    font-size: 2rem;
+    font-family: Myriad Pro;
+  }
+/* Headers */
+  h2{
+    font-size: 1.6rem;
+    font-family: Myriad Pro;
+  }
+/* Add sticky positioning to the TOC */
+  #TOC {
+  position: fixed;
+top: 60px;
+left: 0;
+width: 350px;
+height: calc(100vh - 100px);
+overflow-y: auto;
+padding: 10px;
+}
+
+
+/* Hide the sub-headings by default */
+  #TOC ul ul {
+  display: none;
+}
+
+/* Style the active TOC link */
+  #TOC li.active a {
+  font-weight: bold;
+}
+
+/* Remove default list styles */
+  #TOC ul {
+  list-style-type: none;
+padding-left: 0;
+}
+
+/* Add triangle to the list items with sub-headings */
+  #TOC > ul > li > a::before {
+  content: "";
+display: inline-block;
+width: 0;
+height: 0;
+border-style: solid;
+border-width: 4px 0 4px 7px;
+border-color: transparent transparent transparent currentColor;
+margin-right: 5px;
+transition: transform 0.2s;
+}
+
+/* Rotate the triangle 90 degrees when the sub-headings are expanded */
+  #TOC > ul > li.expanded > a::before {
+  transform: rotate(90deg);
+}
+
+/* Indent second level TOC titles and add bullets */
+  #TOC > ul > li > ul > li {
+  padding-left: 40px;
+}
+
+#TOC > ul > li > ul > li::before {
+content: "•";
+display: inline-block;
+margin-left: -40px;
+width: 40px;
+text-align: center;
+}
+
+/* Set the font size for the first level TOC titles */
+  #TOC > ul > li > a {
+  font-size: 1.3rem;
+}
+
+/* Set the font size for the second level TOC titles */
+  #TOC > ul > li > ul > li > a {
+  font-size: 1.1rem;
+}
+
+/* change all links black */
+a {
+  color: #838383; /* This is a dark gray color in hexadecimal representation */
+}
+/* Show the sub-headings by default */
+  #TOC ul ul {
+  display: block;
+}

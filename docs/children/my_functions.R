@@ -47,10 +47,6 @@ dl_button <- list(
    ")
 )
 
-
-replacements <- "č"
-constructive::construct(replacements)
-
 # incremental automation
 umar_layout <- function(plot, ...) {
   plot <- layout(plot, ...)

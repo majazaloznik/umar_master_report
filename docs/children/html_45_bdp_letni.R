@@ -12,6 +12,9 @@ prep_l$data_points[[1]] |>
   rename( stalne = value) |>
   as_tibble() -> data
 
+updated <- max(prep_l$updated, prep_l2$updated)
+
+
 purrr::reduce(prep_l2$data_points, dplyr::left_join, by = c("period_id", "period")) %>%
   dplyr::relocate( period) |>
   select(-period_id) |>

@@ -10,7 +10,7 @@ prep_l$data_points[[1]] |>
   relocate(period) |>
   as_tibble() |>
   mutate(value = value - 100) -> data
-
+updated <- prep_l$updated
 data |>
   plot_ly(x = ~period, hovertemplate="%{x|%b %Y} %{y:.2f}%", width = 1000) |>
   add_bars_mp(y = ~`value`, name = "Medletna rast cen \u017eivljenskih potreb\u0161\u010din",  color = I(umar_cols()[1])) |>

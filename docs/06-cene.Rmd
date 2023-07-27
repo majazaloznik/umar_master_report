@@ -1,0 +1,78 @@
+---
+output:
+  html_document:
+    toc: TRUE
+    toc_depth: 2
+    number_sections: true
+    css: styles2.css
+    includes:
+      before_body: custom2.js
+  df_print: paged
+title: Indikatorji
+---
+```{r setup, code=readLines("children/setup_chunk.R"), echo = FALSE, message = FALSE, warning = FALSE}
+```
+
+```{r intro, code=readLines("children/intro_chunk.R"), echo=FALSE, message=FALSE,  warning = FALSE, results="asis"}
+```
+
+
+# [Nacionalni računi - kvartalno](01-nacionalni_kvartalno.html#NacionalniKvartalno)
+# [Nacionalni računi - letno](02-nacionalni_letno.html#NacionalniLetno)
+# [Kazalniki razpoloženja](03-kazalniki_razpolozenja.html#KazalnikiRazpolozenja)
+# [Kazalniki aktivnosti](04-kazalniki_aktivnosti.html#KazalnikiAktivnosti)
+# [Trg dela](05-trg_dela.html#TrgDela)
+# Cene {#Cene}
+
+
+## Medletna rast cen življenskih potrebščin
+```{r, code=readLines("children/html_14_inflacija.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Medletna rast cen življenskih potrebščin
+```{r, code=readLines("children/html_68_medletne_rasti_zivljenskih_potrebscin.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+
+## Medletna rast cen pri proizvajalcih v Sloveniji
+```{r, code=readLines("children/html_69_medletna_rast_cen_pri_proizvajalcih.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+
+## Medletna rast cen pri proizvajalcih v Sloveniji po namenskih skupinah
+```{r, code=readLines("children/html_70_medletna_rast_cen_pri_proizvajalcih_namenske.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Medletna rast cen pri proizvajalcih v Sloveniji na domačem trgu po namenskih skupinah
+```{r, code=readLines("children/html_71_medletna_rast_cen_pri_proizvajalcih_namenske_domaci_trg.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Medletna rast cen pri proizvajalcih v Sloveniji na tujih trgih po namenskih skupinah
+```{r, code=readLines("children/html_72_medletna_rast_cen_pri_proizvajalcih_namenske_tuji_trg.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Medletna rast uvoznih cen po namenskih skupinah
+
+```{r, code=readLines("children/html_73_medletna_rast_uvoznih_cen_namenske.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Cene energentov
+
+```{r, code=readLines("children/html_74_energenti.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Medletna rast cen storitev pri proizvajalcih
+
+```{r, code=readLines("children/html_75_medletna_rast_cen_storitev_pri_proizvajalcih.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+
+## Medletna rast cen storitev pri proizvajalcih 2
+
+```{r, code=readLines("children/html_76_medletna_rast_cen_storitev_pri_proizvajalcih2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+# [Gradbeništvo in stanovanjske nepremičnine](07-gradbenistvo.html#Gradbenistvo)
+# [Predelovanle dejavnosti](08-predelovalne_dejavnosti.html#PredelovalneDejavnosti)
+
+

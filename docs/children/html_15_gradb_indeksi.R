@@ -23,6 +23,8 @@ purrr::reduce(prep_l2$data_points, dplyr::left_join, by = c("period_id", "period
          stan = value.y,
          nestan = value)  -> data2
 
+updated <- max(prep_l$updated, prep_l2$updated)
+
 fig1 <- data |>
   plot_ly(x = ~period, width = 1000,
           height = 600) |>

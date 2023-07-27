@@ -1,0 +1,77 @@
+---
+output:
+  html_document:
+    toc: TRUE
+    toc_depth: 2
+    number_sections: true
+    css: styles2.css
+    includes:
+      before_body: custom2.js
+  df_print: paged
+title: Indikatorji
+---
+
+```{r setup, code=readLines("children/setup_chunk.R"), echo = FALSE, message = FALSE, warning = FALSE}
+```
+
+```{r intro, code=readLines("children/intro_chunk.R"), echo=FALSE, message=FALSE,  warning = FALSE, results="asis"}
+```
+
+# [Nacionalni računi - kvartalno](01-nacionalni_kvartalno.html#NacionalniKvartalno)
+# [Nacionalni računi - letno](02-nacionalni_letno.html#NacionalniLetno)
+# [Kazalniki razpoloženja](03-kazalniki_razpolozenja.html#KazalnikiRazpolozenja)
+# Kazalniki aktivnosti  - mesečno {#KazalnikiAktivnosti}
+
+
+
+## Industrijska proizvodnja po SDK
+
+```{r, code=readLines("children/html_09_predelovalne_indeks.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+## Realni prihodek v tržnih storitvah
+
+
+```{r, code=readLines("children/html_57_realni_prihodek_trzne.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+## Realni prihodek v tržnih storitvah (desezonirani podatki)
+```{r, code=readLines("children/html_59_realni_prihodek_trzne.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+
+## Realni prihodek v prometu in skladiščenju
+
+```{r, code=readLines("children/html_58_realni_prihodek_promet.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+## Realni prihodek v prometu in skladiščenju  (desezonirani podatki)
+```{r, code=readLines("children/html_60_realni_prihodek_promet.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+## Realni prihodek v gostinstvu
+
+```{r, code=readLines("children/html_61_realni_prihodek_v_gostinstvu.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Realni prihodek v gostinstvu (desezonirani podatki)
+
+```{r, code=readLines("children/html_62_realni_prihodek_v_gostinstvu.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Realni prihodek v trgovini
+```{r, code=readLines("children/html_63.0_realni_prihodek_v_trgovini.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+## Realni prihodek v trgovini - podrobno
+```{r, code=readLines("children/html_63_realni_prihodek_v_trgovini.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+## Realni prihodek v trgovini (desezonirani podatki)
+```{r, code=readLines("children/html_64.0_realni_prihodek_v_trgovini.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+## Realni prihodek v trgovini - podrobno (desezonirani podatki)
+```{r, code=readLines("children/html_64_realni_prihodek_v_trgovini.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+# [Trg dela](05-trg_dela.html#TrgDela)
+# [Cene](06-cene.html#Cene)
+# [Gradbeništvo](07-gradbenistvo.html#Gradbenistvo)
+# [Predelovanle dejavnosti](08-predelovalne_dejavnosti.html#PredelovalneDejavnosti)
+
+
+

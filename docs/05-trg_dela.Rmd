@@ -1,0 +1,43 @@
+---
+output:
+  html_document:
+    toc: TRUE
+    toc_depth: 2
+    number_sections: true
+    css: styles2.css
+    includes:
+      before_body: custom2.js
+  df_print: paged
+title: Indikatorji
+---
+```{r setup, code=readLines("children/setup_chunk.R"), echo = FALSE, message = FALSE, warning = FALSE}
+```
+
+```{r intro, code=readLines("children/intro_chunk.R"), echo=FALSE, message=FALSE,  warning = FALSE, results="asis"}
+```
+
+# [Nacionalni računi - kvartalno](01-nacionalni_kvartalno.html#NacionalniKvartalno)
+# [Nacionalni računi - letno](02-nacionalni_letno.html#NacionalniLetno)
+# [Kazalniki razpoloženja](03-kazalniki_razpolozenja.html#KazalnikiRazpolozenja)
+# [Kazalniki aktivnosti](04-kazalniki_aktivnosti.html#KazalnikiAktivnosti)
+
+# Trg dela {#TrgDela}
+## Zaposlenost in brezposelnost
+```{r, code=readLines("children/html_12_brezposelnost.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Medletna rast bruto plače - zglajeni podatki
+```{r, code=readLines("children/html_13_rast_plac.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Medletna rast bruto plače - z originalnimi podatki
+```{r, code=readLines("children/html_13_rast_plac2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+
+
+# [Cene](06-cene.html#Cene)
+# [Gradbeništvo in stanovanjske nepremičnine](07-gradbenistvo.html#Gradbenistvo)
+# [Predelovanle dejavnosti](08-predelovalne_dejavnosti.html#PredelovalneDejavnosti)
+
+

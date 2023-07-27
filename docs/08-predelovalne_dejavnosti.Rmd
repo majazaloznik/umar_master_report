@@ -1,0 +1,112 @@
+---
+output:
+  html_document:
+    toc: TRUE
+    toc_depth: 2
+    number_sections: true
+    css: styles2.css
+    includes:
+      before_body: custom2.js
+  df_print: paged
+title: Indikatorji
+---
+
+```{r setup, code=readLines("children/setup_chunk.R"), echo = FALSE, message = FALSE, warning = FALSE}
+```
+
+```{r intro, code=readLines("children/intro_chunk.R"), echo=FALSE, message=FALSE,  warning = FALSE, results="asis"}
+```
+
+
+# [Nacionalni računi - kvartalno](01-nacionalni_kvartalno.html#NacionalniKvartalno)
+# [Nacionalni računi - letno](02-nacionalni_letno.html#NacionalniLetno)
+# [Kazalniki razpoloženja](03-kazalniki_razpolozenja.html#KazalnikiRazpolozenja)
+# [Kazalniki aktivnosti](04-kazalniki_aktivnosti.html#KazalnikiAktivnosti)
+# [Trg dela](05-trg_dela.html#TrgDela)
+# [Cene](06-cene.html#Cene)
+# [Gradbeništvo](07-gradbenistvo.html#Gradbenistvo)
+
+# Predelovalne dejavnosti {#PredelovalneDejavnosti}
+
+## Indeks industrijske proizvodnje
+
+```{r, code=readLines("children/html_92_indeks_industrijske_proizvodnje.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Mesečna rast industrijske proizvodnje
+
+```{r, code=readLines("children/html_93_mesecna_rast_indeks_industrijske_proizvodnje.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Rast proizvodnje v industriji - medletno
+```{r, code=readLines("children/html_91_rast_proizvodnje_industrija_medletna.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Predelovalne dejavnosti - rast dodane vrednosti
+
+```{r, code=readLines("children/html_77_predelovalne_rast_dodane.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Predelovalne dejavnosti - letna rast dodane vrednosti, proizvodnje in vmesne potrošnje
+```{r, code=readLines("children/html_78_predelovalne_dv_proizvodnja_potrosnja.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Predelovalne dejavnosti - delež v dodani vrednosti in BDP
+```{r, code=readLines("children/html_79_predelovalne_delez_dv_bdp.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Predelovalne dejavnosti - rast dodane vrednosti po panogah
+
+```{r, code=readLines("children/html_80_predelovalne_rast_dodane_po_panogah.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+```{r, code=readLines("children/html_80_predelovalne_rast_dodane_po_panogah2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Predelovalne dejavnosti - struktura dodane vrednosti
+
+```{r, code=readLines("children/html_81_predelovalne_struktura_dodane.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+```{r, code=readLines("children/html_81_predelovalne_struktura_dodane2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Rast zaposlenosti v predelovalnih dejavnostih - medletno
+
+```{r, code=readLines("children/html_82_medletna_rast_zaposlenosti_predelovalne.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+```{r, code=readLines("children/html_82_medletna_rast_zaposlenosti_predelovalne2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+
+
+## Rast proizvodnje v predelovalnih dejavnostih
+```{r, code=readLines("children/html_85_rast_proizvodnje_predelovalne.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Rast proizvodnje po tehnološki zahtevnosti predelovalnih dejavnosti 
+
+```{r, code=readLines("children/html_88_rast_proizvodnje_predelovalne_po_tehn_z.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Rast proizvodnje po tehnološki zahtevnosti predelovalnih dejavnosti - medletno
+
+```{r, code=readLines("children/html_86_rast_proizvodnje_tz_medletno.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+
+
+## Rast proizvodnje po panogah predelovalnih dejavnosti
+
+```{r, code=readLines("children/html_90_rast_proizvodnje_predelovalne_po_panogah.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+```{r, code=readLines("children/html_90_rast_proizvodnje_predelovalne_po_panogah2.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+
+
+
+
+
