@@ -32,11 +32,11 @@ fig2 <-  data2 |>
   add_lines_m(y = ~value,name = "Brezposelnost", color = I(umar_cols()[2]))
 
 subplot(fig1,  fig2,  nrows = 2, shareX = TRUE) |>
-  umar_layout(
+  umar_layout(slider_w, m,
          yaxis = umar_yaxis('Zaposlenost, v 1000'),
          yaxis2 = umar_yaxis('\u0160tevilo registriranih brezposelnih, v 1000'),
          xaxis = umar_xaxis("M"),
-         title = umar_subtitle("ZRSZ"),
+         title = umar_subtitle(updated,  add = "ZRSZ"),
          annotations = initials("DeRo")) |>
   rangeslider(as.Date("2000-01-01"), max(data$period) + 100)|>
   config(modeBarButtonsToAdd = list(dl_button))

@@ -44,9 +44,7 @@ data |>
   left_join(data3, by = "period") |>
   left_join(data4, by = "period") -> data
 
-
-updated <- max(prep_l$updated, prep_l2$updated)
-
+updated <- max(prep_l$updated, prep_l2$updated, prep_l3$updated, prep_l4$updated)
 
 # plot
 data |>
@@ -58,9 +56,10 @@ data |>
   add_bars_q(y = ~`trzne`, name = "Tr\u017ene storitve (G-N, R, S, T)",  color = I(umar_cols()[1])) |>
   add_bars_q(y = ~`ostalo`,  name = "Ostalo (A, B, D, E)",  color = I(umar_cols()[4])) |>
   rangeslider(as.Date("2012-01-01"), max(data$period)+100) |>
-  umar_layout(barmode = "relative",
-    yaxis = umar_yaxis("Prispevki k medletni rasti BDP, v o.t"),
-    xaxis = umar_xaxis("Q"),
-    title = umar_subtitle("UMAR"),
-    annotations = initials("NaTJ"))
+  umar_layout(slider_w, m,
+              barmode = "relative",
+              yaxis = umar_yaxis("Prispevki k medletni rasti BDP, v o.t"),
+              xaxis = umar_xaxis("Q"),
+              title = umar_subtitle(updated, "UMAR"),
+              annotations = initials("NaTJ"))
 

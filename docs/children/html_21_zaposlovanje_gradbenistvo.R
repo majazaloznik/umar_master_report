@@ -24,7 +24,7 @@ fig1 <- data |>
   plot_ly(x = ~period, width = 1000, height = 600) |>
   add_lines(y = ~`value`,  hovertemplate="%{x|%b-%Y} %{y:.2f}%",
             name = "Delovno aktivno prebivalstvo v gradbeni\u0161tvu", color = I(umar_cols()[1])) |>
-  umar_layout(annotations = list(x = 0 , y = 1, showarrow = F,
+  umar_layout(slider_w, m, annotations = list(x = 0 , y = 1, showarrow = F,
                             xref='paper', yref='paper', text = paste("Posodobljeno:",prep_l$updated,
                                                                      prep_l$transf_txt, "(Vir: SURS & prera\u010dun UMAR)                                      \n",
                                                                      "Posodobljeno:",prep_l2$updated,
@@ -34,30 +34,14 @@ fig1 <- data |>
 fig1 |>
   add_lines(data = data2, y = ~`value`,  hovertemplate="%{x|%b-%Y} %{y:.2f}", yaxis = "y2",
             name = "Pri\u010dakovano zaposlovanje v gradbeni\u0161tvu (desna os)", color = I(umar_cols()[4])) |>
-  umar_layout(showlegend = TRUE,
-         autosize = F, margin =  m,
-         font=list(family = "Myriad Pro"),
-         yaxis = list(
-           title = list(text="Medletna sprememba, v %",
-                        font = list(size =12)),
-           range = list(-25, 20), fixedrange = FALSE),
-         yaxis2 = list(
-           title = list(text="Ravnote\u017dje, v o.t.",
-                        font = list(size =12)),
-           overlaying = "y",
-           side = "right",
-           range = list(-50, 40), fixedrange = FALSE),
-         xaxis = list(title = "",
-                      tickformatstops = list(
-                        list(dtickrange = list("M1", "M6"),
-                             value = "Q%q-%Y"),
-                        list(dtickrange = list("M6", NULL),
-                             value = "%Y"))),
-         annotations = list(
-           x = 0.95, y = 1.05, text = "JaKu", showarrow = FALSE,
-           xref='paper', yref='paper', xanchor='right', yanchor='top',
-           font=list(size=10, color = umar_cols()[3])
-         )) |>
+  umar_layout(slider_w, m,
+              yaxis = umar_yaxis("Medletna sprememba, v %", range = list(-25, 20), fixedrange = FALSE),
+              yaxis2 = umar_yaxis("Ravnote\u017dje, v o.t.", range = list(-50, 40), fixedrange = FALSE,
+                                  overlaying = "y",
+                                  side = "right"),
+              xaxis = umar_xaxis("Q"),
+              title = umar_subtitle(updated),
+              annotations = initials("JaKu")) |>
   rangeslider(as.Date("2013-01-01"), max(data$period) + 100)|>
   config(modeBarButtonsToAdd = list(dl_button))
 

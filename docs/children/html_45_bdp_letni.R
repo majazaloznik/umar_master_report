@@ -27,10 +27,10 @@ data2 |>
   plot_ly(x = ~period, width = 1000) |>
   add_lines_ap(y = ~`stalne`, name = "BDP - stalne cene",  color = I(umar_cols()[1])) |>
   add_lines_ap(y = ~`tekoce`, name = "BDP - teko\u010de cene",  color = I(umar_cols()[2])) |>
-  umar_layout(
+  umar_layout(slider_w, m,
     yaxis = umar_yaxis("Medletna rast, v %"),
     xaxis = umar_xaxis("A"),
-    title = umar_subtitle("UMAR"),
+    title = umar_subtitle(updated, "UMAR"),
     annotations = initials("NaTJ")) |>
   rangeslider(as.Date("2012-01-01"), max(data$period) + 100)
 

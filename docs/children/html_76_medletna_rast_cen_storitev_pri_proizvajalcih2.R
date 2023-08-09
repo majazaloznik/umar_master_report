@@ -9,7 +9,6 @@ purrr::reduce(prep_l$data_points, dplyr::left_join, by = c("period_id", "period"
   select(-period_id) |>
   as_tibble() -> data
 
-
 updated <- max(prep_l$updated)
 
 data |>
@@ -22,9 +21,9 @@ data |>
             name = "Strokovne, znanstvene in tehni\u010dne dejavnosti", color = I(umar_cols()[3])) |>
   add_lines_qp(y = ~`value.y.y`,
             name = "Druge raznovrstne poslovne dejavnosti", color = I(umar_cols()[4])) |>
-  umar_layout(
-    yaxis = umar_yaxis('Medletna rast, v %'),
+  umar_layout(slider_w, m,
+    yaxis = umar_yaxis('Medletna sprememba, v %'),
     xaxis = umar_xaxis("Q"),
-    title = umar_subtitle(),
+    title = umar_subtitle(updated),
     annotations = initials("MaHa")) |>
   rangeslider(as.Date("2020-01-01"), max(data$period)+10)

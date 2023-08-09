@@ -27,10 +27,10 @@ data |>
   add_bars_qp(y = ~`value.x`, name = "Medletna rast (originalni podatki)",  color = I(umar_cols()[1])) |>
   add_bars_qp(y = ~`value.y`, name = "Medletna rast (desezonirani podatki)",  color = I(umar_cols()[2])) |>
   add_lines_qp(y = ~`quarterly_growth`, name = "\u010cetrtletna rast (desezonirani podatki)",  color = I(umar_cols()[4])) |>
-  umar_layout(
-    yaxis = umar_yaxis('Rast, v %'),
+  umar_layout(slider_w, m,
+    yaxis = umar_yaxis('Medletna sprememba, v %'),
     xaxis = umar_xaxis("Q"),
-    title = umar_subtitle("UMAR"),
+    title = umar_subtitle(updated, "UMAR", prep_l$transf_txt),
     annotations = initials("TiNe")) |>
   rangeslider(as.Date("2012-01-01"), max(data$period) + 100)
 

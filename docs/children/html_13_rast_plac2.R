@@ -54,12 +54,11 @@ fig3 <- data |>
 
 subplot(fig1,  fig2,  fig3, nrows = 3, shareX = TRUE) |>
   rangeslider(as.Date("2015-01-01"), max(data$period)+10) |>
-  umar_layout(font=list(family = "Myriad Pro"),
-         autosize = F, margin = m,
+  umar_layout(slider_w, m,
          yaxis = umar_yaxis("", range = c(-10, 20)),
          yaxis2 =umar_yaxis("Medletna rast, v %", range = c(-10, 20)),
          yaxis3 = umar_yaxis("", range = c(-10, 20)),
          xaxis = umar_xaxis("M"),
-         title = umar_subtitle(),
+         title = umar_subtitle(updated, "UMAR", "Transf.: 3-M drseča sredina (centrirana)"),
          annotations = initials("DeRo")) |>
   config(modeBarButtonsToAdd = list(dl_button))

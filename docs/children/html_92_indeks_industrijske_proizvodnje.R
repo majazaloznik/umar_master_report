@@ -18,7 +18,7 @@ purrr::reduce(prep_l2$data_points, dplyr::left_join, by = c("period_id", "period
   select(-period_id) |>
   as_tibble()  -> data2
 
-updated <- max(prep_l$updated)
+updated <- max(prep_l$updated, prep_l2$updated)
 
 fig1 <- plot_ly(data, x = ~period, width = 1000,
                 height = 600) |>
@@ -26,7 +26,7 @@ fig1 <- plot_ly(data, x = ~period, width = 1000,
   add_lines_mp(y = ~value.y,  name = "B+C+D Industrija",  color = I(umar_cols()[2])) |>
   add_lines_mp(y = ~value.x.x,  name = "C PREDELOVALNE DEJAVNOSTI",  color = I(umar_cols()[3])) |>
   add_lines_mp(y = ~value.y.y,  name = "D OSKRBA Z ELEKTRIČNO ENERGIJO, PLINOM IN PARO",  color = I(umar_cols()[4])) |>
-  layout( shapes = emph_line() ) |>
+  layout( shapes = emph_line(100, data$period) ) |>
   my_panel_subtitle("Industrijska proizvodnja")
 
 
@@ -42,16 +42,16 @@ fig2 <- plot_ly(data2, x = ~period, width = 1000,
   add_lines_mp(y = ~value.x.x.x,  name = "C Proizvodi za široko porabo",  color = I(umar_cols()[2])) |>
   add_lines_mp(y = ~value.y.y.y,  name = "CD Trajni proizvodi za široko porabo",  color = I(umar_cols()[3])) |>
   add_lines_mp(y = ~value,  name = "CN Netrajni proizvodi za široko porabo",  color = I(umar_cols()[4])) |>
-  layout( shapes = emph_line() ) |>
+  layout( shapes = emph_line(100, data$period) ) |>
   my_panel_subtitle("Industrijska proizvodnja po namenskih skupinah")
 
 
 subplot(fig1, fig2,   nrows = 2, shareX = TRUE) |>
-  umar_layout(
+  umar_layout(slider_w, m,
     yaxis = umar_yaxis('Indeks (povprečje 2015)'),
     yaxis2 = umar_yaxis('Indeks (povprečje 2015)'),
     xaxis = umar_xaxis("M"),
-    title = umar_subtitle("UMAR"),
+    title = umar_subtitle(updated, "UMAR", prep_l$transf_txt),
     annotations = initials("TiNe")) |>
   rangeslider(as.Date("2012-01-01"), max(data$period))
 

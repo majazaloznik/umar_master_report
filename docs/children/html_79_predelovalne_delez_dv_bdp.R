@@ -27,10 +27,10 @@ data |>
   plot_ly(x = ~period, width = 1000) |>
   add_lines_qp(y = ~`dv`, name = "Dele\u17e v dodani vrednosti",  color = I(umar_cols()[1])) |>
   add_lines_qp(y = ~`bdp`, name = "Dele\u017e v BDP-ju",  color = I(umar_cols()[2])) |>
-  umar_layout(
+  umar_layout(slider_w, m,
     yaxis = umar_yaxis('Dele\u017e, v %'),
     xaxis = umar_xaxis("A"),
-    title = umar_subtitle("UMAR"),
+    title = umar_subtitle(updated, "UMAR", "Transf.: izračun deležev"),
     annotations = initials("TiNe")) |>
   rangeslider(as.Date("2012-01-01"), max(data$period) + 100)
 

@@ -7,6 +7,8 @@ prep_l <- invisible(prep_multi_line(spl[[1]], con))
 
 prep_l2 <- invisible(prep_multi_line(spl[[2]], con))
 
+updated <- max(prep_l$updated, prep_l2$updated)
+
 prep_l$data_points[[1]] |>
   select(-period_id) |>
   relocate(period) -> data
@@ -24,10 +26,11 @@ data |>
   add_bars_a(y = ~`value.x`, name = "Neto izvoz",  color = I(umar_cols()[1])) |>
   add_bars_a(y = ~`value.y`, name = "Doma\u010da potro\u0161nja",  color = I(umar_cols()[2])) |>
   add_lines_ap(y = ~`value`, name = "Realna rast BDP (v %)",  color = I("black")) |>
-  umar_layout(barmode = "relative",
+  umar_layout(slider_w, m,
+              barmode = "relative",
               yaxis = umar_yaxis("Prispevki k medletni rasti BDP, v o.t"),
               xaxis = umar_xaxis("A"),
-              title = umar_subtitle(),
+              title = umar_subtitle(updated),
               annotations = initials("NaTJ")) |>
   rangeslider(as.Date("2012-01-01"), max(data$period) + 100)
 

@@ -17,10 +17,10 @@ data |>
   add_lines_mp(y = ~`value.y`, name = "Doma\u010di trg", color = I(umar_cols()[1])) |>
   add_lines_mp(y = ~`value`,  name = "Tuji trg", color = I(umar_cols()[4])) |>
   rangeslider(as.Date("2012-01-01"), max(data$period)+10) |>
-  umar_layout(
-    yaxis = umar_yaxis('Medletna rast, v %'),
+  umar_layout(slider_w, m,
+    yaxis = umar_yaxis('Medletna sprememba, v %'),
     xaxis = umar_xaxis("M"),
-    title = umar_subtitle(),
+    title = umar_subtitle(updated),
     annotations = initials("MaHa"))|>
   config(modeBarButtonsToAdd = list(dl_button))
 

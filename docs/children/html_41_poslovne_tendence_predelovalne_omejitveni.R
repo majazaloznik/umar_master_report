@@ -69,13 +69,13 @@ fig4 <- plot_ly(data4, x = ~period,  width = 1000,
 
 
 subplot(fig1, fig2, fig3, fig4,  nrows = 4, shareX = TRUE) |>
-  umar_layout(
+  umar_layout(slider_w, m,
          yaxis = umar_yaxis("Dele\u017e podjetij, v %",range = c(0,70)),
          yaxis2 = umar_yaxis("Dele\u017e podjetij, v %",range = c(0,70)),
          yaxis3 = umar_yaxis("Dele\u017e podjetij, v %",range = c(0,70)),
          yaxis4 = umar_yaxis("Dele\u017e podjetij, v %",range = c(0,70)),
          xaxis = umar_xaxis("Q"),
-         title = umar_subtitle(),
+         title = umar_subtitle(updated),
          annotations = initials("MaHr")) |>
   rangeslider(as.Date("2018-01-01"), max(data$period))|>
   config(modeBarButtonsToAdd = list(dl_button))

@@ -26,9 +26,7 @@ fig1 <- plot_ly(data, x = ~period, width = 1000,
   add_lines_ap(y = ~value.x.x,  name = "Proizvodnja tekstilij",  color = I(umar_cols()[3])) |>
   add_lines_ap(y = ~value.y.y,  name = "Proizvodnja obla\u010dil",  color = I(umar_cols()[4])) |>
   add_lines_ap(y = ~value,  name = "Usnjarstvo",  color = I(umar_cols()[5])) |>
-  umar_layout(annotations = list(x = 0 , y = 1,
-                                 text = "Rast dodane vrednosti v nizko tehnolo\u0161ko zahtevnih dejavnostih", showarrow = F,
-                                 xref='paper', yref='paper'))
+  my_panel_subtitle("Rast dodane vrednosti v nizko tehnolo\u0161ko zahtevnih dejavnostih")
 
 fig1 <- add_empty_lines(fig1, 9)
 
@@ -43,11 +41,11 @@ fig2 <- plot_ly(data2, x = ~period, width = 1000,
 
 
 subplot(fig1, fig2,   nrows = 2, shareX = TRUE) |>
-  umar_layout(
-    yaxis = umar_yaxis('Medletna rast, v %'),
-    yaxis2 = umar_yaxis('Medletna rast, v %'),
+  umar_layout(slider_w, m,
+    yaxis = umar_yaxis('Medletna sprememba, v %'),
+    yaxis2 = umar_yaxis('Medletna sprememba, v %'),
     xaxis = umar_xaxis("A"),
-    title = umar_subtitle("UMAR"),
+    title = umar_subtitle(updated, "UMAR", prep_l$transf_txt),
     annotations = initials("TiNe")) |>
   rangeslider(as.Date("2012-01-01"), max(data$period))
 

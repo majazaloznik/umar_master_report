@@ -52,23 +52,23 @@ title: Indikatorji
 ```
 
 ## Predelovalne dejavnosti - delež v dodani vrednosti in BDP
-```{r, code=readLines("children/html_79_predelovalne_delez_dv_bdp.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```{r, code=readLines("children/html_79_predelovalne_delez_dv_bdp.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
 ## Predelovalne dejavnosti - rast dodane vrednosti po panogah
 
-```{r, code=readLines("children/html_80_predelovalne_rast_dodane_po_panogah.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```{r, code=readLines("children/html_80_predelovalne_rast_dodane_po_panogah.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
-```{r, code=readLines("children/html_80_predelovalne_rast_dodane_po_panogah2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```{r, code=readLines("children/html_80_predelovalne_rast_dodane_po_panogah2.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
 ## Predelovalne dejavnosti - struktura dodane vrednosti
 
-```{r, code=readLines("children/html_81_predelovalne_struktura_dodane.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```{r, code=readLines("children/html_81_predelovalne_struktura_dodane.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
-```{r, code=readLines("children/html_81_predelovalne_struktura_dodane2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```{r, code=readLines("children/html_81_predelovalne_struktura_dodane2.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
 ## Rast zaposlenosti v predelovalnih dejavnostih - medletno

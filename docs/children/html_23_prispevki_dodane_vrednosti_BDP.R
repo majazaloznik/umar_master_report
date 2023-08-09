@@ -52,7 +52,7 @@ purrr::reduce(prep_l3$data_points, dplyr::left_join, by = c("period_id", "period
   transmute(period, ostalo = sum(c_across(where(is.numeric)))) -> data5
 
 
-updated <- max(prep_l$updated, prep_l2$updated )
+updated <- max(prep_l$updated, prep_l2$updated, prep_l3$updated,prep_l4$updated,prep_l5$updated )
 
 
 # plot
@@ -65,9 +65,10 @@ data |>
   add_bars_a(data = data4, y = ~trzne, name = "Tr\u017ene storitve (G-N, R, S, T)",  color = I(umar_cols()[1])) |>
   add_bars_a(data = data5, y = ~ostalo, name = "Ostalo (A, B, D, E)",  color = I(umar_cols()[4])) |>
   rangeslider(as.Date("2013-01-01"), max(data$period)+200) |>
-  umar_layout(barmode = "relative",
+  umar_layout(slider_w, m,
+              barmode = "relative",
               yaxis = umar_yaxis("Prispevki k medletni rasti BDP, v o.t"),
               xaxis = umar_xaxis("A"),
-              title = umar_subtitle("UMAR"),
+              title = umar_subtitle(updated, "UMAR"),
               annotations = initials("NaTJ"))
 

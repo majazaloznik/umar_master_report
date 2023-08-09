@@ -19,9 +19,9 @@ data |>
   add_lines_mp(y = ~`value.y.y`, name = "Energenti", color = I(umar_cols()[5])) |>
   add_lines_mp(y = ~`value`, name = "Osnovna inflacija", color = I(umar_cols()[6])) |>
   rangeslider(as.Date("2012-01-01"), max(data$period)+10) |>
-  umar_layout(
-    yaxis = umar_yaxis('Medletna rast, v %'),
+  umar_layout(slider_w, m,
+    yaxis = umar_yaxis('Medletna sprememba, v %'),
     xaxis = umar_xaxis("M"),
-    title = umar_subtitle(),
+    title = umar_subtitle(updated),
     annotations = initials("MaHa"))
 

@@ -20,10 +20,10 @@ data |>
   plot_ly(x = ~period,  width = 1000) |>
   add_lines_q(y = ~`value.y`, name = "BDP - stalne cene (2010)",  color = I(umar_cols()[1])) |>
   add_lines_q(y = ~`value.x`, name = "BDP - teko\u010de cene",  color = I(umar_cols()[2])) |>
-  umar_layout(
+  umar_layout(slider_w, m,
     yaxis = umar_yaxis("Znesek, v mio EUR"),
     xaxis = umar_xaxis("Q"),
-    title = umar_subtitle()) |>
+    title = umar_subtitle(updated)) |>
   rangeslider(as.Date("2012-01-01"), max(data$period))
 
 

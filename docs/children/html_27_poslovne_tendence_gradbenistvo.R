@@ -17,26 +17,10 @@ plot_ly(data, x = ~period, hovertemplate="%{x|%b-%Y} %{y:.2f}", width = 1000) |>
   add_lines(y = ~value.x,  name = "Kazalnik zaupanja",  color = I(umar_cols()[1]) ) |>
   add_lines(y = ~value.y,   name = "Skupna naro\u010dila",color = I(umar_cols()[2])) |>
   add_lines(y = ~value,  name = "Pri\u010dakovano zaposlovanje",  color = I(umar_cols()[4])) |>
-  umar_layout(showlegend = TRUE,
-         autosize = F, margin = m,
-         font=list(family = "Myriad Pro"),
-         yaxis = list(title = list(text="Ravnote\u017eje, v o.t.",
-                                   font = list(size =12), fixedrange = FALSE),
-                      fixedrange = FALSE),
-         xaxis = list(title = "",
-                      tickformatstops = list(
-                        list(dtickrange = list("M1", "M6"),
-                             value = "Q%b %Y"),
-                        list(dtickrange = list("M6", NULL),
-                             value = "%Y"))),
-         title = list(text = paste("Posodobljeno:", prep_l$updated,
-                                   prep_l$transf_txt, "(Vir: SURS)"),
-                      font = list(size = 12),
-                      x = 0),
-         annotations = list(
-           x = 0.95, y = 1.05, text = "MaHr", showarrow = FALSE,
-           xref='paper', yref='paper', xanchor='right', yanchor='top',
-           font=list(size=10, color = umar_cols()[3])
-         )) |>
+  umar_layout(slider_w, m,
+              yaxis = umar_yaxis("Ravnote\u017eje, v o.t."),
+              xaxis = umar_xaxis("M"),
+              title = umar_subtitle(updated),
+              annotations = initials("MaHr")) |>
   rangeslider(as.Date("2018-01-01"), max(data$period))|>
   config(modeBarButtonsToAdd = list(dl_button))

@@ -11,6 +11,9 @@ prep_l4 <- prep_multi_line(spl[[4]], con)
 prep_l5 <- prep_multi_line(spl[[5]], con)
 prep_l6 <- prep_multi_line(spl[[6]], con)
 
+updated <- max(prep_l$updated, prep_l2$updated, prep_l3$updated,prep_l4$updated,prep_l5$updated,prep_l6$updated )
+
+
 prep_l$data_points[[1]] |>
   select(-period_id) |>
   relocate(period) |>
@@ -74,7 +77,7 @@ fig1 <- plot_ly(data, x = ~period, width = 1000,
   add_lines_qp(y = ~d,  name = "Oskrba z elektriko, plinom in paro (D)",  color = I(umar_cols()[3])) |>
   add_lines_qp(y = ~e,  name = "Oskrba z vodo (E)",  color = I(umar_cols()[4])) |>
 
-  umar_layout(annotations = list(x = 0. , y = 1, text = "Industrija", showarrow = F,
+  umar_layout(slider_w, m,annotations = list(x = 0. , y = 1, text = "Industrija", showarrow = F,
                                  xref='paper', yref='paper'))
 
 for(i in 1:8) {
@@ -93,7 +96,7 @@ fig2 <- plot_ly(data, x = ~period,  width = 1000,
   add_lines_qp(y = ~l,  name = "Poslovanje z nepremi\u010dninami (L)",  color = I(umar_cols()[2])) |>
   add_lines_qp(y = ~m,  name = "Strokovne, znanstvene in tehni\u010dne dejavnosti (M)",  color = I(umar_cols()[3])) |>
   add_lines_qp(y = ~n,  name = "Druge raznovrstne poslovne dejavnosti (N)",  color = I(umar_cols()[4])) |>
-  umar_layout(annotations = list(x = 0. , y = 1, text = "Tr\u017ene storitve", showarrow = F,
+  umar_layout(slider_w, m,annotations = list(x = 0. , y = 1, text = "Tr\u017ene storitve", showarrow = F,
                                  xref='paper', yref='paper'))
 
 for(i in 1:5) {
@@ -107,7 +110,7 @@ fig3 <- plot_ly(data, x = ~period,  width = 1000,
   add_lines_qp(y = ~o,  name = "Dejavnosti uprave, obvezna socialna varnost (O)",color = I(umar_cols()[5])) |>
   add_lines_qp(y = ~p, name = "Izobra\u017eevanje (P)",  color = I(umar_cols()[6])) |>
   add_lines_qp(y = ~q,   name = "Zdravstvo in socialno varstvo (Q)",color = I(umar_cols()[7])) |>
-  umar_layout(annotations = list(x = 0. , y = 1, text = "Javne storitve", showarrow = F,
+  umar_layout(slider_w, m,annotations = list(x = 0. , y = 1, text = "Javne storitve", showarrow = F,
                                  xref='paper', yref='paper'))
 for(i in 1:9) {
   fig3 <- fig3 |>
@@ -120,7 +123,7 @@ fig4 <- plot_ly(data, x = ~period, width = 1000,
   add_lines_qp(y = ~a,  name = "Kmetijstvo (A)",color = I(umar_cols()[8])) |>
   add_lines_qp(y = ~f, name = "Gradbeni\u0161tvo (F)",  color = I(umar_cols()[1])) |>
   add_lines_qp(y = ~u,   name = "Dejavnost eksteritorialnih organizacij in teles  (u)",color = I(umar_cols()[2])) |>
-  umar_layout(annotations = list(x = 0. , y = 1, text = "Ostalo", showarrow = F,
+  umar_layout(slider_w, m,annotations = list(x = 0. , y = 1, text = "Ostalo", showarrow = F,
                                  xref='paper', yref='paper'))
 for(i in 1:10) {
   fig4 <- fig4 |>
@@ -133,19 +136,20 @@ fig5 <- plot_ly(data, x = ~period, width = 1000,
   add_lines_qp(y = ~r,  name = " Kulturne, razvedrilne in rekreacijske dejavnosti (R)",color = I(umar_cols()[2])) |>
   add_lines_qp(y = ~s, name = "Druge dejavnosti (S)",  color = I(umar_cols()[3])) |>
   add_lines_qp(y = ~t,   name = "Dejavnost gospodinjstev z zaposlenim osebjem (T)",color = I(umar_cols()[4])) |>
-  umar_layout(annotations = list(x = 0. , y = 1, text = "RST tr\u017ene storitve", showarrow = F,
+  umar_layout(slider_w, m,annotations = list(x = 0. , y = 1, text = "RST tr\u017ene storitve", showarrow = F,
                                  xref='paper', yref='paper'))
 
 
 subplot(fig1,  fig2, fig3, fig4, fig5,  nrows = 5, shareX = TRUE) |>
-  umar_layout(barmode = "relative",
+  umar_layout(slider_w, m,
+              barmode = "relative",
               yaxis = umar_yaxis("Medletna rast, v %",  range = c(-40, 30)),
               yaxis2 = umar_yaxis("Medletna rast, v %",  range = c(-40, 30)),
               yaxis3 = umar_yaxis("Medletna rast, v %",  range = c(-40, 30)),
               yaxis4 = umar_yaxis("Medletna rast, v %",  range = c(-40, 30)),
               yaxis5 = umar_yaxis("Medletna rast, v %",  range = c(-40, 30)),
               xaxis = umar_xaxis("A"),
-              title = umar_subtitle(),
+              title = umar_subtitle(updated),
               annotations = initials("NaTJ")) |>
   rangeslider(as.Date("2018-01-01"), max(data$period))
 

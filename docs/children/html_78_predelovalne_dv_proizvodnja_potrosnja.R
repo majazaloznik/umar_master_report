@@ -17,10 +17,10 @@ data |>
   add_bars_qp(y = ~`value.x`, name = "Dodana vrednost",  color = I(umar_cols()[3])) |>
   add_lines_qp(y = ~`value.y`, name = "Proizvodnja",  color = I(umar_cols()[1])) |>
   add_lines_qp(y = ~`value`, name = "Vmesna potro\u0161nja",  color = I(umar_cols()[4])) |>
-  umar_layout(
+  umar_layout(slider_w, m,
     yaxis = umar_yaxis('Letna rast, v %'),
     xaxis = umar_xaxis("A"),
-    title = umar_subtitle("UMAR"),
+    title = umar_subtitle(updated, "UMAR", prep_l$transf_txt),
    annotations = initials("TiNe")) |>
   rangeslider(as.Date("2012-01-01"), max(data$period) + 100)
 

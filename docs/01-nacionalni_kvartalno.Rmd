@@ -48,9 +48,12 @@ title: Indikatorji
 ## Prispevki agregatov potrošnje k rasti BDP (z neto izvozom)
 ```{r, code=readLines("children/html_02_prispevki_agregatov_potrosnje_k_rasti_bdp2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
+
 ## Prispevki agregatov potrošnje k rasti BDP (domača potrošnja in neto izvoz)
 ```{r, code=readLines("children/html_34_prispevek_agregatov_potrosnje.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
+
+
 ## Četrtletna rast BDP in agregatov potrošnje (desezonirani podatki)
 ```{r, code=readLines("children/html_36_cetrtletna_bdp_in_agregatov_potrosnje.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
@@ -61,14 +64,11 @@ title: Indikatorji
 
 ## Spremembe zalog - prispevek k rasti BDP
 ```{r, code=readLines("children/html_04_bdp_prispevek_zaloge.R"), echo=FALSE, message=FALSE,  warning = FALSE}
-
 ```
 
 ## Medletna rast bruto investicij v OS in končne potrošnje gospodinjstev
 ```{r, code=readLines("children/html_05_bdp_rast_gosp_invest.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
-
-
 
 
 ## Medletna rast izvoza blaga in storitev

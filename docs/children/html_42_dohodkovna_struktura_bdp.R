@@ -5,6 +5,7 @@ spl <- split(df, df$group)
 # prepare data
 
 prep_l <- prep_multi_line(spl[[1]], con)
+updated <- prep_l$updated
 
 purrr::reduce(prep_l$data_points, dplyr::left_join, by = c("period_id", "period")) %>%
   dplyr::relocate( period) |>
@@ -25,11 +26,11 @@ fig2 <- plot_ly(data, x = ~period, width = 1000, height=600) |>
   add_lines_qp(y = ~value,  name = "Subvencije na proizvodnjo",  color = I(umar_cols()[5]))
 
   subplot(fig1,  fig2, nrows = 2, shareX = TRUE) |>
-  umar_layout(
+  umar_layout(slider_w, m,
     yaxis = umar_yaxis("Medletna rast, v %"),
     yaxis2 = umar_yaxis("Medletna rast, v %"),
     xaxis = umar_xaxis("Q"),
-    title = umar_subtitle("UMAR"),
+    title = umar_subtitle(updated, "UMAR"),
     annotations = initials("NaTJ")) |>
   rangeslider(as.Date("2018-01-01"), max(data$period))
 

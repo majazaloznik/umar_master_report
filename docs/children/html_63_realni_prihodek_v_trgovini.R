@@ -18,13 +18,19 @@ purrr::reduce(prep_l4$data_points, dplyr::left_join, by = c("period_id", "period
   select(-period_id) |>
   as_tibble() -> data4
 
+updated <- max(prep_l$updated,
+               prep_l2$updated,
+               prep_l3$updated,
+               prep_l4$updated)
+
 
 fig2 <- plot_ly(data2, x = ~period,  width = 1000,
                 height = 800) |>
   add_lines_mp(y = ~value.x,  name = "Skupaj trgovina z motornimi vozili in njihovimi popravili",  color = I(umar_cols()[3]), fill = "tozeroy") |>
   add_lines_mp(y = ~value.y,   name = "Motorna vozila, motorna kolesa, rezervni deli, oprema",color = I(umar_cols()[5])) |>
   add_lines_mp(y = ~value,   name = "Vzdr\u017eevanje in popravila motornih vozil",color = I(umar_cols()[6])) |>
-  umar_layout(annotations = list(x = 0. , y = 1, text = "Trgovina z motornimi vozili", showarrow = F,
+  umar_layout(slider_w, m,
+              annotations = list(x = 0. , y = 1, text = "Trgovina z motornimi vozili", showarrow = F,
                             xref='paper', yref='paper'))
 
 
@@ -41,7 +47,7 @@ fig3 <- plot_ly(data3, x = ~period, width = 1000,
   add_lines_mp(y = ~value.x.x,  name = "Trgovina z \u017eivili, pija\u010dami in toba\u010dnimi izdelki",  color = I(umar_cols()[1])) |>
   add_lines_mp(y = ~value.y.y,   name = "Motorna goriva v specializiranih prodajalnah",color = I(umar_cols()[2])) |>
   add_lines_mp(y = ~value,  name = "Trgovina z ne\u017eivili, brez motornih goriv",  color = I(umar_cols()[7])) |>
-  umar_layout(annotations = list(x = 0. , y = 1, text = "Trgovina na drobno", showarrow = F,
+  umar_layout(slider_w, m,annotations = list(x = 0. , y = 1, text = "Trgovina na drobno", showarrow = F,
                             xref='paper', yref='paper'))
 for(i in 1:8) {
   fig3 <- fig3 |>
@@ -60,36 +66,18 @@ fig4 <- plot_ly(data4, x = ~period,  width = 1000,
   add_lines_mp(y = ~value.x.x.x.x,  name = "Pohi\u061tvo, gradbeni material",  color = I(umar_cols()[2])) |>
   add_lines_mp(y = ~value.y.y.y.y,   name = "Farmacevtski, medicinski, kozmeti\u010dni in toaletni\nizdelki",color = I(umar_cols()[4])) |>
   add_lines_mp(y = ~value,   name = "Trgovina na drobno po po\u0161ti ali po internetu",color = I(umar_cols()[3])) |>
-  umar_layout(annotations = list(x = 0. , y = 1, text = "Trgovina na drobno z ne\u017eivili", showarrow = F,
+  umar_layout(slider_w, m,annotations = list(x = 0. , y = 1, text = "Trgovina na drobno z ne\u017eivili", showarrow = F,
                             xref='paper', yref='paper'))
 
 
 subplot(fig2, fig3, fig4,  nrows = 3, shareX = TRUE) |>
-  umar_layout(
-         yaxis = list(title = list(text="Medletna rast, v %",
-                                   font = list(size =12)),
-                       fixedrange = FALSE),
-         yaxis2 = list(title = list(text="Medletna rast, v %",
-                                    font = list(size =12)),
-                        fixedrange = FALSE),
-         yaxis3 = list(title = list(text="Medletna rast, v %",
-                                    font = list(size =12)),
-                        fixedrange = FALSE),
-         xaxis = list(title = "",
-                      tickformatstops = list(
-                        list(dtickrange = list("M1", "M6"),
-                             value = "%b-%Y"),
-                        list(dtickrange = list("M6", NULL),
-                             value = "%Y"))),
-         title = list(text = paste("Posodobljeno:", prep_l$updated,
-                                   prep_l$transf_txt, "(Vir: SURS & prera\u010duni UMAR))"),
-                      font = list(size = 12),
-                      x = 0),
-         annotations = list(
-           x = 1, y = 1, text = "MoKo", showarrow = FALSE,
-           xref='paper', yref='paper', xanchor='right', yanchor='top',
-           font=list(size=10, color = umar_cols()[3])
-         )) |>
+  umar_layout(slider_w, m,
+              yaxis = umar_yaxis("Medletna sprememba, v %"),
+              yaxis2 = umar_yaxis("Medletna sprememba, v %"),
+              yaxis3 = umar_yaxis("Medletna sprememba, v %"),
+              xaxis = umar_xaxis("M"),
+              title = umar_subtitle(updated, "UMAR", prep_l$transf_txt),
+              annotations = initials("MoKo"))|>
   rangeslider(as.Date("2018-01-01"), max(data$period))|>
   config(modeBarButtonsToAdd = list(dl_button))
 

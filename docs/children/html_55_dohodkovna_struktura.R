@@ -4,7 +4,7 @@ spl <- split(df, df$chart_no)
 # prepare data
 prep_l <- invisible(prep_multi_line(spl[[1]], con))
 
-
+updated <- prep_l$updated
 purrr::reduce(prep_l$data_points, dplyr::left_join, by = c("period_id", "period")) %>%
   dplyr::relocate( period) |>
   select(-period_id) |>
@@ -25,10 +25,11 @@ fig2 <- data |>
   add_lines_ap(y = ~`value`, name = "Subvencije na proizvodnjo",  color = I(umar_cols()[4]))
 
 subplot(fig1,  fig2, nrows = 2, shareX = TRUE) |>
-  umar_layout(barmode = "relative",
+  umar_layout(slider_w, m,
+              barmode = "relative",
               yaxis = umar_yaxis("Medletna rast, v %"),
               yaxis2 = umar_yaxis("Medletna rast, v %"),
               xaxis = umar_xaxis("A"),
-              title = umar_subtitle("UMAR"),
+              title = umar_subtitle(updated, "UMAR"),
               annotations = initials("NaTJ")) |>
   rangeslider(as.Date("2012-01-01"), max(data$period) + 100)

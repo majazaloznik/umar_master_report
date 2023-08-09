@@ -15,7 +15,7 @@ purrr::reduce(prep_l2$data_points, dplyr::left_join, by = c("period_id", "period
   select(-period_id) |>
   as_tibble()   -> data2
 
-updated <- max(prep_l$updated)
+updated <- max(prep_l$updated, prep_l2$updated)
 
 fig1 <- plot_ly(data2, x = ~period, width = 1000,
                 height = 600) |>
@@ -24,7 +24,7 @@ fig1 <- plot_ly(data2, x = ~period, width = 1000,
   add_lines_qp(y = ~value.x.x,  name = "Konkurenčni položaj na trgih držav EU",  color = I(umar_cols()[3])) |>
   add_lines_qp(y = ~value.y.y,  name = "Konkurenčni položaj na trgih zunaj EU",  color = I(umar_cols()[4])) |>
   add_lines_qp(y = ~value,  name = "Obseg novih naročil",  color = I(umar_cols()[6])) |>
-  umar_layout(annotations = list(x = 0 , y = 1,
+  umar_layout(slider_w, m, annotations = list(x = 0 , y = 1,
                                  text = "Rast zaposlenosti dodane vrednosti v nizko tehnolo\u0161ko zahtevnih dejavnostih", showarrow = F,
                                  xref='paper', yref='paper'))
 
@@ -38,11 +38,11 @@ fig2 <- plot_ly(data, x = ~period, width = 1000,
 
 
 subplot(fig1, fig2,   nrows = 2, shareX = TRUE) |>
-  umar_layout(
+  umar_layout(slider_w, m,
     yaxis = umar_yaxis('Ravnotežje, v o.t'),
     yaxis2 = umar_yaxis('Delež, v %'),
     xaxis = umar_xaxis("Q"),
-    title = umar_subtitle("UMAR"),
+    title = umar_subtitle(updated, "UMAR"),
     annotations = initials("TiNe")) |>
   rangeslider(as.Date("2012-01-01"), max(data$period))
 

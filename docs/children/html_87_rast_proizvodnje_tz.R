@@ -23,7 +23,7 @@ plot_ly(data, x = ~period, width = 1000,
     yaxis = umar_yaxis('Indeks (povprečje leta 2015)'),
     xaxis = umar_xaxis("M"),
     title = umar_subtitle("UMAR"),
-    shapes =  emph_line(),
+    shapes =  emph_line(100, data$period),
     annotations = initials("TiNe")) |>
   rangeslider(as.Date("2012-01-01"), max(data$period))
 

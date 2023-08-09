@@ -36,8 +36,9 @@ data |>
   add_bars_m(y = ~`dpu`, name = "Davki na proizvodnjo in uvoz",  color = I(umar_cols()[3])) |>
   add_bars_m(y = ~-`snp`,  name = "Subvencije na proizvodnjo",  color = I(umar_cols()[4])) |>
   rangeslider(as.Date("2012-01-01"), max(data$period)+100) |>
-  umar_layout(barmode = "relative",
-    yaxis = umar_yaxis("Prispevki k medletni rasti BDP, v o.t"),
-    xaxis = umar_xaxis("Q"),
-    title = umar_subtitle("UMAR"),
-    annotations = initials("NaTJ"))
+  umar_layout(slider_w, m,
+              barmode = "relative",
+              yaxis = umar_yaxis("Prispevki k medletni rasti BDP, v o.t"),
+              xaxis = umar_xaxis("Q"),
+              title = umar_subtitle(updated, "UMAR"),
+              annotations = initials("NaTJ"))

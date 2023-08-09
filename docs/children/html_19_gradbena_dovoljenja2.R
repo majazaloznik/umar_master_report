@@ -29,26 +29,10 @@ data |>
   add_lines(y = ~`fizicna`,  hovertemplate="%{x|%m-%Y} %{y:.2f}%",
             name = "Fizi\u010dne osebe", color = I(umar_cols()[1])) |>
   rangeslider(as.Date("2013-01-01"), max(data$period)+10) |>
-  umar_layout(font=list(family = "Myriad Pro"),
-         autosize = F, margin = m,
-         yaxis = list(fixedrange = FALSE,
-                      range = c(0, 350),
-                      title = list(text="\u0160tevilo stanovanj v stavbah",
-                                   font = list(size =12))),
-         xaxis = list(title = "",
-                      tickformatstops = list(
-                        list(dtickrange = list("M1", "M6"),
-                             value = "%b %Y"),
-                        list(dtickrange = list("M6", NULL),
-                             value = "%Y"))),
-         title = list(text = paste("Posodobljeno:", updated,
-                                   prep_l$transf_txt, "(Vir: SURS)"),
-                      font = list(size = 12),
-                      x = 0),
-         annotations = list(
-           x = 0.95, y = 1.05, text = "JaKu", showarrow = FALSE,
-           xref='paper', yref='paper', xanchor='right', yanchor='top',
-           font=list(size=10, color = umar_cols()[3])
-         ))|>
+  umar_layout(slider_w, m,
+              yaxis = umar_yaxis("\u0160tevilo stanovanj v stavbah"),
+              xaxis = umar_xaxis("M"),
+              title = umar_subtitle(updated, "UMAR", prep_l$transf_txt),
+              annotations = initials("JaKu"))|>
   config(modeBarButtonsToAdd = list(dl_button))
 

@@ -10,6 +10,8 @@ prep_l$data_points[[1]] |>
   select(-period_id) |>
   relocate(period) -> data
 
+updated <- max(prep_l$updated)
+
 purrr::reduce(prep_l$data_points, dplyr::left_join, by = c("period_id", "period")) %>%
   dplyr::relocate( period) |>
   select(-period_id) |>
@@ -18,9 +20,10 @@ purrr::reduce(prep_l$data_points, dplyr::left_join, by = c("period_id", "period"
 data |>
   plot_ly(x = ~period, hovertemplate="%{x|Q%q-%Y} %{y:.2f}%", width = 1000) |>
   add_bars_qp(y = ~`value.y`, name = "Desezonirani podatki",  color = I(umar_cols()[1])) |>
-  umar_layout(barmode = "relative",
+  umar_layout(slider_w, m,
+              barmode = "relative",
     yaxis = umar_yaxis('\u010cetrtletna, v %'),
     xaxis = umar_xaxis("Q"),
-    title = umar_subtitle()) |>
+    title = umar_subtitle(updated)) |>
   rangeslider(as.Date("2012-01-01"), max(data$period) + 100)
 

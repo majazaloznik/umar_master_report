@@ -4,7 +4,6 @@ df <- df |>  arrange(sub_chart)
 spl <- split(df, df$sub_chart)
 # prepare data
 prep_l0 <- prep_multi_line(spl[[1]], con)
-
 prep_l1 <- prep_multi_line(spl[[2]], con)
 prep_l2 <- prep_multi_line(spl[[3]], con)
 
@@ -32,7 +31,7 @@ data2 |>
   left_join(dv) |>
   mutate(across(starts_with("value"), ~ . / dv * 100, .names = "ratio_{.col}")) -> data2
 
-updated <- max(prep_l$updated, prep_l2$updated)
+updated <- max(prep_l0$updated, prep_l1$updated, prep_l2$updated)
 
 fig1 <- plot_ly(data, x = ~period, width = 1000,
                 height = 600) |>
@@ -41,9 +40,7 @@ fig1 <- plot_ly(data, x = ~period, width = 1000,
   add_bars_ap(y = ~ratio_value.x.x,  name = "Proizvodnja tekstilij",  color = I(umar_cols()[3])) |>
   add_bars_ap(y = ~ratio_value.y.y,  name = "Proizvodnja obla\u010dil",  color = I(umar_cols()[4])) |>
   add_bars_ap(y = ~ratio_value,  name = "Usnjarstvo",  color = I(umar_cols()[5])) |>
-  umar_layout(annotations = list(x = 0 , y = 1,
-                                 text = "Dele\u017e nizko tehnolo\u0161ko zahtevnih dejavnosti v dodani vrednosti C", showarrow = F,
-                                 xref='paper', yref='paper'))
+  my_panel_subtitle("Dele\u017e nizko tehnolo\u0161ko zahtevnih dejavnosti v dodani vrednosti C")
 
 fig1 <- add_empty_lines(fig1, 9)
 
@@ -58,11 +55,11 @@ fig2 <- plot_ly(data2, x = ~period, width = 1000,
 
 
 subplot(fig1, fig2,   nrows = 2, shareX = TRUE) |>
-  umar_layout(
+  umar_layout(slider_w, m,
     yaxis = umar_yaxis('Dele\u017e, v %'),
     yaxis2 = umar_yaxis('Dele\u017e, v %'),
     xaxis = umar_xaxis("A"),
-    title = umar_subtitle("UMAR"),
+    title = umar_subtitle(updated, "UMAR", "Transf: izračun deleža"),
     annotations = initials("TiNe")) |>
   rangeslider(as.Date("2012-01-01"), max(data$period))
 

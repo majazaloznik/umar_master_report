@@ -7,6 +7,7 @@ spl <- split(df, df$group)
 prep_l <- prep_multi_line(spl[[1]], con)
 prep_l2 <- prep_multi_line(spl[[11]], con)
 
+updated <- max(prep_l$updated, prep_l2$updated)
 
 purrr::reduce(prep_l$data_points, dplyr::left_join, by = c("period_id", "period")) %>%
   dplyr::relocate( period) |>
@@ -26,8 +27,8 @@ fig1 <- plot_ly(data, x = ~period, width = 1000,
   add_lines_m(y = ~value.y.y, name = "Zaupanje potro\u0161nikov", color = I(umar_cols()[4])) |>
   add_lines_m(y = ~value.x.x.x,  name = "Zaupanje v storitvenih dejavnostih",  color = I(umar_cols()[5])) |>
   add_lines_m(y = ~value.y.y.y, name = "Zaupanje v gradbeni\u0161tvu",  color = I(umar_cols()[6])) |>
-  umar_layout(annotations = list(x = 0. , y = 1, text = "Poslovne tendence in mnenje potro\u0161nikov", showarrow = F,
-                            xref='paper', yref='paper'))
+  umar_layout(slider_w, m, annotations = list(x = 0. , y = 1, text = "Poslovne tendence in mnenje potro\u0161nikov", showarrow = F,
+                                              xref='paper', yref='paper'))
 
 for(i in 1:7) {
   fig1 <- fig1 |>
@@ -41,35 +42,24 @@ fig2 <- plot_ly(data2, x = ~period, width = 1000,
   add_lines_m(y = ~value.y.y, name = "Zaupanje potro\u0161nikov", color = I(umar_cols()[4])) |>
   add_lines_m(y = ~value.x.x.x,  name = "Zaupanje v storitvenih dejavnostih",  color = I(umar_cols()[5])) |>
   add_lines_m(y = ~value.y.y.y, name = "Zaupanje v gradbeni\u0161tvu",  color = I(umar_cols()[6])) |>
-  umar_layout(annotations = list(x = 0. , y = 1, text = "Poslovne tendence in mnenje potro\u0161nikov - trimese\u010dne drse\u010de sredine (desne)", showarrow = F,
-                            xref='paper', yref='paper'))
+  umar_layout(slider_w, m, annotations = list(x = 0. , y = 1, text = "Poslovne tendence in mnenje potro\u0161nikov - trimese\u010dne drse\u010de sredine (desne)", showarrow = F,
+                                             xref='paper', yref='paper'))
 
 
 
 subplot(fig1,  fig2,  nrows = 2, shareX = TRUE) |>
-  umar_layout(showlegend = TRUE,
-         autosize = F, margin = m,
-         font=list(family = "Myriad Pro"),
-         yaxis = list(title = list(text="Ravnote\u017eje, v o.t.",
-                                   font = list(size =12)),
-                      range = c(-60, 50), fixedrange = FALSE),
-         yaxis2 = list(title = list(text="Ravnote\u017eje, v o.t.",
-                                    font = list(size =12)),
-                       range = c(-60, 50), fixedrange = FALSE),
-         xaxis = list(title = "",
-                      tickformatstops = list(
-                        list(dtickrange = list("M1", "M6"),
-                             value = "Q%b %Y"),
-                        list(dtickrange = list("M6", NULL),
-                             value = "%Y"))),
-         title = list(text = paste("Posodobljeno:", prep_l$updated,
-                                   prep_l$transf_txt, "(Vir: SURS & prera\u010duni UMAR)"),
-                      font = list(size = 12),
-                      x = 0),
-         annotations = list(
-           x = 0.95, y = 1.05, text = "MaHr", showarrow = FALSE,
-           xref='paper', yref='paper', xanchor='right', yanchor='top',
-           font=list(size=10, color = umar_cols()[3])
-         )) |>
+  umar_layout(slider_w, m,
+              showlegend = TRUE,
+              autosize = F, margin = m,
+              font=list(family = "Myriad Pro"),
+              yaxis = list(title = list(text="Ravnote\u017eje, v o.t.",
+                                        font = list(size =12)),
+                           range = c(-60, 50), fixedrange = FALSE),
+              yaxis2 = list(title = list(text="Ravnote\u017eje, v o.t.",
+                                         font = list(size =12)),
+                            range = c(-60, 50), fixedrange = FALSE),
+              xaxis = umar_xaxis("M"),
+              title = umar_subtitle(updated, "UMAR"),
+              annotations = initials("MaHr")) |>
   rangeslider(as.Date("2018-01-01"), max(data$period))|>
   config(modeBarButtonsToAdd = list(dl_button))

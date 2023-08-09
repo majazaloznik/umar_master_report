@@ -4,6 +4,7 @@ spl <- split(df, df$chart_no)
 # prepare data
 prep_l <- prep_multi_line(spl[[1]], con)
 
+updated <- prep_l$updated
 
 purrr::reduce(prep_l$data_points, dplyr::left_join, by = c("period_id", "period")) %>%
   dplyr::relocate( period) |>
@@ -26,18 +27,16 @@ data_g |>
   ungroup() -> data
 
 
-updated <- max(prep_l$updated)
-
 plot_ly(data, x = ~period, width = 1000,
                 height = 600) |>
   add_lines_mp(y = ~value.x,  name = "Medletna rast proizvodnje v predelovalnih",  color = I(umar_cols()[1])) |>
   add_lines_mp(data = data_g, y = ~last_yoy_cumavg_raw.x,  name = "Povpre\u010dna medletna rast proizvodnje",
                color = I(umar_cols()[1]), line = list(dash = "dot")) |>
   add_lines_mp(data = data, y = ~monthly,  name = "Mesečna rast proizvodnje v predelovalnih",  color = I(umar_cols()[2])) |>
-  umar_layout(
+  umar_layout(slider_w, m,
     yaxis = umar_yaxis('Medletna rast, v %'),
     xaxis = umar_xaxis("M"),
-    title = umar_subtitle("UMAR"),
+    title = umar_subtitle(updated, "UMAR", prep_l$transf_txt),
     annotations = initials("TiNe")) |>
   rangeslider(as.Date("2012-01-01"), max(data$period))
 

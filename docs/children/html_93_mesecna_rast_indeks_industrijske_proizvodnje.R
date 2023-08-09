@@ -6,8 +6,6 @@ spl <- split(df, df$sub_chart)
 prep_l <- prep_multi_line(spl[[1]], con)
 prep_l2 <- prep_multi_line(spl[[2]], con)
 
-
-
 purrr::reduce(prep_l$data_points, dplyr::left_join, by = c("period_id", "period")) %>%
   dplyr::relocate( period) |>
   select(-period_id) |>
@@ -19,7 +17,9 @@ purrr::reduce(prep_l2$data_points, dplyr::left_join, by = c("period_id", "period
   select(-period_id) |>
   mutate(across(starts_with("value"), ~ (./lag(.)-1) * 100, .names = "monthly_{.col}")) -> data2
 
-updated <- max(prep_l$updated)
+
+updated <- max(prep_l$updated,
+               prep_l2$updated)
 
 fig1 <- plot_ly(data, x = ~period, width = 1000,
                 height = 600) |>
@@ -46,11 +46,11 @@ fig2 <- plot_ly(data2, x = ~period, width = 1000,
 
 
 subplot(fig1, fig2,   nrows = 2, shareX = TRUE) |>
-  umar_layout(
+  umar_layout(slider_w, m,
     yaxis = umar_yaxis('Mesečna rast, v %'),
     yaxis2 = umar_yaxis('Mesečna rast, v %'),
     xaxis = umar_xaxis("M"),
-    title = umar_subtitle("UMAR"),
+    title = umar_subtitle(updated, "UMAR", "Transf.: mesečna rast"),
     annotations = initials("TiNe")) |>
   rangeslider(as.Date("2012-01-01"), max(data$period))
 

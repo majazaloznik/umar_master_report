@@ -34,8 +34,8 @@ data |>
   add_bars_q(y = ~`Državna potrošnja`,   name = "Dr\u017eavna potro\u0161nja",  color = I(umar_cols()[1])) |>
   add_bars_q(y = ~`Zasebna potrošnja`,   name = "Potro\u0161nja gospodinjstev",  color = I(umar_cols()[4])) |>
   rangeslider(as.Date("2012-01-01"), max(data$period)+100) |>
-  umar_layout(barmode = "relative",
+  umar_layout(slider_w, m, barmode = "relative",
     yaxis = umar_yaxis("Prispevki k medletni rasti BDP, v o.t"),
     xaxis = umar_xaxis("Q"),
-    title = umar_subtitle("UMAR"),
+    title = umar_subtitle(updated, "UMAR"),
     annotations = initials("NaTJ"))

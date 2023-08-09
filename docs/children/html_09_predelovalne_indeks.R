@@ -5,6 +5,7 @@ spl <- split(df, df$chart_no)
 # prepare data
 prep_l <- prep_multi_line(spl[[1]], con)
 
+updated <- prep_l$updated
 
 purrr::reduce(prep_l$data_points, dplyr::left_join, by = c("period_id", "period")) %>%
   dplyr::relocate( period) |>
@@ -12,7 +13,6 @@ purrr::reduce(prep_l$data_points, dplyr::left_join, by = c("period_id", "period"
   as_tibble() -> data
 colnames(data)[2:3] <- prep_l$legend_labels
 
-updated <- prep_l$updated
 
 data |>
   plot_ly(x = ~period, width = 1000) |>
@@ -21,24 +21,9 @@ data |>
   add_lines(y = ~`C PREDELOVALNE DEJAVNOSTI`,  hovertemplate="%{x|Q%q-%Y} %{y:.2f}%",
             name = "C PREDELOVALNE DEJAVNOSTI", color = I(umar_cols()[2])) |>
   rangeslider(as.Date("2012-01-01"), max(data$period)+10) |>
-  umar_layout(font=list(family = "Myriad Pro"),
-         autosize = F, margin = m,
-         yaxis = list(title = list(text="Medletna sprememba, v %",
-                                   font = list(size =12)),
-                      fixedrange = FALSE),
-         xaxis = list(title = "",
-                      tickformatstops = list(
-                        list(dtickrange = list("M1", "M6"),
-                             value = "%m.%Y"),
-                        list(dtickrange = list("M6", NULL),
-                             value = "%Y"))),
-         title = list(text = paste("Posodobljeno:", updated,
-                                   prep_l$transf_txt, "(Vir: SURS)"),
-                      font = list(size = 12),
-                      x = 0),
-         annotations = list(
-           x = 0.95, y = 1.05, text = "MaHr", showarrow = FALSE,
-           xref='paper', yref='paper', xanchor='right', yanchor='top',
-           font=list(size=10, color = umar_cols()[3])
-         ))|>
+  umar_layout(slider_w, m,
+              yaxis = umar_yaxis("Medletna sprememba, v %"),
+              xaxis = umar_xaxis("Q"),
+              title = umar_subtitle(updated),
+              annotations = initials("MaHr"))|>
   config(modeBarButtonsToAdd = list(dl_button))

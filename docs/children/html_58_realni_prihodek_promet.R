@@ -3,6 +3,8 @@ df <- read.csv2(here::here("data/044.csv"), encoding = "UTF-8")
 spl <- split(df, df$chart_no)
 # prepare data
 prep_l <- invisible(prep_multi_line(spl[[1]], con))
+updated <- prep_l$updated
+
 purrr::reduce(prep_l$data_points, dplyr::left_join, by = c("period_id", "period")) %>%
   dplyr::relocate( period) |>
   select(-period_id) |>
@@ -14,28 +16,11 @@ data |>
   add_lines(y = ~`value.y`, name = "Kopenski promet, cevovodni transport (H49)",  color = I(umar_cols()[1])) |>
   add_lines(y = ~`value.x.x`, name = "Skladi\u0161\u010denje in spremljajou010de prometne dejavnosti (H52)",  color = I(umar_cols()[4])) |>
   add_lines(y = ~`value.y.y`, name = "Po\u0161tna in kurirska dejavnost (H53)",  color = I(umar_cols()[2])) |>
-
-  umar_layout(annotations = list(x = -0 , y = 1, showarrow = F,
-                            xref='paper', yref='paper', text = paste("Posodobljeno:",prep_l$updated,
-                                                                     prep_l$transf_txt, "(Vir: SURS & prera\u010dun UMAR)"),
-                            font = list(size = 12))) |>
-  umar_layout(barmode = "relative",
-         showlegend = TRUE,
-         autosize = F, margin = m,
-         font=list(family = "Myriad Pro"),
-         yaxis = list(title = list(text="Medletna rast, v %",
-                                   font = list(size =12))),
-         xaxis = list(title = "",
-                      tickformatstops = list(
-                        list(dtickrange = list("M1", "M6"),
-                             value = "%b-%Y"),
-                        list(dtickrange = list("M6", NULL),
-                             value = "%Y"))),
-         annotations = list(
-           x = 1, y = 1, text = "JuPo", showarrow = FALSE,
-           xref='paper', yref='paper', xanchor='right', yanchor='top',
-           font=list(size=10, color = umar_cols()[3])
-         ))|>
+  umar_layout(slider_w, m,
+              yaxis = umar_yaxis("Medletna sprememba, v %"),
+              xaxis = umar_xaxis("M"),
+              title = umar_subtitle(updated, "UMAR", prep_l$transf_txt),
+              annotations = initials("JuPo")) |>
   rangeslider(as.Date("2019-01-01"), max(data$period))|>
   config(modeBarButtonsToAdd = list(dl_button))
 

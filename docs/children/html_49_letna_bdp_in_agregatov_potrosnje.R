@@ -27,9 +27,10 @@ data |>
   add_lines_ap(y = ~`value.x`,
             name = "BDP", color = I("black")) |>
   rangeslider(as.Date("2012-01-01"), max(data$period)+10) |>
-  umar_layout(barmode = "relative",
+  umar_layout(slider_w, m,
+              barmode = "relative",
               yaxis = umar_yaxis("Medletna rast, v %"),
               xaxis = umar_xaxis("A"),
-              title = umar_subtitle(),
+              title = umar_subtitle(updated),
               annotations = initials("NaTJ")) |>
   config(modeBarButtonsToAdd = list(dl_button))

@@ -20,7 +20,9 @@ purrr::reduce(prep_l3$data_points, dplyr::left_join, by = c("period_id", "period
   as_tibble() -> data3
 
 
-
+updated <- max(prep_l$updated,
+               prep_l2$updated,
+               prep_l3$updated)
 
 
 fig1 <- plot_ly(data, x = ~period, width = 1000,
@@ -31,8 +33,8 @@ fig1 <- plot_ly(data, x = ~period, width = 1000,
             hovertemplate="%{x|Q%q-%Y} %{y:.2f}%") |>
   add_lines(y = ~value,  name = "Rabljene stanovanjske nepremi\u010dnine",  color = I(umar_cols()[2]),
             hovertemplate="%{x|Q%q-%Y} %{y:.2f}%") |>
-  umar_layout(annotations = list(x = 0 , y = 1, text = "Vrednost prodaj stanovanjskih nepremi\u010dnin", showarrow = F,
-                            xref='paper', yref='paper'))
+  my_panel_subtitle("Vrednost prodaj stanovanjskih nepremi\u010dnin")
+
 
 
 for(i in 1:10) {
@@ -49,8 +51,8 @@ fig2 <- plot_ly(data2, x = ~period, width = 1000,
             hovertemplate="%{x|Q%q-%Y} %{y:.2f}%") |>
   add_lines(y = ~value,   name = "Nove dru\u017einske hiše",color = I(umar_cols()[5]),
             hovertemplate="%{x|Q%q-%Y} %{y:.2f}%") |>
-  umar_layout(annotations = list(x = 0. , y = 1, text = "Nove stanovanjske nepremičnine ", showarrow = F,
-                            xref='paper', yref='paper'))
+  my_panel_subtitle("Nove stanovanjske nepremičnine")
+
 
 
 for(i in 1:8) {
@@ -64,13 +66,12 @@ fig3 <- plot_ly(data3, x = ~period, width = 1000,
   add_lines_qp(y = ~value.x,  name = "Skupaj",  color = I(umar_cols()[3]), fill = "tozeroy") |>
   add_lines_qp(y = ~value.y,   name = "Rabljena stanovanja",color = I(umar_cols()[6])) |>
   add_lines_qp(y = ~value,  name = "Rabljene dru\u017einske hi\u0161e",  color = I(umar_cols()[7])) |>
-  umar_layout(annotations = list(x = 0 , y = 1, text = "Rabljene stanovanjske nepremi\u010dnine", showarrow = F,
-                            xref='paper', yref='paper'))
+  my_panel_subtitle("Rabljene stanovanjske nepremi\u010dnine")
 
 
 
 subplot(fig1, fig2, fig3,   nrows = 3, shareX = TRUE) |>
-  umar_layout(
+  umar_layout(slider_w, m,
     yaxis = umar_yaxis('Medletna rast, v %'),
     yaxis2 = umar_yaxis('Medletna rast, v %'),
     yaxis3 = umar_yaxis('Medletna rast, v %'),

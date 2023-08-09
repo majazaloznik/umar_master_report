@@ -48,7 +48,7 @@ dl_button <- list(
 )
 
 # incremental automation
-umar_layout <- function(plot, ...) {
+umar_layout <- function(plot, slider_w, m, ...) {
   plot <- layout(plot, ...)
  # add rangeslider thinckness and other stuff that is the same everywhere
   plot <- layout(plot, xaxis = list(rangeslider = list(thickness = slider_w)),
@@ -138,11 +138,11 @@ umar_yaxis <- function(title_text, ...) {
        ...)
 }
 
-emph_line <- function(y = 100){
+emph_line <- function(y = 100, period){
   list(
     list(
       type = "line",
-      x0 = min(data$period), x1 = max(data$period),
+      x0 = min(period), x1 = max(period),
       y0 = y, y1 = y,
       line = list(color = umar_cols("emph"), width = 1)
     ))
@@ -160,15 +160,49 @@ if(interval == "A") out <- "%Y"
               value = "%Y")))
 }
 
-umar_subtitle <- function(add = NULL) {
-  if(!is.null(add) && add == "UMAR") {add <- " & prera\u010dun UMAR"} else {
-      if(!is.null(add)) add <- paste ( " &", add)}
 
-list(text = paste0("Posodobljeno: ", updated, " ",
-                   ifelse(!is.null(prep_l$transf_txt), paste0(prep_l$transf_txt, " "), ""),
-                   "(Vir: SURS", add, ")"),
-     font = list(size = 12),
-     x = 0)
+#' Get a subtitle with updates, soruces and transformations
+#'
+#' Options are:
+#' the default is SURS as the source, but add must be null and surs true
+#' add = "UMAR" adds "preracuni UMAR" to surs if surs is true
+#' add = "FURS" and surs = ture or something else just adds a second source to surs
+#' alt = "FURS" and surs = flase has just alternative source
+#' add = "UMAR", alt = "FURS" abd surs = false gives alternative & preracun umar
+#' Those should be all five options. my_panel_subtitle works the same way.
+#'
+#' @param updated
+#' @param add
+#' @param transformation
+#' @param surs
+#' @param alt
+#'
+#' @return
+#' @export
+#'
+#' @examples
+umar_subtitle <- function(updated, add = NULL, transformation = NULL, surs = TRUE, alt = NULL) {
+  if(surs){
+    if(!is.null(add) && add == "UMAR") {add <- " & prera\u010dun UMAR"} else {
+      if(!is.null(add)) add <- paste ( " &", add)}
+    text <- paste0("Posodobljeno: ", updated, " ",
+                   ifelse(!is.null(transformation), paste0(transformation, " "), ""),
+                   "(Vir: SURS", add, ")")} else {
+                     if(!is.null(add) && add == "UMAR") {add <- " & prera\u010dun UMAR"
+                     text <- paste0("Posodobljeno: ", updated, " ",
+                                    ifelse(!is.null(transformation), paste0(transformation, " "), ""),
+                                    "(Vir: ", alt, add, ")")
+                     }else {
+                       text <- paste0("Posodobljeno: ", updated, " ",
+                                      ifelse(!is.null(transformation), paste0(transformation, " "), ""),
+                                      "(Vir: ", alt, ")")
+                     }
+                   }
+
+
+  list(text = text,
+       font = list(size = 12),
+       x = 0)
 }
 
 
@@ -191,12 +225,23 @@ add_empty_lines <- function(figure, no_lines) {
 }
 
 
-my_panel_title <- function(fig, add = NULL, transformation = NULL) {
-  if(!is.null(add) && add == "UMAR") {add <- " & prera\u010dun UMAR"} else {
-    if(!is.null(add)) add <- paste ( " &", add)}
-  text <- paste0("Posodobljeno: ", updated, " ",
-         ifelse(!is.null(transformation), paste0(transformation, " "), ""),
-         "(Vir: SURS", add, ")")
+my_panel_title <- function(fig, add = NULL, transformation = NULL, surs = TRUE, alt = NULL, updated = NULL) {
+  if(surs){
+    if(!is.null(add) && add == "UMAR") {add <- " & prera\u010dun UMAR"} else {
+      if(!is.null(add)) add <- paste ( " &", add)}
+    text <- paste0("Posodobljeno: ", updated, " ",
+                   ifelse(!is.null(transformation), paste0(transformation, " "), ""),
+                   "(Vir: SURS", add, ")")} else {
+                     if(!is.null(add) && add == "UMAR") {add <- " & prera\u010dun UMAR"
+                     text <- paste0("Posodobljeno: ", updated, " ",
+                                    ifelse(!is.null(transformation), paste0(transformation, " "), ""),
+                                    "(Vir: ", alt, add, ")")
+                     }else {
+                       text <- paste0("Posodobljeno: ", updated, " ",
+                                      ifelse(!is.null(transformation), paste0(transformation, " "), ""),
+                                      "(Vir: ", alt, ")")
+                     }
+         }
   fig <- fig %>%
     layout(annotations = list(
       x = -0.08,
@@ -209,7 +254,7 @@ my_panel_title <- function(fig, add = NULL, transformation = NULL) {
       yanchor='top',
       font=list(size=12)
     ))
-  return(fig)
+  fig
 }
 
 my_panel_subtitle <- function(fig, text) {

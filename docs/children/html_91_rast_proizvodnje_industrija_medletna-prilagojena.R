@@ -46,8 +46,8 @@ fig2 <- plot_ly(data2, x = ~period, width = 1000,
 
 subplot(fig1, fig2,   nrows = 2, shareX = TRUE) |>
   umar_layout(
-    yaxis = umar_yaxis('Medletna rast, v %'),
-    yaxis2 = umar_yaxis('Medletna rast, v %'),
+    yaxis = umar_yaxis('Medletna sprememba, v %'),
+    yaxis2 = umar_yaxis('Medletna sprememba, v %'),
     xaxis = umar_xaxis("M"),
     title = umar_subtitle("UMAR"),
     annotations = initials("TiNe")) |>

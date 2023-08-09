@@ -27,8 +27,8 @@ data |>
   add_lines_qp(y = ~`value.x`,
             name = "BDP", color = I("black")) |>
   rangeslider(as.Date("2012-01-01"), max(data$period)+10) |>
-  umar_layout(
+  umar_layout(slider_w, m,
               yaxis = umar_yaxis("\u010cetrtletna sprememba, v %"),
               xaxis = umar_xaxis("Q"),
-              title = umar_subtitle(),
+              title = umar_subtitle(updated),
               annotations = initials("NaTJ"))

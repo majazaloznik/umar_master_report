@@ -29,10 +29,10 @@ data |>
   add_lines_mp(y = ~`skupaj`,
             name = "Skupaj", color = I(umar_cols()[4])) |>
   rangeslider(as.Date("2015-01-01"), max(data$period)+10) |>
-  umar_layout(
+  umar_layout(slider_w, m,
     yaxis = umar_yaxis("3-m drsea\u010da sredina medletne sprememba, v %"),
     xaxis = umar_xaxis("M"),
-    title = umar_subtitle(),
+    title = umar_subtitle(updated),
     annotations = initials("DeRo"))|>
   config(modeBarButtonsToAdd = list(dl_button))
 

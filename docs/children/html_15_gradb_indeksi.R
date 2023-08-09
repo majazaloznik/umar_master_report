@@ -36,15 +36,8 @@ fig1 <- data |>
             name = "Specializirana gradbena dela", color = I(umar_cols()[4])) |>
   add_lines(y = ~`skupaj`,  hovertemplate="%{x|%b-%Y} %{y:.2f}",
             name = "Gradbeni\u0161tvo - SKUPAJ", color = I(umar_cols()[5])) |>
-  umar_layout(
-    shapes = list(
-      list(
-        type = "line",
-        x0 = min(data$period), x1 = max(data$period),
-        y0 = 100, y1 = 100,
-        line = list(color = umar_cols("emph"), width = 1)
-      )
-    ))
+  umar_layout(slider_w, m,
+    shapes = emph_line(100, data$period))
 
 for(i in 1:8) {
   fig1 <- fig1 |>
@@ -59,44 +52,17 @@ fig2 <- data2 |>
             name = "Stanovanjske stavbe", color = I(umar_cols()[6])) |>
   add_lines(y = ~`nestan`,  hovertemplate="%{x|%b-%Y} %{y:.2f}",
             name = "Nestanovanjske stavbe", color = I(umar_cols()[7])) |>
-  umar_layout(
-         shapes = list(
-           list(
-             type = "line",
-             x0 = min(data$period), x1 = max(data$period),
-             y0 = 100, y1 = 100,
-             line = list(color = umar_cols("emph"), width = 1)
-           )
-         ))
+  umar_layout(slider_w, m,
+              shapes = emph_line(100, data$period))
 
 
 subplot(fig1,  fig2,  nrows = 2, shareX = TRUE) |>
-  umar_layout(showlegend = TRUE,
-         autosize = F, margin =  m,
-         font=list(family = "Myriad Pro"),
-         yaxis = list(
-           title = list(text="Indeks (2015)",
-                        font = list(size =12)),
-           fixedrange = FALSE),
-         yaxis2 = list(
-           title = list(text="Indeks (2015)",
-                        font = list(size =12)),
-           range = c(0, 900), fixedrange = FALSE),
-         xaxis = list(title = "",
-                      tickformatstops = list(
-                        list(dtickrange = list("M1", "M6"),
-                             value = "%b %Y"),
-                        list(dtickrange = list("M6", NULL),
-                             value = "%Y"))),
-         title = list(text = paste("Posodobljeno:",updated,
-                                   prep_l$transf_txt, "(Vir: SURS & prera\u010dun UMAR)"),
-                      font = list(size = 12),
-                      x = 0),
-         annotations = list(
-           x = 0.95, y = 1.05, text = "JaKu", showarrow = FALSE,
-           xref='paper', yref='paper', xanchor='right', yanchor='top',
-           font=list(size=10, color = umar_cols()[3])
-         )) |>
+  umar_layout(slider_w, m,
+              yaxis = umar_yaxis("Indeks (2015)"),
+              yaxis2 = umar_yaxis("Indeks (2015)"),
+              xaxis = umar_xaxis("M"),
+              title = umar_subtitle(updated, "UMAR", prep_l$transf_txt),
+              annotations = initials("JaKu")) |>
   rangeslider(as.Date("2007-01-01"), max(data$period) + 100)|>
   config(modeBarButtonsToAdd = list(dl_button))
 

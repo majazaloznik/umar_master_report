@@ -14,9 +14,10 @@ data |>
   plot_ly(x = ~period, width = 1000) |>
   add_lines_qp(y = ~`value.x`, name = "Originalni podatki",  color = I(umar_cols()[1])) |>
   add_lines_qp(y = ~`value.y`, name = "Desezonirani podatki",  color = I(umar_cols()[2])) |>
-  umar_layout(
+  umar_layout(slider_w, m,
     yaxis = umar_yaxis('Medletna rast, v %'),
-    xaxis = umar_xaxis("Q")) |>
+    xaxis = umar_xaxis("Q"),
+    umar_subtitle(updated)) |>
   rangeslider(as.Date("2012-01-01"), max(data$period) + 100)
 
 

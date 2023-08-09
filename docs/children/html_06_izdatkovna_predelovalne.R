@@ -5,6 +5,7 @@ spl <- split(df, df$chart_no)
 
 prep_l <- invisible(prep_multi_line(spl[[1]], con))
 # dygraph_plotter_mixed(prep_l)
+update <- prep_l$updated
 
 prep_l$data_points[[1]] |>
   select(-period_id) |>
@@ -13,10 +14,10 @@ prep_l$data_points[[1]] |>
 data |>
   plot_ly(x = ~period,  width = 1000) |>
   add_lines_qp(y = ~`value`, name = "Predelovalne dejavnostni - stopnja rasti obsega",  color = I(umar_cols()[1])) |>
-  umar_layout(
+  umar_layout(slider_w, m,
     yaxis = umar_yaxis("Medletna rast, v %"),
     xaxis = umar_xaxis("Q"),
-    title = umar_subtitle(),
+    title = umar_subtitle(updated),
     annotations = initials("NaTJ")) |>
   rangeslider(as.Date("2012-01-01"), max(data$period)+100)
 

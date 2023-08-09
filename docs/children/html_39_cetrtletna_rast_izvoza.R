@@ -10,7 +10,7 @@ purrr::reduce(prep_l$data_points, dplyr::left_join, by = c("period_id", "period"
   as_tibble() -> data
 
 
-updated <- max(prep_l$updated, prep_l2$updated)
+updated <- prep_l$updated
 
 data |>
   plot_ly(x = ~period, width = 1000, height = 600) |>
@@ -21,8 +21,8 @@ data |>
   add_lines(y = ~`value`,
             name = "Izvoz storitev", color = I(umar_cols()[4])) |>
   rangeslider(as.Date("2012-01-01"), max(data$period)+10) |>
-  umar_layout(
+  umar_layout(slider_w, m,
     yaxis = umar_yaxis("\u010cetrtletna rast, v %"),
     xaxis = umar_xaxis("Q"),
-    title = umar_subtitle(),
+    title = umar_subtitle(updated),
     annotations = initials("NaTJ"))

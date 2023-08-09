@@ -38,11 +38,11 @@ fig2 <-  data |>
             color = I(umar_cols()[3]))
 
 subplot(fig1,  fig2,  nrows = 2, shareX = TRUE) |>
-  umar_layout(
+  umar_layout(slider_w, m,
     yaxis = umar_yaxis("Medletna rast, v %"),
     yaxis2 = umar_yaxis("Prispevek h rasti BDP, v o.t."),
     xaxis = umar_xaxis("Q"),
-    title = umar_subtitle(),
+    title = umar_subtitle(updated),
     annotations = initials("NaTJ")) |>
   rangeslider(as.Date("2018-01-01"), max(data$period) + 100)
 
