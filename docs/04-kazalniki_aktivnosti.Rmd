@@ -22,9 +22,10 @@ title: Indikatorji
 # [Kazalniki razpoloženja](03-kazalniki_razpolozenja.html#KazalnikiRazpolozenja)
 # Kazalniki aktivnosti  - mesečno {#KazalnikiAktivnosti}
 
-## Davčne blagajne - testno
+## Vrednost davčno potrjenih računov – nominalno \*
 ```{r, code=readLines("children/html_94_davcne.R",  encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
+<font size="1"> \* Brez SKD 35, 36, 52, 61, 64.</font>
 
 ## Industrijska proizvodnja po SDK
 

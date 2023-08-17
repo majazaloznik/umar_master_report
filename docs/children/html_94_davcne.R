@@ -8,35 +8,45 @@ con2 <- DBI::dbConnect(RPostgres::Postgres(),
 x <- DBI::dbExecute(con, "set search_path to platform")
 library(dplyr)
 
-
 x <- tbl(con2, "davcni_racuni") |>
-  group_by(leto, teden_us) |>
-  summarise(start = min(datum),
-            end = max(datum),
-            znesek = sum(znesek_davka),
-            .groups = 'drop') |>  # drop groups after summarise
+  group_by(datum) |>
+  filter(filter == "1") |>
+  summarise(znesek = sum(znesek),
+            .groups = 'drop') |>
   collect() |>
-  bind_rows(data.frame(leto = 2023, teden_us = "00", start= as.Date("01-01-2023"),
-                       end = as.Date("01-01-2023"), znesek = NA) )|>
-  arrange(leto, teden_us) |>
-  mutate(medletna = (znesek/lag(znesek, 53)-1)*100) |>
-  mutate(drseca =  zoo::rollmean(medletna, k = 4,fill= NA,align = "r"),
-         period = as.Date((as.numeric(start) + as.numeric(end)) / 2, origin = "1970-01-01"),
-         dr2 = zoo::rollmean(znesek, k = 4,fill= NA,align = "r") ,
-         mdl2 = (dr2/lag(dr2, 53)-1)*100) |>
-  filter(!is.na(medletna))
-updated <- Sys.Date()
-prep_l <- list()
-prep_l$transf_txt <- "drseca sredina medletne rasti in obratno"
+  arrange(datum) %>%
+  mutate(
+    znesek = ifelse((month(datum) == 2) & (day(datum) == 28) & (lubridate::leap_year(datum)),
+                    (znesek + lead(znesek, 1)) / 2,
+                    znesek)) |>
+  filter(!(month(datum) == 2 & day(datum) == 29)) |>
+  mutate(datum_lani = lag(datum, 365),
+         znesek_lani = lag(znesek, 365)) |>
+  filter(!is.na(datum_lani)) |>
+  group_by(week_start = floor_date(datum, unit = "week", week_start = 7))  |>
+  mutate(n = n()) |>
+  filter(n == 7) |>
+  summarise(znesek = sum(znesek, na.rm = TRUE),
+            znesek_lani = sum(znesek_lani, na.rm = TRUE),
+            .groups = "drop") |>
+  mutate(yoy = (znesek - znesek_lani) / znesek_lani * 100) |>
+  filter(!is.infinite(yoy)) |>
+  mutate( drseca =  zoo::rollmean(yoy, k = 4,fill= NA,align = "r"))
 
-plot_ly(x, x = ~period, width = 1000,
+
+
+updated <- Sys.Date()
+transf_txt <- "Transf.: drseča sredina medletne spremembe"
+
+plot_ly(x, x = ~week_start, width = 1000,
         height = 600) |>
-  add_lines_mp(y = ~medletna,  name = "Medletna rast zneska DDV",  color = I(umar_cols()[3])) |>
-  add_lines_mp(data = x, y = ~drseca,  name = "4-tedenska drseča sredina rasti",  color = I(umar_cols()[1])) |>
-  add_lines_mp(data = x, y = ~mdl2,  name = "Medletna rast drseče sredine",  color = I(umar_cols()[2])) |>
+  add_lines_mp(y = ~yoy,  name = "Medletna sprememba",  color = I(umar_cols()[3])) |>
+  add_lines_mp(data = x, y = ~drseca,  name = "4-tedenska drseča sredina",  color = I(umar_cols()[1])) |>
   umar_layout(slider_w, m,
-    yaxis = umar_yaxis('Medletna rast, v %'),
-    xaxis = umar_xaxis("M"),
-    title = umar_subtitle("FURS"),
-    annotations = initials("MoKo")) |>
-  rangeslider(as.Date("2020-01-01"), max(x$period))
+              yaxis = umar_yaxis('Medletna sprememba, v %'),
+              xaxis = umar_xaxis("M"),
+              title = umar_subtitle(updated, add = NULL,transf_txt, surs = FALSE, alt = "FURS"),
+              annotations = initials("MoKo")) |>
+  rangeslider(as.Date("2020-01-01"), max(x$week_start) + 20)
+
+# write.csv2(x, "davcne.csv")

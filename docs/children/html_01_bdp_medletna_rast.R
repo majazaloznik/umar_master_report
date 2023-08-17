@@ -17,7 +17,7 @@ data |>
   umar_layout(slider_w, m,
     yaxis = umar_yaxis('Medletna rast, v %'),
     xaxis = umar_xaxis("Q"),
-    umar_subtitle(updated)) |>
+    title = umar_subtitle(updated)) |>
   rangeslider(as.Date("2012-01-01"), max(data$period) + 100)
 
 
