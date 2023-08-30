@@ -83,6 +83,13 @@ add_lines_m <- function(plot, y,  ...) {
   return(plot)
 }
 
+# add lines with hovertemplate D %
+add_lines_dp <- function(plot, y,  ...) {
+  plot <- add_lines(plot, y = y, hovertemplate="%{x|%e.%b %y} %{y:.2f}%", ...)
+  return(plot)
+}
+
+
 # add lines with hovertemplate A %
 add_lines_ap <- function(plot, y,  ...) {
   plot <- add_lines(plot, y = y, hovertemplate="%{x|%Y} %{y:.2f}%", ...)

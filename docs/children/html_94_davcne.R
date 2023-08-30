@@ -19,11 +19,11 @@ x <- tbl(con2, "davcni_racuni") |>
     znesek = ifelse((month(datum) == 2) & (day(datum) == 28) & (lubridate::leap_year(datum)),
                     (znesek + lead(znesek, 1)) / 2,
                     znesek)) |>
-  filter(!(month(datum) == 2 & day(datum) == 29)) |>
+  filter(!(month(datum) == 2 & day(datum) == 29)) |> # remove 29th after averaging with 28th
   mutate(datum_lani = lag(datum, 365),
          znesek_lani = lag(znesek, 365)) |>
   filter(!is.na(datum_lani)) |>
-  group_by(week_start = floor_date(datum, unit = "week", week_start = 7))  |>
+  group_by(week_start = ceiling_date(datum, unit = "week", week_start = 7))  |>
   mutate(n = n()) |>
   filter(n == 7) |>
   summarise(znesek = sum(znesek, na.rm = TRUE),
@@ -40,8 +40,8 @@ transf_txt <- "Transf.: drseča sredina medletne spremembe"
 
 plot_ly(x, x = ~week_start, width = 1000,
         height = 600) |>
-  add_lines_mp(y = ~yoy,  name = "Medletna sprememba",  color = I(umar_cols()[3])) |>
-  add_lines_mp(data = x, y = ~drseca,  name = "4-tedenska drseča sredina",  color = I(umar_cols()[1])) |>
+  add_lines_dp(y = ~yoy,  name = "Medletna sprememba",  color = I(umar_cols()[3])) |>
+  add_lines_dp(data = x, y = ~drseca,  name = "4-tedenska drseča sredina",  color = I(umar_cols()[1])) |>
   umar_layout(slider_w, m,
               yaxis = umar_yaxis('Medletna sprememba, v %'),
               xaxis = umar_xaxis("M"),
