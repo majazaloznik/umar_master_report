@@ -23,7 +23,7 @@ x <- tbl(con2, "davcni_racuni") |>
   mutate(datum_lani = lag(datum, 365),
          znesek_lani = lag(znesek, 365)) |>
   filter(!is.na(datum_lani)) |>
-  group_by(week_start = ceiling_date(datum, unit = "week", week_start = 7))  |>
+  group_by(week_end = ceiling_date(datum, unit = "week", week_start = 7)-1)  |>
   mutate(n = n()) |>
   filter(n == 7) |>
   summarise(znesek = sum(znesek, na.rm = TRUE),
@@ -38,7 +38,7 @@ x <- tbl(con2, "davcni_racuni") |>
 updated <- Sys.Date()
 transf_txt <- "Transf.: drseča sredina medletne spremembe"
 
-plot_ly(x, x = ~week_start, width = 1000,
+plot_ly(x, x = ~week_end, width = 1000,
         height = 600) |>
   add_lines_dp(y = ~yoy,  name = "Medletna sprememba",  color = I(umar_cols()[3])) |>
   add_lines_dp(data = x, y = ~drseca,  name = "4-tedenska drseča sredina",  color = I(umar_cols()[1])) |>
@@ -47,6 +47,6 @@ plot_ly(x, x = ~week_start, width = 1000,
               xaxis = umar_xaxis("M"),
               title = umar_subtitle(updated, add = NULL,transf_txt, surs = FALSE, alt = "FURS"),
               annotations = initials("MoKo")) |>
-  rangeslider(as.Date("2020-01-01"), max(x$week_start) + 20)
+  rangeslider(as.Date("2020-01-01"), max(x$week_end) + 20)
 
 # write.csv2(x, "davcne.csv")
