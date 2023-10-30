@@ -518,8 +518,6 @@ title: Indikatorji
 ```{r, code=readLines("children/html_86_rast_proizvodnje_tz_medletno.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
-
-
 ## Rast proizvodnje po panogah predelovalnih dejavnosti
 
 ```{r, code=readLines("children/html_90_rast_proizvodnje_predelovalne_po_panogah.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
@@ -529,6 +527,49 @@ title: Indikatorji
 ```
 
 
+# Mojčine desezonirane serije
+
+## Prenočitve (desezonirani podatki)
+
+```{r prenocitve, code=readLines("children/html_95_prenocitve_desez.R",  encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Prodaja novih osebnih avtov (desezonirani podatki)
+```{r avti, code=readLines("children/html_96_avti.R",  encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Realna masa neto plač (desezonirani podatki)
+```{r place, code=readLines("children/html_97_place.R",  encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+
+## Realni prihodek v trgovini na debelo (desezonirani podatki)
+```{r trgovina, code=readLines("children/html_98_trgovina.R",  encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+
+## Realni socialni transferji (desezonirani podatki)
+```{r socialni, code=readLines("children/html_99_transferji.R",  encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
 
 
 
+# Ekonomski odnosi s tujino {#Tujina}
+
+## Storitvena menjava - nominalno
+
+```{r storitve_nom, code=readLines("children/html_100_storitvena_nominalno.R",  encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Storitvena menjava - realno
+```{r storitve_real, code=readLines("children/html_101_storitvena_realno.R",  encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+
+## Izvoz storitev, po dejavnostih
+```{r izvoz_storitev, code=readLines("children/html_102_izvoz_storitev.R",  encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Uvoz storitev, po dejavnostih
+```{r uvoz_storitev, code=readLines("children/html_103_uvoz_storitev.R",  encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```

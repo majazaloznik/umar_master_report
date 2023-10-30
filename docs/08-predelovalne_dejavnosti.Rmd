@@ -106,7 +106,8 @@ title: Indikatorji
 ```
 
 
-
+# [Mojčine desezonirane serije](09-mojca.html#Mojca)
+# [Ekonomski odnosi s tujino](10-tujina.html#Tujina)
 
 
 

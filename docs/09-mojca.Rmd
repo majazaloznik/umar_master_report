@@ -1,0 +1,58 @@
+---
+output:
+  html_document:
+    toc: TRUE
+    toc_depth: 2
+    number_sections: true
+    css: styles.css
+    includes:
+      before_body: custom.js
+  df_print: paged
+title: Indikatorji
+---
+
+
+```{r setup, code=readLines("children/setup_chunk.R"), echo = FALSE, message = FALSE, warning = FALSE}
+```
+
+```{r intro, code=readLines("children/intro_chunk.R"), echo=FALSE, message=FALSE,  warning = FALSE, results="asis"}
+```
+
+
+# [Nacionalni računi - kvartalno](01-nacionalni_kvartalno.html#NacionalniKvartalno)
+# [Nacionalni računi - letno](02-nacionalni_letno.html#NacionalniLetno)
+# [Kazalniki razpoloženja](03-kazalniki_razpolozenja.html#KazalnikiRazpolozenja)
+# [Kazalniki aktivnosti](04-kazalniki_aktivnosti.html#KazalnikiAktivnosti)
+# [Trg dela](05-trg_dela.html#TrgDela)
+# [Cene](06-cene.html#Cene)
+# [Gradbeništvo](07-gradbenistvo.html#Gradbenistvo)
+# [Predelovanle dejavnosti](08-predelovalne_dejavnosti.html#PredelovalneDejavnosti)
+
+
+
+# Mojčine desezonirane serije {#Mojca}
+
+## Prenočitve (desezonirani podatki)
+
+```{r prenocitve, code=readLines("children/html_95_prenocitve_desez.R",  encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Prodaja novih osebnih avtov (desezonirani podatki)
+```{r avti, code=readLines("children/html_96_avti.R",  encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Realna masa neto plač (desezonirani podatki)
+```{r place, code=readLines("children/html_97_place.R",  encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+
+## Realni prihodek v trgovini na debelo (desezonirani podatki)
+```{r trgovina, code=readLines("children/html_98_trgovina.R",  encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+
+## Realni socialni transferji (desezonirani podatki)
+```{r socialni, code=readLines("children/html_99_transferji.R",  encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+# [Ekonomski odnosi s tujino](10-tujina.html#Tujina)

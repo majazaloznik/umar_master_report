@@ -1,0 +1,13 @@
+﻿table_code;table_name;series_code;series_name;unit_name;interval_id;chart_no;chart_title;sub_chart;sub_chart_title;legend_label;shape;rolling_average_periods;rolling_average_alignment;year_on_year;xmin;xmax;notes
+MH002;Izvoz storitev, po dejavnostih;UMAR-BS--MH002--NOM--EX--PROM--M;Izvoz transportnih storitev;mio EUR;M;3;;1;desezonirano;;;;;;;;
+MH002;Izvoz storitev, po dejavnostih;UMAR-BS--MH002--NOM--EX--POT--M;Izvoz potovanj;mio EUR;M;3;;1;desezonirano;;;;;;;;
+MH002;Izvoz storitev, po dejavnostih;UMAR-BS--MH002--NOM--EX--OPS--M;Izvoz ostalih postlovnih storitev;mio EUR;M;3;;1;desezonirano;;;;;;;;
+MH002;Izvoz storitev, po dejavnostih;UMAR-BS--MH002--NOM--EX--GRAD--M;Izvoz gradbenih storitev;mio EUR;M;3;;1;desezonirano;;;;;;;;
+MH002;Izvoz storitev, po dejavnostih;UMAR-BS--MH002--NOM--EX--IKT--M;Izvoz IKT storitev;mio EUR;M;3;;1;desezonirano;;;;;;;;
+MH002;Izvoz storitev, po dejavnostih;UMAR-BS--MH002--NOM--EX--DRUG--M;Izvoz drugih storitev;mio EUR;M;3;;1;desezonirano;;;;;;;;
+MH002;Izvoz storitev, po dejavnostih;UMAR-BS--MH002--NOM--EX--PROM--M;Izvoz transportnih storitev;mio EUR;M;3;;2;trimesečne drseče sredine, desezonirano;;;3;r;;;;
+MH002;Izvoz storitev, po dejavnostih;UMAR-BS--MH002--NOM--EX--POT--M;Izvoz potovanj;mio EUR;M;3;;2;trimesečne drseče sredine, desezonirano;;;3;r;;;;
+MH002;Izvoz storitev, po dejavnostih;UMAR-BS--MH002--NOM--EX--OPS--M;Izvoz ostalih postlovnih storitev;mio EUR;M;3;;2;trimesečne drseče sredine, desezonirano;;;3;r;;;;
+MH002;Izvoz storitev, po dejavnostih;UMAR-BS--MH002--NOM--EX--GRAD--M;Izvoz gradbenih storitev;mio EUR;M;3;;2;trimesečne drseče sredine, desezonirano;;;3;r;;;;
+MH002;Izvoz storitev, po dejavnostih;UMAR-BS--MH002--NOM--EX--IKT--M;Izvoz IKT storitev;mio EUR;M;3;;2;trimesečne drseče sredine, desezonirano;;;3;r;;;;
+MH002;Izvoz storitev, po dejavnostih;UMAR-BS--MH002--NOM--EX--DRUG--M;Izvoz drugih storitev;mio EUR;M;3;;2;trimesečne drseče sredine, desezonirano;;;3;r;;;;

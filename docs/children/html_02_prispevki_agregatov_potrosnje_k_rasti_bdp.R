@@ -27,7 +27,7 @@ updated <- max(prep_l$updated, prep_l2$updated)
 data |>
   plot_ly(x = ~period, width = 1000) |>
   add_lines_qp(y = ~`BDP, realna rast (v %)`, name = "BDP, realna rast (v %)", color = I("black")) |>
-  add_bars_q(y = ~`Uvoz proizvodov in storitev`,  name = "Uvoz proizvodovčšž in storitev",  color = I(umar_cols()[3])) |>
+  add_bars_q(y = ~`Uvoz proizvodov in storitev`,  name = "Uvoz proizvodov in storitev",  color = I(umar_cols()[3])) |>
   add_bars_q(y = ~`Izvoz proizvodov in storitev`,  name = "Izvoz proizvodov in storitev",  color = I(umar_cols()[2])) |>
   add_bars_q(y = ~`Bruto investicije v o.s.`,  name = "Bruto investicije v o.s.",  color = I(umar_cols()[5])) |>
   add_bars_q(y = ~`Spremembe zalog in v.p`,name = "Spremembe zalog in v.p",  color = I(umar_cols()[6])) |>

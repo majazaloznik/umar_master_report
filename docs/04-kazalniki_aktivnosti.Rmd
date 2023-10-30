@@ -76,6 +76,8 @@ title: Indikatorji
 # [Cene](06-cene.html#Cene)
 # [Gradbeništvo](07-gradbenistvo.html#Gradbenistvo)
 # [Predelovanle dejavnosti](08-predelovalne_dejavnosti.html#PredelovalneDejavnosti)
+# [Mojčine desezonirane serije](09-mojca.html#Mojca)
+# [Ekonomski odnosi s tujino](10-tujina.html#Tujina)
 
 
 

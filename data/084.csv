@@ -1,0 +1,13 @@
+﻿table_code;table_name;series_code;series_name;unit_name;interval_id;chart_no;chart_title;sub_chart;sub_chart_title;legend_label;shape;rolling_average_periods;rolling_average_alignment;year_on_year;xmin;xmax;notes
+MH002;Uvoz storitev, po dejavnostih;UMAR-BS--MH002--NOM--IM--PROM--M;Uvoz transportnih storitev;mio EUR;M;4;;1;desezonirano;;;;;;;;
+MH002;Uvoz storitev, po dejavnostih;UMAR-BS--MH002--NOM--IM--POT--M;Uvoz potovanj;mio EUR;M;4;;1;desezonirano;;;;;;;;
+MH002;Uvoz storitev, po dejavnostih;UMAR-BS--MH002--NOM--IM--OPS--M;Uvoz ostalih postlovnih storitev;mio EUR;M;4;;1;desezonirano;;;;;;;;
+MH002;Uvoz storitev, po dejavnostih;UMAR-BS--MH002--NOM--IM--GRAD--M;Uvoz gradbenih storitev;mio EUR;M;4;;1;desezonirano;;;;;;;;
+MH002;Uvoz storitev, po dejavnostih;UMAR-BS--MH002--NOM--IM--IKT--M;Uvoz IKT storitev;mio EUR;M;4;;1;desezonirano;;;;;;;;
+MH002;Uvoz storitev, po dejavnostih;UMAR-BS--MH002--NOM--IM--DRUG--M;Uvoz drugih storitev;mio EUR;M;4;;1;desezonirano;;;;;;;;
+MH002;Uvoz storitev, po dejavnostih;UMAR-BS--MH002--NOM--IM--PROM--M;Uvoz transportnih storitev;mio EUR;M;4;;2;trimesečne drseče sredine, desezonirano;;;3;r;;;;
+MH002;Uvoz storitev, po dejavnostih;UMAR-BS--MH002--NOM--IM--POT--M;Uvoz potovanj;mio EUR;M;4;;2;trimesečne drseče sredine, desezonirano;;;3;r;;;;
+MH002;Uvoz storitev, po dejavnostih;UMAR-BS--MH002--NOM--IM--OPS--M;Uvoz ostalih postlovnih storitev;mio EUR;M;4;;2;trimesečne drseče sredine, desezonirano;;;3;r;;;;
+MH002;Uvoz storitev, po dejavnostih;UMAR-BS--MH002--NOM--IM--GRAD--M;Uvoz gradbenih storitev;mio EUR;M;4;;2;trimesečne drseče sredine, desezonirano;;;3;r;;;;
+MH002;Uvoz storitev, po dejavnostih;UMAR-BS--MH002--NOM--IM--IKT--M;Uvoz IKT storitev;mio EUR;M;4;;2;trimesečne drseče sredine, desezonirano;;;3;r;;;;
+MH002;Uvoz storitev, po dejavnostih;UMAR-BS--MH002--NOM--IM--DRUG--M;Uvoz drugih storitev;mio EUR;M;4;;2;trimesečne drseče sredine, desezonirano;;;3;r;;;;
