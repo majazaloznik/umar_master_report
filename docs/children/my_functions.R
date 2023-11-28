@@ -279,3 +279,18 @@ my_panel_subtitle <- function(fig, text) {
     ))
   return(fig)
 }
+
+my_panel_note <- function(fig, text) {
+  fig <- fig %>%
+    layout(
+      annotations = list(
+        x = 0,
+        y = -0.2,  # Adjust this value to move the note up or down
+        xref = 'paper',
+        yref = 'paper',
+        text = text,
+        showarrow = FALSE,
+        font=list(size=12)
+      ))
+  return(fig)
+}

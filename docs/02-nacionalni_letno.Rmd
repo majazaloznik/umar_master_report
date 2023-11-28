@@ -14,8 +14,6 @@ title: Indikatorji
 ```{r setup, code=readLines("children/setup_chunk.R"), echo = FALSE, message = FALSE, warning = FALSE}
 ```
 
-```{r intro, code=readLines("children/intro_chunk.R"), echo=FALSE, message=FALSE,  warning = FALSE, results="asis"}
-```
 
 # [Nacionalni računi - kvartalno](01-nacionalni_kvartalno.html#NacionalniKvartalno)
 

@@ -14,8 +14,6 @@ title: Indikatorji
 ```{r setup, code=readLines("children/setup_chunk.R"), echo=FALSE, message=FALSE,  warning = FALSE, results="asis"}
 ```
 
-```{r intro, code=readLines("children/intro_chunk.R"), echo=FALSE, message=FALSE,  warning = FALSE, results="asis"}
-```
 
 # Nacionalni računi - kvartalno
 
@@ -268,7 +266,11 @@ title: Indikatorji
 ```{r, code=readLines("children/html_33_mnenje_potrosnikov2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
-# Kazalniki aktivnosti
+# Kazalniki aktivnosti - mesečno 
+
+## Kratkoročni kazalniki gospodarskih gibanj v Sloveniji (desezonirani podatki)
+```{r izvoz_razpolozenje, code=readLines("children/html_108_kratkorocni_desezonirani.R",  encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
 
 ## Vrednost davčno potrjenih računov – nominalno \*
 ```{r, code=readLines("children/html_94_davcne.R",  encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
@@ -572,4 +574,20 @@ title: Indikatorji
 
 ## Uvoz storitev, po dejavnostih
 ```{r uvoz_storitev, code=readLines("children/html_103_uvoz_storitev.R",  encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Izvoz in uvoz blaga
+```{r uvoz_blaga, code=readLines("children/html_104_blagovna_menjava.R",  encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Izvoz blaga - po regijah
+```{r Izvoz_blago_po_regijah, code=readLines("children/html_105_izvoz_po_regijah.R",  encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Uvoz blaga - po regijah
+```{r uvoz_blago_po_regijah, code=readLines("children/html_106_uvoz_po_regijah.R",  encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Izvoz in razpoloženje
+```{r izvoz_razpolozenje, code=readLines("children/html_107_izvoz_in_razpolozenje.R",  encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
