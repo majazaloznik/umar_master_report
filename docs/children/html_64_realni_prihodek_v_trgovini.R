@@ -75,14 +75,14 @@ for(i in 1:7) {
 
 fig4 <- plot_ly(data4, x = ~period, hovertemplate="%{x|%b-%Y} %{y:.2f}%", width = 1000,
                 height = 800) |>
-  add_lines_mp(y = ~value.x,  name = "Skupaj trgovina na drobno z ne\u017eivili",  color = I("black")) |>
-  add_lines_mp(y = ~value.y,   name = "Nespec. prodajalne, prete\u017eno z ne\u017eivili",color = I(umar_cols()[5])) |>
-  add_lines_mp(y = ~value.x.x,  name = "Ra\u010dunalni\u0161ke, telek. naprave, knjige, \u0161portna oprema, igra\u010de ",  color = I(umar_cols()[6])) |>
-  add_lines_mp(y = ~value.x.x.x,   name = "Gospodinjske naprave, avdio in video zapisi",color = I(umar_cols()[8])) |>
-  add_lines_mp(y = ~value.y.y.y,  name = " Tekstil, obla\u010dila, obutev in usnjeni izdelki",  color = I(umar_cols()[1])) |>
-  add_lines_mp(y = ~value.x.x.x.x,  name = "Pohi\u0161tvo, gradbeni material",  color = I(umar_cols()[2])) |>
-  add_lines_mp(y = ~value.y.y.y.y,   name = "Farmacevtski, medicinski, kozmeti\u010dni in toaletni\nizdelki",color = I(umar_cols()[4])) |>
-  add_lines_mp(y = ~value,   name = "Trgovina na drobno po po\u0161ti ali po internetu",color = I(umar_cols()[3])) |>
+  add_lines_m(y = ~value.x,  name = "Skupaj trgovina na drobno z ne\u017eivili",  color = I("black")) |>
+  add_lines_m(y = ~value.y,   name = "Nespec. prodajalne, prete\u017eno z ne\u017eivili",color = I(umar_cols()[5])) |>
+  add_lines_m(y = ~value.x.x,  name = "Ra\u010dunalni\u0161ke, telek. naprave, knjige, \u0161portna oprema, igra\u010de ",  color = I(umar_cols()[6])) |>
+  add_lines_m(y = ~value.x.x.x,   name = "Gospodinjske naprave, avdio in video zapisi",color = I(umar_cols()[8])) |>
+  add_lines_m(y = ~value.y.y.y,  name = " Tekstil, obla\u010dila, obutev in usnjeni izdelki",  color = I(umar_cols()[1])) |>
+  add_lines_m(y = ~value.x.x.x.x,  name = "Pohi\u0161tvo, gradbeni material",  color = I(umar_cols()[2])) |>
+  add_lines_m(y = ~value.y.y.y.y,   name = "Farmacevtski, medicinski, kozmeti\u010dni in toaletni\nizdelki",color = I(umar_cols()[4])) |>
+  add_lines_m(y = ~value,   name = "Trgovina na drobno po po\u0161ti ali po internetu",color = I(umar_cols()[3])) |>
   umar_layout(slider_w, m, annotations = list(x = 0. , y = 1, text = "Trgovina na drobno z ne\u017eivili", showarrow = F,
                             xref='paper', yref='paper'),
          shapes = list(

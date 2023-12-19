@@ -30,50 +30,77 @@ title: Indikatorji
 ```
 <font size="1"> \* Brez SKD 35, 36, 52, 61, 64.</font>
 
-## Industrijska proizvodnja po SDK
+## Industrijska proizvodnja po SKD
 
-```{r, code=readLines("children/html_09_predelovalne_indeks.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```{r, code=readLines("children/html_09_predelovalne_indeks.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 ## Realni prihodek v tržnih storitvah
 
-```{r, code=readLines("children/html_57_realni_prihodek_trzne.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```{r, code=readLines("children/html_57_realni_prihodek_trzne.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
 ## Realni prihodek v tržnih storitvah (desezonirani podatki)
-```{r, code=readLines("children/html_59_realni_prihodek_trzne.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```{r, code=readLines("children/html_59_realni_prihodek_trzne.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
 ## Realni prihodek v prometu in skladiščenju
-```{r, code=readLines("children/html_58_realni_prihodek_promet.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```{r, code=readLines("children/html_58_realni_prihodek_promet.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
 ## Realni prihodek v prometu in skladiščenju  (desezonirani podatki)
-```{r, code=readLines("children/html_60_realni_prihodek_promet.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```{r, code=readLines("children/html_60_realni_prihodek_promet.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
 ## Realni prihodek v gostinstvu
-```{r, code=readLines("children/html_61_realni_prihodek_v_gostinstvu.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```{r, code=readLines("children/html_61_realni_prihodek_v_gostinstvu.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
 ## Realni prihodek v gostinstvu (desezonirani podatki)
-```{r, code=readLines("children/html_62_realni_prihodek_v_gostinstvu.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```{r, code=readLines("children/html_62_realni_prihodek_v_gostinstvu.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
 ## Realni prihodek v trgovini
-```{r, code=readLines("children/html_63.0_realni_prihodek_v_trgovini.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```{r, code=readLines("children/html_63.0_realni_prihodek_v_trgovini.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
 ## Realni prihodek v trgovini - podrobno
-```{r, code=readLines("children/html_63_realni_prihodek_v_trgovini.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```{r, code=readLines("children/html_63_realni_prihodek_v_trgovini.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
 ## Realni prihodek v trgovini (desezonirani podatki)
-```{r, code=readLines("children/html_64.0_realni_prihodek_v_trgovini.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```{r, code=readLines("children/html_64.0_realni_prihodek_v_trgovini.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
 ## Realni prihodek v trgovini - podrobno (desezonirani podatki)
-```{r, code=readLines("children/html_64_realni_prihodek_v_trgovini.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```{r, code=readLines("children/html_64_realni_prihodek_v_trgovini.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
+
+## Realni prihodek v informacijsko-komunikacijskih dejavnostih
+
+```{r, code=readLines("children/html_109_realni_ik.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Realni prihodek v informacijsko-komunikacijskih dejavnostih (desezonirani podatki)
+
+```{r, code=readLines("children/html_110_realni_ik_desez.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Realni prihodek v strokovno-tehničnih dejavnostih
+```{r, code=readLines("children/html_111_realni_st.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Realni prihodek v strokovno-tehničnih dejavnostih (desezonirani podatki)
+```{r, code=readLines("children/html_112_realni_st_desez.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Realni prihodek v drugih poslovnih dejavnostih
+```{r, code=readLines("children/html_113_realni_dpd.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Realni prihodek v drugih poslovnih dejavnostih (desezonirani podatki)
+```{r, code=readLines("children/html_114_realni_dpd_desez.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
 
 # [Trg dela](05-trg_dela.html#TrgDela)
 # [Cene](06-cene.html#Cene)

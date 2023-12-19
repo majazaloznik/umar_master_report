@@ -15,6 +15,7 @@ purrr::reduce(prep_l$data_points, dplyr::left_join, by = c("period_id", "period"
 purrr::reduce(prep_l2$data_points, dplyr::left_join, by = c("period_id", "period")) %>%
   dplyr::relocate( period) |>
   select(-period_id) |>
+  as_tibble() |>
   mutate(across(starts_with("value"), ~ (./lag(.)-1) * 100, .names = "monthly_{.col}")) -> data2
 
 

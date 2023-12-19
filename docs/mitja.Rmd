@@ -1,0 +1,34 @@
+---
+output:
+  html_document:
+    toc: TRUE
+    toc_depth: 2
+    number_sections: true
+    css: styles2.css
+    includes:
+      before_body: custom2.js
+  df_print: paged
+title: Indikatorji
+---
+```{r setup, code=readLines("children/setup_chunk.R"), echo = FALSE, message = FALSE, warning = FALSE}
+```
+
+
+## Število prostih delovnih mest
+```{r, code=readLines("children/html_119_stevilo_prostih_mest_skd_consolidated.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Število zasedenih delovnih mest
+```{r, code=readLines("children/html_120_stevilo_zasedenih_mest_skd_consolidated.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+
+## Stopnja prostih delovnih mest
+```{r, code=readLines("children/html_121_stopnja_prostih_mest_skd_consolidated.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Stopnja prostih delovnih mest - zglajeni podatki
+```{r, code=readLines("children/html_122_stopnja_prostih_mest_skd_consolidated_rolled.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+

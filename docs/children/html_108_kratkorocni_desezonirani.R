@@ -24,11 +24,11 @@ purrr::reduce(prep_l$data_points, dplyr::left_join, by = c("period_id", "period"
 
 plot_ly(data, x = ~period, width = 1000,
         height = 600) |>
-  add_lines_mp(y = ~value,  name = "Izvoz blaga *",  color = I(umar_cols()[1])) |>
-  add_lines_mp(y = ~value.x.x,  name = "Ind. proiz. predelovalnih dej.",  color = I(umar_cols()[2])) |>
-  add_lines_mp(y = ~value.y,  name = "Vred. opr. del v gradbeništvu",  color = I(umar_cols()[3])) |>
-  add_lines_mp(y = ~value.x,  name = "Prih. v trg. na drobno brez motornih goriv",  color = I(umar_cols()[4])) |>
-  add_lines_mp(y = ~value.y.y,  name = "Storitveni prihodek",  color = I(umar_cols()[5])) |>
+  add_lines_m(y = ~value,  name = "Izvoz blaga *",  color = I(umar_cols()[1])) |>
+  add_lines_m(y = ~value.x.x,  name = "Ind. proiz. predelovalnih dej.",  color = I(umar_cols()[2])) |>
+  add_lines_m(y = ~value.y,  name = "Vred. opr. del v gradbeništvu",  color = I(umar_cols()[3])) |>
+  add_lines_m(y = ~value.x,  name = "Prih. v trg. na drobno brez motornih goriv",  color = I(umar_cols()[4])) |>
+  add_lines_m(y = ~value.y.y,  name = "Storitveni prihodek",  color = I(umar_cols()[5])) |>
 
   umar_layout(slider_w, m,
               yaxis = umar_yaxis('Indeks (povprečje 2010)'),

@@ -266,7 +266,7 @@ title: Indikatorji
 ```{r, code=readLines("children/html_33_mnenje_potrosnikov2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
-# Kazalniki aktivnosti - mesečno 
+# Kazalniki aktivnosti 
 
 ## Kratkoročni kazalniki gospodarskih gibanj v Sloveniji (desezonirani podatki)
 ```{r izvoz_razpolozenje, code=readLines("children/html_108_kratkorocni_desezonirani.R",  encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
@@ -278,7 +278,7 @@ title: Indikatorji
 <font size="1"> \* Brez SKD 35, 36, 52, 61, 64.</font>
 
 
-## Industrijska proizvodnja po SDK
+## Industrijska proizvodnja po SKD
 
 ```{r, code=readLines("children/html_09_predelovalne_indeks.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
@@ -323,20 +323,101 @@ title: Indikatorji
 ```
 
 
-# Trg dela
+## Realni prihodek v informacijsko-komunikacijskih dejavnostih
 
+```{r, code=readLines("children/html_109_realni_ik.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Realni prihodek v informacijsko-komunikacijskih dejavnostih (desezonirani podatki)
+
+```{r, code=readLines("children/html_110_realni_ik_desez.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Realni prihodek v strokovno-tehničnih dejavnostih
+```{r, code=readLines("children/html_111_realni_st.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Realni prihodek v strokovno-tehničnih dejavnostih (desezonirani podatki)
+```{r, code=readLines("children/html_112_realni_st_desez.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Realni prihodek v drugih poslovnih dejavnostih
+```{r, code=readLines("children/html_113_realni_dpd.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Realni prihodek v drugih poslovnih dejavnostih (desezonirani podatki)
+```{r, code=readLines("children/html_114_realni_dpd_desez.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+
+# Trg dela {#TrgDela}
 ## Zaposlenost in brezposelnost
-```{r, code=readLines("children/html_12_brezposelnost.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```{r, code=readLines("children/html_12_brezposelnost.R",encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
-## Medletna rast bruto plače - zglajeni podatki
-```{r, code=readLines("children/html_13_rast_plac.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+
+## Kazalnik kratkoročnega zaposlovanja - originalni podatki
+```{r, code=readLines("children/html_115_kratkorocno_zaposlovanje.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
-## Medletna rast bruto plače - z originalnimi podatki
-```{r, code=readLines("children/html_13_rast_plac2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+##  Kazalnik kratkoročnega zaposlovanja - desezonirani podatki
+```{r, code=readLines("children/html_116_kratkorocno_zaposlovanje_desez.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
+##  Kazalnik kratkoročnega zaposlovanja - desezonirani podatki, zglajeni
+```{r, code=readLines("children/html_117_kratkorocno_zaposlovanje_desez_zglajeni.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+
+## Število prostih delovnih mest
+```{r, code=readLines("children/html_119_stevilo_prostih_mest_skd_consolidated.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Število zasedenih delovnih mest
+```{r, code=readLines("children/html_120_stevilo_zasedenih_mest_skd_consolidated.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+
+## Stopnja prostih delovnih mest
+```{r, code=readLines("children/html_121_stopnja_prostih_mest_skd_consolidated.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Stopnja prostih delovnih mest - zglajeni podatki
+```{r, code=readLines("children/html_122_stopnja_prostih_mest_skd_consolidated_rolled.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Povprečna mesečna bruto plača 
+```{r, code=readLines("children/html_123_povprecna_bruto_placa.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Medletna rast povprečne mesečne bruto plače
+```{r, code=readLines("children/html_124_povprecna_bruto_placa_rast.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Medletna rast povprečne mesečne bruto plače - zglajeni podatki
+```{r, code=readLines("children/html_125_povprecna_bruto_placa_rast_zglajeni.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Medletna rast povprečne mesečne bruto plače, realno
+```{r, code=readLines("children/html_126_povprecna_bruto_placa_realno.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+
+## Medletna rast povprečne mesečne bruto plače, realno - zglajeni podatki
+```{r, code=readLines("children/html_127_povprecna_bruto_placa_realno_zglajeni.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Medletna rast povprečne mesečne bruto plače, povprečje prvih x mesecev, v %
+```{r, code=readLines("children/html_128_povprecna_bruto_placa_prvi_x_meseci.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Medletna rast povprečne mesečne bruto plače, povprečje prvih x mesecev, realno, v %
+```{r, code=readLines("children/html_129_povprecna_bruto_placa_prvi_x_meseci_realno.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Predelovalne dejavnosti - omejitveni dejavnik
+```{r, code=readLines("children/html_130_predelovalne_omejitveni.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
 
 
 # Cene

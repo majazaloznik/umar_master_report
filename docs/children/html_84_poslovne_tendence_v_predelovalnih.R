@@ -19,11 +19,11 @@ updated <- max(prep_l$updated, prep_l2$updated)
 
 fig1 <- plot_ly(data2, x = ~period, width = 1000,
                 height = 600) |>
-  add_lines_qp(y = ~value.x,  name = "Ustreznost proizvodnih zmogljivosti",  color = I(umar_cols()[1])) |>
-  add_lines_qp(y = ~value.y,  name = "Konkurenčni položaj na domačem trgu",  color = I(umar_cols()[2])) |>
-  add_lines_qp(y = ~value.x.x,  name = "Konkurenčni položaj na trgih držav EU",  color = I(umar_cols()[3])) |>
-  add_lines_qp(y = ~value.y.y,  name = "Konkurenčni položaj na trgih zunaj EU",  color = I(umar_cols()[4])) |>
-  add_lines_qp(y = ~value,  name = "Obseg novih naročil",  color = I(umar_cols()[6])) |>
+  add_lines_q(y = ~value.x,  name = "Ustreznost proizvodnih zmogljivosti",  color = I(umar_cols()[1])) |>
+  add_lines_q(y = ~value.y,  name = "Konkurenčni položaj na domačem trgu",  color = I(umar_cols()[2])) |>
+  add_lines_q(y = ~value.x.x,  name = "Konkurenčni položaj na trgih držav EU",  color = I(umar_cols()[3])) |>
+  add_lines_q(y = ~value.y.y,  name = "Konkurenčni položaj na trgih zunaj EU",  color = I(umar_cols()[4])) |>
+  add_lines_q(y = ~value,  name = "Obseg novih naročil",  color = I(umar_cols()[6])) |>
   umar_layout(slider_w, m, annotations = list(x = 0 , y = 1,
                                  text = "Rast zaposlenosti dodane vrednosti v nizko tehnolo\u0161ko zahtevnih dejavnostih", showarrow = F,
                                  xref='paper', yref='paper'))

@@ -18,7 +18,7 @@ updated <- max(prep_l2$updated, prep_l$updated)
 # prepare charts
 fig1 <- data |>
   plot_ly(x = ~period, width = 1000, height = 600) |>
-  add_lines_m(y = ~value,
+  add_lines_q(y = ~value,
             name = "Zaposlenost, desezonirana", color = I(umar_cols()[1]))
 
 for(i in 1:11) {

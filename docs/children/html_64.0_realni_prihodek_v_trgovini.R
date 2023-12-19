@@ -12,13 +12,13 @@ purrr::reduce(prep_l$data_points, dplyr::left_join, by = c("period_id", "period"
 
 plot_ly(data, x = ~period, width = 1000) |>
   add_lines(y = ~value.x,  name = "Trgovina skupaj",  color = I("black"),
-            hovertemplate="%{x|%b-%Y} %{y:.2f}%") |>
+            hovertemplate="%{x|%b-%Y} %{y:.2f}") |>
   add_lines(y = ~value.y,   name = "Trgovina z motornimi vozili",color = I(umar_cols()[1]),
-            hovertemplate="%{x|%b-%Y} %{y:.2f}%") |>
+            hovertemplate="%{x|%b-%Y} %{y:.2f}") |>
   add_lines(y = ~value.x.x,  name = "Trgovina na debelo",  color = I(umar_cols()[2]),
-            hovertemplate="%{x|%b-%Y} %{y:.2f}%") |>
+            hovertemplate="%{x|%b-%Y} %{y:.2f}") |>
   add_lines(y = ~value.y.y, name = "Trgovina na drobno", color = I(umar_cols()[4]),
-            hovertemplate="%{x|%b-%Y} %{y:.2f}%") |>
+            hovertemplate="%{x|%b-%Y} %{y:.2f}") |>
   umar_layout(slider_w, m,
               yaxis = umar_yaxis("Indeks (povpre\u010dje 2015)"),
               xaxis = umar_xaxis("M"),

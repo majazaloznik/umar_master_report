@@ -10,9 +10,6 @@ output:
 ```{r setup, code=readLines("children/setup_chunk.R"), echo = FALSE, message = FALSE, warning = FALSE}
 ```
 
-```{r intro, code=readLines("children/intro_chunk.R"), echo=FALSE, message=FALSE,  warning = FALSE, results="asis"}
-```
-
 
 ## Vrednost davčno potrjenih računov – nominalno \*
 ```{r, code=readLines("children/html_94_davcne.R",  encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}

@@ -25,7 +25,7 @@ data |>
   add_lines(data = data2, y = ~`value.x`,  hovertemplate="%{x|%b-%Y} %{y:.2f}%",
             name = "Indeks ind.p.: pridobivanje rudnin in kamnin ", color = I(umar_cols()[1])) |>
   add_lines(data = data2, y = ~`value.y`,  hovertemplate="%{x|%b-%Y} %{y:.2f}%",
-            name = "Indeks ind.p.: proizvodnja nekovinskih mineralnih izdelkov ", color = I(umar_cols()[5])) |>
+            name = "Indeks ind.p.: proizv. nekovinskih mineral. izdelkov ", color = I(umar_cols()[5])) |>
   umar_layout(slider_w, m,
               yaxis = umar_yaxis("Medletna sprememba, v %"),
               xaxis = umar_xaxis("M"),
