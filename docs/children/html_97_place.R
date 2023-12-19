@@ -12,8 +12,7 @@ purrr::reduce(prep_l3$data_points, dplyr::left_join, by = c("period_id", "period
   select(-period_id) |>
   as_tibble()  -> data3
 
-plot_ly(data3, x = ~period, width = 1000,
-        height = 600) |>
+plot_ly(data3, x = ~period, width = 1000) |>
   add_lines_mp(y = ~raw,  name = "Realna masa neto plač (nezglajena)",  color = I(umar_cols()[3])) |>
   add_lines_mp(y = ~value,  name = "Realna masa neto plač",  color = I(umar_cols()[1])) |>
   umar_layout(slider_w, m,

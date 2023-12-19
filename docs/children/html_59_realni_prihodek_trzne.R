@@ -40,7 +40,8 @@ data |>
               yaxis = umar_yaxis("Indeks (povpre\u010dje 2019)"),
               xaxis = umar_xaxis("M"),
               title = umar_subtitle(updated),
-              annotations = initials("JuPo"))|>
+              annotations = initials("JuPo"),
+              shapes = emph_line(100, data$period))|>
   rangeslider(as.Date("2019-01-01"), max(data$period) + 100) |>
   config(modeBarButtonsToAdd = list(dl_button))
 

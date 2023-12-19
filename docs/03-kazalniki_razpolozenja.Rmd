@@ -62,11 +62,11 @@ title: Indikatorji
 ```
 
 ## Poslovne tendence v storitveni dejavnosti - desezonirano
-```{r, code=readLines("children/html_29_poslovne_tendence_storitvene.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```{r, code=readLines("children/html_29_poslovne_tendence_storitvene.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
 ## Poslovne tendence v storitveni dejavnosti - 3-mesečne drseče sredine (desne)
-```{r, code=readLines("children/html_29_poslovne_tendence_storitvene2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
+```{r, code=readLines("children/html_29_poslovne_tendence_storitvene2.R", encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
 ## Poslovne tendence - pričakovanja - desezonirano

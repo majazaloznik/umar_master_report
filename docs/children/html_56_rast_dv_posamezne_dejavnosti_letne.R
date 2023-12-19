@@ -76,14 +76,10 @@ fig1 <- plot_ly(data, x = ~period, width = 1000,
   add_lines_qp(y = ~c,  name = "Predelovalne dejavnosti (C)",  color = I(umar_cols()[2])) |>
   add_lines_qp(y = ~d,  name = "Oskrba z elektriko, plinom in paro (D)",  color = I(umar_cols()[3])) |>
   add_lines_qp(y = ~e,  name = "Oskrba z vodo (E)",  color = I(umar_cols()[4])) |>
-
   umar_layout(slider_w, m,annotations = list(x = 0. , y = 1, text = "Industrija", showarrow = F,
                                  xref='paper', yref='paper'))
 
-for(i in 1:8) {
-  fig1 <- fig1 |>
-    add_lines(y = ~c,  name = "\u200A",  color = I('rgba(0,0,0,0)'),
-              hoverinfo = "none")}
+fig1 <- add_empty_lines(fig1, 8)
 
 fig2 <- plot_ly(data, x = ~period,  width = 1000,
                 height = 1400) |>
@@ -99,43 +95,34 @@ fig2 <- plot_ly(data, x = ~period,  width = 1000,
   umar_layout(slider_w, m,annotations = list(x = 0. , y = 1, text = "Tr\u017ene storitve", showarrow = F,
                                  xref='paper', yref='paper'))
 
-for(i in 1:5) {
-  fig2 <- fig2 |>
-    add_lines(y = ~c,  name = "\u200A",  color = I('rgba(0,0,0,0)'),
-              hoverinfo = "none")}
+fig2 <- add_empty_lines(fig2, 5)
 
 fig3 <- plot_ly(data, x = ~period,  width = 1000,
                 height = 1400) |>
-  add_lines_qp(y = ~dv,  name = "Dodana vrednost",  color = I("black") ) |>
-  add_lines_qp(y = ~o,  name = "Dejavnosti uprave, obvezna socialna varnost (O)",color = I(umar_cols()[5])) |>
-  add_lines_qp(y = ~p, name = "Izobra\u017eevanje (P)",  color = I(umar_cols()[6])) |>
-  add_lines_qp(y = ~q,   name = "Zdravstvo in socialno varstvo (Q)",color = I(umar_cols()[7])) |>
+  add_lines_ap(y = ~dv,  name = "Dodana vrednost",  color = I("black") ) |>
+  add_lines_ap(y = ~o,  name = "Dejavnosti uprave, obvezna socialna varnost (O)",color = I(umar_cols()[5])) |>
+  add_lines_ap(y = ~p, name = "Izobra\u017eevanje (P)",  color = I(umar_cols()[6])) |>
+  add_lines_ap(y = ~q,   name = "Zdravstvo in socialno varstvo (Q)",color = I(umar_cols()[7])) |>
   umar_layout(slider_w, m,annotations = list(x = 0. , y = 1, text = "Javne storitve", showarrow = F,
                                  xref='paper', yref='paper'))
-for(i in 1:9) {
-  fig3 <- fig3 |>
-    add_lines(y = ~c,  name = "\u200A",  color = I('rgba(0,0,0,0)'),
-              hoverinfo = "none")}
+fig3 <- add_empty_lines(fig3, 9)
 
 fig4 <- plot_ly(data, x = ~period, width = 1000,
                 height = 1400) |>
-  add_lines_qp(y = ~dv,  name = "Dodana vrednost",  color = I("black") ) |>
-  add_lines_qp(y = ~a,  name = "Kmetijstvo (A)",color = I(umar_cols()[8])) |>
-  add_lines_qp(y = ~f, name = "Gradbeni\u0161tvo (F)",  color = I(umar_cols()[1])) |>
-  add_lines_qp(y = ~u,   name = "Dejavnost eksteritorialnih organizacij in teles  (u)",color = I(umar_cols()[2])) |>
+  add_lines_ap(y = ~dv,  name = "Dodana vrednost",  color = I("black") ) |>
+  add_lines_ap(y = ~a,  name = "Kmetijstvo (A)",color = I(umar_cols()[8])) |>
+  add_lines_ap(y = ~f, name = "Gradbeni\u0161tvo (F)",  color = I(umar_cols()[1])) |>
+  add_lines_ap(y = ~u,   name = "Dejavnost eksteritorialnih organizacij in teles  (u)",color = I(umar_cols()[2])) |>
   umar_layout(slider_w, m,annotations = list(x = 0. , y = 1, text = "Ostalo", showarrow = F,
                                  xref='paper', yref='paper'))
-for(i in 1:10) {
-  fig4 <- fig4 |>
-    add_lines(y = ~c,  name = "\u200A",  color = I('rgba(0,0,0,0)'),
-              hoverinfo = "none")}
+fig4 <- add_empty_lines(fig4, 10)
 
 fig5 <- plot_ly(data, x = ~period, width = 1000,
                 height = 1400) |>
-  add_lines_qp(y = ~dv,  name = "Dodana vrednost",  color = I("black") ) |>
-  add_lines_qp(y = ~r,  name = " Kulturne, razvedrilne in rekreacijske dejavnosti (R)",color = I(umar_cols()[2])) |>
-  add_lines_qp(y = ~s, name = "Druge dejavnosti (S)",  color = I(umar_cols()[3])) |>
-  add_lines_qp(y = ~t,   name = "Dejavnost gospodinjstev z zaposlenim osebjem (T)",color = I(umar_cols()[4])) |>
+  add_lines_ap(y = ~dv,  name = "Dodana vrednost",  color = I("black") ) |>
+  add_lines_ap(y = ~r,  name = " Kulturne, razvedrilne in rekreacijske dejavnosti (R)",color = I(umar_cols()[2])) |>
+  add_lines_ap(y = ~s, name = "Druge dejavnosti (S)",  color = I(umar_cols()[3])) |>
+  add_lines_ap(y = ~t,   name = "Dejavnost gospodinjstev z zaposlenim osebjem (T)",color = I(umar_cols()[4])) |>
   umar_layout(slider_w, m,annotations = list(x = 0. , y = 1, text = "RST tr\u017ene storitve", showarrow = F,
                                  xref='paper', yref='paper'))
 

@@ -26,11 +26,7 @@ fig1 <- data |>
   add_lines_mp(y = ~`javni_roll`,
             name = "Javni sektor (3-m drse\u010da sredina)", color = I(umar_cols()[1]))
 
-for(i in 1:6) {
-  fig1 <- fig1 |>
-    add_lines(y = mean(data$javni, na.rm = TRUE),  name = "\u200A",  color = I('rgba(0,0,0,0)'),
-              hoverinfo = "none")
-}
+fig1 <- add_empty_lines(fig1, 6)
 
 fig2 <- data |>
   plot_ly(x = ~period, width = 1000, height = 600) |>
@@ -39,10 +35,7 @@ fig2 <- data |>
   add_lines_mp(y = ~`zasebni_roll`,
             name = "Zasebni sektor (3-m drse\u010da sredina)", color = I(umar_cols()[2]))
 
-for(i in 1:6) {
-  fig2 <- fig2 |>
-    add_lines(y =mean(data$zasebni, na.rm = TRUE),  name = "\u200A",  color = I('rgba(0,0,0,0)'),
-              hoverinfo = "none")}
+fig2 <- add_empty_lines(fig2, 6)
 
 
 fig3 <- data |>

@@ -40,7 +40,7 @@ fig2 <-  data |>
 subplot(fig1,  fig2,  nrows = 2, shareX = TRUE) |>
   umar_layout(slider_w, m,
     yaxis = umar_yaxis("Medletna rast, v %"),
-    yaxis2 = umar_yaxis("Prispevek h rasti BDP, v o.t."),
+    yaxis2 = umar_yaxis("Prispevek k rasti BDP, v o.t."),
     xaxis = umar_xaxis("Q"),
     title = umar_subtitle(updated),
     annotations = initials("NaTJ")) |>

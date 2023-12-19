@@ -40,11 +40,7 @@ fig1 <- plot_ly(data, x = ~period, width = 1000,
   my_panel_subtitle("Cene stanovanjskih nepremi\u010dnin")
 
 
-for(i in 1:10) {
-  fig1 <- fig1 |>
-    add_lines(y = ~value.x,  name = "\u200A",  color = I('rgba(0,0,0,0)'),
-              hoverinfo = "none")
-}
+fig1 <- add_empty_lines(fig1, 10)
 
 fig2 <- plot_ly(data2, x = ~period,  width = 1000,
                 height = 800) |>
@@ -59,12 +55,7 @@ fig2 <- plot_ly(data2, x = ~period,  width = 1000,
   my_panel_subtitle("Nove stanovanjske nepremi\u010dnine")
 
 
-for(i in 1:8) {
-  fig2 <-
-    add_trace(fig2, x = ~period, y =  ~value.x,  name = "\u200A",  line = list(color = 'rgba(0,0,0,0)'),
-              hoverinfo = 'none',
-              type = 'scatter', mode = 'lines')
-}
+fig2 <- add_empty_lines(fig2, 8)
 
 fig3 <- plot_ly(data3, x = ~period, width = 1000,
                 height = 800) |>

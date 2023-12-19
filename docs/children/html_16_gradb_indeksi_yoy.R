@@ -28,10 +28,9 @@ fig1 <- data |>
             name = "Specializirana gradbena dela", color = I(umar_cols()[4])) |>
   add_lines(y = ~`skupaj`,  hovertemplate="%{x|%b-%Y} %{y:.2f}",
             name = "Gradbeni\u0161tvo - SKUPAJ", color = I(umar_cols()[5]))
-for(i in 1:8) {
-  fig1 <- fig1 |>
-    add_lines(y = ~skupaj,  name = "\u200A",  color = I('rgba(0,0,0,0)'),
-              hoverinfo = "none")}
+
+fig1 <- add_empty_lines(fig1, 8)
+
 # prepare data
 prep_l <- prep_multi_line(spl[[4]], con)
 purrr::reduce(prep_l$data_points, dplyr::left_join, by = c("period_id", "period")) %>%

@@ -38,8 +38,7 @@ x <- tbl(con2, "davcni_racuni") |>
 updated <- Sys.Date()
 transf_txt <- "Transf.: drseča sredina medletne spremembe"
 
-plot_ly(x, x = ~week_end, width = 1000,
-        height = 600) |>
+plot_ly(x, x = ~week_end, width = 1000) |>
   add_lines_dp(y = ~yoy,  name = "Medletna sprememba",  color = I(umar_cols()[3])) |>
   add_lines_dp(data = x, y = ~drseca,  name = "4-tedenska drseča sredina",  color = I(umar_cols()[1])) |>
   umar_layout(slider_w, m,

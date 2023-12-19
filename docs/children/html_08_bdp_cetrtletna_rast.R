@@ -24,6 +24,7 @@ data |>
               barmode = "relative",
     yaxis = umar_yaxis('\u010cetrtletna, v %'),
     xaxis = umar_xaxis("Q"),
-    title = umar_subtitle(updated)) |>
+    title = umar_subtitle(updated),
+    annotations = initials("NaTJ")) |>
   rangeslider(as.Date("2012-01-01"), max(data$period) + 100)
 

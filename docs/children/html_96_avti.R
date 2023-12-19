@@ -13,8 +13,7 @@ purrr::reduce(prep_l2$data_points, dplyr::left_join, by = c("period_id", "period
   select(-period_id) |>
   as_tibble()  -> data2
 
-plot_ly(data2, x = ~period, width = 1000,
-        height = 600) |>
+plot_ly(data2, x = ~period, width = 1000) |>
   add_lines_mp(y = ~value.x,  name = "Fizične osebe",  color = I(umar_cols()[1])) |>
   add_lines_mp(y = ~value.y,  name = "Pravne osebe",  color = I(umar_cols()[2])) |>
   add_lines_mp(y = ~value,  name = "Skupaj prodaja avtov",  color = I(umar_cols()[3])) |>

@@ -21,10 +21,7 @@ fig1 <- data |>
   add_lines_q(y = ~value,
             name = "Zaposlenost, desezonirana", color = I(umar_cols()[1]))
 
-for(i in 1:11) {
-  fig1 <- fig1 |>
-    add_lines(y = mean(data$value, na.rm = TRUE),  name = "\u200A",  color = I('rgba(0,0,0,0)'),
-              hoverinfo = "none")}
+fig1 <- add_empty_lines(fig1, 11)
 
 fig2 <-  data2 |>
   plot_ly(x = ~period, width = 1000,

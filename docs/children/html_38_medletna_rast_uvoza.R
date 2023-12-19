@@ -13,7 +13,7 @@ purrr::reduce(prep_l$data_points, dplyr::left_join, by = c("period_id", "period"
 updated <- prep_l$updated
 
 data |>
-  plot_ly(x = ~period, width = 1000, height = 600) |>
+  plot_ly(x = ~period, width = 1000) |>
   add_lines_mp(y = ~`value.x`,
             name = "Uvoz blaga in storitev", color = I(umar_cols()[2])) |>
   add_lines_mp(y = ~`value.y`,

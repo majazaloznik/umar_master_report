@@ -23,8 +23,7 @@ data <-   data  |>
   mutate(value.x.x = raw.x.x/lag(raw.x.x, 12)*100 - 100)
 
 
-plot_ly(data, x = ~period, width = 1000,
-        height = 600) |>
+plot_ly(data, x = ~period, width = 1000) |>
   add_lines_mp(y = ~value.x,  name = "Druge poslovne dejavnosti (N)",  color = I(umar_cols()[1])) |>
   add_lines_mp(y = ~value.y,  name = "Zaposlovalne storitve (N 78)",  color = I(umar_cols()[2])) |>
   add_lines_mp(y = ~value.x.x,  name = "Potovalne agencije (N 79) *",  color = I(umar_cols()[3])) |>

@@ -23,8 +23,7 @@ data <-   data  |>
 
 
 
-plot_ly(data, x = ~period, width = 1000,
-        height = 600) |>
+plot_ly(data, x = ~period, width = 1000) |>
   add_lines_m(y = ~value.x,  name = "Druge poslovne dejavnosti (N)",  color = I(umar_cols()[1])) |>
   add_lines_m(y = ~value.y,  name = "Zaposlovalne storitve (N 78)",  color = I(umar_cols()[2])) |>
   add_lines_m(y = ~value.x.x,  name = "Potovalne agencije (N 79) *",  color = I(umar_cols()[3])) |>

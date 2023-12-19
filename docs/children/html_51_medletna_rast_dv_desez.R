@@ -65,8 +65,6 @@ fig2 <- plot_ly(data, x = ~period,  width = 1000,
   add_lines_qp(y = ~K,  name = "Finan\u010dne in zavaroval. Dej. (K)",  color = I(umar_cols()[5])) |>
   add_lines_qp(y = ~l,  name = "Poslovanje z neprem. (L)",  color = I(umar_cols()[6])) |>
   add_lines_qp(y = ~mn,  name = "MN dejavnosti",  color = I(umar_cols()[2])) |>
-  add_lines_qp(y = ~mn,  name = "\u200A",  color = I('rgba(0,0,0,0)'),
-               hoverinfo = "none") |>
   umar_layout(slider_w, m,annotations = list(x = 0. , y = 1, text = "Tr\u017ene storitve", showarrow = F,
                                  xref='paper', yref='paper'))
 
@@ -79,8 +77,6 @@ fig3 <- plot_ly(data, x = ~period,  width = 1000,
   add_lines_qp(y = ~f, name = "Gradbeni\u0161tvo (F)",  color = I(umar_cols()[1])) |>
   add_lines_qp(y = ~opq,   name = "Javne storitve (OPQ)",color = I(umar_cols()[7])) |>
   add_lines_qp(y = ~rst,  name = "Druge storitve (RST)",  color = I(umar_cols()[3])) |>
-  add_lines_qp(y = ~rst,  name = "\u200A",  color = I('rgba(0,0,0,0)'),
-               hoverinfo = "none") |>
   umar_layout(slider_w, m,annotations = list(x = 0. , y = 1, text = "Ostalo", showarrow = F,
                                  xref='paper', yref='paper'))
 

@@ -39,10 +39,7 @@ fig1 <- data |>
   umar_layout(slider_w, m,
     shapes = emph_line(100, data$period))
 
-for(i in 1:8) {
-  fig1 <- fig1 |>
-    add_lines(y = ~c,  name = "\u200A",  color = I('rgba(0,0,0,0)'),
-              hoverinfo = "none")}
+fig1 <- add_empty_lines(fig1, 8)
 fig2 <- data2 |>
   plot_ly(x = ~period, width = 1000,
           height = 600) |>

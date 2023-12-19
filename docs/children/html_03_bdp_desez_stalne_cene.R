@@ -23,7 +23,8 @@ data |>
   umar_layout(slider_w, m,
     yaxis = umar_yaxis("Znesek, v mio EUR"),
     xaxis = umar_xaxis("Q"),
-    title = umar_subtitle(updated)) |>
+    title = umar_subtitle(updated),
+    annotations = initials("NaTJ")) |>
   rangeslider(as.Date("2012-01-01"), max(data$period))
 
 

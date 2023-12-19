@@ -9,32 +9,42 @@ dl_button <- list(
   click = htmlwidgets::JS("
           function(gd) {
             var text = '\ufeff'; // UTF-8 BOM
+
+            var validDataIndices = [];
             // Write the headers for the csv file
             for(var j = 0; j < gd.data.length; j++){
-              text += gd.data[j].name + ' - Datum';
-              text += ';' + gd.data[j].name + ' - ' + gd.layout.yaxis.title.text;
-              if (j < gd.data.length - 1) {
-                text += ';';
+              if (gd.data[j].name !== ' ') { // Check if the name is not empty
+                text += gd.data[j].name + ' - Datum';
+                text += ';' + gd.data[j].name + ' - ' + gd.layout.yaxis.title.text;
+                validDataIndices.push(j); // Store valid data indices
+                if (j < gd.data.length - 1) {
+                  text += ';';
+                }
               }
             }
             text += '\\n';
+
             // Find the maximum length of the data arrays
             var maxLength = 0;
-            for(var i = 0; i < gd.data.length; i++){
-              if(gd.data[i].x.length > maxLength) {
-                maxLength = gd.data[i].x.length;
+            for(var i = 0; i < validDataIndices.length; i++){
+              var dataIndex = validDataIndices[i];
+              if(gd.data[dataIndex].x.length > maxLength) {
+                maxLength = gd.data[dataIndex].x.length;
               }
             }
+
             // Write the data for each observation
             for(var i = 0; i < maxLength; i++){
-              for(var j = 0; j < gd.data.length; j++){
-                text += (gd.data[j].x[i] || '').toString().replace('.', ',') + ';' + (gd.data[j].y[i] || '').toString().replace('.', ',');
-                if (j < gd.data.length - 1) {
+              for(var j = 0; j < validDataIndices.length; j++){
+                var dataIndex = validDataIndices[j];
+                text += (gd.data[dataIndex].x[i] || '').toString().replace('.', ',') + ';' + (gd.data[dataIndex].y[i] || '').toString().replace('.', ',');
+                if (j < validDataIndices.length - 1) {
                   text += ';';
                 }
               }
               text += '\\n';
             }
+
             var blob = new Blob([text], {type: 'text/plain;charset=utf-8'});
             var a = document.createElement('a');
             const object_URL = URL.createObjectURL(blob);
@@ -46,6 +56,8 @@ dl_button <- list(
           }
    ")
 )
+
+
 
 # incremental automation
 umar_layout <- function(plot, slider_w, m, ...) {
@@ -225,7 +237,7 @@ initials <- function(initials) {
 add_empty_lines <- function(figure, no_lines) {
   for(i in 1:no_lines) {
     figure <- figure |>
-      add_lines(y = 0.01,  name = "\u200A",  color = I('rgba(0,0,0,0)'),
+      add_lines(y = 0.01,  name = " ",  color = I('rgba(0,0,0,0)'),
                 hoverinfo = "none")
   }
   return(figure)

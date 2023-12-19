@@ -13,7 +13,7 @@ purrr::reduce(prep_l$data_points, dplyr::left_join, by = c("period_id", "period"
 updated <- max(prep_l$updated)
 
 data |>
-  plot_ly(x = ~period, width = 1000, height = 600) |>
+  plot_ly(x = ~period, width = 1000) |>
   add_lines_ap(y = ~`value.y`,
             name = "Potro\u0161nja dr\u017eave", color = I(umar_cols()[2])) |>
   add_lines_ap(y = ~`value.x.x`,

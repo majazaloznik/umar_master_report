@@ -33,20 +33,14 @@ fig1 <- plot_ly(data, x = ~period, width = 1000, height = 1000) |>
   add_lines_qp(y = ~value.y.y, name = "Nezadostno tuje povpra\u0161evanje", color = I(umar_cols()[4])) |>
   add_lines_qp(y = ~value,  name = "Konkuren\u010den uvoz",  color = I(umar_cols()[5]))
 
-for(i in 1:7) {
-  fig1 <- fig1 |>
-    add_lines(y = mean(data$value.x, na.rm = TRUE),  name = "\u200A",  color = I('rgba(0,0,0,0)'),
-              hoverinfo = "none")}
+fig1 <- add_empty_lines(fig1, 7)
 
 fig2 <- plot_ly(data2, x = ~period, width = 1000,
                 height = 1000) |>
   add_lines_qp(y = ~value.x,  name = "Pomanjkanje delavcev na splo\u0161no",  color = I(umar_cols()[6])) |>
   add_lines_qp(y = ~value.y,   name = "Pomanjkanje usposobljenih delavcev",color = I(umar_cols()[7]))
 
-for(i in 1:9) {
-  fig2 <- fig2 |>
-    add_lines(y = mean(data2$value.x, na.rm = TRUE),  name = "\u200A",  color = I('rgba(0,0,0,0)'),
-              hoverinfo = "none")}
+fig2 <- add_empty_lines(fig2, 9)
 
 fig3 <- plot_ly(data3, x = ~period,width = 1000,
                 height = 1000) |>
@@ -54,10 +48,8 @@ fig3 <- plot_ly(data3, x = ~period,width = 1000,
   add_lines_qp(y = ~value.y,   name = "Pomanjkanje polizdelkov",color = I(umar_cols()[1])) |>
   add_lines_qp(y = ~value,  name = "Pomanjkanje ustrezne opreme",  color = I(umar_cols()[2]))
 
-for(i in 1:8) {
-  fig3 <- fig3 |>
-    add_lines(y = mean(data3$value.x, na.rm = TRUE),  name = "\u200A",  color = I('rgba(0,0,0,0)'),
-              hoverinfo = "none")}
+fig3 <- add_empty_lines(fig3, 8)
+
 fig4 <- plot_ly(data4, x = ~period,  width = 1000,
                 height = 1000) |>
   add_lines_qp(y = ~value.x,  name = "Neporavnane obveznosti iz poslovanja",  color = I(umar_cols()[3])) |>

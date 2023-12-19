@@ -59,9 +59,6 @@ title: Indikatorji
 ```{r, code=readLines("children/html_11_investicijska dejavnost2.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
-## Spremembe zalog - prispevek k rasti BDP
-```{r, code=readLines("children/html_04_bdp_prispevek_zaloge.R"), echo=FALSE, message=FALSE,  warning = FALSE}
-```
 
 ## Medletna rast bruto investicij v OS in končne potrošnje gospodinjstev
 ```{r, code=readLines("children/html_05_bdp_rast_gosp_invest.R"), echo=FALSE, message=FALSE,  warning = FALSE}
@@ -94,10 +91,6 @@ title: Indikatorji
 
 ## Četrtletna rast dodane vrednosti in posameznih dejavnosti (desezonirani podakti)
 ```{r, code=readLines("children/html_51_medletna_rast_dv_desez.R"), echo=FALSE, message=FALSE,  warning = FALSE}
-```
-
-## Medletna rast dodane vrednosti v predelovalnih dejavnostih
-```{r predelovalna, code=readLines("children/html_06_izdatkovna_predelovalne.R"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
 ## Medletna rast nominalnega BDP in komponent po dohodkovni strukturi

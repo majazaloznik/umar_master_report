@@ -25,9 +25,9 @@ updated <- max(prep_l2$updated,
 
 fig2 <- plot_ly(data2, x = ~period,   width = 1000,
                 height = 800) |>
-  add_lines_mp(y = ~value.x,  name = "Skupaj trgovina z motornimi vozili in njihovimi popravili",  color = I("black"),
+  add_lines_mp(y = ~value.x,  name = "Skupaj trgovina z motornimi vozili in popravili",  color = I("black"),
            hovertemplate="%{x|%b-%Y} %{y:.2f}%") |>
-  add_lines_mp(y = ~value.y,   name = "Motorna vozila, motorna kolesa, rezervni deli, oprema",color = I(umar_cols()[5]),
+  add_lines_mp(y = ~value.y,   name = "Motorna vozila, mot. kolesa, rezervni deli, oprema",color = I(umar_cols()[5]),
             hovertemplate="%{x|%b-%Y} %{y:.2f}%") |>
   add_lines_mp(y = ~value,   name = "Vzdr\u017eevanje in popravila motornih vozil",color = I(umar_cols()[6]),
             hovertemplate="%{x|%b-%Y} %{y:.2f}%") |>
@@ -44,11 +44,7 @@ fig2 <- plot_ly(data2, x = ~period,   width = 1000,
 
 
 
-for(i in 1:9) {
-  fig2 <- fig2 |>
-    add_lines(y = ~value.x,  name = "\u200A",  color = I('rgba(0,0,0,0)'),
-              hoverinfo = "none")
-}
+fig2 <- add_empty_lines(fig2, 9)
 
 fig3 <- plot_ly(data3, x = ~period, width = 1000,
                 height = 800) |>
@@ -66,18 +62,15 @@ fig3 <- plot_ly(data3, x = ~period, width = 1000,
              y0 = 100, y1 = 100,
              line = list(color = umar_cols("emph"), width = 1)
            )))
-for(i in 1:7) {
-  fig3 <- fig3 |>
-    add_lines(y = ~value.x,  name = "\u200A",  color = I('rgba(0,0,0,0)'),
-              hoverinfo = "none")
-}
+
+fig3 <- add_empty_lines(fig3, 7)
 
 
 fig4 <- plot_ly(data4, x = ~period, hovertemplate="%{x|%b-%Y} %{y:.2f}%", width = 1000,
                 height = 800) |>
   add_lines_m(y = ~value.x,  name = "Skupaj trgovina na drobno z ne\u017eivili",  color = I("black")) |>
   add_lines_m(y = ~value.y,   name = "Nespec. prodajalne, prete\u017eno z ne\u017eivili",color = I(umar_cols()[5])) |>
-  add_lines_m(y = ~value.x.x,  name = "Ra\u010dunalni\u0161ke, telek. naprave, knjige, \u0161portna oprema, igra\u010de ",  color = I(umar_cols()[6])) |>
+  add_lines_m(y = ~value.x.x,  name = "Ra\u010., telek. naprave, knjige, \u0161portna op., igra\u010de ",  color = I(umar_cols()[6])) |>
   add_lines_m(y = ~value.x.x.x,   name = "Gospodinjske naprave, avdio in video zapisi",color = I(umar_cols()[8])) |>
   add_lines_m(y = ~value.y.y.y,  name = " Tekstil, obla\u010dila, obutev in usnjeni izdelki",  color = I(umar_cols()[1])) |>
   add_lines_m(y = ~value.x.x.x.x,  name = "Pohi\u0161tvo, gradbeni material",  color = I(umar_cols()[2])) |>

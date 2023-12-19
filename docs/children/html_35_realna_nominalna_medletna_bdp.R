@@ -27,7 +27,8 @@ data |>
                                                                           prep_l$transf_txt, "(Vir: SURS & prera\u010dun UMAR)\n
                                                                      Posodobljeno:", prep_l2$updated,
                                                                      prep_l2$transf_txt, "(Vir: SURS)                                                                                                                                                  "),
-                                 font = list(size = 12))) |>
+                                 font = list(size = 12)),
+              annotations = initials("NaTJ")) |>
   rangeslider(as.Date("2012-01-01"), max(data$period))
 
 

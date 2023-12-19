@@ -26,19 +26,15 @@ updated <- max(prep_l$updated,
 
 fig2 <- plot_ly(data2, x = ~period,  width = 1000,
                 height = 800) |>
-  add_lines_mp(y = ~value.x,  name = "Skupaj trgovina z motornimi vozili in njihovimi popravili",  color = I(umar_cols()[3]), fill = "tozeroy") |>
-  add_lines_mp(y = ~value.y,   name = "Motorna vozila, motorna kolesa, rezervni deli, oprema",color = I(umar_cols()[5])) |>
+  add_lines_mp(y = ~value.x,  name = "Skupaj trgovina z motornimi vozili in popravili",  color = I(umar_cols()[3]), fill = "tozeroy") |>
+  add_lines_mp(y = ~value.y,   name = "Motorna vozila, mot. kolesa, rezervni deli, oprema",color = I(umar_cols()[5])) |>
   add_lines_mp(y = ~value,   name = "Vzdr\u017eevanje in popravila motornih vozil",color = I(umar_cols()[6])) |>
   umar_layout(slider_w, m,
               annotations = list(x = 0. , y = 1, text = "Trgovina z motornimi vozili", showarrow = F,
                             xref='paper', yref='paper'))
 
 
-for(i in 1:9) {
-  fig2 <- fig2 |>
-    add_lines(y = ~value.x,  name = "\u200A",  color = I('rgba(0,0,0,0)'),
-              hoverinfo = "none")
-}
+fig2 <- add_empty_lines(fig2, 9)
 
 fig3 <- plot_ly(data3, x = ~period, width = 1000,
                 height = 800) |>
@@ -49,18 +45,14 @@ fig3 <- plot_ly(data3, x = ~period, width = 1000,
   add_lines_mp(y = ~value,  name = "Trgovina z ne\u017eivili, brez motornih goriv",  color = I(umar_cols()[7])) |>
   umar_layout(slider_w, m,annotations = list(x = 0. , y = 1, text = "Trgovina na drobno", showarrow = F,
                             xref='paper', yref='paper'))
-for(i in 1:8) {
-  fig3 <- fig3 |>
-    add_lines(y = ~value.x,  name = "\u200A",  color = I('rgba(0,0,0,0)'),
-              hoverinfo = "none")
-}
 
+fig3 <- add_empty_lines(fig3, 8)
 
 fig4 <- plot_ly(data4, x = ~period,  width = 1000,
                 height = 800) |>
   add_lines_mp(y = ~value.x,  name = "Skupaj trgovina na drobno z ne\u017eivili",  color =I(umar_cols()[3]), fill = "tozeroy") |>
   add_lines_mp(y = ~value.y,   name = "Nespec. prodajalne, prete\u017eno z ne\u017eivili",color = I(umar_cols()[5])) |>
-  add_lines_mp(y = ~value.x.x,  name = "Ra\u010dunalni\u061ke, telek. naprave, knjige, \u061portna oprema, igra\u010de ",  color = I(umar_cols()[6])) |>
+  add_lines_mp(y = ~value.x.x,  name = "Ra\u010d., telek. naprave, knjige, \u0161portna op., igra\u010de ",  color = I(umar_cols()[6])) |>
   add_lines_mp(y = ~value.x.x.x,   name = "Gospodinjske naprave, avdio in video zapisi",color = I(umar_cols()[8])) |>
   add_lines_mp(y = ~value.y.y.y,  name = " Tekstil, obla\u010dila, obutev in usnjeni izdelki",  color = I(umar_cols()[1])) |>
   add_lines_mp(y = ~value.x.x.x.x,  name = "Pohi\u061tvo, gradbeni material",  color = I(umar_cols()[2])) |>

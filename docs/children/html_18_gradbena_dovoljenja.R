@@ -27,10 +27,7 @@ fig1 <- data |>
   add_bars(y = ~`prav_nesta`,  hovertemplate="%{x|%m-%Y} %{y:.0f}",
            name = "Pravne osebe - nestanovanjske stavbe", color = I(umar_cols()[5]))
 
-for(i in 1:8) {
-  fig1 <- fig1 |>
-    add_lines(y = ~c,  name = "\u200A",  color = I('rgba(0,0,0,0)'),
-              hoverinfo = "none")}
+fig1 <- add_empty_lines(fig1, 8)
 
 fig2 <- data |>
   plot_ly(x = ~period, width = 1000, height = 600) |>
