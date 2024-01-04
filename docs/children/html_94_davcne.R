@@ -46,6 +46,8 @@ plot_ly(x, x = ~week_end, width = 1000) |>
               xaxis = umar_xaxis("M"),
               title = umar_subtitle(updated, add = NULL,transf_txt, surs = FALSE, alt = "FURS"),
               annotations = initials("MoKo")) |>
+  my_panel_note('* Brez SKD 35, 36, 52, 61, 64..') |>
+
   rangeslider(as.Date("2020-01-01"), max(x$week_end) + 20)
 
-# write.csv2(x, "davcne.csv")
+

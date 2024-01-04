@@ -232,7 +232,7 @@ initials <- function(initials) {
   font=list(size=10, color = umar_cols()[3]))
 }
 
-# umar_layout(hovermode = 'x')
+
 
 add_empty_lines <- function(figure, no_lines) {
   for(i in 1:no_lines) {
@@ -297,7 +297,7 @@ my_panel_note <- function(fig, text) {
     layout(
       annotations = list(
         x = 0,
-        y = -0.2,  # Adjust this value to move the note up or down
+        y = -0.25,  # Adjust this value to move the note up or down
         xref = 'paper',
         yref = 'paper',
         text = text,

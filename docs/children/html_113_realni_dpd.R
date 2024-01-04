@@ -24,14 +24,15 @@ data <-   data  |>
 
 
 plot_ly(data, x = ~period, width = 1000) |>
-  add_lines_mp(y = ~value.x,  name = "Druge poslovne dejavnosti (N)",  color = I(umar_cols()[1])) |>
-  add_lines_mp(y = ~value.y,  name = "Zaposlovalne storitve (N 78)",  color = I(umar_cols()[2])) |>
-  add_lines_mp(y = ~value.x.x,  name = "Potovalne agencije (N 79) *",  color = I(umar_cols()[3])) |>
+  add_lines_mp(y = ~value.x,  name = "Druge poslovne dejavnosti (N)",  color = I(umar_cols()[3]),
+               fill = "tozeroy") |>
+  add_lines_mp(y = ~value.y,  name = "Zaposlovalne storitve (N 78)",  color = I(umar_cols()[1])) |>
+  add_lines_mp(y = ~value.x.x,  name = "Potovalne agencije (N 79) *",  color = I(umar_cols()[2])) |>
   add_lines_mp(y = ~value.y.y,  name = "Dejavnost oskrbe stavb (N 81)",  color = I(umar_cols()[4])) |>
   umar_layout(slider_w, m,
               yaxis = umar_yaxis('Medletna sprememba, v %'),
               xaxis = umar_xaxis("M"),
               title = umar_subtitle(updated, "UMAR", prep_l$transf_txt),
               annotations = initials("AnVi")) |>
-  my_panel_note('* Za obdobje 2020M06 je vzeto povprečje 2020M05 in 2020M07 (SURS ni objavil podatka)') |>
+  my_panel_note('* Za 2020M06 je vzeto povprečje 2020M05 in 2020M07 (SURS ni objavil podatka).') |>
   rangeslider(as.Date("2011-01-01"), max(data$period))

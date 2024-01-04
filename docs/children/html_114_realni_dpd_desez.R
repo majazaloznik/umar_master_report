@@ -34,5 +34,5 @@ plot_ly(data, x = ~period, width = 1000) |>
               title = umar_subtitle(updated, "UMAR", prep_l$transf_txt),
               annotations = initials("AnVi"),
               shapes = emph_line(100, data$period)) |>
-  my_panel_note('* Za obdobje 2020M06 je vzeto povprečje 2020M05 in 2020M07 (SURS ni objavil podatka)') |>
+  my_panel_note('* Za 2020M06 je vzeto povprečje 2020M05 in 2020M07 (SURS ni objavil podatka).') |>
   rangeslider(as.Date("2011-01-01"), max(data$period))
