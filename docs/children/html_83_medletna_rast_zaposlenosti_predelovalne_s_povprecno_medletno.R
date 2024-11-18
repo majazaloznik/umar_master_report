@@ -13,7 +13,7 @@ prep_l0$data_points[[1]] |>
   select(-raw) |>
   rename(value_skupaj = value) -> skupaj
 
-purrr::reduce(prep_l$data_points, dplyr::left_join, by = c("period_id", "period")) %>%
+purrr::reduce(prep_l$data_points, dplyr::full_join, by = c("period_id", "period")) %>%
   dplyr::relocate( period) |>
   select(-period_id) |>
   as_tibble()   |>

@@ -1,6 +1,6 @@
 ﻿table_code;table_name;series_code;series_name;unit_name;interval_id;chart_no;chart_title;sub_chart;sub_chart_title;legend_label;rolling_average_periods;rolling_average_alignment;year_on_year;xmin;xmax;notes
-2001301S;;SURS--2001301S--2--2--47 brez 47.3--M;Realni indeks -- Podatki z izločenimi vplivi sezone in koledarja -- 47 brez 47.3 Trgovina na drobno, brez motornih goriv;indeks;M;1;Kratkoročni kazalniki gospodarskih gibanj v Sloveniji (desezonirani podatki);;;Prih. v trg. na drobno brez motornih goriv;;;;;;
-1957406S;;SURS--1957406S--SA--CC--M;Desezonirani podatki -- Gradbeništvo - SKUPAJ;indeks;M;1;;;;Vred. opr. del v gradbeništvu;;;;;;
-1701102S;;SURS--1701102S--sa--C[skd]--M;Desezonirani podatki -- C PREDELOVALNE DEJAVNOSTI;indeks;M;1;;;;Ind. proiz. predelovalnih dej.;;;;;;
-2080005S;;SURS--2080005S--2--H+I+J+L+M+N--M;Desezonirani podatki -- H+I+J+L+M+N Storitvene dejavnosti;indeks;M;1;;;;Storitveni prihodek;;;;;;
+2001303S;;SURS--2001303S--2--2--47 brez 47.3--M;Realni indeks -- Podatki z izločenimi vplivi sezone in koledarja -- 47 brez 47.3 Trgovina na drobno, brez motornih goriv;indeks;M;1;Kratkoročni kazalniki gospodarskih gibanj v Sloveniji (desezonirani podatki);;;Prih. v trg. na drobno brez motornih goriv;;;;;;
+1957408S;;SURS--1957408S--SA--CC--M;Desezonirani podatki -- Gradbeništvo - SKUPAJ;indeks;M;1;;;;Vred. opr. del v gradbeništvu;;;;;;
+1701111S;;SURS--1701111S--sa--C[skd]--M;Desezonirani podatki -- C PREDELOVALNE DEJAVNOSTI;indeks;M;1;;;;Ind. proiz. predelovalnih dej.;;;;;;
+2080006S;;SURS--2080006S--2--H+I+J+L+M+N--M;Desezonirani podatki -- H+I+J+L+M+N Storitvene dejavnosti;indeks;M;1;;;;Storitveni prihodek;;;;;;
 MH003;;UMAR-SURS--MH003--OSNO--REA--EX--SKUP--SKUP--M;Izvoz blaga, realno, desezonirano;indeks;M;1;;;;Izvoz blaga;;;;;;

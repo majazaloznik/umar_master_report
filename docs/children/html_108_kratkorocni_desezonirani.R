@@ -17,7 +17,7 @@ prep_l$data_points <- purrr::map(prep_l$data_points, ~ dplyr::rename(., period =
 updated <- max(prep_l$updated)
 
 
-purrr::reduce(prep_l$data_points, dplyr::left_join, by = c("period_id", "period")) %>%
+purrr::reduce(prep_l$data_points, dplyr::full_join, by = c("period_id", "period")) %>%
   dplyr::relocate( period) |>
   dplyr::select(-period_id) |>
   as_tibble()  -> data

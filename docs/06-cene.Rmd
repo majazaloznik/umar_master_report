@@ -72,6 +72,6 @@ title: Indikatorji
 # [Gradbeništvo in stanovanjske nepremičnine](07-gradbenistvo.html#Gradbenistvo)
 # [Predelovanle dejavnosti](08-predelovalne_dejavnosti.html#PredelovalneDejavnosti)
 # [Mojčine desezonirane serije](09-mojca.html#Mojca)
-# [Ekonomski odnosi s tujino](10-tujina.html#Tujina)
-
+# [Zasebna potrošnja](10-zasebna.html#Zasebna)
+# [Ekonomski odnosi s tujino](11-tujina.html#Tujina)
 

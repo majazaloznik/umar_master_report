@@ -5,7 +5,7 @@ spl <- split(df, df$chart_no)
 prep_l <- invisible(prep_multi_line(spl[[1]], con))
 updated <- max(prep_l$updated)
 
-purrr::reduce(prep_l$data_points, dplyr::left_join, by = c("period_id", "period")) %>%
+purrr::reduce(prep_l$data_points, dplyr::full_join, by = c("period_id", "period")) %>%
   dplyr::relocate( period) |>
   select(-period_id) |>
   as_tibble() -> data

@@ -1,2 +1,2 @@
 ﻿table_code;table_name;series_code;series_name;unit_name;interval_id;chart_no;rolling_average_periods;rolling_average_alignment;year_on_year;xmin;xmax
-1957406S;Realni indeksi vrednosti opravljenih gradbenih del v gradbeništvu (mesec / povprečje leta 2015) (SKD 2008), originalni podatki, desezonirani podatki in podatki z izločenimi vplivi koledarja, Slovenija, mesečno;SURS--1957406S--O--CC--M;Originalni podatki -- Gradbeništvo -- SKUPAJ;indeks;M;10;3;c;TRUE;;
+1957408S;Realni indeksi vrednosti opravljenih gradbenih del v gradbeništvu (mesec / povprečje leta 2015) (SKD 2008), originalni podatki, desezonirani podatki in podatki z izločenimi vplivi koledarja, Slovenija, mesečno;SURS--1957408S--O--CC--M;Originalni podatki -- Gradbeništvo -- SKUPAJ;indeks;M;10;3;c;TRUE;;

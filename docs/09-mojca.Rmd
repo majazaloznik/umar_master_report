@@ -52,4 +52,5 @@ title: Indikatorji
 ```{r socialni, code=readLines("children/html_99_transferji.R",  encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
-# [Ekonomski odnosi s tujino](10-tujina.html#Tujina)
+# [Zasebna potrošnja](10-zasebna.html#Zasebna)
+# [Ekonomski odnosi s tujino](11-tujina.html#Tujina)

@@ -9,7 +9,7 @@ prep_l2 <- prep_multi_line(spl[[2]], con)
 prep_l3 <- prep_multi_line(spl[[3]], con)
 prep_l4 <- prep_multi_line(spl[[4]], con)
 
-purrr::reduce(prep_l$data_points, dplyr::left_join, by = c("period_id", "period")) %>%
+purrr::reduce(prep_l$data_points, dplyr::full_join, by = c("period_id", "period")) %>%
   dplyr::relocate( period) |>
   select(-period_id) |>
   as_tibble() -> data

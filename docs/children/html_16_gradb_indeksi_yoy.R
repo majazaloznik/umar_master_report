@@ -5,7 +5,7 @@ df <- df |> mutate(year_on_year = ifelse(year_on_year == "y", TRUE, year_on_year
 spl <- split(df, df$chart_no)
 # prepare data
 prep_l <- prep_multi_line(spl[[3]], con)
-purrr::reduce(prep_l$data_points, dplyr::left_join, by = c("period_id", "period")) %>%
+purrr::reduce(prep_l$data_points, dplyr::full_join, by = c("period_id", "period")) %>%
   dplyr::relocate( period) |>
   select(-period_id) |>
   as_tibble() |>
@@ -33,7 +33,7 @@ fig1 <- add_empty_lines(fig1, 8)
 
 # prepare data
 prep_l <- prep_multi_line(spl[[4]], con)
-purrr::reduce(prep_l$data_points, dplyr::left_join, by = c("period_id", "period")) %>%
+purrr::reduce(prep_l$data_points, dplyr::full_join, by = c("period_id", "period")) %>%
   dplyr::relocate( period) |>
   select(-period_id) |>
   as_tibble() |>

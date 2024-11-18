@@ -1,0 +1,19 @@
+---
+output:
+  html_document:
+    toc: TRUE
+    toc_depth: 2
+    number_sections: true
+    css: styles2.css
+    includes:
+      before_body: custom2.js
+  df_print: paged
+---
+```{r setup, code=readLines("children/setup_chunk.R"), echo = FALSE, message = FALSE, warning = FALSE}
+```
+
+
+## Sprememba metodologije poročanja plač 
+```{r, code=readLines("children/html_131_place_sprememba_metodologije.R",encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+

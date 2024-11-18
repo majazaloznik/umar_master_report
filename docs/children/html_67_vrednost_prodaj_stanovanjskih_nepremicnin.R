@@ -3,7 +3,7 @@ df <- read.csv2(here::here("data/053.csv"), encoding = "UTF-8")
 spl <- split(df, df$sub_chart)
 # prepare data
 prep_l <- prep_multi_line(spl[[1]], con)
-purrr::reduce(prep_l$data_points, dplyr::left_join, by = c("period_id", "period")) %>%
+purrr::reduce(prep_l$data_points, dplyr::full_join, by = c("period_id", "period")) %>%
   dplyr::relocate( period) |>
   select(-period_id) |>
   as_tibble() -> data

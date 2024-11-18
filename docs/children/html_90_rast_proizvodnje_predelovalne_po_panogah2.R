@@ -12,7 +12,7 @@ prep_l3 <- prep_multi_line(spl[[5]], con)
 updated <- max(prep_l$updated, prep_l2$updated, prep_l3$updated)
 
 
-purrr::reduce(prep_l$data_points, dplyr::left_join, by = c("period_id", "period")) %>%
+purrr::reduce(prep_l$data_points, dplyr::full_join, by = c("period_id", "period")) %>%
   dplyr::relocate( period) |>
   select(-period_id) |>
   as_tibble()   -> data

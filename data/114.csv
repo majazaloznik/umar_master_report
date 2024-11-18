@@ -1,0 +1,3 @@
+﻿table_code,table_name,series_code,series_name,unit_name,interval_id,chart_no,chart_title,sub_chart,sub_chart_title,legend_label,rolling_average_periods,rolling_average_alignment,year_on_year,xmin,xmax,notes
+MK003,Realna masa neto plač,UMAR-SURS--MK003--SK--M,"Realna masa neto plač, indeks 2010=100, desezonirano",indeks,M,5,Razpoložljivi dohodek gospodinjstev,,,Realna masa neto plač,3,r,,,,
+MK005,Realni socialni transferji,UMAR-MF--MK005--SK--M,"Realni socialni transferji, indeks 2010=100, desezonirano",indeks,M,5,Razpoložljivi dohodek gospodinjstev,,,Realni socialni transferji,3,r,,,,
