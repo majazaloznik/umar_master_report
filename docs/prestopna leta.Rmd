@@ -1,0 +1,139 @@
+---
+title: "Upoštevanje prestopnih let pri tedenskih medletnih primerjavah"
+author: "mz"
+date: "`r format(Sys.time(), '%d.%B %Y')`"
+output:
+  bookdown::pdf_document2:
+    number_sections: yes
+    toc: false
+header-includes:
+  - \usepackage{booktabs}
+  - \usepackage[dvipsnames]{xcolor}
+  - \usepackage{float}
+---
+# Intro
+
+Pri medletnih tedenskih primerjavah podatkov, ki jih trenutno izračunavamo za podatke iz davčnih blagajn, je treba v praksi rešiti problem prestopnih let. Ta dokument opisuje uporabljeno rešitev. 
+
+# Problem
+
+Teden, ki v prestopnem letu vsebuje 29.2., ima v prejšnjem letu samo 6 ujemajočih ali ekvivalentnih datumov. Teden v po-prestopnem letu, ki se začne z datumi od 23. do 1.3. ima v prejšnjem letu en "dodaten" dan za primerjavo, ki ga izgubimo, če primerjamo samo ekvivalentne datume. 
+
+Čiste rešitve ni, iščemo torej rešitev, ki:
+
+- zagotovi, da se v obeh letih vedno primerja vseh 7 dni v tednu, kar je sploh pomembno pri podatkih kot so davčne blagajne, ki imajo izrazito tedensko nihanje;
+- zagotovi, da se uporabi vse podatke, torej se ničesar ne zavrže popolnoma; 
+- je generična in relativno enostavna za razumeti, če že ne za implementirati..
+
+# Rešitev
+
+## Prestopno leto
+
+
+V prestopnem letu teden, ki vsebuje 29.2., primerjamo s šestimi ekvivalentnimi datumi iz prejšnjega leta, ki jim kot sedmi dan dodamo povprečje dneva pred tem in dneva po tem. 
+
+Kot primer je spodaj prikazana situacija leta 2024:
+
+- v letu 2023 vzamemo ekvivalentne datume od 26.2. do 3.3. (med katerimi manjka sobota)
+- vzamemo povprečje obeh sobot na vsaki strani: 25.2. in 4.3. in jih dodamo ostalim šestim dnem. 
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{llll c}
+\toprule
+\multicolumn{2}{c}{\textbf{2024}} &\multicolumn{2}{c}{\textbf{2023}} &  \\
+\midrule
+\textcolor{lightgray}{ned} & \textcolor{lightgray}{25.2.}  & sob & \textcolor{BurntOrange}{\emph{25.2.}} & $\times 0.5$\\
+\midrule
+pon & \textcolor{JungleGreen}{26.2.} & ned & \textcolor{JungleGreen}{26.2.}& $\times 1$\\
+tor & \textcolor{JungleGreen}{27.2.} & pon & \textcolor{JungleGreen}{27.2.}& $\times 1$\\
+sre & \textcolor{JungleGreen}{28.2.} & tor & \textcolor{JungleGreen}{28.2.}& $\times 1$\\
+čet & \emph{29.2.} &  & --- & \\
+pet & \textcolor{JungleGreen}{1.3.} & sre & \textcolor{JungleGreen}{1.3.}& $\times 1$\\
+sob & \textcolor{JungleGreen}{2.3.} & čet & \textcolor{JungleGreen}{2.3.}& $\times 1$\\
+ned & \textcolor{JungleGreen}{3.3.} & pet & \textcolor{JungleGreen}{3.3.}& $\times 1$\\
+\midrule
+\textcolor{lightgray}{pon} & \textcolor{lightgray}{4.3.}  & sob & \textcolor{BurntOrange}{\emph{4.3.}}& $\times 0.5$\\
+\bottomrule
+\end{tabular}
+\caption{Primer izračuna v prestopnem letu}
+\end{table}
+
+To pomeni, da so zneski za ti dve soboti v medletni primerjavi upoštevani 1.5-krat: enkrat v običajni primerjavi kot del normalnega tedna in pol-krat v primerjavi kot fiktivna sobota, ki nam sicer manjka. 
+
+## Po-prestopno leto
+
+V po-prestopnem letu imamo dve možnosti:
+
+- ali se v tem letu teden začne s 1.3. in je torej lanski 29.2. pred tem tednom
+- ali se v tem letu teden začne z 23. - 28.2. in je torej lanski 29.2. nekje na sredini tega tedna. 
+
+### Teden se začne s 1.3.
+
+Vrednost 29.2. povprečimo z naslednjim istim dnevom. 
+
+Kot primer je prikazana situacija v letu 2021:
+
+- 29.2. pade na soboto, zato vzamemo povprečje 29.2. in sobote 7.3.
+- ostalih šest dni se primerja z ekvivalentnimi datumi v letu 2020
+
+\begin{table}[H]
+\centering
+\begin{tabular}{llll c}
+\toprule
+\multicolumn{2}{c}{\textbf{2021}} &\multicolumn{2}{c}{\textbf{2020}} &  \\
+\midrule
+ & ---  & sob & \textcolor{BurntOrange}{\emph{29.2.}} & $\times 0.5$\\
+\midrule
+pon & \textcolor{JungleGreen}{1.3.} & ned & \textcolor{JungleGreen}{1.3.}& $\times 1$\\
+tor & \textcolor{JungleGreen}{2.3.} & pon & \textcolor{JungleGreen}{2.3.}& $\times 1$\\
+sre & \textcolor{JungleGreen}{3.3.} & tor & \textcolor{JungleGreen}{3.3.}& $\times 1$\\
+čet & \textcolor{JungleGreen}{4.3.} & sre & \textcolor{JungleGreen}{4.3.}& $\times 1$\\
+pet & \textcolor{JungleGreen}{5.3.} & čet & \textcolor{JungleGreen}{5.3.}& $\times 1$\\
+sob & \textcolor{JungleGreen}{6.3.} & pet & \textcolor{JungleGreen}{6.3.}& $\times 1$\\
+ned & \textcolor{BurntOrange}{\emph{7.3.}} & sob & \textcolor{BurntOrange}{\emph{7.3.}}& $\times 0.5$\\
+\bottomrule
+\end{tabular}
+\caption{Primer izračuna v po-prestopnem letu: teden se začne z 1.3.}
+\end{table}
+
+
+To pomeni, da so zneski za ti dve soboti v medletni primerjavi upoštevani samo 0.5-krat, saj noben od teh datumov v letu 2020 ni prisoten v nobeni drugi tedenski primerjavi. 
+
+
+
+### Teden se začne z 23. do 28.2.
+
+Povprečimo vrednosti prvega in zadnjega ekvivalentnega datuma, ki vedno padeta na isti dan.
+
+Kot primer je prikazana situacija v letu 2025:
+
+- prvi in zadnji ekvivalentni datum sta 24.2. in 2.3., oboje soboti, zatu vzamemo njuno povprečje
+- V implementaciji se to povprečje prestavi na zadnjo od obeh sobot, medtem ko se vrednost 29.2. prestavi na prvo od obeh sobot, ampak to niti ni relevantno, ker se itak potem agregira na tedenski ravni, tako da je važno samo, da imamo 7 različnih dni za primerjavo.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{llll c}
+\toprule
+\multicolumn{2}{c}{\textbf{2025}} &\multicolumn{2}{c}{\textbf{2024}} &  \\
+\midrule
+pon & \textcolor{BurntOrange}{\emph{24.3.}} & sob & \textcolor{BurntOrange}{\emph{24.3.}}& $\times 0.5$\\
+tor & \textcolor{JungleGreen}{25.3.} & ned & \textcolor{JungleGreen}{25.3.}& $\times 1$\\
+sre & \textcolor{JungleGreen}{26.3.} & pon & \textcolor{JungleGreen}{26.3.}& $\times 1$\\
+čet & \textcolor{JungleGreen}{27.3.} & tor & \textcolor{JungleGreen}{27.3.}& $\times 1$\\
+pet & \textcolor{JungleGreen}{28.3.} & sre & \textcolor{JungleGreen}{28.3.}& $\times 1$\\
+& --- & čet & \textcolor{BurntOrange}{29.3.}& $\times 1$\\
+pet & \textcolor{JungleGreen}{1.3.} & pet & \textcolor{JungleGreen}{1.3.}& $\times 1$\\
+sob & \textcolor{BurntOrange}{\emph{2.3.}} & sob & \textcolor{BurntOrange}{\emph{2.3.}}& $\times 0.5$\\
+\bottomrule
+\end{tabular}
+\caption{Primer izračuna v po-prestopnem letu: teden se začne z 23. do 28.2.}
+\end{table}
+
+To spet pomeni, da so zneski za ti dve soboti v medletni primerjavi upoštevani samo 0.5-krat.
+
+
+# Implementacija
+
+Trenutno je rešitev implementirana v grafu v poročilu indikatorjev za katerega koda se nahaja pri Maji v mapi  `M:\analysis\umar_master_report\docs\children\` v fajlu `html_94_davcne.R`.

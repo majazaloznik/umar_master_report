@@ -259,7 +259,7 @@ title: Indikatorji
 # Kazalniki aktivnosti 
 
 ## Kratkoročni kazalniki gospodarskih gibanj v Sloveniji (desezonirani podatki)
-```{r izvoz_razpolozenje, code=readLines("children/html_108_kratkorocni_desezonirani.R",  encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```{r kratkorocni_desezonirani, code=readLines("children/html_108_kratkorocni_desezonirani.R",  encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
 ## Vrednost davčno potrjenih računov – nominalno \*
@@ -625,6 +625,41 @@ title: Indikatorji
 ```{r socialni, code=readLines("children/html_99_transferji.R",  encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
 ```
 
+
+
+# Zasebna potrošnja {#Zasebna}
+
+## Struktura zasebne potrošnje
+```{r zasbna, code=readLines("children/html_132_struktura_zasebne_potrosnje.R",  encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Mnenje potrošnikov (desezonirani podatki)
+```{r mnenje, code=readLines("children/html_133_mnenje_potrosnikov_desezonirano.R",  encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Mnenje potrošnikov zglajeno (desezonirani podatki)
+```{r zglajeno, code=readLines("children/html_134_mnenje_potrosnikov_desezonirano3m.R",  encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Mnenje potrošnikov - večji nakupi v prihodnjih 12 mesecih
+```{r vecji, code=readLines("children/html_135_mnenje_potrosnikov_vecji_nakupi.R",  encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Razpoložljivi dohodek gospodinjstev
+```{r razpolozlj, code=readLines("children/html_136_razpolozljivi_dohodek_gospodinjstev.R",  encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Kazalniki zasebne potrošnje - mesečno
+```{r kazalniki, code=readLines("children/html_137_kazalniki_zasebne_potrosnje.R",  encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Kazalniki zasebne potrošnje - četrtletno
+```{r kazalniki_cetrt, code=readLines("children/html_138_kazalniki_zasebne_potrosnje_cetrtletno.R",  encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
+
+## Stopnja varčevanja gospodinjstev - letno
+```{r varcevanje, code=readLines("children/html_139_stopnja_varcevanja.R",  encoding = "UTF-8"), echo=FALSE, message=FALSE,  warning = FALSE}
+```
 
 
 # Ekonomski odnosi s tujino {#Tujina}
